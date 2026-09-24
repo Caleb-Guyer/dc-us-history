@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10191c">
+  <meta name="description" content="A free historical action campaign: stealth, first-person battles, naval combat, town building, and a war that changes an empire.">
+  <title>Crown & Current — Rule Britannia</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="action.css?v=2.2">
+  <script src="content.js" defer></script>
+  <script src="engine.js" defer></script>
+  <script type="module" src="action.mjs?v=3.0"></script>
+</head>
+<body>
+  <audio id="voice-track" preload="none" playsinline hidden></audio>
+  <div id="backdrop" aria-hidden="true"></div>
+  <canvas id="view" tabindex="0" aria-label="Game world. Use WASD to move, mouse or arrow keys to aim, click or F to fire, and Space to jump."></canvas>
+  <canvas id="board" tabindex="0" aria-label="Game board. Use WASD to move in naval mode. In strategy modes, choose an action then click a highlighted position."></canvas>
+  <div id="play-hud" hidden>
+    <div class="mission-hud"><span id="hud-era"></span><h1 id="hud-objective"></h1><div id="hud-progress"></div></div>
+    <div class="play-tools"><button id="sound-toggle" aria-label="Toggle sound">SOUND OFF</button><button id="pause-button" aria-label="Pause game">Ⅱ</button></div>
+    <div id="reticle" aria-hidden="true"><i></i><i></i></div>
+    <div id="hitmarker" aria-hidden="true">×</div>
+    <div id="bearing" aria-hidden="true"></div>
+    <div class="bottom-hud"><div id="vitals"></div><div id="loadout"></div></div>
+    <div id="subtitle" role="status"></div>
+    <div id="prompt"></div>
+    <div id="hotbar"></div>
+    <div id="damage" aria-hidden="true"></div>
+    <div id="touch-controls"><div class="touch-pad"><button data-key="w" aria-label="Move forward">↑</button><button data-key="a" aria-label="Move left">←</button><button data-key="s" aria-label="Move backward">↓</button><button data-key="d" aria-label="Move right">→</button></div><div class="touch-actions"><button data-key="ArrowLeft" aria-label="Look left">↶</button><button data-key="ArrowRight" aria-label="Look right">↷</button><button id="touch-fire" aria-label="Primary action">FIRE</button><button data-key="Shift" aria-label="Sprint">RUN</button></div></div>
+  </div>
+  <main id="ui"></main>
+  <dialog id="journal" aria-labelledby="journal-title"></dialog>
+  <div id="announcer" class="sr-only" aria-live="polite"></div>
+  <noscript>This adventure needs JavaScript. Enable it in your browser to play.</noscript>
+</body>
+</html>
