@@ -8,7 +8,7 @@ const cast={
  forest:{ROWAN:actor(-.95,.3,'walk',2.6),WARD:actor(1.1,-.4,'walk',3.55)},
  print:{ROWAN:actor(-.7,.4,'paper',2.5),THOMAS:actor(1.25,.1,'listen',3.6),ISAIAH:actor(-2.25,-.85,'paper',2.8)},
  workshop:{MARA:actor(-.8,.1,'work',2.45),ROWAN:actor(1.15,.75,'listen',3.65),ISAIAH:actor(2.9,-1.1,'paper',3.55)},
- snow:{ROWAN:actor(-1.65,.65,'brace',2.55),MARA:actor(.15,.35,'kneel',3.15),ISAIAH:actor(1.85,-1.2,'point',3.8)},
+ snow:{ROWAN:actor(-1.65,.65,'listen',2.55),MARA:actor(.15,.35,'listen',3.15),ISAIAH:actor(1.85,-1.2,'point',3.8)},
  ship:{ROWAN:actor(-1.15,.25,'listen',2.55),ISAIAH:actor(1.2,-.55,'point',3.65),THOMAS:actor(1.9,1.9,'listen',3.9)},
  harbor:{ROWAN:actor(-.55,1,'row',Math.PI),ISAIAH:actor(.4,-1.25,'row',Math.PI),MARA:actor(1.05,.1,'paper',3.45)},
  fire:{ROWAN:actor(-.8,.6,'reach',2.55),WARD:actor(1.2,.15,'give',3.65),MARA:actor(-2.35,-.65,'paper',2.7),THOMAS:actor(3.8,-3.1,'point',3.7)},
@@ -50,13 +50,16 @@ export const CINEMATICS={
  ],{poses:{MARA:'give',ROWAN:'paper',ISAIAH:'listen'}}),
  'kingstreet.in':scene(3,'snow','Five names in the snow',[
   [S('wide','ISAIAH'),S('close','ISAIAH')],
-  [S('close','ROWAN'),S('wide','ROWAN')],
-  [S('low','MARA'),S('over','ROWAN','MARA',-1)]
+  [S('impact','ISAIAH')],
+  [S('rescue','ISAIAH','MARA')],
+  [S('wounded','ISAIAH')],
+  [S('rescue','ISAIAH','MARA'),S('rescue','ISAIAH','ROWAN',-1)]
  ],{mood:'tense'}),
  'kingstreet.out':scene(3,'snow','Tell the truth',[
-  [S('detail','notice'),S('close','ROWAN')],
-  [S('over','ISAIAH','ROWAN'),S('close','ISAIAH')]
- ],{poses:{ROWAN:'read',ISAIAH:'listen',MARA:'kneel'},mood:'sad'}),
+  [S('rescue','ISAIAH','ROWAN',-1)],
+  [S('wounded','ISAIAH')],
+  [S('recovery','ISAIAH')]
+ ],{mood:'sad'}),
  'tea.in':scene(4,'ship','Only the tea',[
   [S('wide','ISAIAH'),S('close','ISAIAH')],
   [S('detail','tea'),S('close','ROWAN')],
@@ -104,7 +107,7 @@ export function editorialShot(key,beat,elapsed,duration=5){
 }
 export function blocking(key,person,time,beat=0,lineTime=0){
  const scene=CINEMATICS[key]||CINEMATICS.prologue,a=scene.cast[person];if(!a||scene.hide?.includes(person))return null;
- let {x,z,yaw}=a,pose=scene.poses?.[person]||a.pose,y=0;
+ let {x,z,yaw}=a,pose=scene.poses?.[person]||a.pose,y=0,progress=0,injury=false,bandaged=false;
  yaw=Math.PI+(x<0?.43:-.43);
  if(scene.theme==='forest'&&key.endsWith('.in')){const p=smooth(time/5);z+=3*(1-p);if(time>5)pose=person==='WARD'&&beat===2?'point':'listen';}
  if(scene.theme==='harbor'){y=.22+Math.sin(time*.9)*.042;z+=Math.sin(time*.31)*.06;if(pose==='row')yaw=Math.PI;}
@@ -113,11 +116,26 @@ export function blocking(key,person,time,beat=0,lineTime=0){
  if(key==='prologue'&&person==='ROWAN'&&beat===2&&lineTime>4.8){z-=smooth((lineTime-4.8)/3)*3;pose='walk';yaw=0;}
  if(key==='ink.in'&&person==='THOMAS'){z-=3.2*(1-smooth(time/5));if(time<4.6){pose='walk';yaw=Math.PI;}}
  if(key==='dispatch.in'&&person==='THOMAS'){z+=1.1*smooth(time/10);}
- if(key==='kingstreet.in'&&person==='ROWAN'&&beat>0)pose='brace';
+ if(key==='kingstreet.in'&&beat>0){
+  // The hit happens once. Subsequent dialogue keeps the final fallen pose.
+  const fall=beat===1?smooth((lineTime-.08)/1.1):1;
+  if(person==='ISAIAH'){x=mix(1.85,1.50,fall);z=mix(-1.2,-.85,fall);yaw=2.85;pose='hit';progress=fall;injury=beat>1||lineTime>.08;}
+  else {
+   // Let the audience see the fall before either rescuer crosses the frame.
+   const approach=beat===1?0:beat===2?smooth(lineTime/1.25):1;
+   if(person==='MARA'){x=mix(.15,2.28,approach);z=mix(.35,-.78,approach)+Math.sin(approach*Math.PI)*.32;yaw=approach<.90?-1.1:Math.PI/2;pose=beat===1?'brace':approach<.90?'run':'tend';}
+   else {x=mix(-1.65,.48,approach);z=mix(.65,.12,approach);yaw=-.80;pose=approach<.90?'brace':'kneel';}
+  }
+ }
+ if(key==='kingstreet.out'){
+  if(person==='ISAIAH'){x=1.5;z=-.85;yaw=2.85;pose='recover';injury=true;bandaged=true;}
+  else if(person==='MARA'){x=2.28;z=-.78;yaw=Math.PI/2;pose='tend';}
+  else {x=.48;z=.12;yaw=-.80;pose='kneel';}
+ }
  if(key==='homespun.in'&&person==='MARA'&&beat===2)pose='point';
  if(key==='homespun.in'&&person==='ROWAN'&&beat===2){z+=smooth(lineTime/2)*.5;pose='reach';}
  if(key==='tea.in'&&person==='ISAIAH'&&beat===2){z+=smooth(lineTime/2)*1.1;pose='work';}
- return {x,y,z,yaw,pose,mood:scene.mood||'steady'};
+ return {x,y,z,yaw,pose,progress,injury,bandaged,mood:scene.mood||'steady'};
 }
 
 // This clock only advances when the caller supplies dt (pause supplies none).

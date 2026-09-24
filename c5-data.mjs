@@ -54,7 +54,9 @@ export const CHAPTER5=[
  {id:'kingstreet',title:'Five names in the snow',year:'5 March 1770',place:'King Street · Boston',genre:'CIVILIAN RESCUE',theme:'snow',mode:'rescue',music:'debt',start:[0,30],cast:['ROWAN','MARA','ISAIAH'],intro:[
   ['ISAIAH','A crowd at the customs house. Soldiers in the street. Rowan, get Mara out of here.'],
   ['ROWAN','Those shots... Isaiah!'],
-  ['MARA','Help the people still moving. The wounded go to the blue lantern. Now.']
+  ['MARA','He is hit! Rowan, down! Isaiah, look at me. Stay with us.'],
+  ['ISAIAH','My shoulder. I am here... I am still here.'],
+  ['MARA','Keep pressure here. I will get him under cover. Help the others. The wounded go to the blue lantern. Go!']
  ],goals:[
   goal(-12,18,'Help the injured printer','MARA','The confrontation will be remembered as the Boston Massacre. Five people died, including Crispus Attucks.',['massacre'],'rescue',1),
   goal(0,29,'Carry the printer to shelter','ROWAN','I have you. Just keep looking at the light.',[],'shelter',.8),
@@ -62,7 +64,7 @@ export const CHAPTER5=[
   goal(0,29,'Bring the neighbor to shelter','MARA','They are breathing. Go. There is someone by the carriage.',[],'shelter',.8),
   goal(-8,-15,'Help the wounded dockhand','ROWAN','Nobody gets left here if we can carry them.',[],'rescue',1),
   goal(0,29,'Bring the dockhand to shelter','ISAIAH','Attucks cannot be brought back. Tell their names. Tell the truth.',[],'shelter',.8)
- ],outro:[['ROWAN','The whole city will read about this. I could make the soldiers look like monsters.'],['ISAIAH','Write what happened. People are dead. They are not ink for your argument.']],enemies:[],bark:['MARA','Stay away from the moving crowd. Sprint when your hands are free.']},
+ ],outro:[['ROWAN','You could have died in that street. The whole city will read about this.'],['ISAIAH','Then write what happened. Five people are dead. They are not ink for your argument.'],['MARA','The bleeding has stopped. He is coming home with us.']],enemies:[],bark:['MARA','Stay away from the moving crowd. Sprint when your hands are free.']},
  {id:'tea',title:'Only the tea',year:'16 December 1773',place:'Griffin’s Wharf · Boston',genre:'SHIPBOARD HEIST',theme:'ship',mode:'heist',music:'molasses',start:[0,25],cast:['ROWAN','ISAIAH','THOMAS'],intro:[
   ['ISAIAH','The Committees of Correspondence linked the towns. Outside royal government, we plan our resistance together.'],
   ['ROWAN','The Tea Act makes Company tea cheaper, but the old tax remains. Buying it concedes the principle.'],

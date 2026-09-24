@@ -1,6 +1,6 @@
 {
   "name": "dc-us-history",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "private": true,
   "description": "Free browser story campaigns for dual-credit US History, Chapters 4 and 5.",
   "scripts": {

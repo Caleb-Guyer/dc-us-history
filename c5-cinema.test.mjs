@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {CHAPTER5,PROLOGUE,EPILOGUE} from './c5-data.mjs';
 import {C5_VOICES} from './c5-voices.mjs';
 import {CINEMATICS,sceneKey,editorialShot,blocking,FilmClock} from './c5-cinema-plan.mjs';
-import {makeActor,poseActor,disposeTree} from './c5-actors.mjs';
+import {makeActor,poseActor,tendWound,disposeTree} from './c5-actors.mjs';
 
 test('the opening, all fourteen mission scenes, and the epilogue have authored coverage for every recorded line',()=>{
  const ids=[...PROLOGUE.map((_,i)=>'prologue.'+i),...CHAPTER5.flatMap(m=>[...m.intro.map((_,i)=>m.id+'.in'+i),...m.outro.map((_,i)=>m.id+'.out'+i)]),...EPILOGUE.map((_,i)=>'epilogue.'+i)];
@@ -20,10 +20,35 @@ test('film playback leaves a lead-in, waits for audio, holds the reaction, and r
 });
 test('blocking keeps the speaker present, preserves finite positions, and changes actions with the scene',()=>{
  for(const [key,spec]of Object.entries(CINEMATICS))for(const person of Object.keys(spec.cast))for(const time of [0,2,8,22]){const a=blocking(key,person,time,2);if(spec.hide?.includes(person)){assert.equal(a,null);continue;}for(const k of ['x','y','z','yaw'])assert.ok(Number.isFinite(a[k]),key+person);}
- assert.notEqual(blocking('line.in','ROWAN',0).z,blocking('line.in','ROWAN',6).z);assert.equal(blocking('line.in','ROWAN',6).pose,'listen');assert.equal(blocking('kingstreet.in','MARA',4).pose,'kneel');assert.equal(blocking('harbor.in','ROWAN',4).pose,'row');
+ assert.notEqual(blocking('line.in','ROWAN',0).z,blocking('line.in','ROWAN',6).z);assert.equal(blocking('line.in','ROWAN',6).pose,'listen');assert.equal(blocking('kingstreet.in','MARA',4).pose,'listen');assert.equal(blocking('harbor.in','ROWAN',4).pose,'row');
 });
 test('the articulated cast supports every action without invalid transforms or leaking a held prop into idle',()=>{
- for(const key of ['ROWAN','MARA','ISAIAH','WARD','THOMAS']){const g=makeActor(key);for(const pose of ['walk','run','listen','paper','read','give','point','work','row','kneel','brace','reach']){poseActor(g,{time:4.6,pose,speaking:true,voiceTime:2,mood:'tense'});g.updateMatrixWorld(true);g.traverse(o=>assert.ok(o.matrixWorld.elements.every(Number.isFinite),key+pose));}poseActor(g,{pose:'paper'});assert.equal(g.userData.paper.visible,true);poseActor(g,{pose:'listen'});assert.equal(g.userData.paper.visible,false);disposeTree(g);}
+ for(const key of ['ROWAN','MARA','ISAIAH','WARD','THOMAS']){const g=makeActor(key);for(const pose of ['walk','run','listen','paper','read','give','point','work','row','kneel','brace','reach','hit','recover','tend']){poseActor(g,{time:4.6,pose,progress:.6,speaking:true,voiceTime:2,mood:'tense'});g.updateMatrixWorld(true);g.traverse(o=>assert.ok(o.matrixWorld.elements.every(Number.isFinite),key+pose));}poseActor(g,{pose:'paper'});assert.equal(g.userData.paper.visible,true);poseActor(g,{pose:'listen'});assert.equal(g.userData.paper.visible,false);disposeTree(g);}
+});
+test('Isaiah is hit on the shot cue, stays wounded through the rescue, and survives the aftermath',()=>{
+ const before=blocking('kingstreet.in','ISAIAH',4,0,4),impact=blocking('kingstreet.in','ISAIAH',6,1,.4),fallen=blocking('kingstreet.in','ISAIAH',8,1,2);
+ assert.equal(before.injury,false);assert.equal(impact.injury,true);assert.ok(impact.progress>0&&impact.progress<1);assert.equal(fallen.progress,1);
+ for(const beat of [2,3,4]){const a=blocking('kingstreet.in','ISAIAH',12,beat,0);assert.equal(a.injury,true);assert.equal(a.progress,1);assert.equal(a.pose,'hit');}
+ assert.equal(blocking('kingstreet.in','MARA',12,1,2).pose,'brace');assert.equal(blocking('kingstreet.in','MARA',12,2,2).pose,'tend');
+ const after=blocking('kingstreet.out','ISAIAH',2,0,0);assert.equal(after.pose,'recover');assert.equal(after.bandaged,true);
+ assert.match(CHAPTER5[3].intro[3][1],/still here/);assert.match(CHAPTER5[3].outro[2][1],/coming home/);
+ assert.equal(blocking('tea.in','ISAIAH',2,0,0).injury,false);
+});
+test('the injury rig visibly lowers Isaiah, keeps feet above the snow, and resets dressing on scene change',()=>{
+ const g=makeActor('ISAIAH');poseActor(g,{pose:'listen'});g.updateMatrixWorld(true);const height=g.userData.head.matrixWorld.elements[13];
+ poseActor(g,{pose:'hit',progress:1,injury:true});g.updateMatrixWorld(true);assert.ok(g.userData.head.matrixWorld.elements[13]<height-.5);assert.equal(g.userData.wound.visible,true);
+ for(const knee of g.userData.knees)assert.ok(knee.matrixWorld.elements[13]>.15,'knees remain above ground');
+ for(const progress of [0,.25,.5,.75,1]){poseActor(g,{pose:'hit',progress});g.updateMatrixWorld(true);for(const knee of g.userData.knees)assert.ok(knee.children.at(-1).getWorldPosition(g.position.clone()).y>-.03,'boots do not pass through the snow');}
+ poseActor(g,{pose:'recover',injury:true,bandaged:true});assert.equal(g.userData.bandage.visible,true);assert.equal(g.userData.wound.visible,false);
+ poseActor(g,{pose:'tend'});assert.equal(g.userData.dressing.visible,true);poseActor(g,{pose:'listen'});assert.equal(g.userData.bandage.visible,false);assert.equal(g.userData.dressing.visible,false);assert.equal(g.userData.root.position.y,0);disposeTree(g);
+});
+test('Isaiah clutches the wounded shoulder and Mara places her dressing at that shoulder',()=>{
+ const patient=makeActor('ISAIAH'),caregiver=makeActor('MARA');
+ for(const g of [patient,caregiver]){const a=blocking('kingstreet.in',g.userData.key,12,3,2);g.position.set(a.x,a.y,a.z);g.rotation.y=a.yaw;poseActor(g,a);}
+ tendWound(caregiver,patient);patient.updateMatrixWorld(true);caregiver.updateMatrixWorld(true);
+ const wound=patient.userData.wound.getWorldPosition(patient.position.clone());
+ for(const hand of [patient.userData.hands[1],...caregiver.userData.hands])assert.ok(hand.getWorldPosition(patient.position.clone()).distanceTo(wound)<.16);
+ disposeTree(patient);disposeTree(caregiver);
 });
 test('offering a dispatch extends the hand in front of the body, and reading looks down toward it',()=>{
  const g=makeActor('ROWAN');poseActor(g,{pose:'give'});g.updateMatrixWorld(true);assert.ok(g.userData.hands[1].matrixWorld.elements[14]<-.4);poseActor(g,{pose:'read'});assert.ok(g.userData.head.rotation.x<0);g.updateMatrixWorld(true);assert.ok(g.userData.hands[1].matrixWorld.elements[14]<0);disposeTree(g);

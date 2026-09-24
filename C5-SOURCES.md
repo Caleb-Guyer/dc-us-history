@@ -39,10 +39,12 @@ Access the book free at [OpenStax U.S. History](https://openstax.org/books/us-hi
 
 ## Production
 
-The campaign contains **81 prerecorded synthetic dialogue clips**, about **6 minutes 37 seconds**. Five stock Kokoro-82M voices play the recurring cast. They are not impersonations or historical recordings. The offline model and runtime are described in VOICE-CREDITS.md; no model, API key, microphone or speech service is needed by players. Scripts and clip metadata are in `c5-data.mjs` and `c5-voices.mjs`.
+The campaign contains **84 prerecorded synthetic dialogue clips**, about **6 minutes 48 seconds**. Five stock Kokoro-82M voices play the recurring cast. They are not impersonations or historical recordings. The offline model and runtime are described in VOICE-CREDITS.md; no model, API key, microphone or speech service is needed by players. Scripts and clip metadata are in `c5-data.mjs` and `c5-voices.mjs`.
 
 Version 3.1 rebuilds all 16 cutscenes with dedicated locations, authored camera coverage and character movement, articulated faces and hands, prop inserts, reactions, focus blur, lighting, procedural fire and water, and timed sound effects. The cast walks, gestures, reads, offers papers, works, rows, and kneels. A voice-aware clock allows a short establishing shot and a reaction hold; pause, restart, line advance, and skip are available. A screening room under Missions replays scenes without changing campaign progress. These are original stylized real-time 3D scenes, not video footage or motion capture.
 
 The illustrated cover uses original generated artwork; the running game has a stylized procedural 3D treatment. See C5-ART.md. The original soundtrack from Chapter 4 is reused and assigned to each new scene; MUSIC-CREDITS.md lists its compositions and synthesis process.
 
 The game is inspired by the general ideas of a recurring crew, cinematic pacing and an escalating extraction story. It uses no Halo characters, music, artwork, models, dialogue or story assets.
+
+Version 3.2 makes the King Street consequence explicit: Isaiah takes a fictional shoulder wound, falls, receives help from Mara, and survives. A bandage and recovery pose persist during the rescue mission and its aftermath. He is not an additional historical fatality or a stand-in for Crispus Attucks. Six revised or new recordings support the sequence.

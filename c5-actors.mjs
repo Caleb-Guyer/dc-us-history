@@ -74,12 +74,16 @@ export function makeActor(key){
  const strap=box(body,.048,.84,.025,cloth(0x9e8460),.015,.10,-.19);strap.rotation.z=-.47;
  const satchel=joint(body,.28,-.18,.01);box(satchel,.26,.28,.13,leather,0,0,0);box(satchel,.27,.09,.02,darkCoat,0,.07,-.076);ball(satchel,.017,brass,0,.023,-.092,[1,1,.4]);
  const paper=joint(hands[1],0,-.04,-.10);box(paper,.22,.009,.31,cloth(0xdecba0),0,0,0);const seal=taper(paper,.020,.020,.006,cloth(0x914335),.05,.010,0);paper.visible=false;
- g.userData={key,root,body,legs,knees,arms,elbows,hands,head,eyes,lids,brows,mouth,lowerLip,tails,scarf,paper};return g;
+ const wound=ball(arms[0],.058,cloth(0x692f2e),-.022,-.061,-.085,[.90,1.2,.19]);wound.visible=false;
+ const bandage=taper(arms[0],.109,.100,.15,linen,0,-.055,0);bandage.visible=false;
+ const dressing=box(hands[0],.14,.035,.13,linen,0,-.06,-.015);dressing.visible=false;
+ g.userData={key,root,body,legs,knees,arms,elbows,hands,head,eyes,lids,brows,mouth,lowerLip,tails,scarf,paper,wound,bandage,dressing};return g;
 }
 
-export function poseActor(g,{time=0,speaking=false,voiceTime=0,progress=0,pose='listen',mood='steady',gaze=0,speed=1}={}){
+export function poseActor(g,{time=0,speaking=false,voiceTime=0,progress=0,pose='listen',mood='steady',gaze=0,speed=1,injury=false,bandaged=false}={}){
  const u=g.userData,t=time*speed,walk=pose==='walk'||pose==='run',stride=pose==='run'?1.5:1,breathe=Math.sin(t*1.65)*.007;
- u.root.position.y=walk?Math.abs(Math.sin(t*5))* .025*stride:0;u.body.rotation.set(0,0,Math.sin(t*.63)*.012);u.body.position.y=1.04+breathe;
+ u.root.rotation.set(0,0,0);u.root.position.y=walk?Math.abs(Math.sin(t*5))* .025*stride:0;u.body.rotation.set(0,0,Math.sin(t*.63)*.012);u.body.position.y=1.04+breathe;
+ u.wound.visible=injury&&!bandaged;u.bandage.visible=bandaged;u.dressing.visible=pose==='tend';
  u.legs.forEach((p,i)=>{p.rotation.set(walk?Math.sin(t*5+i*Math.PI)*.36*stride:0,0,0);u.knees[i].rotation.x=walk?Math.max(0,-Math.sin(t*5+i*Math.PI))*.55:0;});
  u.arms.forEach((p,i)=>{p.rotation.set(walk?-Math.sin(t*5+i*Math.PI)*.26*stride:.04,0,(i?1:-1)*.08);u.elbows[i].rotation.set(-.08,0,0);u.hands[i].rotation.set(0,0,0);});
  const speech=speaking?(Math.sin(voiceTime*16)*.5+.5)*(.35+.65*Math.abs(Math.sin(voiceTime*6.7))):0;
@@ -97,11 +101,51 @@ export function poseActor(g,{time=0,speaking=false,voiceTime=0,progress=0,pose='
  if(pose==='kneel'){u.root.position.y=-.47;u.body.rotation.x=.24;u.legs[0].rotation.x=-1.5;u.knees[0].rotation.x=1.5;u.legs[1].rotation.x=.45;u.knees[1].rotation.x=1.65;u.arms.forEach((p,i)=>{p.rotation.x=-.8;u.elbows[i].rotation.x=-.35;});u.head.rotation.x=.2;}
  if(pose==='brace'){u.body.rotation.x=.18;u.arms[0].rotation.x=-1.8;u.elbows[0].rotation.x=-.8;u.head.rotation.x=.10;}
  if(pose==='reach'){u.arms[1].rotation.x=-1.3;u.elbows[1].rotation.x=-.25;u.body.rotation.y=-.14;}
+ if(pose==='hit'||pose==='recover'){
+  const p=pose==='recover'?1:Math.max(0,Math.min(1,progress)),jolt=Math.sin(Math.min(1,p*3)*Math.PI)*.24;
+  // Shoulder recoil, knees fold, then weight settles into the snow. The free
+  // hand braces against the ground; the other holds the wounded shoulder.
+  u.root.position.y=-.64*p*p;u.body.rotation.set(-jolt+.12*p,0,.17*p);u.body.position.y=1.04+breathe*(1+p);
+  u.legs[0].rotation.x=-1.62*p;u.knees[0].rotation.x=.35*p;
+  u.legs[1].rotation.x=-1.50*p;u.legs[1].rotation.z=-.27*p;u.knees[1].rotation.x=.25*p;
+  u.arms[0].rotation.set(.25*p,0,-.22*p);u.elbows[0].rotation.x=-.09;
+  u.arms[1].rotation.set(-.70*p,0,-.96*p);u.elbows[1].rotation.set(-1.85*p,0,-.3*p);
+  u.head.rotation.x=(pose==='recover'?.05:.20)*p;u.head.rotation.z=-.11*p;
+  if(!speaking&&pose==='hit'){u.mouth.scale.y=1.4;u.lids.forEach(l=>l.scale.y=.45);}
+ }
+ if(pose==='tend'){
+  u.root.position.y=-.46;u.body.rotation.x=.34;u.head.rotation.x=.26;
+  u.legs[0].rotation.x=-1.5;u.knees[0].rotation.x=1.5;u.legs[1].rotation.x=.45;u.knees[1].rotation.x=1.65;
+  u.arms[0].rotation.set(-1.28,0,-.12);u.elbows[0].rotation.x=-.12;
+  u.arms[1].rotation.set(-1.14,0,.08);u.elbows[1].rotation.x=-.25;
+ }
  if(speaking&&['listen','paper','read'].includes(pose)){u.arms[0].rotation.x=-.23-Math.sin(voiceTime*1.3)*.13;u.elbows[0].rotation.x=-.5-Math.sin(voiceTime*1.3)*.25;u.hands[0].rotation.z=-.20;}
  // The rig faces local -Z. Positive shoulder pitch brings a hand forward;
  // inverse knee pitch folds the heel back, and negative head pitch looks down.
  for(const part of [u.body,u.head,...u.arms,...u.elbows,...u.hands,...u.legs,...u.knees])part.rotation.x*=-1;
  if(u.paper.visible)u.paper.rotation.x*=-1;
+ if(pose==='hit'||pose==='recover'){
+  const p=pose==='recover'?1:Math.max(0,Math.min(1,progress));
+  reachHand(g,1,new T.Vector3(.285,-.18,0).lerp(new T.Vector3(-.25,.35,-.14),p));
+ }
+}
+
+// Two articulated bones keep the hand on the shoulder instead of waving beside
+// the face. Targets are expressed in the torso's local coordinate system.
+function reachHand(g,index,target){
+ const {arms,elbows}=g.userData,arm=arms[index],elbow=elbows[index],down=new T.Vector3(0,-1,0);
+ const delta=target.clone().sub(arm.position),distance=Math.min(.569,Math.max(.015,delta.length())),direction=delta.normalize();
+ const along=(.28*.28-.29*.29+distance*distance)/(2*distance),height=Math.sqrt(Math.max(0,.28*.28-along*along));
+ const bend=new T.Vector3(0,-1,-.55).addScaledVector(direction,-new T.Vector3(0,-1,-.55).dot(direction)).normalize();
+ const upper=direction.clone().multiplyScalar(along).addScaledVector(bend,height);
+ arm.quaternion.setFromUnitVectors(down,upper.clone().normalize());
+ const lower=direction.multiplyScalar(distance).sub(upper).applyQuaternion(arm.quaternion.clone().invert()).normalize();
+ elbow.quaternion.setFromUnitVectors(down,lower);
+}
+export function tendWound(caregiver,patient){
+ patient.updateWorldMatrix(true,true);caregiver.updateWorldMatrix(true,true);
+ const target=patient.userData.wound.getWorldPosition(new T.Vector3());
+ for(const i of [0,1]){const local=caregiver.userData.body.worldToLocal(target.clone().add(new T.Vector3(i?.035:-.025,i?.035:0,.055)));reachHand(caregiver,i,local);}
 }
 
 export function disposeTree(root,sharedTextures=[]){const geometries=new Set(),materials=new Set(),textures=new Set();root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>materials.add(m));});for(const m of materials){for(const k of ['map','alphaMap','normalMap'])if(m[k]&&!sharedTextures.includes(m[k]))textures.add(m[k]);m.dispose();}geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());root.clear();}

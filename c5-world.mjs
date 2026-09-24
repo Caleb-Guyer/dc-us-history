@@ -1,6 +1,7 @@
 import * as T from './three.module.js';
 import {CAST} from './c5-data.mjs';
-import {CinemaDirector} from './c5-cinema.mjs?v=3.1';
+import {CinemaDirector} from './c5-cinema.mjs?v=3.2';
+import {makeActor,poseActor,tendWound} from './c5-actors.mjs?v=3.2';
 const lerp=(a,b,t)=>a+(b-a)*t;
 function texture(kind){
  const c=document.createElement('canvas');c.width=c.height=256;const p=c.getContext('2d');let seed=11;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
@@ -44,7 +45,7 @@ export class CampaignWorld{
   const l=new T.PointLight(blue?0x83d7fb:0xffc47a,12,13,2);l.position.set(x,3,z);this.scene.add(l);
  }
  character(key='WARD',enemy=false){
-  const spec=CAST[key]||{color:0x873e38},g=new T.Group(),skin=key==='ISAIAH'?0x73503c:0xb99276,coat=enemy?(key==='WARD'?0x555342:0x833b33):spec.color;
+  const spec=CAST[key]||{color:0x827157},g=new T.Group(),skin=key==='ISAIAH'?0x73503c:0xb99276,coat=enemy?(key==='WARD'?0x555342:0x833b33):spec.color;
   const torso=this.cylinder(.31,.38,.75,coat,0,1.17,0,g,12);torso.scale.z=.65;
   const skirt=this.cylinder(.34,.43,.5,coat,0,.7,0,g,12);skirt.scale.z=.7;
   const hips=this.box(.43,.22,.24,0x353a37,0,.6,0,g);
@@ -92,7 +93,7 @@ export class CampaignWorld{
   }
   m.goals.forEach((goal,i)=>{
    const g=new T.Group();g.position.set(goal.x,0,goal.z);this.scene.add(g);
-   if(goal.kind==='rescue'){const person=this.character(i%2?'ISAIAH':'MARA');person.rotation.z=Math.PI/2;person.position.y=.35;g.add(person);}
+   if(goal.kind==='rescue'){const person=this.character('BYSTANDER');person.rotation.z=Math.PI/2;person.position.y=.35;g.add(person);}
    else if(goal.kind==='shelter'){this.box(3,.1,2.6,0x789aaa,0,.05,0,g);}
    else if(goal.kind==='tea'){this.box(1.3,1.1,1.15,0x7c633f,0,.55,0,g);this.box(1.1,.08,.85,0xb29e79,0,1.14,0,g);this.box(.12,1.16,1.18,0x31433f,.35,.57,0,g);}
    else if(goal.kind==='press'){this.box(1.4,1,1,0x443b2c,0,.5,0,g);this.cylinder(.07,.07,2.1,0x917756,0,1.1,0,g);this.box(2.2,.12,.18,0xb4945f,0,1.8,0,g);}
@@ -102,10 +103,10 @@ export class CampaignWorld{
   state.enemies.forEach(e=>{const g=this.character(m.theme==='forest'?'WARD':'THOMAS',true);g.position.set(e.x,0,e.z);this.scene.add(g);this.enemyModels.push(g);
    const cone=new T.Mesh(new T.ConeGeometry(3,10,24,1,true),new T.MeshBasicMaterial({color:0xf6c77c,transparent:true,opacity:.09,depthWrite:false,side:T.DoubleSide}));cone.rotation.x=-Math.PI/2;cone.position.set(0,1,-5);g.add(cone);g.userData.cone=cone;
   });
-  if(m.mode==='rescue')for(let i=0;i<5;i++){const crowd=new T.Group();for(let j=0;j<3;j++){const p=this.character(j===0?'THOMAS':j===1?'MARA':'ISAIAH');p.position.x=(j-1)*.8;crowd.add(p);}this.scene.add(crowd);this.crowds.push(crowd);}
+  if(m.mode==='rescue')for(let i=0;i<5;i++){const crowd=new T.Group();for(let j=0;j<3;j++){const p=this.character('BYSTANDER');p.position.x=(j-1)*.8;crowd.add(p);}this.scene.add(crowd);this.crowds.push(crowd);}
   this.marker=new T.Group();const ring=new T.Mesh(new T.RingGeometry(.48,.59,40),new T.MeshBasicMaterial({color:0xeac789,side:T.DoubleSide,transparent:true,opacity:.85}));ring.rotation.x=-Math.PI/2;ring.position.y=.08;this.marker.add(ring);const diamond=this.orb(0,2.6,0,.1,0xfce0a0,this.marker);diamond.scale.set(.6,1,.6);this.scene.add(this.marker);
   // The complete recurring cast is present for real-time conversation shots.
-  (m.cast||['ROWAN','MARA']).forEach((key,i)=>{const actor=this.character(key);actor.position.set((i-((m.cast?.length||2)-1)/2)*2.1,0,27+(i%2)*.35);actor.rotation.y=Math.PI+(i%2?.3:-.35);actor.userData.stage=actor.position.clone();this.scene.add(actor);this.actors.push(actor);});
+  (m.cast||['ROWAN','MARA']).forEach((key,i)=>{const actor=m.id==='kingstreet'?makeActor(key):this.character(key);actor.position.set((i-((m.cast?.length||2)-1)/2)*2.1,0,27+(i%2)*.35);actor.rotation.y=Math.PI+(i%2?.3:-.35);actor.userData.stage=actor.position.clone();this.scene.add(actor);this.actors.push(actor);});
   const faceLight=new T.PointLight(0xf5d6a6,32,19,2);faceLight.position.set(0,3.7,33);this.scene.add(faceLight);
   this.weapon=new T.Group();this.camera.add(this.weapon);
   this.box(.13,.3,.16,0x305160,.32,-.39,-.33,this.weapon);this.orb(.26,-.28,-.5,.085,0xb98e71,this.weapon,[.8,.7,1.3]);
@@ -130,11 +131,14 @@ export class CampaignWorld{
   const p=s.player,t=s.time;this.actors.forEach(g=>{const key=g.userData.key;g.visible=key!=='ROWAN';let spot;
    if(this.m.id==='line'&&key==='WARD')spot=[s.escort.x,s.escort.z];
    if(this.m.id==='ink')spot=key==='ISAIAH'?[-14,18]:[12,-31];
-   if(this.m.id==='kingstreet')spot=key==='MARA'?[3,29]:[-3,27];
+   if(this.m.id==='kingstreet')spot=key==='MARA'?[-2.22,27.07]:[-3,27];
    if(this.m.id==='tea')spot=key==='ISAIAH'?[-3,20]:s.stage>=4?[3,25]:null;
    if(this.m.id==='dispatch')spot=key==='WARD'?[-12,-12]:key==='THOMAS'?[9,-35]:s.stage>=2?[12,5]:null;
-   if(spot&&key!=='ROWAN'){g.position.set(spot[0],this.m.id==='line'?s.escort.y:0,spot[1]);g.visible=Math.hypot(p.x-spot[0],p.z-spot[1])>1.1;g.rotation.y=this.m.id==='line'?s.escort.yaw:Math.atan2(-(p.x-spot[0]),-(p.z-spot[1]));this.animatePerson(g,t,this.m.id==='line'&&s.escort.moving);}else g.visible=false;
-  });this.weapon.visible=true;
+   if(spot&&key!=='ROWAN'){g.position.set(spot[0],this.m.id==='line'?s.escort.y:0,spot[1]);g.visible=Math.hypot(p.x-spot[0],p.z-spot[1])>1.1;
+    if(this.m.id==='kingstreet'){g.rotation.y=key==='ISAIAH'?2.85:Math.PI/2;poseActor(g,{time:t,pose:key==='ISAIAH'?'recover':'tend',injury:key==='ISAIAH',bandaged:key==='ISAIAH',mood:'sad'});}
+    else {g.rotation.y=this.m.id==='line'?s.escort.yaw:Math.atan2(-(p.x-spot[0]),-(p.z-spot[1]));this.animatePerson(g,t,this.m.id==='line'&&s.escort.moving);}
+   }else g.visible=false;
+  });if(this.m.id==='kingstreet')tendWound(this.actors.find(g=>g.userData.key==='MARA'),this.actors.find(g=>g.userData.key==='ISAIAH'));this.weapon.visible=true;
   const moving=input.forward||input.back||input.left||input.right,bob=moving?Math.sin(t*(input.sprint?14:9))*.033:0;
   this.camera.position.set(p.x,1.74+p.y-(input.crouch?.55:0)+bob,p.z);this.camera.rotation.set(p.pitch+(s.shot>0?s.shot*.08:0),p.yaw,moving&&input.sprint?Math.sin(t*7)*.008:0);
   const fov=input.aim?56:input.sprint?84:75;this.camera.fov=lerp(this.camera.fov,fov,Math.min(1,dt*9));this.camera.updateProjectionMatrix();

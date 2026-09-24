@@ -65,7 +65,7 @@ test('practice draws five unique terms with four unique options and one right an
  assert.equal(new Set(quizDeck(15).map(q=>q.id)).size,15);
 });
 test('all original dialogue has an actual packaged recording; chapter four remains accessible',()=>{
- const voices=new Map(C5_VOICES.map(v=>[v.id,v]));assert.equal(voices.size,81);
+ const voices=new Map(C5_VOICES.map(v=>[v.id,v]));assert.equal(voices.size,84);
  for(const line of scriptLines()){const voice=voices.get(line.id);assert.equal(voice.text,line.text);assert.equal(voice.speaker,line.speaker);const bytes=fs.statSync(new URL(voice.file,import.meta.url)).size;assert.ok(bytes>4000);assert.ok(voice.duration>.5&&voice.duration<15);}
  const old=fs.readFileSync(new URL('chapter4.html',import.meta.url),'utf8');assert.match(old,/action.mjs/);assert.ok(fs.statSync(new URL('c5-cover.png',import.meta.url)).size>100000);
 });

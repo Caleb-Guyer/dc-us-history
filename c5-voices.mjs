@@ -471,38 +471,74 @@ export const C5_VOICES = [
   {
     "id": "kingstreet.in2",
     "speaker": "MARA",
-    "text": "Help the people still moving. The wounded go to the blue lantern. Now.",
+    "text": "He is hit! Rowan, down! Isaiah, look at me. Stay with us.",
     "voice": "af_heart",
     "speed": 1.02,
     "lang": "en-us",
-    "file": "c5-voice-kingstreet-in2-bccfaf569.mp3",
-    "duration": 4.123,
+    "file": "c5-voice-kingstreet-in2-72a489e38.mp3",
+    "duration": 3.915,
     "peak": 0.86,
-    "rms": 0.1353
+    "rms": 0.1142
+  },
+  {
+    "id": "kingstreet.in3",
+    "speaker": "ISAIAH",
+    "text": "My shoulder. I am here... I am still here.",
+    "voice": "am_michael",
+    "speed": 1.04,
+    "lang": "en-us",
+    "file": "c5-voice-kingstreet-in3-f3ad64cbf.mp3",
+    "duration": 2.973,
+    "peak": 0.86,
+    "rms": 0.1418
+  },
+  {
+    "id": "kingstreet.in4",
+    "speaker": "MARA",
+    "text": "Keep pressure here. I will get him under cover. Help the others. The wounded go to the blue lantern. Go!",
+    "voice": "af_heart",
+    "speed": 1.02,
+    "lang": "en-us",
+    "file": "c5-voice-kingstreet-in4-d5f5ed318.mp3",
+    "duration": 6.187,
+    "peak": 0.86,
+    "rms": 0.1031
   },
   {
     "id": "kingstreet.out0",
     "speaker": "ROWAN",
-    "text": "The whole city will read about this. I could make the soldiers look like monsters.",
+    "text": "You could have died in that street. The whole city will read about this.",
     "voice": "am_fenrir",
     "speed": 1.03,
     "lang": "en-us",
-    "file": "c5-voice-kingstreet-out0-c0257a426.mp3",
-    "duration": 4.601,
+    "file": "c5-voice-kingstreet-out0-4e2384891.mp3",
+    "duration": 3.56,
     "peak": 0.86,
-    "rms": 0.0915
+    "rms": 0.1014
   },
   {
     "id": "kingstreet.out1",
     "speaker": "ISAIAH",
-    "text": "Write what happened. People are dead. They are not ink for your argument.",
+    "text": "Then write what happened. Five people are dead. They are not ink for your argument.",
     "voice": "am_michael",
     "speed": 1.04,
     "lang": "en-us",
-    "file": "c5-voice-kingstreet-out1-e9b05b424.mp3",
-    "duration": 4.66,
+    "file": "c5-voice-kingstreet-out1-59680854e.mp3",
+    "duration": 5.305,
     "peak": 0.86,
-    "rms": 0.1055
+    "rms": 0.1195
+  },
+  {
+    "id": "kingstreet.out2",
+    "speaker": "MARA",
+    "text": "The bleeding has stopped. He is coming home with us.",
+    "voice": "af_heart",
+    "speed": 1.02,
+    "lang": "en-us",
+    "file": "c5-voice-kingstreet-out2-42622ff29.mp3",
+    "duration": 2.67,
+    "peak": 0.86,
+    "rms": 0.1455
   },
   {
     "id": "kingstreet.goal0",

@@ -1,6 +1,6 @@
 import * as T from './three.module.js';
-import {makeActor,poseActor,disposeTree} from './c5-actors.mjs?v=3.1';
-import {CINEMATICS,editorialShot,blocking,smooth,mix} from './c5-cinema-plan.mjs?v=3.1';
+import {makeActor,poseActor,tendWound,disposeTree} from './c5-actors.mjs?v=3.2';
+import {CINEMATICS,editorialShot,blocking,smooth,mix} from './c5-cinema-plan.mjs?v=3.2';
 
 const v=a=>new T.Vector3(...a);
 export class CinemaDirector{
@@ -92,13 +92,19 @@ export class CinemaDirector{
  }
  snow(){
   this.street('snow');this.lantern(-3.8,1.9,2.2,true);this.crate(-2.6,2,1);this.label('FIVE NAMES|5 MARCH 1770',-2.6,.83,2,.65,'#514638','#cfc2a4',-Math.PI/2);this.details.notice=[-2.6,.87,2];
-  const victim=makeActor('BYSTANDER');victim.rotation.set(0,.4,Math.PI/2);victim.position.set(.9,.19,.5);this.scene.add(victim);this.extras.push(victim);
-  for(let i=0;i<6;i++){const g=makeActor(i%2?'THOMAS':'ISAIAH');g.position.set(-4+i*1.6,0,-7-(i%3));g.rotation.y=Math.PI;this.scene.add(g);this.crowd.push(g);}
+  // Isaiah is the foreground casualty. Background people do not reuse his
+  // distinctive coat and face, which would imply he is also running away.
+  for(let i=0;i<6;i++){const g=makeActor('BYSTANDER');g.position.set(-4+i*1.6,0,-7-(i%3));g.rotation.y=Math.PI;this.scene.add(g);this.crowd.push(g);}
+  const smokeGeo=new T.BufferGeometry(),smokePoints=new Float32Array(32*3);
+  for(let i=0;i<32;i++){smokePoints[i*3]=Math.sin(i*13)*4;smokePoints[i*3+1]=1.2+(i%5)*.16;smokePoints[i*3+2]=-7+Math.cos(i*7);}
+  smokeGeo.setAttribute('position',new T.BufferAttribute(smokePoints,3));
+  const puff=document.createElement('canvas');puff.width=puff.height=64;const ctx=puff.getContext('2d'),gradient=ctx.createRadialGradient(32,32,0,32,32,32);gradient.addColorStop(0,'#ffffff');gradient.addColorStop(1,'#ffffff00');ctx.fillStyle=gradient;ctx.fillRect(0,0,64,64);
+  this.powder=new T.Points(smokeGeo,new T.PointsMaterial({color:0x9faeb6,map:new T.CanvasTexture(puff),size:1.4,transparent:true,opacity:0,depthWrite:false}));this.scene.add(this.powder);
   this.flashLight=new T.PointLight(0xffdb9d,0,24);this.flashLight.position.set(0,2,-6);this.scene.add(this.flashLight);
  }
  setup(key){
   if(this.scene)disposeTree(this.scene,Object.values(this.textures));this.key=key;this.spec=CINEMATICS[key]||CINEMATICS.prologue;this.scene=new T.Scene();this.scene.fog=new T.FogExp2(this.spec.theme==='forest'?0x6c8375:this.spec.theme==='dawn'?0x506b6b:0x132b36,.025);this.scene.background=new T.Color(this.scene.fog.color);
-  this.actors=new Map();this.extras=[];this.crowd=[];this.practicals=[];this.flames=[];this.details={};this.boat=this.oars=this.waterMesh=this.wheel=this.shuttle=this.pressLever=this.flashLight=null;
+  this.actors=new Map();this.extras=[];this.crowd=[];this.practicals=[];this.flames=[];this.details={};this.boat=this.oars=this.waterMesh=this.wheel=this.shuttle=this.pressLever=this.flashLight=this.powder=null;
   this.wood=this.mat(0x806a4c,{map:this.textures.wood});
   const day=['forest','workshop','dawn'].includes(this.spec.theme);this.scene.add(new T.HemisphereLight(day?0xc5d4db:0x93bed5,0x293028,day?1.8:1.2));
   const keyLight=new T.DirectionalLight(day?0xffd49c:0xa9c9ec,day?3.0:1.8);keyLight.position.set(-5,9,6);keyLight.castShadow=true;keyLight.shadow.mapSize.set(1024,1024);Object.assign(keyLight.shadow.camera,{left:-9,right:9,top:9,bottom:-9,near:1,far:35});keyLight.shadow.bias=-.0005;keyLight.shadow.normalBias=.035;this.scene.add(keyLight);
@@ -126,6 +132,13 @@ export class CinemaDirector{
  framing(shot,frame){
   const get=key=>this.actors.get(key)?.position.clone()||new T.Vector3(0,0,0),subject=get(shot.subject),listener=get(shot.listener),p=frame.reduced?0:shot.progress,s=shot.side||1;let eye,look,fov=38;
   if(shot.kind==='detail'){const d=this.details[shot.subject]||[0,1,1.7];look=v(d);eye=look.clone().add(v(shot.subject==='blockade'?[5,1.5,11]:[.55-mix(0,.25,p),.57,1.25]));fov=shot.subject==='blockade'?39:36;}
+  else if(shot.kind==='impact'){look=v([1.65,1.04,-.85]);eye=v([1.65,2.0,4.2]);fov=37;}
+  else if(shot.kind==='wounded'){
+   look=this.actors.get(shot.subject).userData.head.getWorldPosition(new T.Vector3()).add(v([0,-.08,0]));
+   eye=look.clone().add(v([-.36,.20,mix(2.10,1.95,p)]));fov=36;
+  }
+  else if(shot.kind==='rescue'){look=v([1.4,.83,-.45]);eye=v([s>0?1.15:.25,2.65,mix(4.7,4.35,p)]);fov=42;}
+  else if(shot.kind==='recovery'){look=v([1.4,.80,-.45]);eye=v([mix(1.1,1.5,p),mix(2.6,3.5,p),mix(4.5,6.5,p)]);fov=42;}
   else if(shot.kind==='close'){look=subject.clone().add(v([s*.03,1.58,0]));eye=subject.clone().add(v([s*mix(.70,.46,p),1.68,mix(2.85,2.55,p)]));fov=30;}
   else if(shot.kind==='over'){look=subject.clone().add(v([0,1.52,0]));eye=listener.clone().add(v([s*.62,1.76,1.23]));if(eye.distanceTo(look)<1.7)eye.z+=1;fov=43;}
   else if(shot.kind==='two'){look=subject.clone().lerp(listener,.5).add(v([0,1.17,0]));eye=look.clone().add(v([s*mix(1.5,.9,p),.65,5.2]));fov=38;}
@@ -138,7 +151,7 @@ export class CinemaDirector{
    if(shot.kind==='over'&&aspect<.8){look=subject.clone().add(v([0,1.52,0]));eye=subject.clone().add(v([s*.5,1.72,3.5]));fov=34;}
    else{const d=eye.clone().sub(look),limit=shot.kind==='close'?1.35:1.9;eye.copy(look).add(d.multiplyScalar(Math.min(limit,Math.sqrt(1.55/aspect))));}
   }
-  if(!frame.reduced){const shake=this.spec.theme==='fire'?.012:this.spec.theme==='snow'?.009:.003;eye.x+=Math.sin(frame.time*9)*shake;eye.y+=Math.sin(frame.time*7)*shake;}
+  if(!frame.reduced){const impact=shot.kind==='impact'?Math.max(0,1-(frame.lineTime||0)/.45)*.075:0,shake=impact+(this.spec.theme==='fire'?.012:this.spec.theme==='snow'?.009:.003);eye.x+=Math.sin(frame.time*39)*shake;eye.y+=Math.sin(frame.time*27)*shake;}
   return {eye,look,fov};
  }
  render(frame,dt=0){
@@ -146,10 +159,12 @@ export class CinemaDirector{
   if(frame.key!==this.key)this.setup(frame.key);const spec=this.spec,t=frame.time||0;this.camera.aspect=innerWidth/innerHeight;
   for(const [key,g]of this.actors){const a=blocking(frame.key,key,t,frame.beat,frame.lineTime);if(!a){g.visible=false;continue;}g.visible=true;g.position.set(a.x,a.y,a.z);g.rotation.set(0,a.yaw,0);
    const other=this.actors.get(frame.speaker),gaze=other&&other!==g?Math.max(-.35,Math.min(.35,(other.position.x-g.position.x)*.10)):0;
-   poseActor(g,{time:t,pose:a.pose,mood:a.mood,gaze,speaking:frame.speaking&&key===frame.speaker,voiceTime:frame.lineTime||0});
+   poseActor(g,{time:t,pose:a.pose,mood:a.mood,gaze,progress:a.progress,injury:a.injury,bandaged:a.bandaged,speaking:frame.speaking&&key===frame.speaker,voiceTime:frame.lineTime||0});
   }
-  this.crowd.forEach((g,i)=>{g.position.x=-4+i*1.6+Math.sin(t*.75+i)*.65;g.position.z=-7-(i%3)-Math.max(0,(frame.beat||0)-.6)*1.7;poseActor(g,{time:t+i,pose:frame.beat>0?'run':'listen'});});
+  if((frame.key==='kingstreet.in'&&(frame.beat>2||frame.beat===2&&frame.lineTime>1.1))||frame.key==='kingstreet.out')tendWound(this.actors.get('MARA'),this.actors.get('ISAIAH'));
+  this.crowd.forEach((g,i)=>{const fleeing=frame.key==='kingstreet.in'&&frame.beat>0,scatter=fleeing?Math.min(15,Math.max(0,t-5)*1.6):frame.key==='kingstreet.out'?12:0;g.position.x=-4+i*1.6+Math.sin(t*.75+i)*.35+(i%2?1:-1)*scatter*.6;g.position.z=-9-(i%3)-scatter;g.rotation.y=fleeing?(i%2?-.5:.5):Math.PI;poseActor(g,{time:t+i,pose:fleeing?'run':'listen'});});
   if(this.flashLight)this.flashLight.intensity=!frame.reduced&&frame.key==='kingstreet.in'&&frame.beat===1?Math.max(0,1-(frame.lineTime||0)/.25)*70:0;
+  if(this.powder){const shotAge=frame.beat===1?frame.lineTime||0:frame.beat>1?4:0;this.powder.material.opacity=frame.key==='kingstreet.in'&&frame.beat>0?.14*Math.min(1,shotAge*3)*Math.max(0,1-shotAge/9):0;this.powder.position.y=Math.min(1.6,shotAge*.18);this.powder.scale.setScalar(1+Math.min(6,shotAge)*.035);}
   if(this.boat){this.boat.position.y=Math.sin(t*.9)*.035;this.boat.rotation.z=Math.sin(t*.7)*.013;this.oars.forEach((o,i)=>{o.rotation.y=Math.sin(t*1.7)*.18*(i?1:-1);o.rotation.z=Math.sin(t*1.7+1)*.13*(i?1:-1);});}
   if(this.waterMesh){const a=this.waterMesh.geometry.attributes.position;for(let i=0;i<a.count;i++)a.setY(i,Math.sin(a.getX(i)*.33+t*.8)*.052+Math.cos(a.getZ(i)*.4+t*.65)*.04);a.needsUpdate=true;}
   if(this.wheel)this.wheel.rotation.z=t*1.6;if(this.shuttle)this.shuttle.position.x=Math.sin(t*3)*.28;if(this.pressLever)this.pressLever.rotation.y=Math.sin(t*.7)*.25;
