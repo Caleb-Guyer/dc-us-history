@@ -9,7 +9,8 @@ Free browser games for dual-credit U.S. History. No install, login, ads, or API 
 Play **Rowan Vale**, a printer’s apprentice turned courier. From the Proclamation Line to a blockaded Boston, Rowan’s crew and Loyalist brother are pulled apart by the same events that unite the colonies. An original fictional story carries the history through short spoken exchanges and actions.
 
 - **Seven missions:** a frontier escort with defensive combat, a covert print run, a workshop scramble, civilian rescue on King Street, a tea-ship heist, harbor relief runs, and a final dispatch extraction.
-- **A recurring cast of five**, with 81 prerecorded dialogue clips—about 6 minutes 37 seconds—and real-time 3D conversation scenes with changing camera shots, character animation, subtitles, pause, line advance and skip controls.
+- **A recurring cast of five**, with 81 prerecorded dialogue clips—about 6 minutes 37 seconds. Sixteen directed cutscenes use dedicated sets, articulated faces and hands, character blocking, object inserts, close-ups, reaction shots, camera movement, focus blur, and practical lighting.
+- **Scenes with action:** walk the frontier, enter the printshop, work at the loom, help the wounded, prepare the tea heist, row through the blockade, and save the dispatch from the fire. Dialogue has room for establishing shots and reactions, with timed sound effects. Pause, restart, advance, or skip a scene. **Missions → Story scenes** replays any cutscene without changing campaign progress.
 - **A clear HUD:** current objective, direction, health, and the action you can take nearby. Longer explanations live in an optional archive.
 - **Checkpoints:** each completed task saves your place. Restart from the last checkpoint after a failure or return later. Workshop deliveries and harbor relief runs also save.
 - **An original instrumental soundtrack**, separate music/voice/effects volume, automatic dialogue ducking, and pause handling.
@@ -63,6 +64,7 @@ GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root)
 - `c5-data.mjs`: cast, script, missions, reference terms and practice.
 - `c5-sim.mjs`: movement, stealth/combat, checkpoints, workshop and harbor rules.
 - `c5-world.mjs`, `c5-board.mjs`: 3D and 2D rendering.
+- `c5-cinema-plan.mjs`, `c5-cinema.mjs`, `c5-actors.mjs`: editorial timing, scene blocking, dedicated sets, camera coverage, articulated cast, and cinematic rendering. Narrow screens get adjusted framing; reduced-motion preferences remove camera drift, shake, grain, and the brief distant gunfire light.
 - `c5-voices.mjs`, `c5-voice-*.mp3`: Chapter 5 recordings.
 - `chapter4.html`, `action.mjs`, `missions.mjs`, `world.mjs`, `boards.mjs`: preserved Chapter 4 game.
 - `dialogue.mjs`, `music.mjs`, `score.mjs`: shared audio systems.

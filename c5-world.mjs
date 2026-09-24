@@ -1,5 +1,6 @@
 import * as T from './three.module.js';
 import {CAST} from './c5-data.mjs';
+import {CinemaDirector} from './c5-cinema.mjs?v=3.1';
 const lerp=(a,b,t)=>a+(b-a)*t;
 function texture(kind){
  const c=document.createElement('canvas');c.width=c.height=256;const p=c.getContext('2d');let seed=11;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
@@ -63,6 +64,7 @@ export class CampaignWorld{
   g.userData={limbs,arms,head,jaw,key};return g;
  }
  load(m,state){
+  if(this.film){this.film.dispose();this.film=null;}
   const geometries=new Set(),materials=new Set();this.scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(v=>materials.add(v));});geometries.forEach(g=>g.dispose());materials.forEach(v=>{if(v.map&&!Object.values(this.tex).includes(v.map))v.map.dispose();v.dispose();});
   this.scene.clear();this.camera.clear();this.scene.add(this.camera);this.m=m;this.fires=[];this.actors=[];this.enemyModels=[];this.objectModels=[];this.crowds=[];this.splinters=[];
   const night=['city','ship','fire','harbor'].includes(m.theme),fog=m.theme==='snow'?0x697c88:night?0x142832:0x6c8583;
@@ -123,14 +125,7 @@ export class CampaignWorld{
  }
  animatePerson(g,t,moving,talking=false){const u=g.userData;u.limbs?.forEach((p,i)=>p.rotation.x=moving?Math.sin(t*8+i*Math.PI)*.38:0);u.arms?.forEach((p,i)=>{p.rotation.x=moving?-Math.sin(t*8+i*Math.PI)*.2:talking?Math.sin(t*3+i)*.12:Math.sin(t+i)*.018;});if(u.head)u.head.rotation.y=Math.sin(t*.45)*.035;if(u.jaw)u.jaw.scale.y=talking?1+Math.abs(Math.sin(t*15))*3:1;}
  atmosphere(t,dt){this.fires.forEach((f,i)=>{f.scale.y=1+Math.sin(t*5+i)*.17;f.scale.x=1+Math.sin(t*8+i)*.1;});if(this.weather){const a=this.weather.geometry.attributes.position.array;for(let i=0;i<a.length;i+=3){a[i+1]+=dt*(this.m.theme==='fire'?1.8:-2.3);if(a[i+1]<0)a[i+1]=20;if(a[i+1]>21)a[i+1]=0;}this.weather.geometry.attributes.position.needsUpdate=true;}}
- cinematic(t,beat,speaker,dt){
-  this.actors.forEach(g=>{g.visible=true;g.position.copy(g.userData.stage);g.rotation.y=Math.PI;this.animatePerson(g,t,false,g.userData.key===speaker);});this.weapon.visible=false;this.marker.visible=false;this.enemyModels.forEach(g=>g.visible=false);this.objectModels.forEach(g=>g.visible=true);
-  const actor=this.actors.find(g=>g.userData.key===speaker)||this.actors[0],target=actor?.position||new T.Vector3(0,0,27);const shot=beat%3;
-  if(shot===0){this.camera.position.set(6-Math.sin(t*.09)*2,2.9,33);this.camera.lookAt(0,1.15,27);this.camera.fov=48;}
-  else if(shot===1){this.camera.position.set(target.x-1.8+Math.sin(t*.13)*.35,1.72,31.3);this.camera.lookAt(target.x,1.55,target.z);this.camera.fov=44;}
-  else{this.camera.position.set(-5+Math.sin(t*.11),2.1,29.9);this.camera.lookAt(target.x,1.35,target.z);this.camera.fov=50;}
-  this.camera.updateProjectionMatrix();this.atmosphere(t,dt);this.renderer.render(this.scene,this.camera);
- }
+ cinematic(frame,dt){this.film??=new CinemaDirector(this.renderer,this.tex);return this.film.render(frame,dt);}
  render(s,input,dt){
   const p=s.player,t=s.time;this.actors.forEach(g=>{const key=g.userData.key;g.visible=key!=='ROWAN';let spot;
    if(this.m.id==='line'&&key==='WARD')spot=[s.escort.x,s.escort.z];

@@ -1,11 +1,14 @@
 import {CHAPTER5,CAST,TERMS,PROLOGUE,EPILOGUE,quizDeck} from './c5-data.mjs';
 import {freshMission,freshBoard,tickField,tickBoard,snapshot,boardSnapshot,nearGoal,STATIONS,clamp,angleDelta} from './c5-sim.mjs?v=3.0.1';
-import {CampaignWorld} from './c5-world.mjs?v=3.0.1';
+import {CampaignWorld} from './c5-world.mjs?v=3.1';
 import {CampaignBoard} from './c5-board.mjs';
 import {DialogueDirector} from './dialogue.mjs';
 import {MusicDirector} from './music.mjs';
 import {SCORE} from './score.mjs';
 import {C5_VOICES} from './c5-voices.mjs';
+import {CINEMATICS,sceneKey,FilmClock} from './c5-cinema-plan.mjs?v=3.1';
+const voiceIndex=new Map(C5_VOICES.map(v=>[v.id,v]));
+let settleTime=0;
 const $=id=>document.getElementById(id),ui=$('ui'),view=$('scene3d'),canvas=$('scene2d');
 const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const button=(text,action,cls='primary',attrs='')=>`<button class="${cls}" data-action="${action}" ${attrs}>${text}</button>`;
@@ -32,13 +35,38 @@ function hideGame(){resetInputs();$('hud').hidden=true;$('cinema').hidden=true;v
 function shell(content,narrow=false){ui.innerHTML=`<section class="panel"><div class="panel-inner ${narrow?'narrow':''}">${content}</div></section>`;}
 function home(){hideGame();setState('menu');music.select('menu');music.resume();ui.innerHTML=`<section class="menu"><header class="topline"><a class="brand" href="./">DC <i>/</i> US HISTORY</a><nav class="nav">${button('CHAPTERS','chapters','ghost')}${button('SETTINGS','settings','ghost')}</nav></header><div class="hero"><p class="overline">Chapter 05 · 1763–1774</p><h1>THE LAST<br><span>DISPATCH</span></h1><p class="lede">A printer. A divided family.<br>A city on the edge of revolution.<br>Carry the story out.</p><div class="row">${button(saved.started&&!saved.finished?'Continue story →':'Begin story →','campaign')}${button('Missions','missions','secondary')}</div><div class="moodline"><span>7 PLAYABLE MISSIONS</span><span>A VOICED STORY</span><span>ONE CREW</span></div>${!storageOK?'<p class="save-warning">Saving is unavailable in this browser.</p>':''}</div><footer class="menu-foot"><span>A FICTIONAL STORY THROUGH REAL HISTORY</span><div class="row">${button('Dispatch archive','archive','ghost')}${button('5-term practice','quiz','ghost')}</div></footer></section>`;}
 function chapters(){hideGame();setState('chapters');music.select('menu');music.resume();shell(`<p class="overline">DC / US History</p><h1>Choose your chapter.</h1><div class="chapter-grid"><a class="chapter-card" href="chapter4.html"><div><p class="overline">Chapter 04 · 1676–1763</p><h2>Crown & Current</h2><p>Seven missions through the making of an empire.</p><span>Play Chapter 4 →</span></div></a><button class="chapter-card" data-action="home"><div><p class="overline">Chapter 05 · 1763–1774</p><h2>The Last Dispatch</h2><p>A courier crew on the road to revolution.</p><span>Play Chapter 5 →</span></div></button></div>${button('Back','home','ghost')}`);}
-function missions(){hideGame();setState('missions');music.select('menu');music.resume();shell(`<p class="overline">The Last Dispatch</p><h1>Every road leads here.</h1><p class="muted">Play the story in order, or revisit any mission.</p><div class="mission-list">${CHAPTER5.map((m,i)=>button(`<b>${String(i+1).padStart(2,'0')}</b><span><strong>${esc(m.title)}</strong><small>${esc(m.year)} · ${m.genre}</small></span>`,'mission','mission-card '+(saved.completed.includes(m.id)?'complete':''),`data-index="${i}"`)).join('')}</div>${button('Back','home','ghost')}`);}
+function missions(){hideGame();setState('missions');music.select('menu');music.resume();shell(`<p class="overline">The Last Dispatch</p><h1>Every road leads here.</h1><p class="muted">Play the story in order, or revisit any mission.</p><div class="mission-list">${CHAPTER5.map((m,i)=>button(`<b>${String(i+1).padStart(2,'0')}</b><span><strong>${esc(m.title)}</strong><small>${esc(m.year)} · ${m.genre}</small></span>`,'mission','mission-card '+(saved.completed.includes(m.id)?'complete':''),`data-index="${i}"`)).join('')}</div><div class="row">${button('Back','home','ghost')}${button('Story scenes','scenes','ghost')}</div>`);}
 function ensureWorld(m,s){try{world??=new CampaignWorld(view);world.load(m,s);world.resize();worldError=false;return true;}catch(error){worldError=true;console.warn('3D renderer unavailable',error);return false;}}
+function scenes(){
+ hideGame();setState('scenes');music.select('menu');music.resume();shell(`<p class="overline">The Last Dispatch · screening room</p><h1>The story, in scenes.</h1><p class="muted">Replay any scene. Includes endings. Your campaign progress stays saved.</p><div class="mission-list">${Object.entries(CINEMATICS).map(([key,s],i)=>button(`<b>${String(i+1).padStart(2,'0')}</b><span><strong>${esc(s.title)}</strong><small>${key==='prologue'?'OPENING':key==='epilogue'?'EPILOGUE':key.endsWith('.in')?'MISSION '+(s.mission+1)+' · BEFORE':'MISSION '+(s.mission+1)+' · AFTER'}</small></span>`,'scene','mission-card',`data-scene="${key}"`)).join('')}</div>${button('Back','missions','ghost')}`);
+}
+function playScene(key){
+ const spec=CINEMATICS[key];if(!spec)return;index=spec.mission;const m=CHAPTER5[index];ensureWorld(m,freshMission(index));music.select(key==='prologue'?'debt':key==='epilogue'?'menu':m.music);configure();
+ const ids=C5_VOICES.filter(v=>sceneKey(v.id)===key&&(v.id.startsWith('prologue')||v.id.startsWith('epilogue')||/\.(in|out)\d+$/.test(v.id))).map(v=>v.id);
+ cinema(ids,scenes,{title:spec.title,year:key==='epilogue'?'PHILADELPHIA · 1774':m.place.toUpperCase()+' · '+m.year});
+}
 function cinema(ids,after,{title=CHAPTER5[index].title,year=CHAPTER5[index].place+' · '+CHAPTER5[index].year}={}){
  dialogue.stop();resetInputs();setState('cut');$('hud').hidden=true;$('cinema').hidden=false;canvas.style.display='none';view.style.display=world&&!worldError?'block':'none';ui.innerHTML='';
- $('film-title').textContent=title;$('film-year').textContent=year;movie={ids,at:0,after,started:false,time:0};music.resume();nextBeat(false);
+ $('film-title').textContent=title;$('film-year').textContent=year;movie=new FilmClock(ids);movie.after=after;music.resume();nextBeat(false);
 }
-function nextBeat(advance=true){if(!movie)return;if(advance){dialogue.stop();movie.at++;}if(movie.at>=movie.ids.length){const done=movie.after;movie=null;$('cinema').hidden=true;done();return;}movie.started=true;movie.wait=0;cue(movie.ids[movie.at]);$('film-progress').innerHTML=movie.ids.map((_,i)=>`<i class="${i<=movie.at?'active':''}"></i>`).join('');}
+function nextBeat(advance=true){
+ if(!movie)return;if(advance){dialogue.stop();movie.advance();}
+ if(movie.at>=movie.ids.length){const done=movie.after;movie=null;$('cinema').hidden=true;done();return;}
+ $('film-progress').innerHTML=movie.ids.map((_,i)=>`<i class="${i<=movie.at?'active':''}"></i>`).join('');
+}
+function filmFrame(clock,dt){
+ const line=voiceIndex.get(clock.ids[clock.at]);if(!line)return;
+ $('cinema').classList.toggle('show-title',clock.at===0&&clock.time<3.2);
+ if(worldError)return;
+ const result=world?.cinematic({key:sceneKey(clock.ids[0]),beat:clock.at,time:clock.time,lineTime:clock.lineTime,duration:line.duration,speaker:line.speaker,speaking:clock.started&&dialogue.current?.line.id===line.id&&dialogue.current.state!=='loading',reduced},dt);
+ view.dataset.scene=sceneKey(clock.ids[0]);view.dataset.shot=result?.shot||'';view.dataset.beat=String(clock.at);view.dataset.renderMs=(result?.renderMs||0).toFixed(1);
+}
+function filmSound(id){
+ const key=sceneKey(id),beat=Number(id.match(/(\d+)$/)?.[1]||0);let type=null;
+ if(key==='kingstreet.in'&&beat===1)type='distant-shot';else if(key.startsWith('harbor'))type='water';else if((key==='prologue'||key==='dispatch.in')&&beat===0)type='fire';else if(key.startsWith('ink')||key==='epilogue')type='paper';else if(key==='homespun.in')type='wood';
+ if(!type||!saved.sound)return;
+ try{if(!audio){audio=new(window.AudioContext||window.webkitAudioContext)();fxBus=audio.createGain();fxBus.connect(audio.destination);mixFX();}audio.resume();const length=type==='fire'?1.3:type==='water'?1.1:type==='distant-shot'?.8:.28,buf=audio.createBuffer(1,Math.ceil(audio.sampleRate*length),audio.sampleRate),d=buf.getChannelData(0);for(let i=0;i<d.length;i++){const p=i/d.length;d[i]=(Math.random()*2-1)*Math.pow(1-p,2)*(type==='paper'?.13:type==='water'?.22:type==='fire'?.18:.40);if(type==='wood')d[i]+=Math.sin(i*.06)*Math.exp(-p*14)*.3;}const src=audio.createBufferSource(),filter=audio.createBiquadFilter();src.buffer=buf;filter.type=type==='paper'?'highpass':'lowpass';filter.frequency.value=type==='distant-shot'?440:type==='water'?380:1200;src.connect(filter);filter.connect(fxBus);src.start();}catch{}
+}
 function skipScene(){if(state==='settle'){dialogue.stop();outro();return;}if(!movie)return;const done=movie.after;movie=null;dialogue.stop();$('cinema').hidden=true;done();}
 function campaign(){
  if(saved.started&&!saved.finished){launch(saved.mission,!!saved.checkpoint);return;}
@@ -71,7 +99,7 @@ function events(){
  }
 }
 function finish(){
- if(!saved.completed.includes(CHAPTER5[index].id))saved.completed.push(CHAPTER5[index].id);saved.checkpoint=null;if(index<6)saved.mission=index+1;save();resetInputs();setState('settle');$('hud').hidden=true;$('cinema').hidden=false;canvas.style.display='none';view.style.display=worldError?'none':'block';$('film-title').textContent=CHAPTER5[index].title;$('film-year').textContent='DISPATCH COMPLETE';$('film-progress').innerHTML='';music.select(index===6?'debt':'menu');
+ if(!saved.completed.includes(CHAPTER5[index].id))saved.completed.push(CHAPTER5[index].id);saved.checkpoint=null;if(index<6)saved.mission=index+1;save();resetInputs();settleTime=0;setState('settle');$('hud').hidden=true;$('cinema').hidden=false;canvas.style.display='none';view.style.display=worldError?'none':'block';$('film-title').textContent=CHAPTER5[index].title;$('film-year').textContent='DISPATCH COMPLETE';$('film-progress').innerHTML='';music.select(index===6?'debt':'menu');
 }
 function outro(){cinema(CHAPTER5[index].outro.map((_,i)=>CHAPTER5[index].id+'.out'+i),()=>{
  if(index===6){music.select('menu');cinema(EPILOGUE.map((_,i)=>'epilogue.'+i),ending,{title:'The road ahead',year:'PHILADELPHIA · 1774'});}
@@ -105,8 +133,8 @@ function startQuiz(all=false){hideGame();setState('quiz');music.select('menu');m
 function renderQuiz(){const q=quiz.deck[quiz.at],answer=quiz.answers[quiz.at],term=TERMS.find(t=>t.id===q.id);shell(`<div class="row" style="justify-content:space-between"><p class="overline" style="margin:0">Chapter 5 · ${quiz.at+1} / ${quiz.deck.length}</p>${button('Exit','home','ghost')}</div><h2 class="quiz-question">${esc(q.question)}</h2>${q.options.map((o,i)=>button(`<b>${'ABCD'[i]}</b>${esc(o.text)}`,'answer','answer '+(answer!==undefined&&o.id===q.id?'correct':answer===o.id?'wrong':''),`data-answer="${o.id}" ${answer!==undefined?'disabled':''}`)).join('')}${answer!==undefined?`<div class="feedback">${esc(term.definition)}<p class="small muted" style="margin:9px 0 0">${esc(term.memory)}</p></div>${button(quiz.at===quiz.deck.length-1?'See results →':'Next →','quiz-next')}`:'<p class="muted small" style="margin-top:25px">Chapter 5 key terms only. Your Chapter 1–5 test also includes earlier material.</p>'}`,true);}
 function quizResults(){const missed=quiz.deck.filter((q,i)=>q.id!==quiz.answers[i]),score=quiz.deck.length-missed.length;if(quiz.deck.length===5){saved.bestQuiz=Math.max(saved.bestQuiz,score);save();}shell(`<p class="overline">Dispatch received</p><div class="end-stat">${score} / ${quiz.deck.length}</div><div class="row">${button('Another five →','quiz')}${button('All 15 terms','all-terms','secondary')}${button('Play the story','home','ghost')}</div>${missed.length?'<h2 style="margin-top:35px;font-size:32px">Revisit these dispatches.</h2>':'<p class="muted" style="margin-top:25px">Every dispatch connected.</p>'}${missed.map(q=>{const t=TERMS.find(t=>t.id===q.id);return `<div class="review"><strong>${esc(t.term)}</strong><p>${esc(t.definition)}</p>${esc(t.memory)}</div>`;}).join('')}`,true);}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b||b.disabled)return;const a=b.dataset.action;
- if(a==='home')home();if(a==='chapters')chapters();if(a==='campaign')campaign();if(a==='missions')missions();if(a==='mission')launch(Number(b.dataset.index));if(a==='enter')beginPlay();if(a==='replay-intro')launch(index);if(a==='next-mission')launch(index+1);if(a==='next-line'&&state==='cut')nextBeat();if(a==='skip-scene'&&['cut','settle'].includes(state))skipScene();if(a==='pause-cut')pause();if(a==='resume')resume();
- if(a==='retry'){if(pausedFrom==='cut'&&state==='paused'&&movie){dialogue.stop();movie.at=0;movie.time=0;resume();nextBeat(false);}else launch(index,!!saved.checkpoint,true);}if(a==='story'){saved.difficulty='story';save();launch(index,!!saved.checkpoint,true);}
+ if(a==='scenes')scenes();if(a==='scene')playScene(b.dataset.scene);if(a==='home')home();if(a==='chapters')chapters();if(a==='campaign')campaign();if(a==='missions')missions();if(a==='mission')launch(Number(b.dataset.index));if(a==='enter')beginPlay();if(a==='replay-intro')launch(index);if(a==='next-mission')launch(index+1);if(a==='next-line'&&state==='cut')nextBeat();if(a==='skip-scene'&&['cut','settle'].includes(state))skipScene();if(a==='pause-cut')pause();if(a==='resume')resume();
+ if(a==='retry'){if(pausedFrom==='cut'&&state==='paused'&&movie){dialogue.stop();movie.restart();resume();nextBeat(false);}else launch(index,!!saved.checkpoint,true);}if(a==='story'){saved.difficulty='story';save();launch(index,!!saved.checkpoint,true);}
  if(a==='settings')settings();if(a==='toggle'){saved[b.dataset.setting]=!saved[b.dataset.setting];save();configure();settings();music.unlock();}if(a==='settings-back'){if(previewBefore){dialogue.stop();if(previewBefore.id)cue(previewBefore.id);dialogue.pause();previewBefore=null;}if(settingsBack==='paused'){setState(pausedFrom);pause();}else home();}if(a==='test-voice'){if(!previewBefore)previewBefore={id:settingsBack==='paused'?dialogue.current?.line.id:null};dialogue.stop();cue('prologue.1');}if(a==='stop-voice'&&previewBefore)dialogue.stop();
  if(a==='archive')archive();if(a==='archive-tab'){archiveTab=b.dataset.tab;archive();}if(a==='archive-back'){if(settingsBack==='paused'){setState(pausedFrom);pause();}else home();}if(a==='quiz')startQuiz();if(a==='all-terms')startQuiz(true);if(a==='answer'&&quiz.answers[quiz.at]===undefined){quiz.answers[quiz.at]=b.dataset.answer;renderQuiz();}if(a==='quiz-next'){if(quiz.at===quiz.deck.length-1)quizResults();else{quiz.at++;renderQuiz();}}
 });
@@ -129,9 +157,13 @@ document.addEventListener('pointerlockchange',()=>{if(document.pointerLockElemen
 document.addEventListener('visibilitychange',()=>{music.setHidden(document.hidden);if(document.hidden){if(['playing','cut','settle'].includes(state))pause();else dialogue.pause();}else if(!['paused','settings','archive'].includes(state))dialogue.resume();});
 window.addEventListener('pagehide',()=>{dialogue.stop();music.stop();});window.addEventListener('blur',()=>{keys={};fire=false;});window.addEventListener('resize',()=>{world?.resize();board.resize();});
 for(const type of ['pointerdown','keydown','click'])document.addEventListener(type,()=>music.unlock(),{capture:true});
-function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-last)/1000);last=now;dialogue.update(dt);
- if(state==='cut'&&movie){movie.time+=dt;movie.wait+=dt;if(!worldError)world?.cinematic(reduced?0:movie.time,movie.at,dialogue.current?.line.speaker,dt);if(movie.wait>.3&&!dialogue.current&&!dialogue.queue.length)nextBeat();}
- else if(state==='settle'){if(!worldError)world?.cinematic(model.time,0,dialogue.current?.line.speaker,dt);if(!dialogue.current&&!dialogue.queue.length)outro();}
+function frame(now){requestAnimationFrame(frame);const elapsed=Math.min(2,(now-last)/1000),dt=Math.min(.05,elapsed);last=now;dialogue.update(state==='cut'?elapsed:dt);
+ if(state==='cut'&&movie){
+  const current=dialogue.current,active=current&&current.line.id===movie.ids[movie.at]?{time:current.state==='playing'?$('dialogue-audio').currentTime:current.elapsed}:null;
+  const event=movie.tick(elapsed,active);if(event==='cue'){cue(movie.ids[movie.at]);filmSound(movie.ids[movie.at]);}else if(event==='advance'){nextBeat();}
+  if(movie)filmFrame(movie,dt);
+ }
+ else if(state==='settle'){settleTime+=dt;$('cinema').classList.remove('show-title');if(!worldError)world?.cinematic({key:CHAPTER5[index].id+'.out',time:settleTime,beat:0,lineTime:settleTime,duration:20,speaker:dialogue.current?.line.speaker,speaking:!!dialogue.current,reduced},dt);if(!dialogue.current&&!dialogue.queue.length)outro();}
  else if(state==='playing'&&model){const inp=input(),flat=['workshop','boat'].includes(model.mission.mode);if(flat)tickBoard(model,inp,dt);else tickField(model,inp,dt);events();if(flat)board.draw(model);else world.render(model,inp,dt);if(model.time-lastHUD>.08){updateHUD();lastHUD=model.time;}if(!hinted&&model.time>17){hinted=true;cue(model.mission.id+'.hint',{priority:0,ttl:5});}if(model.done)finish();else if(model.failed)fail();}
 }
 configure();home();requestAnimationFrame(frame);

@@ -1,12 +1,12 @@
 {
   "name": "dc-us-history",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "description": "Free browser story campaigns for dual-credit US History, Chapters 4 and 5.",
   "scripts": {
     "start": "node serve.mjs",
-    "test": "node --test content.test.cjs gameplay.test.mjs dialogue.test.mjs music.test.mjs c5.test.mjs",
-    "check": "node --check content.js && node --check engine.js && node --check action.mjs && node --check missions.mjs && node --check boards.mjs && node --check world.mjs && node --check dialogue.mjs && node --check voice-lines.mjs && node --check music.mjs && node --check score.mjs && node --check c5.mjs && node --check c5-data.mjs && node --check c5-sim.mjs && node --check c5-world.mjs && node --check c5-board.mjs && node --check c5-voices.mjs"
+    "test": "node --test content.test.cjs gameplay.test.mjs dialogue.test.mjs music.test.mjs c5.test.mjs c5-cinema.test.mjs",
+    "check": "node --check content.js && node --check engine.js && node --check action.mjs && node --check missions.mjs && node --check boards.mjs && node --check world.mjs && node --check dialogue.mjs && node --check voice-lines.mjs && node --check music.mjs && node --check score.mjs && node --check c5.mjs && node --check c5-data.mjs && node --check c5-sim.mjs && node --check c5-world.mjs && node --check c5-board.mjs && node --check c5-voices.mjs && node --check c5-cinema.mjs && node --check c5-actors.mjs && node --check c5-cinema-plan.mjs"
   },
   "license": "MIT"
 }
