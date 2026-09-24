@@ -18,7 +18,7 @@ export function freshMission(index,difficulty='normal',checkpoint=null){
   s.stage=checkpoint.stage;s.carrying=!!checkpoint.carrying;s.player.x=clamp(Number(checkpoint.x)||0,-25,25);s.player.z=clamp(Number(checkpoint.z)||0,-40,35);s.kills=checkpoint.kills||0;
   s.enemies.forEach((e,i)=>{if(checkpoint.defeated?.includes(i))e.hp=0;});
  }
- s.trail=[];s.escort={x:s.player.x+1.2,z:s.player.z,y:0,yaw:0};return s;
+ s.trail=[];s.escort={x:s.player.x+3,z:s.player.z+3,y:0,yaw:0,moving:false};return s;
 }
 export function snapshot(s){return {index:s.index,stage:s.stage,x:s.player.x,z:s.player.z,carrying:s.carrying,kills:s.kills,defeated:s.enemies.flatMap((e,i)=>e.hp<=0?[i]:[])};}
 export function primary(s){
@@ -43,7 +43,7 @@ export function tickField(s,input,dt){
  if(input.jump&&p.y===0&&!s.carrying)p.vy=7.7;
  if(p.y>0||p.vy>0){p.vy-=18*dt;p.y=Math.max(0,p.y+p.vy*dt);if(!p.y)p.vy=0;}
  // Ward follows the route the player actually cleared, including vaults.
- if(m.id==='line'){s.trail.push({x:p.x,z:p.z,y:p.y,yaw:p.yaw,time:s.time});while(s.trail.length>1&&s.trail[1].time<s.time-1.5)s.trail.shift();const target=s.trail[0];s.escort.x+=(target.x-s.escort.x)*Math.min(1,dt*7);s.escort.z+=(target.z-s.escort.z)*Math.min(1,dt*7);s.escort.y=target.y;s.escort.yaw=target.yaw;}
+ if(m.id==='line'){s.trail.push({x:p.x,z:p.z,y:p.y,yaw:p.yaw,time:s.time});while(s.trail.length>1&&s.trail[1].time<s.time-1.5)s.trail.shift();const target=s.trail[0],gap=dist(s.escort,p),travel=Math.min(dist(s.escort,target),Math.max(0,gap-3),dt*6),length=dist(s.escort,target)||1;s.escort.x+=(target.x-s.escort.x)/length*travel;s.escort.z+=(target.z-s.escort.z)/length*travel;s.escort.moving=travel>.001;if(s.escort.moving){s.escort.y=target.y;s.escort.yaw=target.yaw;}}
  for(const [i,e]of s.enemies.entries()){
   if(e.hp<=0){e.dead+=dt;continue;}e.cool-=dt;
   const d=dist(p,e),los=d<28&&lineClear(p,e,s.walls),facing=Math.atan2(-(p.x-e.x),-(p.z-e.z));

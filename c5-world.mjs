@@ -138,7 +138,7 @@ export class CampaignWorld{
    if(this.m.id==='kingstreet')spot=key==='MARA'?[3,29]:[-3,27];
    if(this.m.id==='tea')spot=key==='ISAIAH'?[-3,20]:s.stage>=4?[3,25]:null;
    if(this.m.id==='dispatch')spot=key==='WARD'?[-12,-12]:key==='THOMAS'?[9,-35]:s.stage>=2?[12,5]:null;
-   if(spot&&key!=='ROWAN'){g.position.set(spot[0],this.m.id==='line'?s.escort.y:0,spot[1]);g.rotation.y=this.m.id==='line'?s.escort.yaw:Math.atan2(-(p.x-spot[0]),-(p.z-spot[1]));this.animatePerson(g,t,this.m.id==='line'&&Math.hypot(p.x-g.position.x,p.z-g.position.z)>1.5);}else g.visible=false;
+   if(spot&&key!=='ROWAN'){g.position.set(spot[0],this.m.id==='line'?s.escort.y:0,spot[1]);g.visible=Math.hypot(p.x-spot[0],p.z-spot[1])>1.1;g.rotation.y=this.m.id==='line'?s.escort.yaw:Math.atan2(-(p.x-spot[0]),-(p.z-spot[1]));this.animatePerson(g,t,this.m.id==='line'&&s.escort.moving);}else g.visible=false;
   });this.weapon.visible=true;
   const moving=input.forward||input.back||input.left||input.right,bob=moving?Math.sin(t*(input.sprint?14:9))*.033:0;
   this.camera.position.set(p.x,1.74+p.y-(input.crouch?.55:0)+bob,p.z);this.camera.rotation.set(p.pitch+(s.shot>0?s.shot*.08:0),p.yaw,moving&&input.sprint?Math.sin(t*7)*.008:0);

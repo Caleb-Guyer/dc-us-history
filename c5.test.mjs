@@ -5,6 +5,13 @@ import {CHAPTER5,TERMS,scriptLines,quizDeck} from './c5-data.mjs';
 import {freshMission,freshBoard,tickField,tickBoard,primary,nearGoal,blocked,STATIONS,snapshot,boardSnapshot} from './c5-sim.mjs';
 import {C5_VOICES} from './c5-voices.mjs';
 function hold(s,duration=3){for(let i=0;i<duration*20;i++)tickField(s,{interact:true},.05);}
+test('Ward follows the route without walking into a stationary player camera',()=>{
+ const s=freshMission(0);s.enemies=[];s.walls=[];
+ for(let i=0;i<80;i++)tickField(s,{forward:true},.05);
+ const before=s.escort.z;
+ for(let i=0;i<140;i++){tickField(s,{},.05);assert.ok(Math.hypot(s.player.x-s.escort.x,s.player.z-s.escort.z)>=2.99);}
+ assert.ok(s.escort.z<before,'the companion catches up along the route');assert.equal(s.escort.moving,false);
+});
 test('all fifteen supplied terms occur on the playable path, with the punitive acts distinguished',()=>{
  assert.equal(TERMS.length,15);const unlocked=new Set();for(const m of CHAPTER5){m.goals.forEach(g=>g.terms.forEach(t=>unlocked.add(t)));(m.workshopLines||m.boatLines||[]).forEach(l=>l[2].forEach(t=>unlocked.add(t)));}
  assert.deepEqual([...unlocked].sort(),TERMS.map(t=>t.id).sort());
