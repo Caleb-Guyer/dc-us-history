@@ -1,8 +1,22 @@
 # DC US History
 
-**[Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/)** · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
+**[Play The Long Road Home — Chapter 6 opening](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
 
 Free browser games for dual-credit U.S. History. No install, login, ads, or API keys. The repository was renamed from `crown-and-current` to `dc-us-history`; use the new GitHub Pages address above.
+
+## Chapter 6: The Long Road Home — Part I
+
+The first playable installment follows Ward’s release, a night warning route, civilian rescue at Lexington, and a fictional wagon defense during the British retreat from Concord. It is the campaign opening; the remaining Chapter 6 missions are planned for later installments.
+
+- Six real-time story scenes with the recurring crew, 49 prerecorded voice performances, and four original score arrangements.
+- Four connected playable sections: support Ward, warn the countryside while avoiding patrols, carry wounded people to Mara, then use a flintlock and stone cover to protect the wagon’s crossing.
+- One-round loading, deliberate manual reload, crouching cover, three enemy waves, and a defense that cannot complete by abandoning the wagon.
+- A restrained HUD, separate voice/music/effects controls, larger captions, reduced camera motion, Story difficulty, keyboard-only looking, and touch controls.
+- Independent Chapter 6 checkpoints, scene replay without changing the campaign save, and caption fallback if voice playback is unavailable.
+
+**Controls:** WASD move; mouse or arrows look; E interacts; C crouches; Shift sprints; Space jumps; F or click fires; R reloads; Q or right mouse aims; V toggles walking forward; P/Escape pauses. A short tap of E starts an interaction. Move away to cancel. Click the world to capture the mouse. Touch uses on-screen buttons and a swipe to look.
+
+Historical scope, fictional events, and references are documented in [C6-SOURCES.md](C6-SOURCES.md). [C6-CREDITS.md](C6-CREDITS.md) records voice, music, and visual production. The game downloads assets as needed and requires no install, account, microphone, or paid API.
 
 ## Chapter 5: The Last Dispatch
 
@@ -55,13 +69,15 @@ npm run check
 
 Open the printed localhost URL. Use a local server or GitHub Pages; ES modules do not work by double-clicking an HTML file. `PORT` changes the development port.
 
-Tests cover both chapters: quiz composition and key-term coverage, physical navigation, shooting and cover, civilian rescue checkpoints, complete workshop and harbor simulations, packaged dialogue, and music/voice lifecycle behavior. Browser checks also verify presentation, scenes, mission entry, audio, pause/settings, and practice navigation.
+Tests cover the three chapter builds: quiz composition and key-term coverage, physical navigation, shooting and cover, civilian rescue checkpoints, complete workshop and harbor simulations, packaged dialogue, and music/voice lifecycle behavior. Browser checks also verify presentation, scenes, mission entry, audio, pause/settings, and practice navigation.
 
 GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root)**. All asset and module paths are relative. All game dependencies and media are hosted in the repository; Google Fonts is optional with local font fallbacks.
 
 ## Source map
 
-- `index.html`, `chapter5.html`, `c5.css`, `c5.mjs`: Chapter 5 presentation and campaign control.
+- `index.html`, `chapter6.html`, `c6.css`, `c6.mjs`: Chapter 6 opening presentation and campaign control.
+- `c6-data.mjs`, `c6-sim.mjs`, `c6-world.mjs`, `c6-voices.mjs`, `c6-score.mjs`: opening story, simulation, rendering, and media.
+- `chapter5.html`, `c5.css`, `c5.mjs`: Chapter 5 presentation and campaign control.
 - `c5-data.mjs`: cast, script, missions, reference terms and practice.
 - `c5-sim.mjs`: movement, stealth/combat, checkpoints, workshop and harbor rules.
 - `c5-world.mjs`, `c5-board.mjs`: 3D and 2D rendering.
