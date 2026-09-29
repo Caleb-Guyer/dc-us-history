@@ -1,8 +1,8 @@
-import {SAVE_KEY,VERSION,LEVELS,SCENES,FACTS,NAMES} from './c6-data.mjs?v=4.0.4';
-import {fresh,restore,snapshot,tick,currentGoal,goalNear,clamp,angle,distance} from './c6-sim.mjs?v=4.0.4';
-import {OpeningWorld} from './c6-world.mjs?v=4.0.4';
-import {C6_VOICES} from './c6-voices.mjs?v=4.0.4';
-import {C6_SCORE} from './c6-score.mjs?v=4.0.4';
+import {SAVE_KEY,VERSION,LEVELS,SCENES,FACTS,NAMES} from './c6-data.mjs?v=4.0.5';
+import {fresh,restore,snapshot,tick,currentGoal,goalNear,clamp,angle,distance} from './c6-sim.mjs?v=4.0.5';
+import {OpeningWorld} from './c6-world.mjs?v=4.0.5';
+import {C6_VOICES} from './c6-voices.mjs?v=4.0.5';
+import {C6_SCORE} from './c6-score.mjs?v=4.0.5';
 import {DialogueDirector} from './dialogue.mjs';
 import {MusicDirector} from './music.mjs';
 const $=id=>document.getElementById(id),ui=$('ui'),canvas=$('world'),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

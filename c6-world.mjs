@@ -148,7 +148,7 @@ export class OpeningWorld{
    this.setActor('THOMAS',1.7,-3,Math.PI,beat===0?'read':'listen',time,speaking&&beat===0);
    this.setActor('WARD',0,beat<2?mix(-5,2,smooth((beat+time*.10)/2)):2,Math.PI,beat<2?'walk':'listen',time,speaking&&(beat===2||beat===4));
    this.setActor('ROWAN',-.8,4,0,beat===3?'reach':'listen',time,speaking&&(beat===1||beat===3));
-   const shots=[[[5,2,-.7],[1.3,1.4,-3]],[[2,1.75,6],[0,1.4,-1]],[[1.05,1.68,3.9],[0,1.52,2]],[[1,1.8,.8],[-.8,1.6,4]],[[.8,1.67,4.4],[0,1.5,2]]];[from,to]=shots[Math.min(beat,4)];
+   const shots=[[[2.9,2.05,1.8],[1.3,1.4,-3]],[[2,1.75,6],[0,1.4,-1]],[[1.05,1.68,3.9],[0,1.52,2]],[[1,1.8,.8],[-.8,1.6,4]],[[.8,1.67,4.4],[0,1.5,2]]];[from,to]=shots[Math.min(beat,4)];
   }else if(key==='gate'){
    this.setActor('WARD',6.7,9.4,Math.PI*.9,'listen',time,speaking&&(beat===1||beat===6));const mara=this.setActor('MARA',6.25,10.15,.05,beat===0?'work':'listen',time,speaking&&beat===0);
    this.setActor('ISAIAH',10,8,Math.PI*.85,'listen',time,speaking&&beat===2);this.setActor('ROWAN',4,7,-Math.PI*.6,'listen',time,speaking&&beat===4);this.setActor('THOMAS',1.5,3,Math.PI*.9,'paper',time,speaking&&(beat===3||beat===5));this.door.rotation.y=-1.3;
