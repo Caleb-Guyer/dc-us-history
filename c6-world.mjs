@@ -1,8 +1,8 @@
 import * as T from './three.module.js';
 import {makeActor,poseActor,disposeTree} from './c5-actors.mjs?v=3.2';
-import {BLOCKS,currentGoal} from './c6-sim.mjs?v=4.1.0';
-import {cameraShot} from './c6-director.mjs?v=4.1.0';
-import {dressWorld} from './c6-scenery.mjs?v=4.1.0';
+import {BLOCKS,currentGoal} from './c6-sim.mjs?v=4.1.1';
+import {cameraShot} from './c6-director.mjs?v=4.1.1';
+import {dressWorld} from './c6-scenery.mjs?v=4.1.1';
 const V=(x,y,z)=>new T.Vector3(x,y,z),mix=(a,b,t)=>a+(b-a)*t;
 const smooth=t=>(t=Math.max(0,Math.min(1,t)))*t*(3-2*t);
 const rand=n=>{const x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x);};
@@ -153,7 +153,7 @@ export class OpeningWorld{
   }
   while(this.enemies.length<s.enemies.length)this.enemies.push(this.soldier(true));
   this.enemies.forEach((a,i)=>{const e=s.enemies[i];if(!e){a.visible=false;return;}a.visible=e.hp>0||e.dead<15;a.position.set(e.x,e.hp<=0?.08:0,e.z);a.rotation.set(0,e.yaw,e.hp<=0?Math.min(1.5,e.dead*4):0);a.userData.legs.forEach((leg,j)=>leg.rotation.x=e.moving?Math.sin(t*8+j*Math.PI)*.4:0);a.userData.arms.forEach(arm=>arm.rotation.x=e.aiming?1.05:.2);a.userData.gun.rotation.x=e.aiming?0:-.23;a.userData.flash.visible=e.fired>0;if(a.userData.cone)a.userData.cone.material.opacity=e.alert>.5?.09:.045;if(e.patrol&&!a.userData.lantern){const l=this.lantern(0,0,0,false);a.add(l);l.position.set(-.35,1.3,-.2);a.userData.lantern=l;const cone=this.mesh(new T.ConeGeometry(4.4,9,24,1,true),new T.MeshBasicMaterial({color:0xe4c690,transparent:true,opacity:.045,side:T.DoubleSide,depthWrite:false}),0,.65,-4.5,a);cone.rotation.x=-Math.PI/2;a.userData.cone=cone;}});
-  this.camera.position.set(p.x,p.y+(input.crouch?1.02:1.7)+(moving&&!reduced?Math.sin(t*(input.sprint?12:8))*.025:0),p.z);this.camera.rotation.set(-p.pitch,p.yaw,!reduced&&s.shot>0?s.shot*.035:0);
+  this.camera.position.set(p.x,p.y+(input.crouch?1.02:1.7)+(moving&&!reduced?Math.sin(t*(input.sprint?12:8))*.025:0),p.z);this.camera.rotation.set(p.pitch,p.yaw,!reduced&&s.shot>0?s.shot*.035:0);
   this.camera.fov=mix(this.camera.fov,input.aim&&s.armed?48:input.sprint&&moving?78:70,Math.min(1,dt*10));this.camera.updateProjectionMatrix();
   this.weapon.visible=s.armed;this.weapon.position.set(input.aim?-.19:0,s.reload>0?-.22*Math.sin(s.reload/4.2*Math.PI):0,s.shot*.18);const reloadPhase=s.reload/4.2;this.weapon.rotation.z=s.reload>0?-.65*Math.sin(reloadPhase*Math.PI):moving&&!reduced?Math.sin(t*7)*.012:0;this.weapon.rotation.x=s.reload>0?.45*Math.sin(reloadPhase*Math.PI):s.shot*.12;this.weapon.position.y+=moving&&!reduced?Math.sin(t*8)*.014:0;this.flash.visible=s.shot>.2;
   const goal=currentGoal(s);this.marker.visible=!!goal&&!(s.level==='concord'&&s.stage===1);if(goal)this.marker.position.set(goal.x,.065,goal.z);

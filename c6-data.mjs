@@ -1,5 +1,5 @@
 // Chapter 6, opening installment. Original crew fiction within sourced events.
-export const VERSION='4.1.0';
+export const VERSION='4.1.1';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
 export const NAMES={ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
 export const SPEAKERS={ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
