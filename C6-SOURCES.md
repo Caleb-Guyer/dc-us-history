@@ -23,7 +23,7 @@ Rowan Vale, Elias Ward, Mara Reed, Isaiah Mercer, Thomas Vale, Nathan Cole, thei
 
 Ward survived Chapter 5 and was taken into custody. Thomas’s help here fulfills his promise while preserving his Loyalist allegiance. Isaiah is a free Black man who survived the 1770 shoulder wound; this installment does not depict him as newly wounded or enslaved. No named crew member dies in this opening.
 
-The first Lexington gunshot is an offscreen sound with no identified shooter. Later musket flashes are distinct from that first shot. The player receives a weapon only in the fictional local retreat encounter, after the Lexington rescue. Enemy numbers, health, reload duration, the wagon’s route, and timed waves are gameplay abstractions.
+The first Lexington gunshot is an offscreen sound with no identified shooter. Later musket flashes are distinct from that first shot. The player receives a weapon only in the fictional local retreat encounter, after the Lexington rescue. Enemy numbers, health, reload duration, the wagon’s route, and timed waves are gameplay abstractions. The repeating Lexington volley timer, warning indicator, rescue healing, cover recovery, and Concord supply crate are gameplay mechanics, not claims about documented timing or medical treatment.
 
 History & credits in the game provides a concise accessible record. Captions remain available independently of voice, with an automatic caption fallback for missing audio. Players may skip scenes; reaching the ending is not a claim of learning mastery. The full chapter’s later events and textbook disputes are reserved for their appropriate installments.
 

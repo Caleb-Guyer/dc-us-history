@@ -13,8 +13,9 @@ export function fresh(level,difficulty='normal'){
  const spec=LEVELS[level];if(!spec)throw new Error('Unknown level');
  return {level,difficulty,stage:0,time:0,player:{x:spec.spawn[0],z:spec.spawn[1],y:0,vy:0,yaw:0,pitch:0,health:100,stamina:100},
   hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
+  lastDamage:-99,volley:0,volleyWarning:false,suppliesUsed:false,shotsFired:0,kills:0,
   enemies:level==='night'?[enemy(0,-2,-39,[-9,5,-39],true),enemy(1,2,-80,[-8,9,-80],true),enemy(2,2,-100,[-7,9,-100],true)]:[],
-  ward:{x:0,z:2,yaw:0},failed:false,finished:false,events:[],seed:1775,patrolWarned:false,spotted:false,reloadHint:false};
+  ward:{x:level==='night'?1.5:0,z:level==='night'?21:2,yaw:0},failed:false,finished:false,events:[],seed:1775,patrolWarned:false,spotted:false,reloadHint:false};
 }
 export function snapshot(s){const v=JSON.parse(JSON.stringify(s));delete v.events;return v;}
 export function restore(raw,difficulty='normal'){
@@ -26,10 +27,10 @@ export function restore(raw,difficulty='normal'){
  for(const k of ['time','hold','ammo','reload','shot','hit','defense','wave','alert','seed','wagonHealth'])if(!Number.isFinite(raw[k]))return null;
  Object.assign(s,raw,{difficulty,events:[],failed:false,finished:false,hold:0});
  s.player={...s.player,health:clamp(p.health,1,100),stamina:clamp(Number(p.stamina)||0,0,100),y:0,vy:0};
- s.ammo=clamp(s.ammo,0,30);s.reload=clamp(s.reload,0,4.2);return s;
+ s.lastDamage=Number.isFinite(s.lastDamage)?s.lastDamage:-99;s.shotsFired=Number.isFinite(s.shotsFired)?s.shotsFired:0;s.kills=Number.isFinite(s.kills)?s.kills:0;s.volley=0;s.volleyWarning=false;if(!s.ward||!Number.isFinite(s.ward.x)||!Number.isFinite(s.ward.z))s.ward={x:p.x+.8,z:p.z+1,yaw:p.yaw};s.ammo=clamp(s.ammo,0,30);s.reload=clamp(s.reload,0,4.2);return s;
 }
-export function collide(s,x,z,r=.3){const b=LEVELS[s.level].bounds;if(x<b[0]+r||x>b[1]-r||z<b[2]+r||z>b[3]-r)return true;
- return BLOCKS[s.level].some(([bx,bz,w,d,h])=>s.player.y<h&&Math.abs(x-bx)<w/2+r&&Math.abs(z-bz)<d/2+r);}
+export function collide(s,x,z,r=.3,feet=s.player.y){const b=LEVELS[s.level].bounds;if(x<b[0]+r||x>b[1]-r||z<b[2]+r||z>b[3]-r)return true;
+ return BLOCKS[s.level].some(([bx,bz,w,d,h])=>feet<h&&Math.abs(x-bx)<w/2+r&&Math.abs(z-bz)<d/2+r);}
 export function blocked(level,a,b){
  for(const [x,z,w,d,h] of BLOCKS[level]||[]){let lo=0,hi=1;
   for(const [start,end,min,max] of [[a.x,b.x,x-w/2,x+w/2],[a.z,b.z,z-d/2,z+d/2]]){const delta=end-start;
@@ -38,6 +39,17 @@ export function blocked(level,a,b){
  }return false;
 }
 function random(s){s.seed=(Math.imul(1664525,s.seed)+1013904223)>>>0;return s.seed/4294967296;}
+// Replan only when solid scenery separates Ward from the player's shoulder.
+function companionPath(s,a,tx,tz){
+ const nearest=(x,z)=>{const options=[];for(let dx=-1;dx<=1;dx++)for(let dz=-1;dz<=1;dz++){const p={x:Math.round(x)+dx,z:Math.round(z)+dz};if(!collide(s,p.x,p.z,.3,0))options.push(p);}return options.sort((a,b)=>Math.hypot(a.x-x,a.z-z)-Math.hypot(b.x-x,b.z-z))[0];};
+ const start=nearest(a.x,a.z),goal=nearest(tx,tz);if(!start||!goal)return [];
+ const key=p=>p.x+','+p.z,queue=[start],parents=new Map([[key(start),null]]);let end=null;
+ for(let i=0;i<queue.length&&i<10000;i++){const p=queue[i];if(p.x===goal.x&&p.z===goal.z){end=p;break;}
+  const steps=[[1,0],[-1,0],[0,1],[0,-1]].map(([x,z])=>({x:p.x+x,z:p.z+z})).sort((a,b)=>distance(a,goal)-distance(b,goal));
+  for(const n of steps){const k=key(n);if(parents.has(k)||collide(s,n.x,n.z,.3,0))continue;parents.set(k,p);queue.push(n);}
+ }
+ const path=[];while(end){path.unshift(end);end=parents.get(key(end));}return path;
+}
 export function currentGoal(s){return LEVELS[s.level].goals[s.stage];}
 export function goalNear(s){const g=currentGoal(s);return g&&distance(s.player,g)<2.5;}
 function emit(s,type,data={}){s.events.push({type,...data});}
@@ -45,17 +57,17 @@ function next(s){s.stage++;s.hold=0;if(s.stage>=LEVELS[s.level].goals.length){s.
 function interact(s){
  if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}next(s);}
  else if(s.level==='night'){if(s.stage===0){emit(s,'voice',{id:'farm.0'});emit(s,'voice',{id:'farm.1'});}if(s.stage===1){emit(s,'bell');emit(s,'voice',{id:'bell.0'});emit(s,'voice',{id:'bell.1'});}next(s);}
- else if(s.level==='lexington'){s.carrying=s.stage===0||s.stage===2;emit(s,'voice',{id:'rescue.'+Math.min(s.stage,3)});next(s);}
+ else if(s.level==='lexington'){const stage=s.stage;s.carrying=stage===0||stage===2;if(stage===0){emit(s,'voice',{id:'rescue.0'});emit(s,'voice',{id:'rescue.1'});}else if(stage===1)emit(s,'voice',{id:'rescue.2'});else if(stage===3)emit(s,'voice',{id:'rescue.3'});if(stage===1||stage===3){s.player.health=Math.min(100,s.player.health+35);emit(s,'rescue');}next(s);}
  else if(s.level==='concord'){if(s.stage===0){s.armed=true;emit(s,'voice',{id:'armed'});spawnWave(s);next(s);}else if(s.stage===2)next(s);}
 }
 function spawnWave(s){const wave=s.wave++;for(let i=0;i<3;i++)s.enemies.push(enemy(wave*3+i,(i-1)*8,-35-wave*2,[i%2?14:-13,18]));emit(s,'wave',{wave:s.wave});}
 function fire(s,input){
  if(!s.armed||s.reload>0||s.shot>0)return;
  if(!s.loaded){if(!s.reloadHint){s.reloadHint=true;emit(s,'voice',{id:'reload'});}return;}
- s.loaded=false;s.shot=.26;emit(s,'shot',{x:s.player.x,z:s.player.z});
+ s.loaded=false;s.shot=.26;s.shotsFired++;emit(s,'shot',{x:s.player.x,z:s.player.z});
  const p=s.player,eye={x:p.x,z:p.z,y:p.y+(input.crouch?1.02:1.7)};
  const candidates=s.enemies.filter(e=>e.hp>0).map(e=>{const d=distance(p,e),bearing=Math.atan2(-(e.x-p.x),-(e.z-p.z));return {e,d,delta:Math.abs(angle(bearing-p.yaw)),vertical:Math.abs(Math.atan2(1.15-eye.y,d)-p.pitch)};}).filter(t=>t.d<65&&t.delta<(input.aim?.047:.027)+(s.difficulty==='story'?.027:0)+.28/t.d&&t.vertical<.55/t.d+.04&&!blocked(s.level,eye,{...t.e,y:1.15})).sort((a,b)=>a.d-b.d);
- if(candidates.length){candidates[0].e.hp=0;s.hit=.22;emit(s,'hit');}
+ if(candidates.length){candidates[0].e.hp=0;s.kills++;s.hit=.22;emit(s,'hit',{x:candidates[0].e.x,z:candidates[0].e.z});}
  p.pitch=clamp(p.pitch+.022,-.95,.85);
 }
 export function tick(s,input,dt){
@@ -70,7 +82,31 @@ export function tick(s,input,dt){
  if(s.reload>0){s.reload=Math.max(0,s.reload-dt);if(s.reload===0){s.loaded=true;s.ammo--;emit(s,'loaded');}}
  if(input.reload&&s.armed&&!s.loaded&&s.reload===0&&s.ammo>0){s.reload=4.2;emit(s,'reload');}
  if(input.fire)fire(s,input);
- if(s.level==='release'&&s.carrying){s.ward.x=p.x+Math.cos(p.yaw)*.72;s.ward.z=p.z-Math.sin(p.yaw)*.72;s.ward.yaw=p.yaw;}
+ if((s.level==='release'&&s.carrying)||s.level==='night'){
+  const side=s.carrying?.86:1.25,back=s.carrying?.3:2.3;
+  let tx=p.x+Math.cos(p.yaw)*side+Math.sin(p.yaw)*back,tz=p.z-Math.sin(p.yaw)*side+Math.cos(p.yaw)*back;
+  if(blocked(s.level,{...s.ward,y:.3},{x:tx,z:tz,y:.3})){
+   if(!s.ward.path||s.time>(s.ward.repathAt||0)){s.ward.path=companionPath(s,s.ward,tx,tz);s.ward.repathAt=s.time+1.5;}
+   while(s.ward.path.length&&distance(s.ward,s.ward.path[0])<.3)s.ward.path.shift();
+   if(s.ward.path.length){tx=s.ward.path[0].x;tz=s.ward.path[0].z;}
+  }else s.ward.path=null;
+  const d=Math.hypot(tx-s.ward.x,tz-s.ward.z),pace=Math.min(d,(s.carrying?4.2:6)*dt);
+  if(d>.05){const dx=(tx-s.ward.x)/d*pace,dz=(tz-s.ward.z)/d*pace;
+   if(!collide(s,s.ward.x+dx,s.ward.z,.22,0))s.ward.x+=dx;
+   if(!collide(s,s.ward.x,s.ward.z+dz,.22,0))s.ward.z+=dz;
+   s.ward.yaw=Math.atan2(-(tx-s.ward.x),-(tz-s.ward.z));
+  }
+ }
+ if(s.level==='lexington'){
+  const phase=s.time%9,cycle=Math.floor(s.time/9);s.volleyWarning=phase>6.5;s.volley=Math.max(0,s.volley-dt);
+  if(cycle>Math.floor((s.time-dt)/9)){
+   s.volley=.5;emit(s,'volley');
+   const exposed=p.z<10&&[-7,-2,3,7].some(x=>!blocked('lexington',{x,z:-23,y:1.45},{...p,y:input.crouch?1.02:1.7}));
+   if(exposed){p.health=Math.max(0,p.health-(s.difficulty==='story'?7:14));s.lastDamage=s.time;emit(s,'hurt');}
+  }
+ }
+ if(s.level==='concord'&&s.stage===1&&input.interact&&!s.suppliesUsed&&distance(p,{x:2,z:9})<2.5){s.suppliesUsed=true;s.ammo+=6;p.health=Math.min(100,p.health+35);emit(s,'resupply');}
+
  if(s.level==='concord'&&s.stage===1){
   const pressure=s.enemies.filter(e=>e.hp>0&&e.z> -9&&!e.retreat).length;
   if(distance(p,{x:0,z:4})<19)s.defense+=dt*(pressure>=3?.2:1);
@@ -86,13 +122,13 @@ export function tick(s,input,dt){
    e.alert=clamp(e.alert+(visible?(input.sprint?1.3:.65):-.5)*dt,0,1);maxAlert=Math.max(maxAlert,e.alert);
    if(d<18&&!s.patrolWarned){s.patrolWarned=true;emit(s,'voice',{id:'patrol'});}
    if(e.alert>.9){if(!s.spotted){s.spotted=true;emit(s,'voice',{id:'spotted'});}e.yaw=toward;}
-  }else{const tx=e.retreat?(e.id%2?25:-25):e.route[0],tz=e.retreat?24:e.route[1];const len=Math.hypot(tx-e.x,tz-e.z);if(len>1.3){e.x+=(tx-e.x)/len*dt*(e.retreat?3:1.3);e.z+=(tz-e.z)/len*dt*(e.retreat?3:1.3);e.moving=true;}e.yaw=Math.atan2(-(p.x-e.x),-(p.z-e.z));}
-  e.cooldown-=dt;
-  if(e.cooldown<=0&&(!e.patrol||e.alert>.9)&&!e.retreat&&d<55){e.cooldown=4.8+random(s)*3.4;e.fired=.2;emit(s,'enemyShot',{x:e.x,z:e.z});
-   if(!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})&&random(s)<(s.difficulty==='story'?.14:.36)){p.health=Math.max(0,p.health-(s.difficulty==='story'?10:17));emit(s,'hurt');}
+  }else{const tx=e.retreat?(e.id%2?25:-25):e.route[0],tz=e.retreat?24:e.route[1];const len=Math.hypot(tx-e.x,tz-e.z);if(len>1.3){const speed=e.retreat?3:1.3,dx=(tx-e.x)/len*dt*speed,dz=(tz-e.z)/len*dt*speed;const oldX=e.x,oldZ=e.z;if(!collide(s,e.x+dx,e.z,.24,0))e.x+=dx;if(!collide(s,e.x,e.z+dz,.24,0))e.z+=dz;if(Math.abs(e.z-oldZ)<.001&&Math.abs(dz)>.005){const side=e.x<0?-1:1;if(!collide(s,e.x+side*dt*speed,e.z,.24,0))e.x+=side*dt*speed;}e.moving=Math.hypot(e.x-oldX,e.z-oldZ)>.001;}e.yaw=Math.atan2(-(p.x-e.x),-(p.z-e.z));}
+  e.cooldown-=dt;e.aiming=e.cooldown<1.25&&(!e.patrol||e.alert>.9)&&!e.retreat;
+  if(e.cooldown<=0&&(!e.patrol||e.alert>.9)&&!e.retreat&&d<55&&!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})){e.cooldown=4.8+random(s)*3.4;e.fired=.2;emit(s,'enemyShot',{x:e.x,z:e.z});
+   if(!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})&&random(s)<(s.difficulty==='story'?.14:.36)){p.health=Math.max(0,p.health-(s.difficulty==='story'?10:17));s.lastDamage=s.time;emit(s,'hurt');}
   }
  }
- s.alert=maxAlert;if(!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5)))p.health=Math.min(100,p.health+dt*3);
+ s.alert=maxAlert;const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if(s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
  if(p.health<=0){s.failed=true;emit(s,'fail');return s.events;}
  if(!(s.level==='concord'&&s.stage===1)){if(input.interact&&goalNear(s)){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
  return s.events;

@@ -14,6 +14,8 @@ The first playable installment follows Ward’s release, a night warning route, 
 - A restrained HUD, separate voice/music/effects controls, larger captions, reduced camera motion, Story difficulty, keyboard-only looking, and touch controls.
 - Independent Chapter 6 checkpoints, scene replay without changing the campaign save, and caption fallback if voice playback is unavailable.
 
+Version 4.1 improves all four opening sections: warned Lexington volleys and rescue recovery, readable patrol lanterns, enemies and Ward navigating around cover, a one-use Concord supply crate, and health recovery behind safe cover. Mission select replays individual sections without replacing story progress. Revised camera framing and pacing, layered woodland and hills, sky lighting, articulated soldiers, moving wagon wheels, and firing/reload feedback strengthen the presentation. The HUD shows contextual interaction and objective distance, patrol awareness, reload progress, and wagon progress without persistent control lists. Settings add master mute (M), look sensitivity, and a performance graphics option; touch LOW and AIM toggle.
+
 **Controls:** WASD move; mouse or arrows look; E interacts; C crouches; Shift sprints; Space jumps; F or click fires; R reloads; Q or right mouse aims; V toggles walking forward; P/Escape pauses. A short tap of E starts an interaction. Move away to cancel. Click the world to capture the mouse. Touch uses on-screen buttons and a swipe to look.
 
 Historical scope, fictional events, and references are documented in [C6-SOURCES.md](C6-SOURCES.md). [C6-CREDITS.md](C6-CREDITS.md) records voice, music, and visual production. The game downloads assets as needed and requires no install, account, microphone, or paid API.
@@ -67,7 +69,7 @@ npm test
 npm run check
 ```
 
-Open the printed localhost URL. Use a local server or GitHub Pages; ES modules do not work by double-clicking an HTML file. `PORT` changes the development port.
+Open the printed localhost URL. Use a local server or GitHub Pages; ES modules do not work by double-clicking an HTML file. `PORT` changes the development port. For silent Chapter 6 testing, append `?muted=1&preview=1`: sound stays muted even after settings changes, and testing uses a separate save. Without these parameters, normal player sound and saves work as before.
 
 Tests cover the three chapter builds: quiz composition and key-term coverage, physical navigation, shooting and cover, civilian rescue checkpoints, complete workshop and harbor simulations, packaged dialogue, and music/voice lifecycle behavior. Browser checks also verify presentation, scenes, mission entry, audio, pause/settings, and practice navigation.
 
@@ -77,6 +79,7 @@ GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root)
 
 - `index.html`, `chapter6.html`, `c6.css`, `c6.mjs`: Chapter 6 opening presentation and campaign control.
 - `c6-data.mjs`, `c6-sim.mjs`, `c6-world.mjs`, `c6-voices.mjs`, `c6-score.mjs`: opening story, simulation, rendering, and media.
+- `c6-director.mjs`, `c6-scenery.mjs`: bounded cinematic cameras and pacing; sky, hills, vegetation, and environmental props.
 - `chapter5.html`, `c5.css`, `c5.mjs`: Chapter 5 presentation and campaign control.
 - `c5-data.mjs`: cast, script, missions, reference terms and practice.
 - `c5-sim.mjs`: movement, stealth/combat, checkpoints, workshop and harbor rules.

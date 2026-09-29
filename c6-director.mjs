@@ -1,0 +1,20 @@
+// Camera positions are authored inside the playable sets, away from walls.
+export const SHOTS={
+ release:[[[2.7,2.05,1.9],[.7,1.3,-3]],[[2,1.75,6],[0,1.4,0]],[[1.05,1.68,3.9],[0,1.52,2]],[[1,1.8,.8],[-.8,1.6,4]],[[.8,1.67,4.4],[0,1.5,2]]],
+ gate:[[[7.8,1.6,11.7],[6.55,1.25,9.7]],[[7.7,1.65,11.3],[6.7,1.53,9.4]],[[8,1.8,11],[10,1.5,8]],[[3,1.7,6],[1.5,1.55,3]],[[2,1.65,5],[4,1.55,7]],[[3,1.7,6],[1.5,1.55,3]],[[11,3.1,15],[5.8,1.3,8]]],
+ nightIntro:[[[5,3.3,23],[0,1.3,13]],[[0,1.7,13],[1,1.5,16]],[[1.2,1.7,17],[-1,1.5,15]],[[2,2.4,20],[0,1,-15]]],
+ lexington:[[[7,3,19],[1,1.2,-9]],[[3,1.8,15],[1,1.5,12]],[[.9,.78,17],[-.3,.8,13]],[[2,1.2,15],[1,1,12]],[[-4,1.5,-1.5],[-8,.4,-4.1]]],
+ concordIntro:[[[8,3.7,17],[0,1,-12]],[[.3,1.8,11],[-3,1.5,9]],[[3,1.5,12],[0,1,9]]],
+ ending:[[[1,1.7,.9],[-1,1.5,3]],[[2,1.7,3],[0,1.5,1]],[[3,1.8,4],[2,1.5,2]],[[1,1.7,1],[-1,1.5,3]],[[2,1.8,3],[0,1.5,1]],[[9,4,10],[1,1.2,1]]],
+};
+const smooth=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);};
+export function cameraShot(scene,beat,time,aspect=16/9,reduced=false){
+ const shots=SHOTS[scene],pair=shots[Math.min(beat,shots.length-1)],from=[...pair[0]],to=[...pair[1]];
+ const p=reduced?0:smooth(time/9),length=Math.hypot(...from.map((v,i)=>to[i]-v));
+ // Small, bounded push-ins. The camera holds its framing after nine seconds.
+ const push=(beat===0?.3:.09)*p;for(let i=0;i<3;i++)from[i]+=(to[i]-from[i])/length*push;
+ const fov=(beat===0?52:44)+(aspect<1.2?16:0);
+ return {from,to,fov};
+}
+export function sceneLead(beat){return beat===0?1.65:.55;}
+export function sceneHold(scene,beat){return scene==='lexington'&&beat===2?1.1:.85;}

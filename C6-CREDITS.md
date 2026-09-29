@@ -32,4 +32,6 @@ Four original instrumental arrangements, approximately 173 seconds of loop mater
 
 Original procedural woodland, farm, courtyard, Lexington, and retreat environments; brick/wood/ground textures are drawn by code. Existing articulated character rigs are reused with newly authored blocking and camera coverage. Three.js is distributed locally under its existing license in THREE-LICENSE.txt. Optional Google Fonts are Barlow and Barlow Condensed, with system fallbacks; all game logic, voice, and music are local repository assets.
 
+The 4.1 scenery pass adds original shader skies, layered trees, instanced hills and ground detail, softened dirt tracks, clouds, supply props, campfire lighting, wagon wheel animation, and a more articulated generic soldier rig. The camera director defines stable, bounded shot movement and gives each spoken beat a lead-in and reaction hold. These visuals are rendered by the game, with no external image-generation service or new media dependency.
+
 Code retains the project’s MIT license. Original music and produced dialogue assets use the project’s CC BY 4.0 content terms to the extent rights apply. Source-derived reference content retains its separate attribution terms. No analytics, remote save service, paid API, or user-data collection is introduced.
