@@ -1,5 +1,18 @@
 # Chapter 6 — release checks
 
+Version 4.5.0 adds Lift the Horizon, Dorchester Heights, and The Open Street. The full Chapter 6 campaign remains in development.
+
+- 100 tests pass across Chapters 4–6 and shared systems. Nine new tests exercise complete movement through both hauling routes, brakes and gravity, real-load completion, required bracing/ballast/chocks, sight direction, recoverable edge slips, load save validation, Boston’s physical street barrier, save migration, and non-inverted hauling cameras.
+- Complete winter and ridge routes are traversed with actual simulation input, including carrying materials and crossing the road. Separate UI checks use localhost-only phase fixtures for rendering, keyboard movement, interactions, cinematic/gallery flow, pause, and forced mute. Fixtures are gated to local hosts and use an isolated playtest save.
+- All scenes have a camera for every line, bounded push-ins, finite positions, and framing outside solid collision. All 226 recordings have packaged nonempty files with measured levels. Seven music arrangements have packaged media and loop boundaries; winter peak 0.6692, RMS 0.1804.
+- Syntax checks cover the full module set. The heavy load is distinct from the player, and walking without the rope cannot deliver it. Braking does not make the puller jump. Ballast must be carried to the opposite side. Wheels rotate with distance rather than elapsed time. A completed 4.4 save continues at the explicitly dated return to January.
+- Browser work stays hidden and locked to `muted=1`. Voice, score, and runtime effects are disabled; captions remain available. Audio has not been audibly auditioned. Hidden-tab animation can be throttled, so route timing is not an independent first-play measurement.
+- Physical phones, gamepads, visible-browser pointer lock, and an independent blind playtest remain unverified. Automated success is not evidence that the whole game is enjoyable or that the player mastered the chapter. WebGL is required.
+
+## Previous installment
+
+# Chapter 6 — release checks
+
 Version 4.4.0 adds A King’s Promise and The Other Bank. This release is another campaign installment; the full Chapter 6 campaign is not yet complete.
 
 - `npm test`: 91 tests across shared systems and all three chapters. Nine new tests exercise boarding, quiet concealment, pursuit and dodging, boom collision, rescue/repair persistence, save migration, a full navigated boat route, non-inverted boat camera controls, and pursuer collision.

@@ -1,10 +1,10 @@
 # Chapter 6 — production credits
 
-The Long Road Home through A King’s Promise uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through Lift the Horizon uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-178 prerecorded synthetic performances, approximately 649 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+226 prerecorded synthetic performances, approximately 854 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -23,7 +23,7 @@ The Long Road Home through A King’s Promise uses original game dialogue, code-
 
 ## Music and sound
 
-Six original instrumental arrangements, approximately 251 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
+Seven original instrumental arrangements, approximately 289 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
 
 - **A Place in the Wagon** — 68 BPM; reunion and the crew’s closing scene.
 - **Lanterns on the Powder Road** — 88 BPM; the warning route.
@@ -31,6 +31,7 @@ Six original instrumental arrangements, approximately 251 seconds of loop materi
 - **Everyone We Can** — 120 BPM; the wagon defense.
 - **The Last Cartridges** — 112 BPM; the three assaults at Breed’s Hill.
 - **Names on the Water** — 88 BPM; Isaiah’s coastal passage.
+- **The Weight We Carry** — 100 BPM; the winter gun road and ascent.
 
 `c6-score.mjs` preserves the tempo, measured loop boundaries, peak/RMS values, and filenames. Music transitions across play sections, ducks beneath speech, and pauses with gameplay. Lexington’s opening scene uses silence before the shot. Gunfire, interaction sounds, bell partials, and footsteps are synthesized at runtime with Web Audio.
 

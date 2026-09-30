@@ -75,7 +75,7 @@ export const PROMISE_SCENES={
  promiseEnd:scene('tidewater','Thank you for the water','THE SHELTERED INLET · LATER THAT NIGHT','home','promise.end',7,'creekIntro'),
  creekIntro:scene('moorescreek','The Other Bank','NORTH CAROLINA · FEBRUARY 27, 1776 · AFTER THE BATTLE','home','creek.intro',5,'moorescreek'),
  creekEnd:scene('moorescreek','A man on the other bank','MOORES CREEK · FEBRUARY 27, 1776','home','creek.end',7,'promiseCoda'),
- promiseCoda:scene('end','The promise outlives the governor','LATER HISTORICAL DISPATCH · VIRGINIA · 1776','home','promise.coda',4,'complete')
+ promiseCoda:scene('end','The promise outlives the governor','LATER HISTORICAL DISPATCH · VIRGINIA · 1776','home','promise.coda',4,'liftIntro')
 };
 export const PROMISE_FACTS=[
  ['A King’s Promise','Dunmore, Virginia’s royal governor, issued his proclamation on November 7, 1775. It offered freedom to enslaved people and indentured servants belonging to rebels who were able and willing to bear arms and joined British forces. It did not abolish slavery generally, cover Loyalist enslavers, or guarantee freedom to every family member.','Handout P015; Library of Congress, original proclamation'],

@@ -1,8 +1,11 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.4.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.4.0-published';
+import {fresh} from './c6-sim.mjs?v=4.5.0-published2';
+import {interactHill} from './c6-hill.mjs?v=4.5.0-published2';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='snowpass'&&['haul','bend'].includes(phase)){s.stage=phase==='haul'?4:8;Object.assign(s.lift,{attached:true,braced:true,balanced:phase==='bend',x:phase==='haul'?0:-3,z:phase==='haul'?18:-50});s.player.x=s.lift.x;s.player.z=s.lift.z-4.2;}
+ if(level==='dorchester'&&['climb','sight'].includes(phase)){s.stage=phase==='climb'?5:7;Object.assign(s.lift,{attached:phase==='climb',braced:true,anchored:phase==='sight',x:phase==='climb'?-3:2,z:phase==='climb'?-5:-32});s.player.x=phase==='climb'?-3:18;s.player.z=phase==='climb'?-9.2:-34;s.player.yaw=phase==='climb'?0:-.876;s.player.pitch=phase==='sight'?-.13:0;}
+ if(level==='bostonreturn'&&phase==='press'){s.stage=2;Object.assign(s.lift,{barrier:true,shutters:true});s.player.x=-4;s.player.z=-10;s.player.yaw=.4;}
  if(level==='tidewater'&&['reeds','contact','chase','exit'].includes(phase)){s.stage={reeds:1,contact:2,chase:3,exit:4}[phase];Object.assign(s.promise,{aboard:true,pursuit:s.stage>=3,boom:s.stage>=4,chaserX:23,chaserZ:-75});const g=[[-23,-58],[23,-94],[23,-129],[0,-161]][s.stage-1];s.player.x=g[0];s.player.z=g[1];}
  if(level==='moorescreek'&&phase==='rescue'){s.stage=2;s.promise.bridge=true;s.player.x=1;s.player.z=-27;}
  if(level==='breeds'&&['assault','withdrawal','break','extraction'].includes(phase)){

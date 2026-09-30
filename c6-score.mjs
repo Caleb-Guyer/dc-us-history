@@ -71,5 +71,17 @@ export const C6_SCORE = {
     "peak": 0.7046,
     "rms": 0.1804,
     "bytes": 874080
+  },
+  "winter": {
+    "title": "The Weight We Carry",
+    "bpm": 100,
+    "mood": "tension",
+    "file": "c6-music-winter-3fa7586b.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 38.43453125,
+    "duration": 38.4,
+    "peak": 0.6692,
+    "rms": 0.1804,
+    "bytes": 768960
   }
 };

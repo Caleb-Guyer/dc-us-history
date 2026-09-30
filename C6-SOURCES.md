@@ -85,3 +85,22 @@ Isaiah remains a free Black pilot, with an old healed shoulder injury from 1770.
 | Dunmore flees in 1776; longer consequences | Clearly dated historical coda |
 
 Boat acceleration, stamina, detection sectors, warning rings, health recovery, checkpoint positions, and simplified repair/rescue tasks are gameplay abstractions. The local interception is fictional. The map, generic clothing, crews, and boats do not reconstruct an exact documented encounter or uniform roster. Scenes are skippable and replayable; finishing the mission is not proof of mastery of the full chapter.
+
+
+## Lift the Horizon — 4.5
+
+This episode develops handout P013 and introduces P016–P018. The Philadelphia mission will continue Paine’s ideas, republicanism, and the Declaration. A historical consequence is experienced through a gun’s position and a reopened street; optional archive text is supplementary.
+
+- [Fort Ticonderoga: Knox’s Noble Train of Artillery in Context](https://fortticonderoga.org/news/henry-knoxs-noble-train-of-artillery-in-context/) separates the May capture from Knox’s later expedition and describes the artillery shortage, unmounted guns, and assistance from soldiers and civilians. The marked fitting and crew’s last transport segment are fictional. Snow transport uses a sledge; the March climb uses a wheeled carriage.
+- [National Park Service: Siege of Boston overview](https://www.nps.gov/articles/000/siege-of-boston-overview.htm) dates the fortifications visible on Dorchester Heights to March 5, the storm that frustrated an attack, and the March 17 evacuation toward Halifax. Soldiers and Loyalist refugees departed. Some British vessels remained in the outer harbor afterward. The game shows departures without claiming that every harbor vessel left at once.
+- The supplied text P013 supplies Washington’s appointment, the captured guns, their elevated positions, and the difficulty of responding from below. Play ends with emplacement and a shipping-route sightline, not an invented fleet massacre. The physical advantage and exposed supply route make withdrawal intelligible.
+- P016–P018 provide Common Sense’s January publication, anonymous cover, Thomas Paine’s authorship, ordinary-language appeal, and circulation across thirteen colonies. The press reunion occurs in March; it does not imply the pamphlet first appeared then. These fictional lines paraphrase its argument and are not historical quotations.
+
+| Classroom concept | Required delivery |
+| --- | --- |
+| Captured Ticonderoga artillery strengthens Washington’s Boston siege | Marked gun, winter transport, crew opening exchange |
+| Hills threaten British positions and harbor supplies; difficult return fire | Physical ascent, gun chocks, required view and spoken exchange |
+| Evacuation March 17, 1776 toward Halifax ends the siege | Dated evacuation scene and walk through the open street |
+| Paine, anonymous January Common Sense, independence, accessible language | Required pamphlet pickup and press scene; continued in M06 |
+
+The road geometry, rope physics, brake, shifted ballast, bridge bracing, wheel chocks, inventory, and Vale press are fictional gameplay abstractions. This is not a surveyed reconstruction of Knox’s exact route, a particular emplacement, or historical Boston street. The camera can move with a hauled load; looking remains non-inverted. Crew jobs contribute to a larger operation commanded by Washington. Isaiah is on his separately dated journey and is not teleported into the winter haul. The full campaign remains in development.

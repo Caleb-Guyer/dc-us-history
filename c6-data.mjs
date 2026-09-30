@@ -1,15 +1,17 @@
-import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.4.0-published';
-import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.4.0-published';
-import {HILL_SPEC} from './c6-hill.mjs?v=4.4.0-published';
+import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.5.0-published2';
+import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.5.0-published2';
+import {HILL_SPEC} from './c6-hill.mjs?v=4.5.0-published2';
 // Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
-import {FORT_SPEC} from './c6-fort.mjs?v=4.4.0-published';
-export const VERSION='4.4.0';
+import {FORT_SPEC} from './c6-fort.mjs?v=4.5.0-published2';
+import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.5.0-published2';
+import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.5.0-published2';
+export const VERSION='4.5.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
-export function continueProgress(saved){if(!saved.complete||saved.seen.includes('promiseCoda'))return saved;return {...saved,complete:false,scene:saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
+export function continueProgress(saved){if(!saved.complete||saved.seen.includes('liftHome'))return saved;return {...saved,complete:false,scene:saved.seen.includes('promiseCoda')?'liftIntro':saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
 export const NAMES={JONAS:'Jonas Bell',AGENT:'Royal intermediary',CLAIMANT:'Virginia enslaver',ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
 export const SPEAKERS={JONAS:['am_onyx',.98,'en-us'],AGENT:['bm_lewis',.99,'en-gb'],CLAIMANT:['am_eric',1.03,'en-us'],ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
 const line=(id,speaker,text)=>({id,speaker,text});
-export const LINES=[...PROMISE_LINES,
+export const LINES=[...LIFT_LINES,...PROMISE_LINES,
  line('release.0','THOMAS','The release is signed. Give him his coat.'),
  line('release.1','ROWAN','Ward? It’s me.'),
  line('release.2','WARD','I know your footsteps. You still hurry when you’re frightened.'),
@@ -145,6 +147,7 @@ export const SCENES={
  hillEnding:{level:'breeds',title:'Behind the ridge',place:'BEYOND BREED’S HILL · JUNE 17, 1775',music:'home',lines:Array.from({length:7},(_,i)=>'hill.end.'+i),after:'hillLegacy'},
  hillLegacy:{level:'end',title:'Still surrounded',place:'BOSTON LINES · SEPTEMBER 1775 · NEWS FROM LONDON',music:'home',lines:Array.from({length:4},(_,i)=>'hill.legacy.'+i),after:'promiseIntro'},
  ...PROMISE_SCENES,
+ ...LIFT_SCENES,
 };
 export const LEVELS={
  release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
@@ -155,8 +158,11 @@ export const LEVELS={
  breeds:HILL_SPEC,
  tidewater:TIDE_SPEC,
  moorescreek:CREEK_SPEC,
+ snowpass:SNOW_SPEC,
+ dorchester:RIDGE_SPEC,
+ bostonreturn:BOSTON_SPEC,
 };
-export const FACTS=[...PROMISE_FACTS,
+export const FACTS=[...LIFT_FACTS,...PROMISE_FACTS,
  ['A promise kept','Rowan, Mara, Isaiah, Ward, Thomas, and the local rescues are fictional. Ward survived the Chapter 5 fire and surrendered. Thomas remains a Loyalist. Isaiah is a free Black man who survived his 1770 shoulder wound.','Crew continuity'],
  ['The powder raids','Gage used Boston as a base for seizures of colonial weapons and powder. Cambridge and Charlestown lost supplies; resistance met the troops at Salem. Colonists seized Fort William and Mary in New Hampshire.','Handout §6.1, paragraphs 8–9'],
  ['Minutemen','Local militia prepared to assemble rapidly. Many members had experience in the French and Indian War. The fictional farm and bell route illustrates this wider mobilization.','Handout §6.1, paragraph 9'],

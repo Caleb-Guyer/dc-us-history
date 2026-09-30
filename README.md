@@ -1,13 +1,14 @@
 # DC US History
 
-## Chapter 6 update — A King’s Promise (4.4.0)
+## Chapter 6 update — Lift the Horizon (4.5.0)
 
-Play as Isaiah Mercer in a new coastal mission through watched Virginia channels in November 1775. Row quietly through reeds, evade patrol lanterns, meet Jonas Bell, cut a mooring boom, and escape an intercepting skiff. A separately dated North Carolina section takes place after the Battle of Moores Creek Bridge on February 27, 1776: present the Mecklenburg dispatch, repair a crossing, and rescue a wounded Loyalist.
+Bring the gun you marked at Ticonderoga through a winter transport route, up the last slope to Dorchester Heights, and back into Boston after the British evacuation. A heavy sledge and wheeled carriage have their own momentum: steer the pulling line, brake on ice, brace damaged road, and carry the shifted ballast across the load. The harbor view explains why the heights change the siege. The homecoming is a playable street and press visit, ending with Common Sense.
 
-Seven new real-time scenes and 59 new recorded synthetic performances follow Jonas’s own decision to seek British protection. The proclamation’s limits, family uncertainty, conflicting loyalties, and consequences are delivered in conversations attached to the journey. The original coastal score is **Names on the Water**. The campaign now contains 178 recorded lines, 20 story scenes, and six original music loops.
+Five new real-time scenes and 48 new recorded performances bring the campaign to **226 recordings, 25 scenes, and seven original music loops**. The new 100 BPM score is **The Weight We Carry**. Winter transport is explicitly dated January 1776, the night ascent March 4–5, and the evacuation March 17; this episode returns to the northern crew after Isaiah’s separately dated coastal journey.
 
-Water controls: **WASD** rows relative to the view; **mouse/arrows** look; **Shift** rows hard; **C** toggles quiet strokes; release movement to brake; **E** interacts. A slow boat is hidden in reeds. Marked shots can be dodged. Foot controls stay the same. Completed 4.3 saves continue at this mission; unfinished saves and replay checkpoints remain separate. The full Chapter 6 campaign is still being built; the next planned mission is **Lift the Horizon**.
+**Hauling controls:** WASD pulls once hitched; mouse/arrows look; Space brakes. A trailing camera shows the rope and load. E performs nearby work; carrying the ballast to the opposite runner changes its balance. Normal foot, combat, water, and touch controls remain available. Completed 4.4 saves continue here; unfinished stories and mission replays retain their checkpoints.
 
+The full Chapter 6 campaign is still being built. The next mission is **A Country on Paper**, the Philadelphia print run and independence debate.
 
 **[Play The Long Road Home — Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
 
@@ -19,7 +20,7 @@ The first playable installment follows Ward’s release, a night warning route, 
 
 **Hold Until Empty.** Defend a fictional section of Breed’s Hill on June 17, 1775. Brace the earthwork, choose an ammunition post, direct militia volleys, repair the flank, and fight through three assaults. When the line runs out of cartridges, the objective changes: carry two wounded men behind the ridge, signal Ward, and leave together. Four new scenes carry the story from Washington’s appointment through the British capture of the hill and later news of the king’s declaration. Later Chapter 6 missions remain in development.
 
-- Twenty real-time story scenes with the recurring crew, 178 prerecorded voice performances, and six original score arrangements.
+- Twenty-five real-time story scenes with the recurring crew, 226 prerecorded voice performances, and seven original score arrangements.
 - The four opening sections: support Ward, warn the countryside while avoiding patrols, carry wounded people to Mara, then use a flintlock and stone cover to protect the wagon’s crossing.
 - One-round loading, deliberate manual reload, crouching cover, three enemy waves, and a defense that cannot complete by abandoning the wagon.
 - A restrained HUD, separate voice/music/effects controls, larger captions, reduced camera motion, Story difficulty, keyboard-only looking, and touch controls.

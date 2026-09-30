@@ -1,0 +1,29 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {fresh,tick,collide,currentGoal,snapshot,restore,distance} from './c6-sim.mjs';
+import {roadCenter,liftHauling,groundHeight} from './c6-lift.mjs';
+import {continueProgress,SCENES} from './c6-data.mjs';
+import * as T from './three.module.js';
+import {liftCamera} from './c6-lift-world.mjs';
+import {applyLook} from './c6-controls.mjs';
+const step=(s,input={},seconds=1)=>{const out=[];for(let i=0;i<seconds*40;i++)out.push(...tick(s,input,.025));return out;};
+function walk(s,x,z,r=.5){let frames=0;while(distance(s.player,{x,z})>r&&frames++<3000){s.player.yaw=Math.atan2(-(x-s.player.x),-(z-s.player.z));tick(s,{forward:true},.025);assert.equal(collide(s,s.player.x,s.player.z,.29,0),false);}assert.ok(frames<3000,'walking route '+x+','+z);}
+function use(s){const g=currentGoal(s);walk(s,g.x,g.z,.9);step(s,{interact:true},1.4);}
+function haul(s){const stage=s.stage;let frames=0;while(s.stage===stage&&frames++<9000){const h=s.lift,tx=roadCenter(s.level,h.z-7),tz=h.z-8;s.player.yaw=Math.atan2(-(tx-s.player.x),-(tz-s.player.z));tick(s,{forward:true},.025);assert.equal(s.failed,false);assert.equal(collide(s,h.x,h.z,1.09,0),false,'load respects scenery');assert.equal(collide(s,s.player.x,s.player.z,.29,0),false,'puller respects scenery');}assert.ok(frames<9000,'heavy load can reach its checkpoint');}
+test('the whole winter haul works with physical movement, bracing and a carried ballast chest',()=>{
+ let s=fresh('snowpass');use(s);use(s);assert.equal(s.carrying,true);use(s);assert.equal(s.lift.braced,true);assert.equal(s.carrying,false);use(s);assert.equal(liftHauling(s),true);
+ haul(s);assert.equal(s.stage,5);assert.ok(s.lift.z<-38);use(s);assert.equal(s.carrying,true);s=restore(snapshot(s));assert.equal(s.lift.ballast,true);use(s);assert.equal(s.lift.balanced,true);assert.equal(s.carrying,false);use(s);haul(s);assert.equal(s.stage,9);use(s);assert.equal(s.finished,true);assert.equal(s.failed,false);assert.equal(s.shotsFired,0);assert.equal(s.lift.slides,0,'steering down the road is safe');
+});
+test('climbing needs the load, the brace, chocks and sight of the shipping route',()=>{
+ let s=fresh('dorchester');use(s);haul(s);assert.equal(s.stage,2);use(s);use(s);assert.equal(s.lift.braced,true);use(s);haul(s);assert.equal(s.stage,6);use(s);assert.equal(s.lift.anchored,true);
+ const g=currentGoal(s);walk(s,g.x,g.z);s.player.yaw=0;step(s,{interact:true},2);assert.equal(s.stage,7,'cannot sight ships while looking away');s.player.yaw=Math.atan2(-84,70);step(s,{interact:true},1.4);assert.equal(s.stage,8);s=restore(snapshot(s));use(s);assert.equal(s.finished,true);assert.equal(s.lift.slides,0);
+});
+test('walking without a hauling line cannot deliver a gun',()=>{const s=fresh('snowpass');s.stage=4;s.player.z=-100;step(s,{forward:true},4);assert.equal(s.lift.z,18);assert.equal(s.stage,4);assert.equal(s.finished,false);});
+test('brakes stop lateral momentum and do not jump the puller',()=>{const s=fresh('snowpass');s.stage=4;Object.assign(s.lift,{attached:true,braced:true,x:-3,z:-30,vx:2,vz:-2,speed:2.8});s.player.x=-3;s.player.z=-35;step(s,{jump:true,forward:true},.5);assert.ok(s.lift.speed<.03);assert.equal(s.player.y,0);assert.equal(s.lift.brake,true);});
+test('unbraced road stops a load and edge recovery is bounded and checkpointed',()=>{const s=fresh('snowpass');s.stage=4;Object.assign(s.lift,{attached:true,z:-18.9,vz:-3});s.player.z=-24;step(s,{forward:true},2);assert.equal(s.lift.z,-19);assert.equal(s.stage,4);
+ Object.assign(s.lift,{braced:true,x:10,z:-32,strain:.98});s.player.x=10;s.player.z=-37;const ev=step(s,{forward:true},.1);assert.equal(s.lift.slides,1);assert.ok(ev.some(e=>e.type==='loadSlip'));assert.ok(distance(s.lift,s.player)<=5.71);assert.equal(s.failed,false);
+});
+test('Boston street changes physically and Paine is picked up after opening the press',()=>{const s=fresh('bostonreturn');assert.equal(collide(s,0,14,.3,0),true);use(s);assert.equal(s.lift.barrier,true);assert.equal(collide(s,0,14,.3,0),false);use(s);assert.equal(s.lift.shutters,true);use(s);assert.equal(s.finished,true);});
+test('hauling saves preserve load position and reject corrupt or out-of-bounds load data',()=>{const s=fresh('snowpass');s.stage=4;Object.assign(s.lift,{attached:true,braced:true,x:-2,z:-26,vx:.1,vz:-1,speed:1});s.player.x=-2;s.player.z=-31;const raw=snapshot(s),good=restore(raw);assert.deepEqual(good.lift,s.lift);for(const patch of [{x:999},{z:-999},{vx:Infinity},{strain:2},{attached:'yes'},{speed:-1}]){const bad=structuredClone(raw);Object.assign(bad.lift,patch);assert.equal(restore(bad),null);}});
+test('hauling and elevated foot cameras retain non-inverted look directions',()=>{const s=fresh('dorchester');s.lift.attached=true;s.player.z=-32;const w={camera:new T.PerspectiveCamera()},dir=()=>{liftCamera(w,s,true);return w.camera.getWorldDirection(new T.Vector3());};const start=dir();applyLook(s.player,0,-50,1);assert.ok(dir().y>start.y);applyLook(s.player,0,100,1);assert.ok(dir().y<start.y);s.player.pitch=0;s.player.yaw=0;applyLook(s.player,50,0,1);assert.ok(dir().x>0);assert.ok(groundHeight('dorchester',-32)>7);});
+test('completed coastal saves continue into the winter and this release ends at the press',()=>{const old={complete:true,seen:['ending','northEnding','hillLegacy','promiseCoda'],prefs:{muted:true},checkpoint:null,scene:null};const next=continueProgress(old);assert.equal(next.complete,false);assert.equal(next.scene,'liftIntro');assert.equal(next.prefs.muted,true);const done={...old,seen:[...old.seen,'liftHome']};assert.equal(continueProgress(done),done);assert.equal(SCENES.promiseCoda.after,'liftIntro');assert.equal(SCENES.liftArrival.after,'heightsIntro');assert.equal(SCENES.liftEvacuation.after,'bostonreturn');assert.equal(SCENES.liftHome.after,'complete');});
