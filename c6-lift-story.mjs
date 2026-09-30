@@ -54,7 +54,7 @@ export const LIFT_SCENES={
  liftArrival:{level:'snowpass',title:'One gun. Everyone here.',place:'JANUARY 1776 · THE ROAD TO BOSTON',music:'home',lines:Array.from({length:4},(_,i)=>'lift.arrival.'+i),after:'heightsIntro'},
  heightsIntro:{level:'dorchester',title:'Above the harbor',place:'NIGHT OF MARCH 4–5, 1776 · DORCHESTER HEIGHTS',music:'winter',lines:Array.from({length:6},(_,i)=>'heights.intro.'+i),after:'dorchester'},
  liftEvacuation:{level:'dorchester',title:'A door opening',place:'MARCH 17, 1776 · THE BRITISH EVACUATION OF BOSTON',music:'home',lines:Array.from({length:6},(_,i)=>'lift.evac.'+i),after:'bostonreturn'},
- liftHome:{level:'bostonreturn',title:'A country to argue over',place:'BOSTON · MARCH 1776 · COMMON SENSE, PUBLISHED JANUARY 1776',music:'home',lines:Array.from({length:5},(_,i)=>'lift.home.'+i),after:'complete'},
+ liftHome:{level:'bostonreturn',title:'A country to argue over',place:'BOSTON · MARCH 1776 · COMMON SENSE, PUBLISHED JANUARY 1776',music:'home',lines:Array.from({length:5},(_,i)=>'lift.home.'+i),after:'paperIntro'},
 };
 const close=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const LIFT_SHOTS={

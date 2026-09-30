@@ -38,7 +38,7 @@ test('Moores Creek repair creates passage and the rescue survives reloads',()=>{
 test('completed saves unlock this installment and completed new saves remain complete',()=>{
  const old={complete:true,seen:['ending','northEnding','hillLegacy'],prefs:{muted:true},scene:null,checkpoint:null};const n=continueProgress(old);assert.equal(n.scene,'promiseIntro');assert.equal(n.complete,false);assert.equal(old.complete,true);
  const unfinished={...old,complete:false,checkpoint:snapshot(fresh('breeds'))};assert.equal(continueProgress(unfinished),unfinished);
- const done={...old,seen:[...old.seen,'promiseCoda','liftHome']};assert.equal(continueProgress(done),done);assert.equal(SCENES.promiseEnd.after,'creekIntro');assert.equal(SCENES.creekEnd.after,'promiseCoda');assert.equal(SCENES.promiseCoda.after,'liftIntro');
+ const done={...old,seen:[...old.seen,'promiseCoda','liftHome','paperCoda']};assert.equal(continueProgress(done),done);assert.equal(SCENES.promiseEnd.after,'creekIntro');assert.equal(SCENES.creekEnd.after,'promiseCoda');assert.equal(SCENES.promiseCoda.after,'liftIntro');
  for(const h of [null,{...fresh('tidewater').promise,vx:Infinity},{...fresh('tidewater').promise,exposure:2}]){const raw=snapshot(fresh('tidewater'));raw.promise=h;assert.equal(restore(raw),null);}
 });
 // A steering pilot exercises real movement along a complete collision-free route.
@@ -59,3 +59,4 @@ test('the pursuing skiff cannot cut through an island to reach the player',()=>{
  const s=fresh('tidewater');s.stage=4;s.player.x=-25;s.player.z=-135;Object.assign(s.promise,{pursuit:true,boom:true,chaserX:25,chaserZ:-110});
  for(let i=0;i<800&&!s.failed;i++){tick(s,{},.025);assert.equal(collide(s,s.promise.chaserX,s.promise.chaserZ,.79,0),false);}
 });
+

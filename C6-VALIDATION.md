@@ -1,5 +1,17 @@
 # Chapter 6 — release checks
 
+Version 4.6.0 adds A Country on Paper and Words Beyond the Door. The full campaign is still in development.
+
+- 111 tests pass across Chapters 4–6 and shared systems. Eleven new tests exercise the complete walked print run, shared/private allocation and repair, physical ballots, three timed sheets, invalid strokes and supply recycling, press exit/resume, retained short carriage taps, both walked delivery orders, required rain recovery, save validation, non-inverted looking, and previous-release migration.
+- Every scene has one camera per line, bounded motion, and framing outside solid scenery. All 290 recorded lines have packaged nonempty files; all eight original music loops have exact file-size, loop, and peak/RMS metadata. Ink Before Thunder peaks at 0.6477, RMS 0.1803.
+- Hidden browser checks use forced mute and isolated playtest saves. Actual E/D/Space/A keyboard input printed three clean sheets. Reopening the page preserved the first sheet. The press HUD hides navigation markers; captions and the active timing band remain readable. Gallery framing and pause were checked with no console errors. Complete simulated walking routes cover both dispatch orders, including recovery; this is not a claim of a blind first-play test.
+- Release packaging explicitly includes c6.mjs and c6.css as well as imported modules and referenced media. The published entry module and edition text must be checked, rather than relying only on a data-version attribute.
+- Test sessions remain muted; audio has not been audibly auditioned. Hidden-tab frame throttling slows the timing gauge during testing. Physical phones, gamepads, visible pointer lock, and independent playtesting remain unverified.
+
+## Previous installment
+
+# Chapter 6 — release checks
+
 Version 4.5.0 adds Lift the Horizon, Dorchester Heights, and The Open Street. The full Chapter 6 campaign remains in development.
 
 - 100 tests pass across Chapters 4–6 and shared systems. Nine new tests exercise complete movement through both hauling routes, brakes and gravity, real-load completion, required bracing/ballast/chocks, sight direction, recoverable edge slips, load save validation, Boston’s physical street barrier, save migration, and non-inverted hauling cameras.

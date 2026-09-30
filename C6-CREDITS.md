@@ -1,10 +1,10 @@
 # Chapter 6 — production credits
 
-The Long Road Home through Lift the Horizon uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through A Country on Paper uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-226 prerecorded synthetic performances, approximately 854 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+290 prerecorded synthetic performances, approximately 1211 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -23,7 +23,7 @@ The Long Road Home through Lift the Horizon uses original game dialogue, code-bu
 
 ## Music and sound
 
-Seven original instrumental arrangements, approximately 289 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
+Eight original instrumental arrangements, approximately 331 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
 
 - **A Place in the Wagon** — 68 BPM; reunion and the crew’s closing scene.
 - **Lanterns on the Powder Road** — 88 BPM; the warning route.
@@ -32,6 +32,7 @@ Seven original instrumental arrangements, approximately 289 seconds of loop mate
 - **The Last Cartridges** — 112 BPM; the three assaults at Breed’s Hill.
 - **Names on the Water** — 88 BPM; Isaiah’s coastal passage.
 - **The Weight We Carry** — 100 BPM; the winter gun road and ascent.
+- **Ink Before Thunder** — 92 BPM; the Philadelphia print run and street dispatch.
 
 `c6-score.mjs` preserves the tempo, measured loop boundaries, peak/RMS values, and filenames. Music transitions across play sections, ducks beneath speech, and pauses with gameplay. Lexington’s opening scene uses silence before the shot. Gunfire, interaction sounds, bell partials, and footsteps are synthesized at runtime with Web Audio.
 
@@ -49,3 +50,7 @@ Version 4.3 adds 40 synthetic performances, four story scenes, and an original b
 
 
 Version 4.4 adds 59 synthetic performances, seven real-time scenes, one original instrumental loop, and two playable sections. Procedural assets include animated water, skiffs with articulated crews, oars and wakes, a royal tender silhouette, reed beds, coastal islands, cypress-like trees, lantern visibility sectors, a mooring boom, and a repairable creek bridge. All are original code-built approximations. The inlet, channels, relief crossing and their geometry are fictional, not survey reconstructions. No commercial game assets, music samples, or likeness imitation is used.
+
+Version 4.5 adds 48 synthetic performances, five real-time scenes, three playable sections, and the original winter score. Code-built snow, sledge, ropes, gun carriage, ballast, terrain, earthworks, ships and street barriers use no commercial game assets.
+
+Version 4.6 adds 64 synthetic performances, five real-time scenes, two playable sections, and Ink Before Thunder. The hand press has a moving carriage, screw, platen, handle, type form and sheet; the city has covered workspaces, a dock, rain, and a courier road. Thomas’s desk has an original stylized Declaration texture with a fictional crooked letter, not a facsimile of a surviving historical printing. All scenes use the same real-time renderer and crew rigs.

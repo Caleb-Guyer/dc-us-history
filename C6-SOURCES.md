@@ -1,3 +1,22 @@
+# A Country on Paper — historical scope (4.6.0)
+
+The required route covers handout P003, P016–P020 and P055 through a fictional neighborhood reprint shop, a shared paper pool, required type/proof work, and deliveries to neighborhood workers and the harbor. This installment does not complete the entire Chapter 6 campaign.
+
+| Required material | Playable evidence |
+| --- | --- |
+| Common Sense: Paine, England to Philadelphia in 1774, anonymous January 1776 publication, ordinary language, all thirteen colonies, independence and rejection of monarchy | Dated introduction, old pamphlet on bench, required neighborhood delivery |
+| Republicanism, popular sovereignty, majority rule, republican virtue | Physical representative ballot; scarce-paper choice; stopped cooperation after private allocation; required restoration of the common pool. The shop vote is an analogy, not universal suffrage. |
+| Summer 1776 Philadelphia Congress; Jefferson’s main authorship, Adams’s support; grievances against George III | Required heading and grievances type installed in the press form |
+| Natural rights, consent, alter or abolish destructive government | Rights block, windblown proof recovery, drying/mending before the press runs |
+| Foreign recognition, aid, France and Spain | Both diplomatic packets must reach Isaiah. Sending copies does not imply an alliance immediately. |
+| Common cause among varied economic/social backgrounds; Loyalists and neutrals | Working shop and required local delivery; Thomas reads his brother’s work while retaining loyalty to the Crown. |
+
+Congress adopted the Declaration on July 4; John Dunlap produced its official first printing. The player’s neighborhood shop makes later fictional copies, so Rowan does not replace Dunlap or write Jefferson’s document. Most signatures on the engrossed copy came on August 2. The small print run, wind/rain, shop election, delivery routes, and character reactions are fictional gameplay approximations. The stylized paper texture is not a historical facsimile.
+
+Primary supplemental references: [National Archives, Declaration of Independence](https://www.archives.gov/milestone-documents/declaration-of-independence), [National Archives, Declaration history](https://www.archives.gov/founding-docs/declaration-history), and [US Office of the Historian, Declaration and international recognition](https://history.state.gov/milestones/1776-1783/declaration). The classroom handout remains the assigned scope. Original dialogue paraphrases its facts; no full Declaration reading is required.
+
+## Earlier releases
+
 # The Long Road Home — historical scope through The Guns North
 
 This release covers **the campaign opening and The Guns North**, not the complete Chapter 6 campaign. It contains an original prologue, a warning route, civilian rescue at Lexington, a fictional local wagon defense during the British retreat from Concord, and a crew mission during the capture of Fort Ticonderoga. Locations and encounters are compressed and stylized for play; they are not surveyed reconstructions.

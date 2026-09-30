@@ -83,5 +83,17 @@ export const C6_SCORE = {
     "peak": 0.6692,
     "rms": 0.1804,
     "bytes": 768960
+  },
+  "press": {
+    "title": "Ink Before Thunder",
+    "bpm": 92,
+    "mood": "home",
+    "file": "c6-music-press-b79a095a.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 41.77365625,
+    "duration": 41.739125,
+    "peak": 0.6477,
+    "rms": 0.1803,
+    "bytes": 835920
   }
 };

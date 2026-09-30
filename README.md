@@ -1,14 +1,14 @@
 # DC US History
 
-## Chapter 6 update — Lift the Horizon (4.5.0)
+## Chapter 6 update — A Country on Paper (4.6.0)
 
-Bring the gun you marked at Ticonderoga through a winter transport route, up the last slope to Dorchester Heights, and back into Boston after the British evacuation. A heavy sledge and wheeled carriage have their own momentum: steer the pulling line, brake on ice, brace damaged road, and carry the shifted ballast across the load. The harbor view explains why the heights change the siege. The homecoming is a playable street and press visit, ending with Common Sense.
+Work a Philadelphia neighborhood reprint shop after Congress adopts the Declaration. Choose the shop’s representative, decide where scarce paper goes, repair lost cooperation, carry type to the form, save a windblown proof, and operate a physical hand press. Deliver the finished copies through a rainy city in your chosen order. Both France and Spain packets must reach Isaiah; Thomas’s separate scene makes the Declaration personal.
 
-Five new real-time scenes and 48 new recorded performances bring the campaign to **226 recordings, 25 scenes, and seven original music loops**. The new 100 BPM score is **The Weight We Carry**. Winter transport is explicitly dated January 1776, the night ascent March 4–5, and the evacuation March 17; this episode returns to the northern crew after Isaiah’s separately dated coastal journey.
+Five new real-time scenes and 64 new prerecorded performances bring the campaign to **290 recordings, 30 scenes, and eight original music loops**. The new 92 BPM arrangement is **Ink Before Thunder**. The shop is a fictional later reprint operation, not John Dunlap’s official first printing. Dates and the limits of the shop-vote analogy stay explicit.
 
-**Hauling controls:** WASD pulls once hitched; mouse/arrows look; Space brakes. A trailing camera shows the rope and load. E performs nearby work; carrying the ballast to the opposite runner changes its balance. Normal foot, combat, water, and touch controls remain available. Completed 4.4 saves continue here; unfinished stories and mission replays retain their checkpoints.
+**Press controls:** E feeds/takes a sheet; D slides in; Space makes a timed stroke in the pale band; A slides out. Hold or tap A/D. W/S steps away; E at the handles resumes. Each clean sheet is checkpointed; spoiled sheets recycle. In the city, C covers the packets and the covered rack recovers rain-damaged sheets. Normal foot, combat, water, hauling and touch controls remain available. Completed 4.5 saves continue into Philadelphia; replays preserve story progress.
 
-The full Chapter 6 campaign is still being built. The next mission is **A Country on Paper**, the Philadelphia print run and independence debate.
+The full Chapter 6 campaign is still being built. Next: **No Ground Left**, the New York campaign.
 
 **[Play The Long Road Home — Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
 
@@ -20,7 +20,7 @@ The first playable installment follows Ward’s release, a night warning route, 
 
 **Hold Until Empty.** Defend a fictional section of Breed’s Hill on June 17, 1775. Brace the earthwork, choose an ammunition post, direct militia volleys, repair the flank, and fight through three assaults. When the line runs out of cartridges, the objective changes: carry two wounded men behind the ridge, signal Ward, and leave together. Four new scenes carry the story from Washington’s appointment through the British capture of the hill and later news of the king’s declaration. Later Chapter 6 missions remain in development.
 
-- Twenty-five real-time story scenes with the recurring crew, 226 prerecorded voice performances, and seven original score arrangements.
+- Thirty real-time story scenes with the recurring crew, 290 prerecorded voice performances, and eight original score arrangements.
 - The four opening sections: support Ward, warn the countryside while avoiding patrols, carry wounded people to Mara, then use a flintlock and stone cover to protect the wagon’s crossing.
 - One-round loading, deliberate manual reload, crouching cover, three enemy waves, and a defense that cannot complete by abandoning the wagon.
 - A restrained HUD, separate voice/music/effects controls, larger captions, reduced camera motion, Story difficulty, keyboard-only looking, and touch controls.
