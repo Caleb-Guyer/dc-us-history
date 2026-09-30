@@ -36,7 +36,7 @@ test('third assault cannot become an alternative victory by killing every attack
 });
 test('new save migration and corrupt hill state are handled without erasing progress',()=>{
  const old={complete:true,seen:['ending','northEnding'],prefs:{muted:true},checkpoint:null,scene:null};const next=continueProgress(old);assert.equal(next.scene,'hillIntro');assert.equal(next.complete,false);assert.equal(old.complete,true);
- const done={...old,seen:[...old.seen,'hillLegacy']};assert.equal(continueProgress(done),done);assert.equal(SCENES.northEnding.after,'hillIntro');assert.equal(SCENES.hillEnding.after,'hillLegacy');
+ const done={...old,seen:[...old.seen,'hillLegacy']};assert.equal(continueProgress(done).scene,'promiseIntro');assert.equal(SCENES.northEnding.after,'hillIntro');assert.equal(SCENES.hillEnding.after,'hillLegacy');
  for(const value of [null,{...fresh('breeds').hill,line:101},{...fresh('breeds').hill,phase:NaN}]){const raw=snapshot(fresh('breeds'));raw.hill=value;assert.equal(restore(raw),null);}
 });
 test('advancing redcoats remain outside earthworks and do not inherit player jumping',()=>{

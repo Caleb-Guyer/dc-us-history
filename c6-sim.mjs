@@ -1,10 +1,11 @@
-import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.3.0-final';
-import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.3.0-final';
-import {LEVELS} from './c6-data.mjs?v=4.3.0-final';
+import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.4.0-published';
+import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.4.0-published';
+import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.4.0-published';
+import {LEVELS} from './c6-data.mjs?v=4.4.0-published';
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const angle=x=>Math.atan2(Math.sin(x),Math.cos(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
-export const BLOCKS={
+export const BLOCKS={tidewater:TIDE_BLOCKS,moorescreek:CREEK_BLOCKS,
  ticonderoga:FORT_BLOCKS,
  breeds:HILL_BLOCKS,
  release:[[-7,-5,7,12,6],[7,-5,7,12,6],[0,-10,7,3,6],[-15,5,2,28,3],[15,0,2,25,3]],
@@ -16,7 +17,7 @@ function enemy(id,x,z,route,patrol=false){return {id,x,z,startX:x,startZ:z,hp:1,
 export function fresh(level,difficulty='normal'){
  const spec=LEVELS[level];if(!spec)throw new Error('Unknown level');
  return {level,difficulty,stage:0,time:0,player:{x:spec.spawn[0],z:spec.spawn[1],y:0,vy:0,yaw:0,pitch:0,health:100,stamina:100},
-  hill:level==='breeds'?freshHill():null,fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
+  promise:['tidewater','moorescreek'].includes(level)?freshPromise():null,hill:level==='breeds'?freshHill():null,fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
   lastDamage:-99,volley:0,volleyWarning:false,suppliesUsed:false,shotsFired:0,kills:0,
   enemies:level==='night'?[enemy(0,-2,-39,[-9,5,-39],true),enemy(1,2,-80,[-8,9,-80],true),enemy(2,2,-100,[-7,9,-100],true)]:[],
   ward:{x:level==='night'?1.5:0,z:level==='night'?21:2,yaw:0},failed:false,finished:false,events:[],seed:1775,patrolWarned:false,spotted:false,reloadHint:false};
@@ -31,11 +32,14 @@ export function restore(raw,difficulty='normal'){
  for(const k of ['time','hold','ammo','reload','shot','hit','defense','wave','alert','seed','wagonHealth'])if(!Number.isFinite(raw[k]))return null;
  if(raw.level==='ticonderoga'&&(!raw.fort||!['haul','crew','seen','look','sentryX','sentryZ','captureTime'].every(k=>Number.isFinite(raw.fort[k]))))return null;
  if(raw.level==='breeds'&&(!raw.hill||!['phase','clock','line','teamAmmo','volleyCooldown','allyClock','crewFlash','rescues','wardProgress','shellIn','shellX','shellZ','shellClock','signalCount'].every(k=>Number.isFinite(raw.hill[k]))||raw.hill.line<0||raw.hill.line>100||raw.hill.phase<0||raw.hill.phase>3))return null;
+ if(['tidewater','moorescreek'].includes(raw.level)&&(!raw.promise||!['vx','vz','yaw','exposure','chaserX','chaserZ','shotClock','warning','targetX','targetZ','speed'].every(k=>Number.isFinite(raw.promise[k]))||raw.promise.exposure<0||raw.promise.exposure>1))return null;
  Object.assign(s,raw,{difficulty,events:[],failed:false,finished:false,hold:0});
  s.player={...s.player,health:clamp(p.health,1,100),stamina:clamp(Number(p.stamina)||0,0,100),y:0,vy:0};
  s.lastDamage=Number.isFinite(s.lastDamage)?s.lastDamage:-99;s.shotsFired=Number.isFinite(s.shotsFired)?s.shotsFired:0;s.kills=Number.isFinite(s.kills)?s.kills:0;s.volley=0;s.volleyWarning=false;if(!s.ward||!Number.isFinite(s.ward.x)||!Number.isFinite(s.ward.z))s.ward={x:p.x+.8,z:p.z+1,yaw:p.yaw};s.ammo=clamp(s.ammo,0,30);s.reload=clamp(s.reload,0,4.2);return s;
 }
 export function collide(s,x,z,r=.3,feet=s.player.y){const b=LEVELS[s.level].bounds;if(x<b[0]+r||x>b[1]-r||z<b[2]+r||z>b[3]-r)return true;
+ if(s.level==='moorescreek'&&!s.promise.bridge&&Math.abs(x)<2.8&&z<-3+r&&z>-8-r)return true;
+ if(s.level==='tidewater'&&!s.promise.boom&&Math.abs(x-23)<4.1+r&&Math.abs(z+130)<.2+r)return true;
  return BLOCKS[s.level].some(([bx,bz,w,d,h])=>feet<h&&Math.abs(x-bx)<w/2+r&&Math.abs(z-bz)<d/2+r);}
 export function blocked(level,a,b){
  for(const [x,z,w,d,h] of BLOCKS[level]||[]){let lo=0,hi=1;
@@ -61,7 +65,8 @@ export function goalNear(s){const g=currentGoal(s);return g&&distance(s.player,g
 function emit(s,type,data={}){s.events.push({type,...data});}
 function next(s){s.stage++;s.hold=0;if(s.stage>=LEVELS[s.level].goals.length){s.finished=true;emit(s,'finish');}else emit(s,'checkpoint');}
 function interact(s){
- if(s.level==='breeds')interactHill(s);
+ if(s.promise)interactPromise(s);
+ else if(s.level==='breeds')interactHill(s);
  else if(s.level==='ticonderoga')interactFort(s);
  else if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}next(s);}
  else if(s.level==='night'){if(s.stage===0){emit(s,'voice',{id:'farm.0'});emit(s,'voice',{id:'farm.1'});}if(s.stage===1){emit(s,'bell');emit(s,'voice',{id:'bell.0'});emit(s,'voice',{id:'bell.1'});}next(s);}
@@ -84,9 +89,9 @@ export function tick(s,input,dt){
  p.yaw=angle(p.yaw+((input.lookLeft?1:0)-(input.lookRight?1:0))*dt*1.65);p.pitch=clamp(p.pitch+((input.lookUp?1:0)-(input.lookDown?1:0))*dt,-.9,.85);
  const pace=s.level==='ticonderoga'&&s.fort.rope?1.05:s.carrying?(s.level==='release'?2.1:2.3):input.crouch?2.15:run?7.1:4.2,normal=Math.hypot(moveX,moveZ)||1;
  const dx=(Math.cos(p.yaw)*moveX-Math.sin(p.yaw)*moveZ)*pace*dt/normal,dz=(-Math.sin(p.yaw)*moveX-Math.cos(p.yaw)*moveZ)*pace*dt/normal;
- if(!collide(s,p.x+dx,p.z))p.x+=dx;if(!collide(s,p.x,p.z+dz))p.z+=dz;
- p.stamina=clamp(p.stamina+(run&&moving?-22:16)*dt,0,100);
- if(input.jump&&!s.carrying&&p.y===0){p.vy=4.2;}p.vy-=12*dt;p.y=Math.max(0,p.y+p.vy*dt);if(p.y===0)p.vy=0;
+ if(s.level==='tidewater')moveBoat(s,input,dt,collide);else{if(!collide(s,p.x+dx,p.z))p.x+=dx;if(!collide(s,p.x,p.z+dz))p.z+=dz;}
+ if(s.level!=='tidewater')p.stamina=clamp(p.stamina+(run&&moving?-22:16)*dt,0,100);
+ if(input.jump&&s.level!=='tidewater'&&!s.carrying&&p.y===0){p.vy=4.2;}p.vy-=12*dt;p.y=Math.max(0,p.y+p.vy*dt);if(p.y===0)p.vy=0;
  if(s.reload>0){s.reload=Math.max(0,s.reload-dt);if(s.reload===0){s.loaded=true;s.ammo--;emit(s,'loaded');}}
  if(input.reload&&s.armed&&!s.loaded&&s.reload===0&&s.ammo>0){s.reload=4.2;emit(s,'reload');}
  if(input.fire)fire(s,input);
@@ -136,9 +141,9 @@ export function tick(s,input,dt){
    if(!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})&&random(s)<(s.difficulty==='story'?.14:.36)){p.health=Math.max(0,p.health-(s.difficulty==='story'?10:17));s.lastDamage=s.time;emit(s,'hurt');}
   }
  }
- s.alert=maxAlert;if(s.level==='breeds')updateHill(s,input,dt,{blocked,collide});if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if(s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
+ s.alert=maxAlert;if(s.promise)updatePromise(s,input,dt,{blocked,collide});if(s.level==='breeds')updateHill(s,input,dt,{blocked,collide});if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if((s.level!=='tidewater'||!s.promise.pursuit&&s.alert<.1)&&s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
  if(p.health<=0){s.failed=true;emit(s,'fail');return s.events;}
- if(!hillDefending(s)&&!s.failed&&!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
+ if(!hillDefending(s)&&!s.failed&&!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)&&(!s.promise||promiseCanUse(s,input))){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
  return s.events;
 }
 

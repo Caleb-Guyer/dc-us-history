@@ -1,4 +1,4 @@
-// Original, locally synthesized 16-bar instrumental loops. See C6-CREDITS.md.
+// Original, locally synthesized instrumental loops. See C6-CREDITS.md.
 export const C6_SCORE = {
   "home": {
     "title": "A Place in the Wagon",
@@ -59,5 +59,17 @@ export const C6_SCORE = {
     "peak": 0.7804,
     "rms": 0.1803,
     "bytes": 686880
+  },
+  "tide": {
+    "title": "Names on the Water",
+    "bpm": 88,
+    "mood": "night",
+    "file": "c6-music-tide-fcc7d184.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 43.67090625,
+    "duration": 43.636375,
+    "peak": 0.7046,
+    "rms": 0.1804,
+    "bytes": 874080
   }
 };

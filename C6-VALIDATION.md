@@ -1,5 +1,22 @@
 # Chapter 6 — release checks
 
+Version 4.4.0 adds A King’s Promise and The Other Bank. This release is another campaign installment; the full Chapter 6 campaign is not yet complete.
+
+- `npm test`: 91 tests across shared systems and all three chapters. Nine new tests exercise boarding, quiet concealment, pursuit and dodging, boom collision, rescue/repair persistence, save migration, a full navigated boat route, non-inverted boat camera controls, and pursuer collision.
+- `npm run check`: syntax checks for the complete app/module set, including all three new mission modules.
+- Existing checks verify all objectives are reachable after required world changes, every cinematic beat has a bounded camera with unobstructed framing, every line has a real packaged recording, and every score has measured loop boundaries and safe peak/RMS values.
+- 178 prerecorded lines, 20 scenes, six score loops. New episode: 59 lines, seven scenes, two playable sections.
+- Local browser review uses `?muted=1`, which locks voice, effects and music silent even when settings change. All testing remained hidden in the background.
+- Local checks: rowing and braking through actual keyboard input; C quiet-stroke toggle and reed checkpoint; royal-tender interaction enters its scene and resumes stage 3; wounded pickup at Moores Creek; camera/character staging; scene and mission replay routes; no observed browser errors.
+- Pure simulation drives the complete boat route through each channel, then escape, using movement inputs. Bridge repair, carrying, delivery and extraction are exercised with checkpoint round trips. This is separate from the partial manual browser playtest.
+- Old completed campaign saves unlock the new opening. Unfinished saves remain intact. Individual earlier mission replays end before chaining into this episode. Local fixtures are gated to localhost and use a separate playtest save.
+
+Publication and live-browser verification are recorded in the release metadata outside the shipped game. Prior release checks follow for context.
+
+---
+
+# Chapter 6 — release checks
+
 Version 4.3.0, September 29, 2026. Playable scope now includes Hold Until Empty at Breed’s Hill after the opening and The Guns North. Later campaign missions remain in development.
 
 - `npm test`: 82 tests pass across Chapters 4–6 and shared audio. New tests cover all three assaults on Normal, both ammunition choices, one-use supplies across saves, abandonment, incoming cannon warnings, cover, forced historical withdrawal, both rescues, waiting for Ward, extraction, save migration, corrupt state, and enemies navigating earthworks.

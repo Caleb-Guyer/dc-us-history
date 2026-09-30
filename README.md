@@ -1,16 +1,25 @@
 # DC US History
 
+## Chapter 6 update — A King’s Promise (4.4.0)
+
+Play as Isaiah Mercer in a new coastal mission through watched Virginia channels in November 1775. Row quietly through reeds, evade patrol lanterns, meet Jonas Bell, cut a mooring boom, and escape an intercepting skiff. A separately dated North Carolina section takes place after the Battle of Moores Creek Bridge on February 27, 1776: present the Mecklenburg dispatch, repair a crossing, and rescue a wounded Loyalist.
+
+Seven new real-time scenes and 59 new recorded synthetic performances follow Jonas’s own decision to seek British protection. The proclamation’s limits, family uncertainty, conflicting loyalties, and consequences are delivered in conversations attached to the journey. The original coastal score is **Names on the Water**. The campaign now contains 178 recorded lines, 20 story scenes, and six original music loops.
+
+Water controls: **WASD** rows relative to the view; **mouse/arrows** look; **Shift** rows hard; **C** toggles quiet strokes; release movement to brake; **E** interacts. A slow boat is hidden in reeds. Marked shots can be dodged. Foot controls stay the same. Completed 4.3 saves continue at this mission; unfinished saves and replay checkpoints remain separate. The full Chapter 6 campaign is still being built; the next planned mission is **Lift the Horizon**.
+
+
 **[Play The Long Road Home — Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
 
 Free browser games for dual-credit U.S. History. No install, login, ads, or API keys. The repository was renamed from `crown-and-current` to `dc-us-history`; use the new GitHub Pages address above.
 
-## Chapter 6: The Long Road Home — through Hold Until Empty
+## Earlier Chapter 6 missions
 
 The first playable installment follows Ward’s release, a night warning route, civilian rescue at Lexington, and a fictional wagon defense during the British retreat from Concord. The next playable mission, The Guns North, follows the crew to Fort Ticonderoga on May 10, 1775: time a sentry’s gaze, signal Ward, open the passage, secure the gun stores, and haul a marked cannon onto rollers. Being spotted changes the approach into a crew rescue.
 
-**New: Hold Until Empty.** Defend a fictional section of Breed’s Hill on June 17, 1775. Brace the earthwork, choose an ammunition post, direct militia volleys, repair the flank, and fight through three assaults. When the line runs out of cartridges, the objective changes: carry two wounded men behind the ridge, signal Ward, and leave together. Four new scenes carry the story from Washington’s appointment through the British capture of the hill and later news of the king’s declaration. Later Chapter 6 missions remain in development.
+**Hold Until Empty.** Defend a fictional section of Breed’s Hill on June 17, 1775. Brace the earthwork, choose an ammunition post, direct militia volleys, repair the flank, and fight through three assaults. When the line runs out of cartridges, the objective changes: carry two wounded men behind the ridge, signal Ward, and leave together. Four new scenes carry the story from Washington’s appointment through the British capture of the hill and later news of the king’s declaration. Later Chapter 6 missions remain in development.
 
-- Thirteen real-time story scenes with the recurring crew, 119 prerecorded voice performances, and five original score arrangements.
+- Twenty real-time story scenes with the recurring crew, 178 prerecorded voice performances, and six original score arrangements.
 - The four opening sections: support Ward, warn the countryside while avoiding patrols, carry wounded people to Mara, then use a flintlock and stone cover to protect the wagon’s crossing.
 - One-round loading, deliberate manual reload, crouching cover, three enemy waves, and a defense that cannot complete by abandoning the wagon.
 - A restrained HUD, separate voice/music/effects controls, larger captions, reduced camera motion, Story difficulty, keyboard-only looking, and touch controls.

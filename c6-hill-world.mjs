@@ -1,5 +1,5 @@
 import * as T from './three.module.js';
-import {HILL_BLOCKS,hillDefending} from './c6-hill.mjs?v=4.3.0-final';
+import {HILL_BLOCKS,hillDefending} from './c6-hill.mjs?v=4.4.0-published';
 const mix=(a,b,t)=>a+(b-a)*t, face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const rand=n=>{const v=Math.sin(n*127.1+31.7)*43758.5453;return v-Math.floor(v);};
 export function buildRunner(w,x,z){const a=w.actor('ROWAN',x,z);delete w.cast.ROWAN;w.cast.RUNNER=a;a.traverse(o=>{if(o.isMesh&&o.material?.color&&[0x315663,0x345958].includes(o.material.color.getHex())){o.material=o.material.clone();o.material.color.setHex(0x79724b);}});return a;}

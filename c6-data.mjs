@@ -1,13 +1,15 @@
-import {HILL_SPEC} from './c6-hill.mjs?v=4.3.0-final';
+import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.4.0-published';
+import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.4.0-published';
+import {HILL_SPEC} from './c6-hill.mjs?v=4.4.0-published';
 // Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
-import {FORT_SPEC} from './c6-fort.mjs?v=4.3.0-final';
-export const VERSION='4.3.0';
+import {FORT_SPEC} from './c6-fort.mjs?v=4.4.0-published';
+export const VERSION='4.4.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
-export function continueProgress(saved){if(!saved.complete||saved.seen.includes('hillLegacy'))return saved;return {...saved,complete:false,scene:saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
-export const NAMES={ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
-export const SPEAKERS={ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
+export function continueProgress(saved){if(!saved.complete||saved.seen.includes('promiseCoda'))return saved;return {...saved,complete:false,scene:saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
+export const NAMES={JONAS:'Jonas Bell',AGENT:'Royal intermediary',CLAIMANT:'Virginia enslaver',ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
+export const SPEAKERS={JONAS:['am_onyx',.98,'en-us'],AGENT:['bm_lewis',.99,'en-gb'],CLAIMANT:['am_eric',1.03,'en-us'],ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
 const line=(id,speaker,text)=>({id,speaker,text});
-export const LINES=[
+export const LINES=[...PROMISE_LINES,
  line('release.0','THOMAS','The release is signed. Give him his coat.'),
  line('release.1','ROWAN','Ward? It’s me.'),
  line('release.2','WARD','I know your footsteps. You still hurry when you’re frightened.'),
@@ -141,7 +143,8 @@ export const SCENES={
  hillIntro:{level:'breeds',title:'Hold Until Empty',place:'BREED’S HILL · JUNE 17, 1775',music:'tension',lines:Array.from({length:8},(_,i)=>'hill.intro.'+i),after:'breeds'},
  hillBreak:{level:'breeds',title:'The last cartridges',place:'BREED’S HILL · THE THIRD ASSAULT',music:null,lines:Array.from({length:6},(_,i)=>'hill.break.'+i),after:'checkpoint'},
  hillEnding:{level:'breeds',title:'Behind the ridge',place:'BEYOND BREED’S HILL · JUNE 17, 1775',music:'home',lines:Array.from({length:7},(_,i)=>'hill.end.'+i),after:'hillLegacy'},
- hillLegacy:{level:'end',title:'Still surrounded',place:'BOSTON LINES · SEPTEMBER 1775 · NEWS FROM LONDON',music:'home',lines:Array.from({length:4},(_,i)=>'hill.legacy.'+i),after:'complete'},
+ hillLegacy:{level:'end',title:'Still surrounded',place:'BOSTON LINES · SEPTEMBER 1775 · NEWS FROM LONDON',music:'home',lines:Array.from({length:4},(_,i)=>'hill.legacy.'+i),after:'promiseIntro'},
+ ...PROMISE_SCENES,
 };
 export const LEVELS={
  release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
@@ -150,8 +153,10 @@ export const LEVELS={
  concord:{title:'A road home',place:'APRIL 19, 1775 · NEAR CONCORD',spawn:[3,18],bounds:[-24,24,-42,26],music:'battle',goals:[{x:2,z:9,label:'Take the spare musket',verb:'Take the musket',time:.8},{x:0,z:4,label:'Cover the wagon from the stone wall',verb:'Hold this position',time:0},{x:18,z:23,label:'Fall back to the orchard',verb:'Leave with the crew',time:.7}]},
  ticonderoga:FORT_SPEC,
  breeds:HILL_SPEC,
+ tidewater:TIDE_SPEC,
+ moorescreek:CREEK_SPEC,
 };
-export const FACTS=[
+export const FACTS=[...PROMISE_FACTS,
  ['A promise kept','Rowan, Mara, Isaiah, Ward, Thomas, and the local rescues are fictional. Ward survived the Chapter 5 fire and surrendered. Thomas remains a Loyalist. Isaiah is a free Black man who survived his 1770 shoulder wound.','Crew continuity'],
  ['The powder raids','Gage used Boston as a base for seizures of colonial weapons and powder. Cambridge and Charlestown lost supplies; resistance met the troops at Salem. Colonists seized Fort William and Mary in New Hampshire.','Handout §6.1, paragraphs 8–9'],
  ['Minutemen','Local militia prepared to assemble rapidly. Many members had experience in the French and Indian War. The fictional farm and bell route illustrates this wider mobilization.','Handout §6.1, paragraph 9'],

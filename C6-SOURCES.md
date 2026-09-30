@@ -59,3 +59,29 @@ Placing reserve ammunition and directing volleys make scarcity part of play. Rep
 | King declares rebellion, August 1775 | Mara reads the news in the September transition |
 
 The full Chapter 6 campaign is still in development. This installment does not claim to cover the later independence debate, campaigns, diplomacy, or peace settlement.
+
+
+## A King’s Promise — 4.4
+
+The supplied chapter paragraphs P014–P015 establish the Mecklenburg Resolves, Moores Creek, Dunmore’s conditional proclamation, the reaction of Patriot enslavers, and Dunmore’s 1776 departure. P052–P053 frame the broader question of Black service and freedom. The new episode does not repeat P053’s compressed Yorktown troop claim or present a single permanent Washington recruiting policy. Those later contexts remain for later missions.
+
+- [Library of Congress: Dunmore’s Proclamation](https://www.loc.gov/exhibitions/two-georges/about-this-exhibition/american-revolution/the-georges-at-war/lord-dunmores-proclamation/) identifies the November 7, 1775 document. Its conditions concern enslaved people and indentured servants belonging to rebels, able and willing to bear arms and joining royal forces. Dialogue distinguishes this offer from general abolition or assured protection for a spouse.
+- [Colonial Williamsburg: John Murray, Fourth Earl of Dunmore](https://www.colonialwilliamsburg.org/discover/18th-century-people/people-of-williamsburg/john-murray-fourth-earl-of-dunmore/) supplies the broader proclamation and departure context. Dunmore’s flight is delivered in a clearly labeled later-1776 historical dispatch, not treated as news known in February. The next planned Boston mission explicitly returns to winter 1775–1776.
+- [North Carolina State Library: original Mecklenburg Resolves transcript](https://www.ncanchor.org/anchor/primary-source-mecklenburg) preserves the May 31, 1775 rejection of Crown authority and congressional control over local government and militia. The game names the Resolves, not the disputed Declaration. A fictional courier carries an older copy, not a newly adopted February measure.
+- [National Park Service: Moores Creek battlefield brochure](https://www.nps.gov/mocr/planyourvisit/park-brochure.htm) dates the battle to February 27, 1776, describes the dismantled bridge, Patriot victory, and defeat of the Loyalist march toward the coast. The playable rescue occurs afterward, without reversing the battle.
+- [Mount Vernon: African Americans in the Revolutionary War](https://www.mountvernon.org/george-washington/the-revolutionary-war/african-americans-in-the-revolutionary-war) provides context for changing recruiting policies and the distinction between service and emancipation. The episode makes only the narrower classroom-supported point that Patriot service did not automatically confer freedom.
+
+Isaiah remains a free Black pilot, with an old healed shoulder injury from 1770. Jonas Bell, Ruth Bell, the intermediary, the enslaver, and this boat journey are fictional. Jonas makes his own decision to approach British forces; the player does not choose his legal status or decide whether slavery should exist. The scene does not promise that the British will free his entire family or that his future is safe. Mara travels back north after unloading a fictional relief cargo; Isaiah’s next appearance is separately dated three months later in North Carolina. Nathan’s presence there is part of the fictional relief network.
+
+| Classroom concept | Required delivery |
+| --- | --- |
+| Dunmore, royal governor; November 1775 proclamation | Jonas’s obtained paper and boarding conversation |
+| Rebel ownership, ability/willingness to bear arms, British service | Isaiah’s reading and intermediary’s questions |
+| Slavery versus Patriot claims of liberty; enslaver reaction | Jonas’s account and the interception scene |
+| Seeking freedom did not mean guaranteed family protection | Jonas asks about Ruth; no promise is given |
+| Mecklenburg Resolves; authority transferred toward Congress | Captain’s required dispatch interaction before crossing |
+| Patriots defeat Loyalists at Moores Creek, February 1776 | Dated arrival, damaged bridge, aftermath conversation |
+| Service and freedom were different questions | Required rescue aftermath dialogue |
+| Dunmore flees in 1776; longer consequences | Clearly dated historical coda |
+
+Boat acceleration, stamina, detection sectors, warning rings, health recovery, checkpoint positions, and simplified repair/rescue tasks are gameplay abstractions. The local interception is fictional. The map, generic clothing, crews, and boats do not reconstruct an exact documented encounter or uniform roster. Scenes are skippable and replayable; finishing the mission is not proof of mastery of the full chapter.
