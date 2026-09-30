@@ -1,8 +1,9 @@
+import {HILL_SPEC} from './c6-hill.mjs?v=4.3.0-final';
 // Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
-import {FORT_SPEC} from './c6-fort.mjs?v=4.2.0';
-export const VERSION='4.2.0';
+import {FORT_SPEC} from './c6-fort.mjs?v=4.3.0-final';
+export const VERSION='4.3.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
-export function continueProgress(saved){return saved.complete&&!saved.seen.includes('northEnding')?{...saved,complete:false,scene:'northIntro',checkpoint:null}:saved;}
+export function continueProgress(saved){if(!saved.complete||saved.seen.includes('hillLegacy'))return saved;return {...saved,complete:false,scene:saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
 export const NAMES={ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
 export const SPEAKERS={ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
 const line=(id,speaker,text)=>({id,speaker,text});
@@ -86,6 +87,46 @@ export const LINES=[
  line('north.end.5','WARD','Your brother’s still in there.'),
  line('north.end.6','ROWAN','So are other people’s brothers. We find a road for these guns.'),
  line('north.end.7','WARD','Then keep that list dry. We’re going back to the siege.'),
+ line("hill.intro.0","RUNNER","Dispatch from Philadelphia. June fifteenth. Congress has appointed George Washington commander in chief."),
+ line("hill.intro.1","ROWAN","Then where is he?"),
+ line("hill.intro.2","WARD","Not here yet. Today we hold with the men we have."),
+ line("hill.intro.3","MARA","This is Breed’s Hill. The road behind us runs over Bunker Hill. Remember it when the smoke comes."),
+ line("hill.intro.4","ROWAN","Those ships can reach us from the harbor."),
+ line("hill.intro.5","WARD","And these heights threaten Boston. That’s why the British want them back."),
+ line("hill.intro.6","MARA","I’ll have blankets behind the ridge. If you bring someone to me, go back for the next."),
+ line("hill.intro.7","WARD","Brace this section. Place our reserve where you can reach it. Then come to the wall."),
+ line("hill.braced","WARD","That will hold. Take these cartridges. Left post or right. You’ll have to fetch them under fire."),
+ line("hill.left","ROWAN","Reserve on the left. Near the main line."),
+ line("hill.right","ROWAN","Reserve on the right. If they turn the flank, we’ll need it there."),
+ line("hill.first","WARD","First line coming up. Let them close. One shot, then get below the earthwork to reload."),
+ line("hill.volley","ROWAN","Together! Fire!"),
+ line("hill.flank","RUNNER","They’re falling back! The timbers on our right are loose. Rowan, help me close it!"),
+ line("hill.second","WARD","Here they come again. Watch the right. Don’t spend every cartridge at once."),
+ line("hill.reserve","ROWAN","Last reserve. Pass them down the line."),
+ line("hill.third","WARD","They’re forming a third time. Check your cartridges. Keep the rear lane open."),
+ line("hill.gun","RUNNER","The gun! I can’t see the men at the gun!"),
+ line("hill.break.0","ROWAN","The smoke’s lifting. Where did the gun crew go?"),
+ line("hill.break.1","RUNNER","They’re at the earthwork!"),
+ line("hill.break.2","WARD","Down, Rowan! Down!"),
+ line("hill.break.3","ROWAN","I can still fire."),
+ line("hill.break.4","WARD","The men along the wall are empty. One musket can’t hold this hill. Get the wounded behind the ridge."),
+ line("hill.break.5","ROWAN","I’ll call you when they’re clear. You follow my signal."),
+ line("hill.lift","ROWAN","Arm around me. Look at the road, not at your leg."),
+ line("hill.mara","MARA","I have him. Another man fell by the right fence. Bring him through the gap."),
+ line("hill.other","ROWAN","I’m here. Lean on me. We’re leaving together."),
+ line("hill.safe","MARA","Both breathing. Rowan, get Ward off that hill."),
+ line("hill.signal","ROWAN","Ward! Fall back! We have a way through!"),
+ line("hill.end.0","MARA","Easy. Lower him with me. Nathan, hold that cloth."),
+ line("hill.end.1","ROWAN","They have the redoubt."),
+ line("hill.end.2","WARD","They have the hill. Look at the road. Our men are still coming out."),
+ line("hill.end.3","ROWAN","I told you to follow my signal."),
+ line("hill.end.4","WARD","You did. So I followed it."),
+ line("hill.end.5","MARA","Rowan. His hand. Hold it while I bind his leg."),
+ line("hill.end.6","ROWAN","I’m here. I’m not going anywhere."),
+ line("hill.legacy.0","RUNNER","The reports say more than two hundred British dead. Around eight hundred wounded. All for those hills."),
+ line("hill.legacy.1","WARD","Gage took the ground. He still couldn’t break the siege around Boston."),
+ line("hill.legacy.2","MARA","In August, the king declared the colonies in rebellion. This arrived from London."),
+ line("hill.legacy.3","ROWAN","Then we keep the dispatches moving. People need to know what comes next."),
 ];
 export const SCENES={
  release:{level:'release',title:'An unfinished promise',place:'BOSTON · EARLY 1775',music:'home',lines:['release.0','release.1','release.2','release.3','release.4'],after:'release'},
@@ -96,7 +137,11 @@ export const SCENES={
  ending:{level:'end',title:'Everyone we can',place:'OUTSIDE BOSTON · AFTER APRIL 19, 1775',music:'home',lines:Array.from({length:6},(_,i)=>'end.'+i),after:'northIntro'},
  northIntro:{level:'ticonderoga',title:'The Guns North',place:'LAKE CHAMPLAIN · BEFORE DAWN · MAY 10, 1775',music:'night',lines:Array.from({length:8},(_,i)=>'north.'+i),after:'ticonderoga'},
  fortCapture:{level:'ticonderoga',title:'Before the morning',place:'FORT TICONDEROGA · MAY 10, 1775',music:'tension',lines:Array.from({length:5},(_,i)=>'capture.'+i),after:'checkpoint'},
- northEnding:{level:'ticonderoga',title:'The weight of it',place:'TICONDEROGA · LATER THAT MORNING',music:'home',lines:Array.from({length:8},(_,i)=>'north.end.'+i),after:'complete'},
+ northEnding:{level:'ticonderoga',title:'The weight of it',place:'TICONDEROGA · LATER THAT MORNING',music:'home',lines:Array.from({length:8},(_,i)=>'north.end.'+i),after:'hillIntro'},
+ hillIntro:{level:'breeds',title:'Hold Until Empty',place:'BREED’S HILL · JUNE 17, 1775',music:'tension',lines:Array.from({length:8},(_,i)=>'hill.intro.'+i),after:'breeds'},
+ hillBreak:{level:'breeds',title:'The last cartridges',place:'BREED’S HILL · THE THIRD ASSAULT',music:null,lines:Array.from({length:6},(_,i)=>'hill.break.'+i),after:'checkpoint'},
+ hillEnding:{level:'breeds',title:'Behind the ridge',place:'BEYOND BREED’S HILL · JUNE 17, 1775',music:'home',lines:Array.from({length:7},(_,i)=>'hill.end.'+i),after:'hillLegacy'},
+ hillLegacy:{level:'end',title:'Still surrounded',place:'BOSTON LINES · SEPTEMBER 1775 · NEWS FROM LONDON',music:'home',lines:Array.from({length:4},(_,i)=>'hill.legacy.'+i),after:'complete'},
 };
 export const LEVELS={
  release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
@@ -104,6 +149,7 @@ export const LEVELS={
  lexington:{title:'The first light',place:'APRIL 19, 1775 · LEXINGTON',spawn:[0,17],bounds:[-25,25,-31,24],music:'tension',goals:[{x:-7,z:-4,label:'Reach the wounded runner',verb:'Help the wounded runner',time:1},{x:14,z:16,label:'Bring him to Mara’s wagon',verb:'Lower him into the wagon',time:1},{x:-13,z:-16,label:'Find the man behind the fence',verb:'Help the wounded man',time:1},{x:14,z:16,label:'Get him into the wagon',verb:'Help him aboard',time:1},{x:19,z:23,label:'Leave the green with the crew',verb:'Leave by the garden lane',time:.6}]},
  concord:{title:'A road home',place:'APRIL 19, 1775 · NEAR CONCORD',spawn:[3,18],bounds:[-24,24,-42,26],music:'battle',goals:[{x:2,z:9,label:'Take the spare musket',verb:'Take the musket',time:.8},{x:0,z:4,label:'Cover the wagon from the stone wall',verb:'Hold this position',time:0},{x:18,z:23,label:'Fall back to the orchard',verb:'Leave with the crew',time:.7}]},
  ticonderoga:FORT_SPEC,
+ breeds:HILL_SPEC,
 };
 export const FACTS=[
  ['A promise kept','Rowan, Mara, Isaiah, Ward, Thomas, and the local rescues are fictional. Ward survived the Chapter 5 fire and surrendered. Thomas remains a Loyalist. Isaiah is a free Black man who survived his 1770 shoulder wound.','Crew continuity'],
@@ -115,4 +161,7 @@ export const FACTS=[
  ['A siege begins','After Lexington and Concord, militia converged on Boston and besieged the city. The siege continued after the capture of Ticonderoga.','Handout §6.1, paragraph 11'],
  ['The Guns North','Ethan Allen and Benedict Arnold led the capture of Fort Ticonderoga in New York on May 10, 1775. Its artillery offered a way to strengthen the siege of Boston. The crew’s passage, rescue, inventory, and hauling jobs are fictional.','Handout §6.1, paragraph 11; Fort Ticonderoga museum'],
  ['Taking a gun is not moving it','The capture in May 1775 and Henry Knox’s later winter artillery expedition were separate events. The crew marks a fictional gun for a later return; the player does not deliver it to Boston in May. The winter transport and March 1776 evacuation belong to later missions.','Handout §6.1, paragraph 13; Fort Ticonderoga museum, Noble Train of Artillery'],
+ ['Hold Until Empty','The Battle of Bunker Hill took place on June 17, 1775, with much of the fighting at Breed’s Hill. The British made three assaults and took the heights after the defenders ran short of ammunition. The local crew actions, volley orders, reserve placement, and wounded men are fictional.','Handout §6.1, paragraph 12; National Park Service'],
+ ['A costly victory','The British took the hill, with over 200 killed and about 800 wounded in the handout’s figures. Gage still did not break the siege of Boston. Winning this mission means evacuating wounded people, not reversing the British victory.','Handout §6.1, paragraph 12'],
+ ['Command and rebellion','Congress appointed George Washington commander in chief on June 15, 1775. He did not command the June 17 battle. King George III declared the colonies in rebellion in August; that news appears in a separate late-summer scene.','Handout §6.1, paragraphs 12–13; National Park Service'],
 ];

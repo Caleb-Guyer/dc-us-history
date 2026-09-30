@@ -1,10 +1,12 @@
-import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.2.0';
-import {LEVELS} from './c6-data.mjs';
+import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.3.0-final';
+import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.3.0-final';
+import {LEVELS} from './c6-data.mjs?v=4.3.0-final';
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const angle=x=>Math.atan2(Math.sin(x),Math.cos(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
 export const BLOCKS={
  ticonderoga:FORT_BLOCKS,
+ breeds:HILL_BLOCKS,
  release:[[-7,-5,7,12,6],[7,-5,7,12,6],[0,-10,7,3,6],[-15,5,2,28,3],[15,0,2,25,3]],
  night:[[-12,-24,8,9,6],[14,-59,7,10,6],[-12,-71,6,8,5],[-4,-35,14,.6,1.15],[9,-44,14,.6,1.1],[-10,-85,15,.6,1.15],[7,-91,12,.6,1.1]],
  lexington:[[-18,-5,7,12,7],[17,-20,10,14,9],[4,-25,11,6,7],[-6,1,13,.7,1.1],[-15,-12,.6,10,1.2],[9,9,10,.6,1.2]],
@@ -14,7 +16,7 @@ function enemy(id,x,z,route,patrol=false){return {id,x,z,startX:x,startZ:z,hp:1,
 export function fresh(level,difficulty='normal'){
  const spec=LEVELS[level];if(!spec)throw new Error('Unknown level');
  return {level,difficulty,stage:0,time:0,player:{x:spec.spawn[0],z:spec.spawn[1],y:0,vy:0,yaw:0,pitch:0,health:100,stamina:100},
-  fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
+  hill:level==='breeds'?freshHill():null,fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
   lastDamage:-99,volley:0,volleyWarning:false,suppliesUsed:false,shotsFired:0,kills:0,
   enemies:level==='night'?[enemy(0,-2,-39,[-9,5,-39],true),enemy(1,2,-80,[-8,9,-80],true),enemy(2,2,-100,[-7,9,-100],true)]:[],
   ward:{x:level==='night'?1.5:0,z:level==='night'?21:2,yaw:0},failed:false,finished:false,events:[],seed:1775,patrolWarned:false,spotted:false,reloadHint:false};
@@ -28,6 +30,7 @@ export function restore(raw,difficulty='normal'){
  if(!Array.isArray(raw.enemies)||raw.enemies.length>20||raw.enemies.some(e=>!['x','z','hp','yaw','cooldown'].every(k=>Number.isFinite(e[k]))))return null;
  for(const k of ['time','hold','ammo','reload','shot','hit','defense','wave','alert','seed','wagonHealth'])if(!Number.isFinite(raw[k]))return null;
  if(raw.level==='ticonderoga'&&(!raw.fort||!['haul','crew','seen','look','sentryX','sentryZ','captureTime'].every(k=>Number.isFinite(raw.fort[k]))))return null;
+ if(raw.level==='breeds'&&(!raw.hill||!['phase','clock','line','teamAmmo','volleyCooldown','allyClock','crewFlash','rescues','wardProgress','shellIn','shellX','shellZ','shellClock','signalCount'].every(k=>Number.isFinite(raw.hill[k]))||raw.hill.line<0||raw.hill.line>100||raw.hill.phase<0||raw.hill.phase>3))return null;
  Object.assign(s,raw,{difficulty,events:[],failed:false,finished:false,hold:0});
  s.player={...s.player,health:clamp(p.health,1,100),stamina:clamp(Number(p.stamina)||0,0,100),y:0,vy:0};
  s.lastDamage=Number.isFinite(s.lastDamage)?s.lastDamage:-99;s.shotsFired=Number.isFinite(s.shotsFired)?s.shotsFired:0;s.kills=Number.isFinite(s.kills)?s.kills:0;s.volley=0;s.volleyWarning=false;if(!s.ward||!Number.isFinite(s.ward.x)||!Number.isFinite(s.ward.z))s.ward={x:p.x+.8,z:p.z+1,yaw:p.yaw};s.ammo=clamp(s.ammo,0,30);s.reload=clamp(s.reload,0,4.2);return s;
@@ -53,12 +56,13 @@ function companionPath(s,a,tx,tz){
  }
  const path=[];while(end){path.unshift(end);end=parents.get(key(end));}return path;
 }
-export function currentGoal(s){return s.level==='ticonderoga'?fortGoal(s):LEVELS[s.level].goals[s.stage];}
+export function currentGoal(s){return s.level==='breeds'?hillGoal(s):s.level==='ticonderoga'?fortGoal(s):LEVELS[s.level].goals[s.stage];}
 export function goalNear(s){const g=currentGoal(s);return g&&distance(s.player,g)<2.5;}
 function emit(s,type,data={}){s.events.push({type,...data});}
 function next(s){s.stage++;s.hold=0;if(s.stage>=LEVELS[s.level].goals.length){s.finished=true;emit(s,'finish');}else emit(s,'checkpoint');}
 function interact(s){
- if(s.level==='ticonderoga')interactFort(s);
+ if(s.level==='breeds')interactHill(s);
+ else if(s.level==='ticonderoga')interactFort(s);
  else if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}next(s);}
  else if(s.level==='night'){if(s.stage===0){emit(s,'voice',{id:'farm.0'});emit(s,'voice',{id:'farm.1'});}if(s.stage===1){emit(s,'bell');emit(s,'voice',{id:'bell.0'});emit(s,'voice',{id:'bell.1'});}next(s);}
  else if(s.level==='lexington'){const stage=s.stage;s.carrying=stage===0||stage===2;if(stage===0){emit(s,'voice',{id:'rescue.0'});emit(s,'voice',{id:'rescue.1'});}else if(stage===1)emit(s,'voice',{id:'rescue.2'});else if(stage===3)emit(s,'voice',{id:'rescue.3'});if(stage===1||stage===3){s.player.health=Math.min(100,s.player.health+35);emit(s,'rescue');}next(s);}
@@ -120,7 +124,7 @@ export function tick(s,input,dt){
   if(s.defense>=52){emit(s,'voice',{id:'clear'});s.enemies.forEach(e=>e.retreat=true);s.stage=2;emit(s,'checkpoint');}
  }
  let maxAlert=0;
- for(const e of s.enemies){e.fired=Math.max(0,e.fired-dt);if(e.hp<=0){e.dead+=dt;continue;}const d=distance(p,e);e.moving=false;
+ for(const e of s.level==='breeds'?[]:s.enemies){e.fired=Math.max(0,e.fired-dt);if(e.hp<=0){e.dead+=dt;continue;}const d=distance(p,e);e.moving=false;
   if(e.patrol){const oldX=e.x;e.x=e.route[0]+(e.route[1]-e.route[0])*(.5+.5*Math.sin(s.time*.27+e.id*1.7));e.yaw=e.x>oldX?-Math.PI/2:Math.PI/2;e.moving=true;
    const toward=Math.atan2(-(p.x-e.x),-(p.z-e.z)),visible=d<(input.crouch?8:13)&&Math.abs(angle(toward-e.yaw))<.95&&!blocked(s.level,{...e,y:1.5},{...p,y:input.crouch?1.0:1.7});
    e.alert=clamp(e.alert+(visible?(input.sprint?1.3:.65):-.5)*dt,0,1);maxAlert=Math.max(maxAlert,e.alert);
@@ -132,9 +136,9 @@ export function tick(s,input,dt){
    if(!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})&&random(s)<(s.difficulty==='story'?.14:.36)){p.health=Math.max(0,p.health-(s.difficulty==='story'?10:17));s.lastDamage=s.time;emit(s,'hurt');}
   }
  }
- s.alert=maxAlert;if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if(s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
+ s.alert=maxAlert;if(s.level==='breeds')updateHill(s,input,dt,{blocked,collide});if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if(s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
  if(p.health<=0){s.failed=true;emit(s,'fail');return s.events;}
- if(!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
+ if(!hillDefending(s)&&!s.failed&&!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
  return s.events;
 }
 

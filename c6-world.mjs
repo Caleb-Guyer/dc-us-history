@@ -1,10 +1,12 @@
-import {buildFort,renderFort,filmFort} from './c6-fort-world.mjs?v=4.2.0';
-import {SCENES} from './c6-data.mjs?v=4.2.0';
+import {buildHill,renderHill,filmHill,buildRunner} from './c6-hill-world.mjs?v=4.3.0-final';
+import {hillDefending} from './c6-hill.mjs?v=4.3.0-final';
+import {buildFort,renderFort,filmFort} from './c6-fort-world.mjs?v=4.3.0-final';
+import {SCENES} from './c6-data.mjs?v=4.3.0-final';
 import * as T from './three.module.js';
 import {makeActor,poseActor,disposeTree} from './c5-actors.mjs?v=3.2';
-import {BLOCKS,currentGoal} from './c6-sim.mjs?v=4.2.0';
-import {cameraShot} from './c6-director.mjs?v=4.2.0';
-import {dressWorld} from './c6-scenery.mjs?v=4.2.0';
+import {BLOCKS,currentGoal} from './c6-sim.mjs?v=4.3.0-final';
+import {cameraShot} from './c6-director.mjs?v=4.3.0-final';
+import {dressWorld} from './c6-scenery.mjs?v=4.3.0-final';
 const V=(x,y,z)=>new T.Vector3(x,y,z),mix=(a,b,t)=>a+(b-a)*t;
 const smooth=t=>(t=Math.max(0,Math.min(1,t)))*t*(3-2*t);
 const rand=n=>{const x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x);};
@@ -79,21 +81,21 @@ export class OpeningWorld{
  actor(key,x,z,yaw=0){const g=makeActor(key);g.position.set(x,0,z);g.rotation.y=yaw;this.scene.add(g);this.cast[key]=g;return g;}
  load(level){
   if(level===this.level)return;this.level=level;if(this.scene)disposeTree(this.scene,[this.groundTexture,this.woodTexture,this.smokeTexture,this.stoneTexture]);this.camera.clear();this.materials.clear();this.cast={};this.enemies=[];this.extras=[];this.effects=[];this.practicals=[];this.moving=[];this.bell=null;this.casualties=null;this.campFire=null;this.carryBody=null;this.trails=[];
-  this.fort=null;this.night=level==='night'||level==='ticonderoga';this.scene=new T.Scene();this.scene.background=new T.Color(this.night?0x223b4b:level==='release'?0x899ea4:0xafbbc0);this.scene.fog=new T.FogExp2(this.night?0x41595b:level==='end'?0xb0a28b:0xb4bca9,this.night?.009:.006);
+  this.hill=null;this.fort=null;this.night=level==='night'||level==='ticonderoga';this.scene=new T.Scene();this.scene.background=new T.Color(this.night?0x223b4b:level==='release'?0x899ea4:0xafbbc0);this.scene.fog=new T.FogExp2(this.night?0x41595b:level==='end'?0xb0a28b:0xb4bca9,this.night?.009:.006);
   this.scene.add(new T.HemisphereLight(this.night?0xa3c9eb:0xe7e9d9,0x4d5847,this.night?1.15:1.5));
   const sun=new T.DirectionalLight(this.night?0x9cbfdf:0xffe2b0,this.night?1.25:2.8);sun.position.set(-23,35,-28);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=sun.shadow.camera.bottom=-35;sun.shadow.camera.right=sun.shadow.camera.top=35;sun.shadow.camera.far=110;sun.shadow.bias=-.0005;this.scene.add(sun);this.sun=sun;const fill=new T.DirectionalLight(this.night?0x97bbc9:0xcadce0,this.night?.35:.9);fill.position.set(12,14,30);this.scene.add(fill);
-  this.box(250,.2,300,this.mat(this.night?0x718773:0xa1ac7b,{map:this.groundTexture}),0,-.15,-55);
-  const path=this.box(level==='night'?5:9,.03,level==='night'?165:160,this.mat(0xa69779,{map:this.groundTexture}),0,-.035,-40);path.receiveShadow=true;
-  if(level!=='ticonderoga')this.trees(level==='night'?145:95,level);
+  this.box(level==='breeds'?56:250,.2,level==='breeds'?116:300,this.mat(this.night?0x718773:0xa1ac7b,{map:this.groundTexture}),0,-.15,level==='breeds'?-3:-55);
+  const path=this.box(level==='night'?5:9,.03,level==='night'?165:level==='breeds'?110:160,this.mat(0xa69779,{map:this.groundTexture}),0,-.035,level==='breeds'?-3:-40);path.receiveShadow=true;
+  if(!['ticonderoga','breeds'].includes(level))this.trees(level==='night'?145:95,level);
   if(this.night){this.mesh(new T.SphereGeometry(level==='ticonderoga'?1:2.8,20,12),new T.MeshBasicMaterial({color:0xf3e1b9}),-39,49,-105);}
-  for(const b of BLOCKS[level]||[]){const [x,z,w,d,h]=b;if(h>2){if(level!=='release'&&level!=='ticonderoga')this.house(x,z,w,d,h,[0x747d70,0x858174,0x687976][Math.abs(Math.round(x))%3]);else{const wall=this.box(w,h,d,this.mat(0xa4aaa1,{map:this.stoneTexture}),x,h/2,z);if(level==='ticonderoga'){const uv=wall.geometry.attributes.uv;for(let i=0;i<uv.count;i++){uv.setXY(i,uv.getX(i)*Math.max(w,d)/5,uv.getY(i)*h/3);}}this.box(w+.22,.2,d+.22,0x8d9286,x,h,z);}}else{
+  for(const b of (level==='breeds'?[]:BLOCKS[level])||[]){const [x,z,w,d,h]=b;if(h>2){if(level!=='release'&&level!=='ticonderoga')this.house(x,z,w,d,h,[0x747d70,0x858174,0x687976][Math.abs(Math.round(x))%3]);else{const wall=this.box(w,h,d,this.mat(0xa4aaa1,{map:this.stoneTexture}),x,h/2,z);if(level==='ticonderoga'){const uv=wall.geometry.attributes.uv;for(let i=0;i<uv.count;i++){uv.setXY(i,uv.getX(i)*Math.max(w,d)/5,uv.getY(i)*h/3);}}this.box(w+.22,.2,d+.22,0x8d9286,x,h,z);}}else{
    if(level==='concord'||level==='lexington'||level==='ticonderoga'){
     this.box(w,h*.92,d,this.mat(0xa4a89b,{map:this.stoneTexture}),x,h*.46,z);
     const count=Math.ceil(Math.max(w,d)/.75),stones=new T.InstancedMesh(new T.DodecahedronGeometry(.46,0),this.mat(0x8c9080),count),matrix=new T.Matrix4();
     for(let j=0;j<count;j++){const along=(j+.5)/count-.5;matrix.compose(V(x+(w>d?along*w:0),h-.14,z+(d>w?along*d:0)),new T.Quaternion().setFromEuler(new T.Euler(j*.6,j,0)),V(w>d?1:.65,.46,w>d?.7:1));stones.setMatrixAt(j,matrix);}stones.castShadow=true;this.scene.add(stones);
    }else{for(const yy of [.45,.95])this.box(w,.17,d,0x796c50,x,yy,z);for(let xx=-w/2+.1;xx<=w/2;xx+=1.7)this.box(.16,h+.1,.22,0x655b45,x+xx,h/2,z);}
   }}
-  if(level==='ticonderoga'){buildFort(this);this.wagonObject=null;}else if(level==='release'){
+  if(level==='breeds'){buildHill(this);}else if(level==='ticonderoga'){buildFort(this);this.wagonObject=null;}else if(level==='release'){
    this.box(3,4,.3,0x262f2c,0,2,-8.3);this.door=this.group(-1.4,0,-8);this.box(2.8,3.7,.14,0x564b37,1.4,1.85,0,this.door);for(let xx=0;xx<2.8;xx+=.45)this.box(.045,3.6,.17,0x292e26,xx,1.85,0,this.door);
    this.label('PROVOST GUARD',0,4.5,-8,4);for(let i=0;i<3;i++)this.box(4,.16,.8,0x989586,0,.08+(2-i)*.16,-7+i*.7);
    for(const side of [-1,1])for(const y of [2,4.8])for(const z of [-6,-2]){this.box(.07,1.4,1.15,0x273834,side*3.46,y,z);for(const dz of [-.38,0,.38])this.box(.09,1.45,.04,0x626b62,side*3.4,y,z+dz);this.box(.2,.13,1.3,0xc3c0a9,side*3.37,y-.75,z);}
@@ -117,11 +119,11 @@ export class OpeningWorld{
    this.box(1.3,.8,.7,0x6c5c40,2,.4,9);this.groundGun=this.box(.07,.06,1.65,0x57452e,2,.86,9);
    this.flag(-10,3,0xb0b49b);for(let i=0;i<7;i++){const a=this.soldier();a.position.set(-10-i*1.5,0,8+i%2);a.rotation.y=.15;this.extras.push(a);}
   }else{
-   this.wagonObject=this.wagon(5,2);this.actor('WARD',0,1,Math.PI*.7);this.actor('ROWAN',-1,3,0);this.actor('MARA',2,2,Math.PI*.8);this.actor('ISAIAH',3,0,Math.PI*.9);
+   buildRunner(this,-3,0);this.wagonObject=this.wagon(5,2);this.actor('WARD',0,1,Math.PI*.7);this.actor('ROWAN',-1,3,0);this.actor('MARA',2,2,Math.PI*.8);this.actor('ISAIAH',3,0,Math.PI*.9);
    for(let i=0;i<8;i++){const a=this.soldier();a.position.set(-9+Math.sin(i)*2,0,-12-i*3);a.rotation.y=Math.PI;this.extras.push(a);}
    this.lantern(1,.5,1);this.box(.5,.6,.5,0x654e38,0,.3,3);
   }
-  if(level!=='ticonderoga')dressWorld(this,level);this.weapon=new T.Group();this.camera.add(this.weapon);this.scene.add(this.camera);this.box(.063,.075,1.1,0x70553b,.23,-.29,-.7,this.weapon);const barrel=this.cyl(.022,1.38,this.mat(0x798583,{metalness:.6,roughness:.4}),.23,-.235,-.85,this.weapon);barrel.rotation.x=Math.PI/2;this.box(.09,.14,.35,0x4c3c2a,.23,-.32,-.22,this.weapon);this.sphere(.055,0xc2a183,.18,-.32,-.58,this.weapon,[.8,1.1,1]);this.sphere(.05,0xc2a183,.25,-.36,-.29,this.weapon);const sleeve=this.cyl(.075,.43,0x345958,.15,-.47,-.42,this.weapon);sleeve.rotation.x=-.7;this.box(.04,.055,.035,0x9c987d,.265,-.205,-.37,this.weapon);
+  if(!['ticonderoga','breeds'].includes(level))dressWorld(this,level);this.weapon=new T.Group();this.camera.add(this.weapon);this.scene.add(this.camera);this.box(.063,.075,1.1,0x70553b,.23,-.29,-.7,this.weapon);const barrel=this.cyl(.022,1.38,this.mat(0x798583,{metalness:.6,roughness:.4}),.23,-.235,-.85,this.weapon);barrel.rotation.x=Math.PI/2;this.box(.09,.14,.35,0x4c3c2a,.23,-.32,-.22,this.weapon);this.sphere(.055,0xc2a183,.18,-.32,-.58,this.weapon,[.8,1.1,1]);this.sphere(.05,0xc2a183,.25,-.36,-.29,this.weapon);const sleeve=this.cyl(.075,.43,0x345958,.15,-.47,-.42,this.weapon);sleeve.rotation.x=-.7;this.box(.04,.055,.035,0x9c987d,.265,-.205,-.37,this.weapon);
   this.flash=this.mesh(new T.ConeGeometry(.10,.7,7),new T.MeshBasicMaterial({color:0xffd28a}),.23,-.22,-1.6,this.weapon);this.flash.rotation.x=-Math.PI/2;this.flash.visible=false;
   this.marker=this.mesh(new T.RingGeometry(.34,.41,40),new T.MeshBasicMaterial({color:0xe9cf99,transparent:true,opacity:.75,side:T.DoubleSide,depthWrite:false}),0,.07,0);this.marker.rotation.x=-Math.PI/2;
   // Haze uses a bounded pool, never an ever-growing collection of particles.
@@ -142,7 +144,7 @@ export class OpeningWorld{
  render(s,input,dt,{reduced=false,voice=null}={}){
   this.load(s.level);const p=s.player,t=s.time;this.clock=t;this.animate(dt,t);
   Object.values(this.cast).forEach(a=>a.visible=false);const moving=input.forward||input.back||input.left||input.right;
-  if(s.level==='ticonderoga'){renderFort(this,s,input,voice);}else if(s.level==='release'){
+  if(s.level==='breeds'){renderHill(this,s,input,voice);}else if(s.level==='ticonderoga'){renderFort(this,s,input,voice);}else if(s.level==='release'){
    this.setActor('WARD',s.carrying?s.ward.x:0,s.carrying?s.ward.z:2,s.carrying?p.yaw:Math.PI,s.carrying&&moving?'walk':'listen',t,voice==='WARD');
    this.setActor('MARA',7,9,Math.PI*.75,'listen',t,voice==='MARA');this.setActor('ISAIAH',10,8,Math.PI*.75,'listen',t,voice==='ISAIAH');this.setActor('THOMAS',1.7,-3,Math.PI,'paper',t,voice==='THOMAS');this.door.rotation.y=-1.3;
   }else if(s.level==='night')this.setActor('WARD',s.ward.x,s.ward.z,s.ward.yaw,moving?'walk':'listen',t,voice==='WARD');
@@ -158,12 +160,12 @@ export class OpeningWorld{
   this.camera.position.set(p.x,p.y+(input.crouch?1.02:1.7)+(moving&&!reduced?Math.sin(t*(input.sprint?12:8))*.025:0),p.z);this.camera.rotation.set(p.pitch,p.yaw,!reduced&&s.shot>0?s.shot*.035:0);
   this.camera.fov=mix(this.camera.fov,input.aim&&s.armed?48:input.sprint&&moving?78:70,Math.min(1,dt*10));this.camera.updateProjectionMatrix();
   this.weapon.visible=s.armed;this.weapon.position.set(input.aim?-.19:0,s.reload>0?-.22*Math.sin(s.reload/4.2*Math.PI):0,s.shot*.18);const reloadPhase=s.reload/4.2;this.weapon.rotation.z=s.reload>0?-.65*Math.sin(reloadPhase*Math.PI):moving&&!reduced?Math.sin(t*7)*.012:0;this.weapon.rotation.x=s.reload>0?.45*Math.sin(reloadPhase*Math.PI):s.shot*.12;this.weapon.position.y+=moving&&!reduced?Math.sin(t*8)*.014:0;this.flash.visible=s.shot>.2;
-  const goal=currentGoal(s);this.marker.visible=!!goal&&!(s.level==='concord'&&s.stage===1);if(goal)this.marker.position.set(goal.x,.065,goal.z);
+  const goal=currentGoal(s);this.marker.visible=!!goal&&!hillDefending(s)&&!(s.level==='concord'&&s.stage===1);if(goal)this.marker.position.set(goal.x,.065,goal.z);
   const g=goal?V(goal.x,1.35,goal.z).project(this.camera):V(0,0,0);this.goalScreen={x:g.x,y:g.y,behind:g.z>1,near:goal?Math.hypot(goal.x-p.x,goal.z-p.z)<3:false};this.renderer.render(this.scene,this.camera);
  }
  film(key,beat,time,dt,{speaking=false,reduced=false,elapsed=time}={}){
   const level=SCENES[key].level;this.load(level);this.animate(dt,elapsed);this.weapon.visible=false;this.marker.visible=false;Object.values(this.cast).forEach(a=>a.visible=false);
-  if(level==='ticonderoga'){filmFort(this,key,beat,time,elapsed,speaking);}else if(key==='release'){
+  if(level==='breeds'){filmHill(this,key,beat,time,elapsed,speaking);}else if(key==='hillLegacy'){this.setActor('RUNNER',-3,0,Math.PI,'paper',time,speaking&&beat===0);this.setActor('WARD',0,1,Math.PI*.7,'listen',time,speaking&&beat===1);this.setActor('MARA',2,2,Math.PI*.8,'paper',time,speaking&&beat===2);this.setActor('ROWAN',-1,3,-.2,'listen',time,speaking&&beat===3);}else if(level==='ticonderoga'){filmFort(this,key,beat,time,elapsed,speaking);}else if(key==='release'){
    this.door.rotation.y=-smooth((beat+time*.12)/2)*1.3;
    this.setActor('THOMAS',1.7,-3,Math.PI,beat===0?'read':'listen',time,speaking&&beat===0);
    this.setActor('WARD',0,beat<2?mix(-5,2,smooth(elapsed/9)):2,Math.PI,beat<2&&elapsed<9?'walk':'listen',elapsed,speaking&&(beat===2||beat===4));

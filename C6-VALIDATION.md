@@ -1,5 +1,18 @@
 # Chapter 6 — release checks
 
+Version 4.3.0, September 29, 2026. Playable scope now includes Hold Until Empty at Breed’s Hill after the opening and The Guns North. Later campaign missions remain in development.
+
+- `npm test`: 82 tests pass across Chapters 4–6 and shared audio. New tests cover all three assaults on Normal, both ammunition choices, one-use supplies across saves, abandonment, incoming cannon warnings, cover, forced historical withdrawal, both rescues, waiting for Ward, extraction, save migration, corrupt state, and enemies navigating earthworks.
+- `npm run check`: JavaScript syntax checks pass. All objectives remain reachable, all recorded lines have media, and every cinematic beat has a bounded camera outside solid scenery.
+- Packaged media: 119 matching prerecorded voice clips and five original music tracks. The new 112 BPM arrangement has a measured peak of 0.7804 and RMS of 0.1803. No live synthesis is used.
+- Browser testing uses a hidden browser with `muted=1`, which disables voice, score, and generated effects for the entire session. Audio was checked through manifests and measured levels; it was not audibly auditioned.
+- New battlefield visual checks, normal keyboard movement and bracing interaction, firing/reload, contextual volley orders and ammunition response, upward look, pause/mute, cinematic playback, rescue handoff, and ending transitions are checked in the browser. Localhost-only phase fixtures supplement the full deterministic simulation playthrough; they do not run on GitHub Pages and use an isolated playtest save.
+- The camera/control regressions still cover mouse, touch, arrows, sensitivity, and real Three.js crosshair alignment. Physical phones, gamepads, and visible-browser pointer lock were not exercised. WebGL is required.
+
+## Previous installment
+
+# Chapter 6 — release checks
+
 Version 4.2.0, September 29, 2026. Playable scope: Ward’s release, the Powder Road, Lexington, Concord retreat, and The Guns North at Ticonderoga. Later missions remain in development.
 
 - `npm test`: 75 tests pass across Chapters 4–6 and shared audio. New checks exercise quiet capture, alarm/rescue, cinematic checkpoint state, complete hauling and extraction, fort occlusion, interrupted interactions, malformed fort saves, and migration of completed opening saves. All objectives have a traversable route and every cinematic beat has bounded camera framing outside solid scenery.

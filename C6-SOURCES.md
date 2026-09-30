@@ -15,7 +15,7 @@ This release covers **the campaign opening and The Guns North**, not the complet
 | Ethan Allen and Benedict Arnold; Fort Ticonderoga, New York; May 10, 1775 | The Guns North approach, capture, and inventory scenes |
 | Captured artillery could strengthen the siege; capture is distinct from later transport | Marking the gun and hauling it onto rollers |
 
-The primary classroom source is the supplied edited **OS Ch 6 America's War for Independence.docx**, especially §6.1, content paragraphs 8–11 in the planning extraction. The full coverage plan remains a production plan for later installments; this release does not claim all 54 chapter paragraphs are implemented.
+The primary classroom source is the supplied edited **OS Ch 6 America's War for Independence.docx**, especially §6.1, content paragraphs 8–13 in the planning extraction. The full coverage plan remains a production plan for later installments; this release does not claim all 54 chapter paragraphs are implemented.
 
 The [National Park Service’s April 19 chronology](https://www.nps.gov/mima/learn/historyculture/april-19-1775.htm) supports the event sequence. Its [account of the warning network](https://www.nps.gov/mima/rebellion.htm) distinguishes Revere and Dawes from the additional riders mobilized by the alarm. The night section spans April 18–19, crossing midnight before the report of Revere’s capture.
 
@@ -39,4 +39,23 @@ The classroom handout’s paragraphs 11 and 13 connect the capture to the artill
 
 The mission is a surprise capture with no player gunfight or enemy-kill objective. Its sentry timing, crew signal, passage latch, Nathan’s recoverable fall, inventory, broken fitting, and short hauling job are original gameplay fiction. The model is a compact, stylized fort, not an architectural reconstruction or an exact garrison roster. Generic uniforms and compressed space are visual abstractions.
 
-The museum’s [Noble Train of Artillery in Context](https://fortticonderoga.org/news/henry-knoxs-noble-train-of-artillery-in-context/) distinguishes the May 1775 capture from Henry Knox’s winter expedition, and explains the poor condition and lack of carriages of many captured guns. The marked gun stays at Ticonderoga in this mission. Washington’s appointment, Breed’s Hill, Knox’s transport, and the March 1776 evacuation will occur in their later chronological installments. No crew dialogue in May claims those later events have already happened.
+The museum’s [Noble Train of Artillery in Context](https://fortticonderoga.org/news/henry-knoxs-noble-train-of-artillery-in-context/) distinguishes the May 1775 capture from Henry Knox’s winter expedition, and explains the poor condition and lack of carriages of many captured guns. The marked gun stays at Ticonderoga in this mission. Washington’s appointment and Breed’s Hill now follow in Hold Until Empty. Knox’s transport and the March 1776 evacuation remain later chronological installments. No crew dialogue in May claims those later events have already happened.
+
+## Hold Until Empty — 4.3
+
+The supplied handout’s paragraphs 12–13 establish the June 17 battle, three British assaults, the defenders’ ammunition shortage, British capture of the hills at heavy cost, the continuing siege, Washington’s appointment on June 15, and the king’s declaration in August 1775. The [NPS battlefield account](https://www.nps.gov/articles/bunker-hill-battlefield.htm), [Breed’s Hill discussion](https://home.nps.gov/articles/000/breeds-v-bunker-hill.htm), and [Siege of Boston overview](https://www.nps.gov/articles/000/siege-of-boston-overview.htm) provide supplemental context.
+
+Washington’s appointment appears in a dated June 15 dispatch in the June 17 introduction. He is not physically present commanding the battle. Breed’s Hill is the fighting position; the retreat crosses toward Bunker Hill. The player holds a fictional local section, not the entire historical army. The British take the hill in every completed playthrough; killing every modeled attacker cannot reverse the historical outcome. Their victory does not end the siege. The later September transition explicitly reports the king’s August declaration, allowing news to travel from London.
+
+Placing reserve ammunition and directing volleys make scarcity part of play. Repairing the flank, Rowan and Ward’s actions, the two local rescues, specific characters, cannon warning rings, healing, enemy counts, timers, and compressed map are gameplay fiction. The modeled ground is a traversable plateau with sloping scenery, not a surveyed reconstruction. The redcoat and militia models are stylized representations rather than exact regimental dress. British losses follow the classroom text’s rounded report: more than 200 dead and about 800 wounded. No named recurring crew member dies here.
+
+| Classroom concept | Required story or gameplay |
+| --- | --- |
+| Washington appointed commander in chief, June 15, 1775 | Nathan’s dated dispatch before the battle |
+| Bunker Hill battle primarily fought at Breed’s Hill, June 17 | Mission date, Mara’s route instruction, battlefield defense |
+| Three British assaults; ammunition shortage | Three defense stages, shared cartridges, fixed withdrawal |
+| British tactical victory with heavy losses | Lost redoubt in the aftermath; casualty dispatch |
+| Gage fails to break the Siege of Boston | Ward’s later report |
+| King declares rebellion, August 1775 | Mara reads the news in the September transition |
+
+The full Chapter 6 campaign is still in development. This installment does not claim to cover the later independence debate, campaigns, diplomacy, or peace settlement.

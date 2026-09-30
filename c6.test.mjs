@@ -56,12 +56,12 @@ test('malformed saves are rejected and the save namespace is separate',()=>{
 });
 test('every scene transition leads to a valid scene, level, or ending',()=>{
  for(const s of Object.values(SCENES)){assert.ok(SCENES[s.after]||LEVELS[s.after]||['complete','checkpoint'].includes(s.after));for(const id of s.lines)assert.ok(LINES.find(l=>l.id===id));}
- assert.equal(SCENES.release.after,'release');assert.equal(SCENES.gate.after,'nightIntro');assert.equal(SCENES.ending.after,'northIntro');assert.equal(SCENES.northEnding.after,'complete');
+ assert.equal(SCENES.release.after,'release');assert.equal(SCENES.gate.after,'nightIntro');assert.equal(SCENES.ending.after,'northIntro');assert.equal(SCENES.northEnding.after,'hillIntro');assert.equal(SCENES.hillLegacy.after,'complete');
 });
 test('every line and score has a packaged, nonempty media asset',()=>{
  assert.equal(C6_VOICES.length,LINES.length);assert.equal(new Set(C6_VOICES.map(v=>v.id)).size,LINES.length);
  for(const l of LINES){const v=C6_VOICES.find(v=>v.id===l.id);assert.equal(v.text,l.text);assert.equal(v.speaker,l.speaker);assert.ok(v.duration>.5);assert.ok(fs.statSync(new URL(v.file,import.meta.url)).size>4000);}
- assert.equal(Object.keys(C6_SCORE).length,4);for(const s of Object.values(C6_SCORE)){assert.ok(s.loopEnd>s.loopStart+10);assert.ok(s.peak<1);assert.ok(s.rms>.1);assert.equal(fs.statSync(new URL(s.file,import.meta.url)).size,s.bytes);}
+ assert.equal(Object.keys(C6_SCORE).length,5);for(const s of Object.values(C6_SCORE)){assert.ok(s.loopEnd>s.loopStart+10);assert.ok(s.peak<1);assert.ok(s.rms>.1);assert.equal(fs.statSync(new URL(s.file,import.meta.url)).size,s.bytes);}
 });
 
 test('Lexington warns before volleys, with real protection behind the wall',()=>{

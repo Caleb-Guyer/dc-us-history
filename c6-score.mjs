@@ -47,5 +47,17 @@ export const C6_SCORE = {
     "peak": 0.7785,
     "rms": 0.1804,
     "bytes": 640800
+  },
+  "ridge": {
+    "title": "The Last Cartridges",
+    "bpm": 112,
+    "mood": "battle",
+    "file": "c6-music-ridge-da622098.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 34.32025,
+    "duration": 34.28571875,
+    "peak": 0.7804,
+    "rms": 0.1803,
+    "bytes": 686880
   }
 };
