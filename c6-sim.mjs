@@ -1,8 +1,10 @@
+import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.2.0';
 import {LEVELS} from './c6-data.mjs';
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const angle=x=>Math.atan2(Math.sin(x),Math.cos(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
 export const BLOCKS={
+ ticonderoga:FORT_BLOCKS,
  release:[[-7,-5,7,12,6],[7,-5,7,12,6],[0,-10,7,3,6],[-15,5,2,28,3],[15,0,2,25,3]],
  night:[[-12,-24,8,9,6],[14,-59,7,10,6],[-12,-71,6,8,5],[-4,-35,14,.6,1.15],[9,-44,14,.6,1.1],[-10,-85,15,.6,1.15],[7,-91,12,.6,1.1]],
  lexington:[[-18,-5,7,12,7],[17,-20,10,14,9],[4,-25,11,6,7],[-6,1,13,.7,1.1],[-15,-12,.6,10,1.2],[9,9,10,.6,1.2]],
@@ -12,7 +14,7 @@ function enemy(id,x,z,route,patrol=false){return {id,x,z,startX:x,startZ:z,hp:1,
 export function fresh(level,difficulty='normal'){
  const spec=LEVELS[level];if(!spec)throw new Error('Unknown level');
  return {level,difficulty,stage:0,time:0,player:{x:spec.spawn[0],z:spec.spawn[1],y:0,vy:0,yaw:0,pitch:0,health:100,stamina:100},
-  hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
+  fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
   lastDamage:-99,volley:0,volleyWarning:false,suppliesUsed:false,shotsFired:0,kills:0,
   enemies:level==='night'?[enemy(0,-2,-39,[-9,5,-39],true),enemy(1,2,-80,[-8,9,-80],true),enemy(2,2,-100,[-7,9,-100],true)]:[],
   ward:{x:level==='night'?1.5:0,z:level==='night'?21:2,yaw:0},failed:false,finished:false,events:[],seed:1775,patrolWarned:false,spotted:false,reloadHint:false};
@@ -25,6 +27,7 @@ export function restore(raw,difficulty='normal'){
  if(!p||!['x','z','yaw','pitch','health'].every(k=>Number.isFinite(p[k]))||p.x<b[0]||p.x>b[1]||p.z<b[2]||p.z>b[3])return null;
  if(!Array.isArray(raw.enemies)||raw.enemies.length>20||raw.enemies.some(e=>!['x','z','hp','yaw','cooldown'].every(k=>Number.isFinite(e[k]))))return null;
  for(const k of ['time','hold','ammo','reload','shot','hit','defense','wave','alert','seed','wagonHealth'])if(!Number.isFinite(raw[k]))return null;
+ if(raw.level==='ticonderoga'&&(!raw.fort||!['haul','crew','seen','look','sentryX','sentryZ','captureTime'].every(k=>Number.isFinite(raw.fort[k]))))return null;
  Object.assign(s,raw,{difficulty,events:[],failed:false,finished:false,hold:0});
  s.player={...s.player,health:clamp(p.health,1,100),stamina:clamp(Number(p.stamina)||0,0,100),y:0,vy:0};
  s.lastDamage=Number.isFinite(s.lastDamage)?s.lastDamage:-99;s.shotsFired=Number.isFinite(s.shotsFired)?s.shotsFired:0;s.kills=Number.isFinite(s.kills)?s.kills:0;s.volley=0;s.volleyWarning=false;if(!s.ward||!Number.isFinite(s.ward.x)||!Number.isFinite(s.ward.z))s.ward={x:p.x+.8,z:p.z+1,yaw:p.yaw};s.ammo=clamp(s.ammo,0,30);s.reload=clamp(s.reload,0,4.2);return s;
@@ -50,12 +53,13 @@ function companionPath(s,a,tx,tz){
  }
  const path=[];while(end){path.unshift(end);end=parents.get(key(end));}return path;
 }
-export function currentGoal(s){return LEVELS[s.level].goals[s.stage];}
+export function currentGoal(s){return s.level==='ticonderoga'?fortGoal(s):LEVELS[s.level].goals[s.stage];}
 export function goalNear(s){const g=currentGoal(s);return g&&distance(s.player,g)<2.5;}
 function emit(s,type,data={}){s.events.push({type,...data});}
 function next(s){s.stage++;s.hold=0;if(s.stage>=LEVELS[s.level].goals.length){s.finished=true;emit(s,'finish');}else emit(s,'checkpoint');}
 function interact(s){
- if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}next(s);}
+ if(s.level==='ticonderoga')interactFort(s);
+ else if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}next(s);}
  else if(s.level==='night'){if(s.stage===0){emit(s,'voice',{id:'farm.0'});emit(s,'voice',{id:'farm.1'});}if(s.stage===1){emit(s,'bell');emit(s,'voice',{id:'bell.0'});emit(s,'voice',{id:'bell.1'});}next(s);}
  else if(s.level==='lexington'){const stage=s.stage;s.carrying=stage===0||stage===2;if(stage===0){emit(s,'voice',{id:'rescue.0'});emit(s,'voice',{id:'rescue.1'});}else if(stage===1)emit(s,'voice',{id:'rescue.2'});else if(stage===3)emit(s,'voice',{id:'rescue.3'});if(stage===1||stage===3){s.player.health=Math.min(100,s.player.health+35);emit(s,'rescue');}next(s);}
  else if(s.level==='concord'){if(s.stage===0){s.armed=true;emit(s,'voice',{id:'armed'});spawnWave(s);next(s);}else if(s.stage===2)next(s);}
@@ -74,7 +78,7 @@ export function tick(s,input,dt){
  s.events=[];if(s.failed||s.finished)return s.events;dt=clamp(dt,0,.05);s.time+=dt;s.shot=Math.max(0,s.shot-dt);s.hit=Math.max(0,s.hit-dt);
  const p=s.player;const moveX=(input.right?1:0)-(input.left?1:0),moveZ=(input.forward?1:0)-(input.back?1:0),moving=!!(moveX||moveZ),run=input.sprint&&p.stamina>1&&!s.carrying&&!input.crouch;
  p.yaw=angle(p.yaw+((input.lookLeft?1:0)-(input.lookRight?1:0))*dt*1.65);p.pitch=clamp(p.pitch+((input.lookUp?1:0)-(input.lookDown?1:0))*dt,-.9,.85);
- const pace=s.carrying?(s.level==='release'?2.1:2.3):input.crouch?2.15:run?7.1:4.2,normal=Math.hypot(moveX,moveZ)||1;
+ const pace=s.level==='ticonderoga'&&s.fort.rope?1.05:s.carrying?(s.level==='release'?2.1:2.3):input.crouch?2.15:run?7.1:4.2,normal=Math.hypot(moveX,moveZ)||1;
  const dx=(Math.cos(p.yaw)*moveX-Math.sin(p.yaw)*moveZ)*pace*dt/normal,dz=(-Math.sin(p.yaw)*moveX-Math.cos(p.yaw)*moveZ)*pace*dt/normal;
  if(!collide(s,p.x+dx,p.z))p.x+=dx;if(!collide(s,p.x,p.z+dz))p.z+=dz;
  p.stamina=clamp(p.stamina+(run&&moving?-22:16)*dt,0,100);
@@ -128,9 +132,9 @@ export function tick(s,input,dt){
    if(!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})&&random(s)<(s.difficulty==='story'?.14:.36)){p.health=Math.max(0,p.health-(s.difficulty==='story'?10:17));s.lastDamage=s.time;emit(s,'hurt');}
   }
  }
- s.alert=maxAlert;const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if(s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
+ s.alert=maxAlert;if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if(s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
  if(p.health<=0){s.failed=true;emit(s,'fail');return s.events;}
- if(!(s.level==='concord'&&s.stage===1)){if(input.interact&&goalNear(s)){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
+ if(!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
  return s.events;
 }
 

@@ -55,8 +55,8 @@ test('malformed saves are rejected and the save namespace is separate',()=>{
  const restored=restore(snapshot(fresh('night')));assert.equal(restored.level,'night');assert.equal(restored.player.health,100);
 });
 test('every scene transition leads to a valid scene, level, or ending',()=>{
- for(const s of Object.values(SCENES)){assert.ok(SCENES[s.after]||LEVELS[s.after]||s.after==='complete');for(const id of s.lines)assert.ok(LINES.find(l=>l.id===id));}
- assert.equal(SCENES.release.after,'release');assert.equal(SCENES.gate.after,'nightIntro');assert.equal(SCENES.ending.after,'complete');
+ for(const s of Object.values(SCENES)){assert.ok(SCENES[s.after]||LEVELS[s.after]||['complete','checkpoint'].includes(s.after));for(const id of s.lines)assert.ok(LINES.find(l=>l.id===id));}
+ assert.equal(SCENES.release.after,'release');assert.equal(SCENES.gate.after,'nightIntro');assert.equal(SCENES.ending.after,'northIntro');assert.equal(SCENES.northEnding.after,'complete');
 });
 test('every line and score has a packaged, nonempty media asset',()=>{
  assert.equal(C6_VOICES.length,LINES.length);assert.equal(new Set(C6_VOICES.map(v=>v.id)).size,LINES.length);

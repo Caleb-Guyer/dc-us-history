@@ -1,18 +1,18 @@
 # DC US History
 
-**[Play The Long Road Home — Chapter 6 opening](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
+**[Play The Long Road Home — Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Play The Last Dispatch — Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · **[Play Crown & Current — Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)**
 
 Free browser games for dual-credit U.S. History. No install, login, ads, or API keys. The repository was renamed from `crown-and-current` to `dc-us-history`; use the new GitHub Pages address above.
 
-## Chapter 6: The Long Road Home — Part I
+## Chapter 6: The Long Road Home — through The Guns North
 
-The first playable installment follows Ward’s release, a night warning route, civilian rescue at Lexington, and a fictional wagon defense during the British retreat from Concord. It is the campaign opening; the remaining Chapter 6 missions are planned for later installments.
+The first playable installment follows Ward’s release, a night warning route, civilian rescue at Lexington, and a fictional wagon defense during the British retreat from Concord. The next playable mission, The Guns North, follows the crew to Fort Ticonderoga on May 10, 1775: time a sentry’s gaze, signal Ward, open the passage, secure the gun stores, and haul a marked cannon onto rollers. Being spotted changes the approach into a crew rescue. Later Chapter 6 missions remain in development.
 
-- Six real-time story scenes with the recurring crew, 49 prerecorded voice performances, and four original score arrangements.
-- Four connected playable sections: support Ward, warn the countryside while avoiding patrols, carry wounded people to Mara, then use a flintlock and stone cover to protect the wagon’s crossing.
+- Nine real-time story scenes with the recurring crew, 79 prerecorded voice performances, and four original score arrangements.
+- The four opening sections: support Ward, warn the countryside while avoiding patrols, carry wounded people to Mara, then use a flintlock and stone cover to protect the wagon’s crossing.
 - One-round loading, deliberate manual reload, crouching cover, three enemy waves, and a defense that cannot complete by abandoning the wagon.
 - A restrained HUD, separate voice/music/effects controls, larger captions, reduced camera motion, Story difficulty, keyboard-only looking, and touch controls.
-- Independent Chapter 6 checkpoints, scene replay without changing the campaign save, and caption fallback if voice playback is unavailable.
+- Independent Chapter 6 checkpoints, mission and scene replay without changing the campaign save, and caption fallback if voice playback is unavailable. Completed opening saves automatically continue at The Guns North.
 
 Version 4.1 improves all four opening sections: warned Lexington volleys and rescue recovery, readable patrol lanterns, enemies and Ward navigating around cover, a one-use Concord supply crate, and health recovery behind safe cover. Mission select replays individual sections without replacing story progress. Revised camera framing and pacing, layered woodland and hills, sky lighting, articulated soldiers, moving wagon wheels, and firing/reload feedback strengthen the presentation. The HUD shows contextual interaction and objective distance, patrol awareness, reload progress, and wagon progress without persistent control lists. Settings add master mute (M), look sensitivity, and a performance graphics option; touch LOW and AIM toggle.
 

@@ -1,10 +1,10 @@
-# Chapter 6 opening — production credits
+# Chapter 6 — production credits
 
-The Long Road Home: Part I uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through The Guns North uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-49 prerecorded synthetic performances, approximately 172 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+79 prerecorded synthetic performances, approximately 271 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -35,3 +35,5 @@ Original procedural woodland, farm, courtyard, Lexington, and retreat environmen
 The 4.1 scenery pass adds original shader skies, layered trees, instanced hills and ground detail, softened dirt tracks, clouds, supply props, campfire lighting, wagon wheel animation, and a more articulated generic soldier rig. The camera director defines stable, bounded shot movement and gives each spoken beat a lead-in and reaction hold. These visuals are rendered by the game, with no external image-generation service or new media dependency.
 
 Code retains the project’s MIT license. Original music and produced dialogue assets use the project’s CC BY 4.0 content terms to the extent rights apply. Source-derived reference content retains its separate attribution terms. No analytics, remote save service, paid API, or user-data collection is introduced.
+
+Version 4.2 adds 30 locally generated performances and three real-time cinematics. The original Ticonderoga set includes code-built fort walls, ordnance, damaged gun fittings, rolling timber supports, an animated hauling rope, boats, shader lake water, a dawn sky, and batched trees, grass, and rubble. Nathan uses a separately colored instance of the existing crew rig. The mission reuses the original night, tension, and home score themes.

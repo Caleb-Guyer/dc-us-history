@@ -1,6 +1,8 @@
-// Chapter 6, opening installment. Original crew fiction within sourced events.
-export const VERSION='4.1.1';
+// Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
+import {FORT_SPEC} from './c6-fort.mjs?v=4.2.0';
+export const VERSION='4.2.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
+export function continueProgress(saved){return saved.complete&&!saved.seen.includes('northEnding')?{...saved,complete:false,scene:'northIntro',checkpoint:null}:saved;}
 export const NAMES={ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
 export const SPEAKERS={ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
 const line=(id,speaker,text)=>({id,speaker,text});
@@ -54,6 +56,36 @@ export const LINES=[
  line('end.4','WARD','Then we keep a road open. We leave with everyone we can.'),
  line('end.5','ISAIAH','I’ll find us a way through the harbor. You get some sleep.'),
  line('retry','WARD','Find cover. Breathe. We try the route again.'),
+ line('north.0','ISAIAH','There. Past the mist. Ticonderoga.'),
+ line('north.1','ROWAN','Boston is the other way.'),
+ line('north.2','WARD','We can surround a city with men. To force the British out, we need guns.'),
+ line('north.3','RUNNER','Allen and Arnold are bringing the men up. They want us at the passage.'),
+ line('north.4','ISAIAH','I’ll keep the boat ready. Nathan, stay on Rowan’s shoulder.'),
+ line('north.5','ROWAN','And if the sentry sees us?'),
+ line('north.6','WARD','We move together. This is a surprise, not a firing line.'),
+ line('north.7','ISAIAH','Rowan. Leave room for everyone on the way back.'),
+ line('north.ready','WARD','The wall hides us. Left side of the passage. Watch where his lantern points.'),
+ line('north.signal','WARD','I see you. Taking the left door. Get that latch up for the others.'),
+ line('north.alarm','RUNNER','My foot! Rowan, I’m caught!'),
+ line('north.rescued','WARD','He’s clear! They’ve heard us. Open the passage. Our men are coming!'),
+ line('north.taken','WARD','Through! Allen and Arnold have the courtyard. Secure the stores!'),
+ line('capture.0','RUNNER','They’re giving up. The whole place.'),
+ line('capture.1','WARD','Let them put their weapons down. Keep the way clear.'),
+ line('capture.2','ROWAN','All those guns. Sitting here while Boston stays shut.'),
+ line('capture.3','WARD','Taking them was the first problem. Moving them will be the next.'),
+ line('capture.4','RUNNER','I’ll watch this door. Get the inventory, Rowan.'),
+ line('north.stores','ROWAN','Powder dry. Shot stacked. Now something to fire it from.'),
+ line('north.fitting','WARD','That gun. Broken fitting, sound barrel. Mark it. We’ll need a new carriage.'),
+ line('north.pull','WARD','Rope tight. Back up slowly. I’ll keep the roller straight.'),
+ line('north.weight','ROWAN','All that, just to move it a few feet.'),
+ line('north.end.0','WARD','Don’t put your hand there. If it rolls, you lose it.'),
+ line('north.end.1','ROWAN','You can barely close yours. Let me take the weight.'),
+ line('north.end.2','WARD','You take the weight. I’ll tell you where to put it.'),
+ line('north.end.3','RUNNER','Allen and Arnold took the fort. Should I put your names beside the stores?'),
+ line('north.end.4','ROWAN','Put down what we can use. Names won’t open Boston.'),
+ line('north.end.5','WARD','Your brother’s still in there.'),
+ line('north.end.6','ROWAN','So are other people’s brothers. We find a road for these guns.'),
+ line('north.end.7','WARD','Then keep that list dry. We’re going back to the siege.'),
 ];
 export const SCENES={
  release:{level:'release',title:'An unfinished promise',place:'BOSTON · EARLY 1775',music:'home',lines:['release.0','release.1','release.2','release.3','release.4'],after:'release'},
@@ -61,13 +93,17 @@ export const SCENES={
  nightIntro:{level:'night',title:'The Powder Road',place:'MASSACHUSETTS · NIGHT OF APRIL 18–19, 1775',music:'night',lines:Array.from({length:4},(_,i)=>'night.'+i),after:'night'},
  lexington:{level:'lexington',title:'The first light',place:'LEXINGTON · APRIL 19, 1775',music:null,lines:Array.from({length:5},(_,i)=>'lex.'+i),after:'lexington'},
  concordIntro:{level:'concord',title:'A road home',place:'NEAR CONCORD · LATER ON APRIL 19, 1775',music:'tension',lines:Array.from({length:3},(_,i)=>'concord.'+i),after:'concord'},
- ending:{level:'end',title:'Everyone we can',place:'OUTSIDE BOSTON · AFTER APRIL 19, 1775',music:'home',lines:Array.from({length:6},(_,i)=>'end.'+i),after:'complete'},
+ ending:{level:'end',title:'Everyone we can',place:'OUTSIDE BOSTON · AFTER APRIL 19, 1775',music:'home',lines:Array.from({length:6},(_,i)=>'end.'+i),after:'northIntro'},
+ northIntro:{level:'ticonderoga',title:'The Guns North',place:'LAKE CHAMPLAIN · BEFORE DAWN · MAY 10, 1775',music:'night',lines:Array.from({length:8},(_,i)=>'north.'+i),after:'ticonderoga'},
+ fortCapture:{level:'ticonderoga',title:'Before the morning',place:'FORT TICONDEROGA · MAY 10, 1775',music:'tension',lines:Array.from({length:5},(_,i)=>'capture.'+i),after:'checkpoint'},
+ northEnding:{level:'ticonderoga',title:'The weight of it',place:'TICONDEROGA · LATER THAT MORNING',music:'home',lines:Array.from({length:8},(_,i)=>'north.end.'+i),after:'complete'},
 };
 export const LEVELS={
  release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
  night:{title:'The Powder Road',place:'APRIL 18–19, 1775 · NIGHT',spawn:[0,19],bounds:[-24,24,-125,24],music:'night',goals:[{x:-8,z:-22,label:'Warn the north farm',verb:'Knock on the farmhouse door',time:1},{x:9,z:-61,label:'Ring the meeting bell',verb:'Ring the bell',time:1.2},{x:-3,z:-115,label:'Reach the far side of the ridge',verb:'Follow the path to Lexington',time:.8}]},
  lexington:{title:'The first light',place:'APRIL 19, 1775 · LEXINGTON',spawn:[0,17],bounds:[-25,25,-31,24],music:'tension',goals:[{x:-7,z:-4,label:'Reach the wounded runner',verb:'Help the wounded runner',time:1},{x:14,z:16,label:'Bring him to Mara’s wagon',verb:'Lower him into the wagon',time:1},{x:-13,z:-16,label:'Find the man behind the fence',verb:'Help the wounded man',time:1},{x:14,z:16,label:'Get him into the wagon',verb:'Help him aboard',time:1},{x:19,z:23,label:'Leave the green with the crew',verb:'Leave by the garden lane',time:.6}]},
  concord:{title:'A road home',place:'APRIL 19, 1775 · NEAR CONCORD',spawn:[3,18],bounds:[-24,24,-42,26],music:'battle',goals:[{x:2,z:9,label:'Take the spare musket',verb:'Take the musket',time:.8},{x:0,z:4,label:'Cover the wagon from the stone wall',verb:'Hold this position',time:0},{x:18,z:23,label:'Fall back to the orchard',verb:'Leave with the crew',time:.7}]},
+ ticonderoga:FORT_SPEC,
 };
 export const FACTS=[
  ['A promise kept','Rowan, Mara, Isaiah, Ward, Thomas, and the local rescues are fictional. Ward survived the Chapter 5 fire and surrendered. Thomas remains a Loyalist. Isaiah is a free Black man who survived his 1770 shoulder wound.','Crew continuity'],
@@ -76,5 +112,7 @@ export const FACTS=[
  ['A network of riders','Paul Revere was one of several warning riders. A British patrol captured him before he completed the ride to Concord. The warning continued through other people.','Handout §6.1, paragraph 10'],
  ['The first shot','Fighting occurred at Lexington and Concord on April 19, 1775. It remains uncertain who fired the first shot; this scene deliberately does not identify a shooter.','Handout §6.1, paragraph 10'],
  ['The road back','British troops retreated toward Boston under attacks by expanding militia forces. The player’s local wagon defense is fictional, not a reconstruction of a particular recorded engagement.','Handout §6.1, paragraph 10'],
- ['A siege begins','After Lexington and Concord, militia converged on Boston and besieged the city. Ticonderoga and the fighting at Breed’s Hill come later in the campaign.','Handout §6.1, paragraph 11'],
+ ['A siege begins','After Lexington and Concord, militia converged on Boston and besieged the city. The siege continued after the capture of Ticonderoga.','Handout §6.1, paragraph 11'],
+ ['The Guns North','Ethan Allen and Benedict Arnold led the capture of Fort Ticonderoga in New York on May 10, 1775. Its artillery offered a way to strengthen the siege of Boston. The crew’s passage, rescue, inventory, and hauling jobs are fictional.','Handout §6.1, paragraph 11; Fort Ticonderoga museum'],
+ ['Taking a gun is not moving it','The capture in May 1775 and Henry Knox’s later winter artillery expedition were separate events. The crew marks a fictional gun for a later return; the player does not deliver it to Boston in May. The winter transport and March 1776 evacuation belong to later missions.','Handout §6.1, paragraph 13; Fort Ticonderoga museum, Noble Train of Artillery'],
 ];
