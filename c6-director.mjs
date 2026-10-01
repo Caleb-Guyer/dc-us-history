@@ -1,7 +1,7 @@
 // Camera positions are authored inside the playable sets, away from walls.
-import {PROMISE_SHOTS} from './c6-promise-story.mjs?v=4.6.0-published2';
-import {LIFT_SHOTS} from './c6-lift-story.mjs?v=4.6.0-published2';
-import {PAPER_SHOTS} from './c6-paper-story.mjs?v=4.6.0-published2';
+import {PROMISE_SHOTS} from './c6-promise-story.mjs?v=4.6.0-published3';
+import {LIFT_SHOTS} from './c6-lift-story.mjs?v=4.6.0-published3';
+import {PAPER_SHOTS} from './c6-paper-story.mjs?v=4.6.0-published3';
 export const SHOTS={...PAPER_SHOTS,...LIFT_SHOTS,...PROMISE_SHOTS,
  hillIntro:[[[9,7,18],[0,1,5]],[[-.2,1.8,13.8],[-1,1.5,16]],[[-.6,1.8,15],[-3,1.5,13]],[[-1,1.7,14.5],[2,1.5,16]],[[4,3,16],[78,-3,-55]],[[-.6,1.8,15],[-3,1.5,13]],[[-1,1.7,14.5],[2,1.5,16]],[[4,3,18],[-3,1.3,13]]],
  hillBreak:[[[-5,1.65,6],[-11,1,2]],[[.6,1.7,4],[3,1.5,5]],[[1.5,1.3,5],[-.8,.95,2.8]],[[-1.8,1.1,4.3],[-.2,.8,3]],[[.7,1.05,4],[-1.1,.8,2.6]],[[1.5,1.25,5],[-.2,.8,3]]],
