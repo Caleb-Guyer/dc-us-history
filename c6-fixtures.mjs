@@ -1,6 +1,6 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.6.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.6.0-published';
+import {fresh} from './c6-sim.mjs?v=4.6.0-published2';
+import {interactHill} from './c6-hill.mjs?v=4.6.0-published2';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
  if(level==='printshop'&&['press','proof'].includes(phase)){s.stage=phase==='press'?12:9;Object.assign(s.paper,{representative:'mara',allocation:'common',shared:true,cooperation:1,type:3,proofCaught:phase==='press',proofMended:phase==='press',atPress:phase==='press',phase:'feed'});s.player.x=phase==='press'?0:2;s.player.z=phase==='press'?-8.2:-15.5;}

@@ -1,12 +1,12 @@
-import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.6.0-published';
-import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.6.0-published';
-import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.6.0-published';
-import {LEVELS} from './c6-data.mjs?v=4.6.0-published';
+import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.6.0-published2';
+import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.6.0-published2';
+import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.6.0-published2';
+import {LEVELS} from './c6-data.mjs?v=4.6.0-published2';
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const angle=x=>Math.atan2(Math.sin(x),Math.cos(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
-import {SNOW_BLOCKS,RIDGE_BLOCKS,BOSTON_BLOCKS,freshLift,liftGoal,interactLift,updateLift,liftCanUse,liftHauling} from './c6-lift.mjs?v=4.6.0-published';
-import {PRINT_BLOCKS,DISPATCH_BLOCKS,freshPaper,paperGoal,paperNear,paperCanUse,paperOperating,interactPaper,updatePaper} from './c6-paper.mjs?v=4.6.0-published';
+import {SNOW_BLOCKS,RIDGE_BLOCKS,BOSTON_BLOCKS,freshLift,liftGoal,interactLift,updateLift,liftCanUse,liftHauling} from './c6-lift.mjs?v=4.6.0-published2';
+import {PRINT_BLOCKS,DISPATCH_BLOCKS,freshPaper,paperGoal,paperNear,paperCanUse,paperOperating,interactPaper,updatePaper} from './c6-paper.mjs?v=4.6.0-published2';
 export const BLOCKS={printshop:PRINT_BLOCKS,dispatch:DISPATCH_BLOCKS,snowpass:SNOW_BLOCKS,dorchester:RIDGE_BLOCKS,bostonreturn:BOSTON_BLOCKS,tidewater:TIDE_BLOCKS,moorescreek:CREEK_BLOCKS,
  ticonderoga:FORT_BLOCKS,
  breeds:HILL_BLOCKS,

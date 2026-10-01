@@ -1,12 +1,12 @@
-import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.6.0-published';
-import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.6.0-published';
-import {HILL_SPEC} from './c6-hill.mjs?v=4.6.0-published';
+import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.6.0-published2';
+import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.6.0-published2';
+import {HILL_SPEC} from './c6-hill.mjs?v=4.6.0-published2';
 // Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
-import {FORT_SPEC} from './c6-fort.mjs?v=4.6.0-published';
-import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.6.0-published';
-import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.6.0-published';
-import {PRINT_SPEC,DISPATCH_SPEC} from './c6-paper.mjs?v=4.6.0-published';
-import {PAPER_LINES,PAPER_SCENES,PAPER_FACTS} from './c6-paper-story.mjs?v=4.6.0-published';
+import {FORT_SPEC} from './c6-fort.mjs?v=4.6.0-published2';
+import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.6.0-published2';
+import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.6.0-published2';
+import {PRINT_SPEC,DISPATCH_SPEC} from './c6-paper.mjs?v=4.6.0-published2';
+import {PAPER_LINES,PAPER_SCENES,PAPER_FACTS} from './c6-paper-story.mjs?v=4.6.0-published2';
 export const VERSION='4.6.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
 export function continueProgress(saved){if(!saved.complete||saved.seen.includes('paperCoda'))return saved;return {...saved,complete:false,scene:saved.seen.includes('liftHome')?'paperIntro':saved.seen.includes('promiseCoda')?'liftIntro':saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}

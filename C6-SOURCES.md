@@ -9,7 +9,7 @@ The required route covers handout P003, P016–P020 and P055 through a fictional
 | Summer 1776 Philadelphia Congress; Jefferson’s main authorship, Adams’s support; grievances against George III | Required heading and grievances type installed in the press form |
 | Natural rights, consent, alter or abolish destructive government | Rights block, windblown proof recovery, drying/mending before the press runs |
 | Foreign recognition, aid, France and Spain | Both diplomatic packets must reach Isaiah. Sending copies does not imply an alliance immediately. |
-| Common cause among varied economic/social backgrounds; Loyalists and neutrals | Working shop and required local delivery; Thomas reads his brother’s work while retaining loyalty to the Crown. |
+| Patriots/Whigs; common cause among merchants, shoemakers, farmers and sailors; Loyalists and neutrals | Working shop and required local delivery; Thomas reads his brother’s work while retaining loyalty to the Crown. |
 
 Congress adopted the Declaration on July 4; John Dunlap produced its official first printing. The player’s neighborhood shop makes later fictional copies, so Rowan does not replace Dunlap or write Jefferson’s document. Most signatures on the engrossed copy came on August 2. The small print run, wind/rain, shop election, delivery routes, and character reactions are fictional gameplay approximations. The stylized paper texture is not a historical facsimile.
 

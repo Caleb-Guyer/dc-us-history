@@ -195,14 +195,14 @@ export const C6_VOICES = [
   {
     "id": "paper.authors",
     "speaker": "MARA",
-    "text": "Jefferson wrote most of the Declaration. Adams backed independence and helped review the draft. Congress made changes and adopted it on July fourth.",
+    "text": "Jefferson of Virginia wrote most of the Declaration. Adams of Massachusetts backed independence and helped review the draft. Congress made changes and adopted it on July fourth.",
     "voice": "af_heart",
     "speed": 1,
     "lang": "en-us",
-    "file": "c6-voice-paper-authors-33f2b400b.mp3",
-    "duration": 9.7,
+    "file": "c6-voice-paper-authors-b32e4da68.mp3",
+    "duration": 11.668,
     "peak": 0.86,
-    "rms": 0.1202
+    "rms": 0.1123
   },
   {
     "id": "paper.grievance",
@@ -219,26 +219,26 @@ export const C6_VOICES = [
   {
     "id": "paper.king",
     "speaker": "MARA",
-    "text": "Against George the Third. Years asking for the rights of Englishmen brought us here. Paine turned the argument against monarchy itself.",
+    "text": "Against George the Third. Years asking for the rights of Englishmen brought us here. Paine shifted blame from Parliament to the king. A republic would have no hereditary monarch.",
     "voice": "af_heart",
     "speed": 1,
     "lang": "en-us",
-    "file": "c6-voice-paper-king-52a17f7e1.mp3",
-    "duration": 7.643,
+    "file": "c6-voice-paper-king-d37b0e822.mp3",
+    "duration": 10.416,
     "peak": 0.86,
-    "rms": 0.0963
+    "rms": 0.0935
   },
   {
     "id": "paper.rights",
     "speaker": "ROWAN",
-    "text": "Life. Liberty. Pursuit of happiness. These letters have to outlast this paper.",
+    "text": "Enlightenment principles. Unalienable rights. Life, liberty, and the pursuit of happiness. Government must protect them. These letters have to outlast this paper.",
     "voice": "am_fenrir",
     "speed": 1,
     "lang": "en-us",
-    "file": "c6-voice-paper-rights-2e1953bd4.mp3",
-    "duration": 4.69,
+    "file": "c6-voice-paper-rights-86ee9110a.mp3",
+    "duration": 9.99,
     "peak": 0.86,
-    "rms": 0.1096
+    "rms": 0.0836
   },
   {
     "id": "paper.consent",
@@ -507,14 +507,14 @@ export const C6_VOICES = [
   {
     "id": "dispatch.common",
     "speaker": "WARD",
-    "text": "A common cause across very different lives. That is how the Patriots have kept this struggle together. It still has to be earned.",
+    "text": "Patriots. Some call them Whigs. Merchants, shoemakers, farmers, sailors. A common cause across very different lives. That unity still has to be earned.",
     "voice": "bm_george",
     "speed": 0.96,
     "lang": "en-gb",
-    "file": "c6-voice-dispatch-common-08b2061a6.mp3",
-    "duration": 8.085,
-    "peak": 0.86,
-    "rms": 0.1382
+    "file": "c6-voice-dispatch-common-53bbfd9b3.mp3",
+    "duration": 10.398,
+    "peak": 0.8312,
+    "rms": 0.15
   },
   {
     "id": "dispatch.france",
@@ -675,14 +675,14 @@ export const C6_VOICES = [
   {
     "id": "paper.thomas.4",
     "speaker": "THOMAS",
-    "text": "They pledge lives and fortunes to each other. What am I supposed to pledge to my own brother?",
+    "text": "They pledge lives, fortunes, and honor to each other. What am I supposed to pledge to my own brother?",
     "voice": "bm_fable",
     "speed": 0.98,
     "lang": "en-gb",
-    "file": "c6-voice-paper-thomas-4-7a94cb085.mp3",
-    "duration": 5.541,
+    "file": "c6-voice-paper-thomas-4-71a86003e.mp3",
+    "duration": 6.405,
     "peak": 0.86,
-    "rms": 0.1082
+    "rms": 0.1093
   },
   {
     "id": "paper.thomas.5",
