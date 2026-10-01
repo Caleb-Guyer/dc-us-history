@@ -1,5 +1,19 @@
 # DC US History
 
+## Chapter 6 update — No Ground Left (4.7.0)
+
+Fight a losing local battle on Long Island, bring two wounded men behind the works, then take Isaiah's oars for the East River evacuation. Ferry the crew to Manhattan, return for the last wounded party, and cross again. Help Thomas reunite a displaced Loyalist family after the failed peace conference. Find the flank at Harlem Heights, then clear a trapped wagon and call Ward out of White Plains.
+
+Five playable sections, nine new real-time cutscenes, 84 new prerecorded performances, and two original scores continue the campaign: **374 recordings, 39 scenes, and 10 music loops**. The new music is **Leave a Road Behind** and **Every Quiet Oar**. All testing stays muted and in hidden tabs. The full campaign remains in development; next is **Across the Black Water**, the Delaware crossing and winter attacks.
+
+**Ferry controls:** A / D work the left / right oars; W alternates them; S / Space brakes and steadies the load. The oars turn the boat; mouse and arrows look independently. Approach a landing slowly, then E handles the ropes and passengers. Grounding and poor balance are recoverable. Foot and combat controls stay the same. Completed 4.6 saves continue into New York, and mission or scene replays preserve the campaign checkpoint.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)** · [Chapter 5](https://caleb-guyer.github.io/dc-us-history/chapter5.html) · [Chapter 4](https://caleb-guyer.github.io/dc-us-history/chapter4.html)
+
+## Earlier release notes
+
+# DC US History
+
 ## Chapter 6 update — A Country on Paper (4.6.0)
 
 Work a Philadelphia neighborhood reprint shop after Congress adopts the Declaration. Choose the shop’s representative, decide where scarce paper goes, repair lost cooperation, carry type to the form, save a windblown proof, and operate a physical hand press. Deliver the finished copies through a rainy city in your chosen order. Both France and Spain packets must reach Isaiah; Thomas’s separate scene makes the Declaration personal.

@@ -95,5 +95,29 @@ export const C6_SCORE = {
     "peak": 0.6477,
     "rms": 0.1803,
     "bytes": 835920
+  },
+  "retreat": {
+    "title": "Leave a Road Behind",
+    "bpm": 110,
+    "mood": "defense",
+    "file": "c6-music-retreat-e6f41266.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 34.943625,
+    "duration": 34.90909375,
+    "peak": 0.7013,
+    "rms": 0.1805,
+    "bytes": 699120
+  },
+  "river": {
+    "title": "Every Quiet Oar",
+    "bpm": 72,
+    "mood": "stealth",
+    "file": "c6-music-river-77a291c9.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 53.367875,
+    "duration": 53.33334375,
+    "peak": 0.7944,
+    "rms": 0.1804,
+    "bytes": 1067760
   }
 };

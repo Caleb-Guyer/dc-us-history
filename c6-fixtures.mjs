@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.6.0-published3';
-import {interactHill} from './c6-hill.mjs?v=4.6.0-published3';
+import {fresh} from './c6-sim.mjs?v=4.7.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.7.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='eastriver'&&phase==='oars'){s.stage=1;s.retreat.aboard=true;s.retreat.moored=false;s.player.z=10;}
+ if(level==='longisland'&&phase==='wounded'){s.stage=2;s.retreat.flanked=true;s.player.x=-19;s.player.z=14;}
+ if(level==='whiteplains'&&phase==='wagon'){s.stage=3;s.retreat.beam=true;s.player.x=-17;s.player.z=29;}
+ if(level==='harlem'&&phase==='flank'){s.stage=1;s.armed=true;s.player.x=-21;s.player.z=-8;} 
  if(level==='printshop'&&['press','proof'].includes(phase)){s.stage=phase==='press'?12:9;Object.assign(s.paper,{representative:'mara',allocation:'common',shared:true,cooperation:1,type:3,proofCaught:phase==='press',proofMended:phase==='press',atPress:phase==='press',phase:'feed'});s.player.x=phase==='press'?0:2;s.player.z=phase==='press'?-8.2:-15.5;}
  if(level==='dispatch'&&['rain','harbor'].includes(phase)){s.stage=1;s.paper.route='harbor';s.player.x=phase==='rain'?5:15;s.player.z=phase==='rain'?-4:-37;s.paper.wetness=phase==='rain'?1:0;s.paper.rain=1;s.paper.warning=true;} 
  if(level==='snowpass'&&['haul','bend'].includes(phase)){s.stage=phase==='haul'?4:8;Object.assign(s.lift,{attached:true,braced:true,balanced:phase==='bend',x:phase==='haul'?0:-3,z:phase==='haul'?18:-50});s.player.x=s.lift.x;s.player.z=s.lift.z-4.2;}

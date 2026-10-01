@@ -1,3 +1,24 @@
+# No Ground Left — historical scope (4.7.0)
+
+The required route covers the 1776 New York campaign, militia manpower, several Loyalist motives, and William Franklin's imprisonment. P023 and P025 contain later events that still require later campaign delivery; William Franklin's postwar exile and estrangement belong to M19. This installment does not finish Chapter 6.
+
+| Required material | Gameplay and story |
+| --- | --- |
+| Nova Scotia regrouping; William Howe's army, Richard Howe's fleet; Staten Island in June–July; 32,000 scale; city, harbor and Hudson objectives | Fleet opening, brief command/runner exchange, army beyond the local section |
+| August 27 Long Island defeat; outnumbering, training and discipline | A timed local passage collapses regardless of local shooting success; two required wounded rescues |
+| August 29–30 East River evacuation | Explicit date and control handoff to Isaiah; two loaded crossings with a return trip, oar steering, current, weight, braking, recoverable grounding and required docking |
+| Failed September 11 conference and its independence obstacle | Required returned seal; Franklin, Adams and Edward Rutledge named in the dated scene; Howe could not recognize independence |
+| City occupied September 15; Harlem Heights September 16; White Plains October 28 | Separate date cards; flank counterattack then a later losing field, wagon clearance/escort and Ward's extraction |
+| Royal officials, Britain-linked merchants, constitutional defenders, rivalry and Hudson Valley tenant grievances | Thomas's required papers, family reunion and shelter interactions |
+| Benjamin and William Franklin; royal New Jersey governorship, father's help, Connecticut imprisonment, continued loyalty | Required returned-packet exchange; historical William remains distinct from fictional Thomas |
+| Militia strength in 1775–76 and seasonal departures | Required autumn departure scene before the winter mission |
+
+The 32,000 describes Howe's overall force, not the small local encounter. The boats, named crew, wounded parties, family register, shelter, volley signals, axle beam and wagon are original fiction within the historical campaign. Local success does not reverse Long Island or White Plains. Isaiah's shoulder damage is old, healed damage; Ward is alive. No future raid or postwar result is presented as a witnessed 1776 event.
+
+**Source corrections:** The handout calls the peace delegate John Rutledge; the delegate was **Edward Rutledge** (H15). New York's September fall preceded the October White Plains battle (H08). Supplemental sources: [Mount Vernon, Long Island](https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/battle-of-long-island), [Mount Vernon, revolutionary timeline](https://www.mountvernon.org/george-washington/the-revolutionary-war/timeline), [National Park Service, Harlem Heights](https://www.nps.gov/places/where-the-battle-of-harlem-heights-began.htm), [National Park Service, Edward Rutledge](https://www.nps.gov/people/edward-rutledge.htm), and [National Archives, September 11 conference record](https://founders.archives.gov/documents/Franklin/01-22-02-0358).
+
+## Earlier historical scope
+
 # A Country on Paper — historical scope (4.6.0)
 
 The required route covers handout P003, P016–P020 and P055 through a fictional neighborhood reprint shop, a shared paper pool, required type/proof work, and deliveries to neighborhood workers and the harbor. This installment does not complete the entire Chapter 6 campaign.

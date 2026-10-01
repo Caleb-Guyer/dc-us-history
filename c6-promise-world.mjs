@@ -1,6 +1,6 @@
 import * as T from './three.module.js';
-import {TIDE_BLOCKS,CREEK_BLOCKS,REEDS,PATROLS,patrolAt} from './c6-promise.mjs?v=4.6.0-published3';
-import {buildRunner} from './c6-hill-world.mjs?v=4.6.0-published3';
+import {TIDE_BLOCKS,CREEK_BLOCKS,REEDS,PATROLS,patrolAt} from './c6-promise.mjs?v=4.7.0-published';
+import {buildRunner} from './c6-hill-world.mjs?v=4.7.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const rand=n=>{const v=Math.sin(n*73.13+41.7)*8319.51;return v-Math.floor(v);};
 function water(w,width,length,x,z,night){

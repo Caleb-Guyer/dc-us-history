@@ -1,3 +1,13 @@
+# Chapter 6 — No Ground Left checks (4.7.0)
+
+- 120 tests pass. Nine new behavior tests complete the walked rescue and city routes, three physical ferry trips, two Harlem pursuing groups, required wagon clearance and escort, and Ward's return. They also check recovery, docking speed, independent boat/look controls, non-inverted pitch, malformed saves, and previous-release migration. The daughter follows a collision-aware companion route.
+- Every one of 39 scenes has a camera for each line, bounded motion, and framing outside solids. All 374 voice performances have packaged nonempty files, matching speaker/text and duration metadata. All 10 original scores have exact byte sizes, valid loops, unclipped peaks and RMS metadata. New peaks: retreat 0.7013; river 0.7944.
+- Muted hidden-browser checks exercise real keyboard upward looking, an oar stroke, sustained alternating rowing, movement, pause, gallery and rendered sets. Passenger seating, visible wounded men, bank/ground height and foreground crowd placement were corrected during visual review. Complete mission routes are tested in simulation; this is not a claim of an independent blind playthrough.
+- Publishing must upload new media before the changed runtime, and include the root c6.mjs entry, stylesheet, HTML, imported modules and referenced media. Verify the live edition, mission order, entry query key, actual gameplay, mute, console and Pages completion.
+- Audio has not been audibly auditioned because the user requested muted testing. Physical phones, gamepads, visible pointer lock and independent playtesting remain unverified. The remaining missions and full paragraph-by-paragraph campaign audit are unfinished.
+
+## Earlier checks
+
 # Chapter 6 — release checks
 
 Version 4.6.0 adds A Country on Paper and Words Beyond the Door. The full campaign is still in development.

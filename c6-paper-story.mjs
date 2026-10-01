@@ -70,7 +70,7 @@ export const PAPER_SCENES={
  paperPrinted:{level:'printshop',title:'Hands black. Paper clean.',place:'PHILADELPHIA · JULY 1776 · A FICTIONAL NEIGHBORHOOD REPRINT',music:'press',lines:Array.from({length:6},(_,i)=>'paper.printed.'+i),after:'dispatch'},
  paperDeparture:{level:'dispatch',title:'A promise to carry',place:'PHILADELPHIA HARBOR · JULY 1776',music:'home',lines:Array.from({length:6},(_,i)=>'paper.departure.'+i),after:'paperThomas'},
  paperThomas:{level:'thomasdesk',title:'The crooked letter',place:'NEW YORK · JULY 1776 · THOMAS VALE',music:'home',lines:Array.from({length:7},(_,i)=>'paper.thomas.'+i),after:'paperCoda'},
- paperCoda:{level:'dispatch',title:'The ground under it',place:'PHILADELPHIA · JULY 1776 · THE NORTHERN ROAD',music:'tension',lines:Array.from({length:5},(_,i)=>'paper.coda.'+i),after:'complete'},
+ paperCoda:{level:'dispatch',title:'The ground under it',place:'PHILADELPHIA · JULY 1776 · THE NORTHERN ROAD',music:'tension',lines:Array.from({length:5},(_,i)=>'paper.coda.'+i),after:'retreatIntro'},
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const PAPER_SHOTS={

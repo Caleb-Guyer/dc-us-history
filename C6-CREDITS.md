@@ -1,10 +1,10 @@
 # Chapter 6 — production credits
 
-The Long Road Home through A Country on Paper uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through No Ground Left uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-290 prerecorded synthetic performances, approximately 1224 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+374 prerecorded synthetic performances, 1677.340 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -54,3 +54,7 @@ Version 4.4 adds 59 synthetic performances, seven real-time scenes, one original
 Version 4.5 adds 48 synthetic performances, five real-time scenes, three playable sections, and the original winter score. Code-built snow, sledge, ropes, gun carriage, ballast, terrain, earthworks, ships and street barriers use no commercial game assets.
 
 Version 4.6 adds 64 synthetic performances, five real-time scenes, two playable sections, and Ink Before Thunder. The hand press has a moving carriage, screw, platen, handle, type form and sheet; the city has covered workspaces, a dock, rain, and a courier road. Thomas’s desk has an original stylized Declaration texture with a fictional crooked letter, not a facsimile of a surviving historical printing. All scenes use the same real-time renderer and crew rigs.
+
+## No Ground Left additions
+
+84 new synthetic performances continue the established cast. The local 110 BPM instrumental **Leave a Road Behind** and 72 BPM **Every Quiet Oar** use the existing original synthesis engine; no Halo or other commercial game audio is used. Procedural ships, rowboat/oars, lit docks, battlefield haze, carried wounded, shelter door, signal cloth and moving wagon are original code-built set pieces. See the score manifest for exact levels and loops.
