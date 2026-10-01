@@ -167,5 +167,17 @@ export const C6_SCORE = {
     "peak": 0.768,
     "rms": 0.1804,
     "bytes": 739440
+  },
+  "albany": {
+    "title": "Where the Roads Close",
+    "bpm": 108,
+    "mood": "battle",
+    "file": "c6-music-albany-9fb273c5.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 35.59009375,
+    "duration": 35.5555625,
+    "peak": 0.7366,
+    "rms": 0.1804,
+    "bytes": 712080
   }
 };

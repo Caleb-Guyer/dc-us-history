@@ -58,7 +58,7 @@ export const PHILADELPHIA_SCENES={
  philadelphiaWounded:scene('brandywine','Both are true','AFTER BRANDYWINE · SEPTEMBER 11, 1777 · WITH THE WITHDRAWING ARMY','winterhome','philadelphia.wounded.',4,'philadelphiaRecords'),
  philadelphiaRecords:scene('recordshall','The Papers We Carry','PHILADELPHIA · NIGHT OF SEPTEMBER 18–19, 1777 · ONE OF THE DEPARTING WAGONS','records','philadelphia.records.',5,'recordshall'),
  philadelphiaExit:scene('recordshall','Tell me where to put my hands','PHILADELPHIA · SEPTEMBER 18–19, 1777 · CONGRESS DEPARTS WEST','records','philadelphia.exit.',5,'congressroad'),
- philadelphiaEnding:scene('congressroad','What is still here','PHILADELPHIA OCCUPIED · SEPTEMBER 26, 1777 · NEWS REACHES THE CREW ON THE WESTERN ROAD','winterhome','philadelphia.ending.',6,'complete'),
+ philadelphiaEnding:scene('congressroad','What is still here','PHILADELPHIA OCCUPIED · SEPTEMBER 26, 1777 · NEWS REACHES THE CREW ON THE WESTERN ROAD','winterhome','philadelphia.ending.',6,'albanyIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const PHILADELPHIA_SHOTS={

@@ -1,3 +1,13 @@
+# Chapter 6 — Saratoga campaign checks (4.10.0)
+
+- 145 tests pass, plus syntax checks. Eight new tests exercise complete collision-aware walked routes in all four sections; three actual timed axe cuts; miss, distance, held-key and save recovery; blocked military and open civilian routes; flank/line presence and failure; separate river signals and a carried rescue; ceasefire/unarmed packet; malformed saves; persistent outcomes; dated migration and dialogue.
+- All 56 scenes have a camera for every line, bounded motion, and framing outside solid scenery. All 542 recordings match packaged text/speaker metadata and nonempty files. All 15 scores have valid measured loops and levels. The new score peaks at 0.7366, RMS 0.1804.
+- Hidden, forced-muted UI review checks actual Space strike input, upward looking, pause, chronological gallery, parley, river-watch and surrender framing. The strike meter uses STRIKE and its own contextual hint. Parley blocking was revised to clear the foreground shoulder; surrendered prisoners use British uniforms and lower their weapons. Complete routes are exercised in simulation, not claimed as an independent blind playthrough.
+- Publish media before runtime and include the entry, stylesheet, shared actor and changed imports. Confirm the completed Pages deployment and public version/style, four section order, mute, movement/look, pause/replay and logs.
+- Sound stays muted throughout. No audible audition, physical phone/gamepad testing or independent playtesting is claimed. Hidden-tab throttling precludes frame-rate claims. M11–M19, E00 and the whole-campaign coverage audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Philadelphia campaign checks (4.9.0)
 
 - 137 tests pass, with syntax checks. Nine new behavior tests cover complete walked Brandywine rescue/withdrawal, required packing/map work, both physical evacuation routes, collision-aware companions, wagon presence and braking, real E-tap behavior, water/bridge/gate collision including jumping, save validation, outcomes and previous-release migration.

@@ -1,3 +1,15 @@
+## Chapter 6 update — Three Roads to Albany (4.10.0)
+
+Follow Rowan into the northern campaign: reconstruct three British routes on Ward’s field map, meet a Mohawk messenger under safe passage, then time axe strikes to block the military road while opening a separate civilian passage. Take a woodland flank with the supporting militia at Bemis Heights. Control passes to Isaiah on the southern Hudson for signals and a courier extraction, then returns to Rowan for encirclement and the October 17 surrender at Saratoga.
+
+Four new playable sections, seven real-time scenes, 66 new prerecorded synthetic performances and the original **Where the Roads Close** instrumental score. Totals: 56 scenes, 542 recordings, 15 scores. Completed Philadelphia saves continue here; mission and scene replay protect campaign progress. Completed safe passage, rescue and ceasefire outcomes are retained for the eventual ending.
+
+**Axe controls:** Space / STRIKE inside the pale band. WASD moves away or returns. Three clean cuts fell the tree; a miss can be retried. E signals or directs a section when nearby. Standard movement, combat, upward look, pause and mute controls apply throughout.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. Next: **The Winter Line**, with Washington’s army.
+
 ## Chapter 6 update — A City Is Not an Army (4.9.0)
 
 Hold a withdrawing section at Brandywine, carry a wounded Congress courier to Mara, then help pack journals and working papers before Philadelphia falls. An intercepted map connects Howe’s decision to the three armies expected at Albany. On the western road, choose between escorting a loaded wagon around the broken bridge or carrying essential records across a narrower crossing. Both routes wait for the people traveling with you.

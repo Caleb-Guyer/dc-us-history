@@ -1,6 +1,6 @@
 import * as T from './three.module.js';
-import {CROSSING_BLOCKS,iceFloes,crossingBoating} from './c6-crossing.mjs?v=4.9.0-published';
-import {CROSSING_SCENES,CROSSING_LINES} from './c6-crossing-story.mjs?v=4.9.0-published';
+import {CROSSING_BLOCKS,iceFloes,crossingBoating} from './c6-crossing.mjs?v=4.10.0-published';
+import {CROSSING_SCENES,CROSSING_LINES} from './c6-crossing-story.mjs?v=4.10.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z)),smooth=t=>(t=Math.max(0,Math.min(1,t)))*t*(3-2*t);
 function act(w,key,x,z,tx,tz,pose,t,voice){return w.setActor(key,x,z,face(x,z,tx,tz),pose,t,key===voice);}
 function ferry(w){const g=w.group(0,.12,10);w.box(3,.25,7,0x39453f,0,0,0,g);w.box(2.9,.08,6.8,0x968461,0,.2,0,g);for(const side of [-1,1]){w.box(.15,.65,7.2,0x6c634b,side*1.53,.48,0,g);const bow=w.box(.14,.62,2.2,0x6c634b,side*.78,.45,-4.15,g);bow.rotation.y=side*.75;}for(const z of [-2,.3,2])w.box(3,.13,.44,0xb49d76,0,.57,z,g);w.box(1.3,.65,1.8,0x726f58,0,.64,-1.4,g);const tarp=w.box(1.42,.09,1.9,0xada282,0,1,-1.4,g);for(const z of [-2,-.8])w.box(1.48,.045,.06,0x574c39,0,1.06,z,g);const tiller=w.cyl(.045,4,0x9d8c66,1,.62,2,g);tiller.rotation.z=.85;tiller.rotation.x=.18;g.userData.tiller=tiller;g.userData.tarp=tarp;return g;}

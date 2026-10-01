@@ -1,11 +1,12 @@
-import {PHILADELPHIA_SHOTS} from './c6-philadelphia-story.mjs?v=4.9.0-published';
-import {CROSSING_SHOTS} from './c6-crossing-story.mjs?v=4.9.0-published';
+import {ALBANY_SHOTS} from './c6-albany-story.mjs?v=4.10.0-published';
+import {PHILADELPHIA_SHOTS} from './c6-philadelphia-story.mjs?v=4.10.0-published';
+import {CROSSING_SHOTS} from './c6-crossing-story.mjs?v=4.10.0-published';
 // Camera positions are authored inside the playable sets, away from walls.
-import {PROMISE_SHOTS} from './c6-promise-story.mjs?v=4.9.0-published';
-import {LIFT_SHOTS} from './c6-lift-story.mjs?v=4.9.0-published';
-import {PAPER_SHOTS} from './c6-paper-story.mjs?v=4.9.0-published';
-import {RETREAT_SHOTS} from './c6-retreat-story.mjs?v=4.9.0-published';
-export const SHOTS={...PHILADELPHIA_SHOTS,...CROSSING_SHOTS,...RETREAT_SHOTS,...PAPER_SHOTS,...LIFT_SHOTS,...PROMISE_SHOTS,
+import {PROMISE_SHOTS} from './c6-promise-story.mjs?v=4.10.0-published';
+import {LIFT_SHOTS} from './c6-lift-story.mjs?v=4.10.0-published';
+import {PAPER_SHOTS} from './c6-paper-story.mjs?v=4.10.0-published';
+import {RETREAT_SHOTS} from './c6-retreat-story.mjs?v=4.10.0-published';
+export const SHOTS={...ALBANY_SHOTS,...PHILADELPHIA_SHOTS,...CROSSING_SHOTS,...RETREAT_SHOTS,...PAPER_SHOTS,...LIFT_SHOTS,...PROMISE_SHOTS,
  hillIntro:[[[9,7,18],[0,1,5]],[[-.2,1.8,13.8],[-1,1.5,16]],[[-.6,1.8,15],[-3,1.5,13]],[[-1,1.7,14.5],[2,1.5,16]],[[4,3,16],[78,-3,-55]],[[-.6,1.8,15],[-3,1.5,13]],[[-1,1.7,14.5],[2,1.5,16]],[[4,3,18],[-3,1.3,13]]],
  hillBreak:[[[-5,1.65,6],[-11,1,2]],[[.6,1.7,4],[3,1.5,5]],[[1.5,1.3,5],[-.8,.95,2.8]],[[-1.8,1.1,4.3],[-.2,.8,3]],[[.7,1.05,4],[-1.1,.8,2.6]],[[1.5,1.25,5],[-.2,.8,3]]],
  hillEnding:[[[7,2.7,47],[3.2,.6,43]],[[1.5,1.3,42],[3.5,.85,44]],[[3,1.8,45],[.2,1.5,42]],[[1.5,1.3,42],[3.5,.85,44]],[[3,1.8,45],[.2,1.5,42]],[[4.5,1.3,45],[2,.85,42]],[[5.5,1.1,44.5],[3.5,.8,44]]],
@@ -30,4 +31,4 @@ export function cameraShot(scene,beat,time,aspect=16/9,reduced=false){
  return {from,to,fov};
 }
 export function sceneLead(beat){return beat===0?1.65:.55;}
-export function sceneHold(scene,beat){return scene==='lexington'&&beat===2?1.1:.85;}
+export function sceneHold(scene,beat){return scene==='albanySurrender'&&(beat===2||beat===3)?1.8:scene==='lexington'&&beat===2?1.1:.85;}

@@ -1,3 +1,15 @@
+## Three Roads to Albany — October 1777
+
+Handout P023/P031/P032 supplies the Hudson-isolation goal, Germain/North plan, Montreal/Oswego/New York origins, Howe’s diversion, St. Leger’s failure and Quebec withdrawal, the retaken Ticonderoga, Clinton’s slow advance, militia encirclement and October 17 surrender. The handout’s “about five thousand” is retained as a report; NPS counts nearly six thousand British/German troops. P033’s Saratoga turning point and French motives are introduced. The actual February 1778 alliance, aid and Lafayette remain for M11/M12. P035’s June 1778 evacuation remains for M12. P054’s Brant affiliation and individual Mohawk land stakes are introduced; Creek and postwar consequences remain pending.
+
+- [NPS Saratoga campaign timeline](https://www.nps.gov/sara/learn/historyculture/campaign-timeline.htm): chronology, Ticonderoga and forest road obstruction.
+- [NPS Fort Stanwix in the Revolution](https://www.nps.gov/articles/000/fort-schuyler-stanwix-in-the-american-revolution-1776-1781.htm): the mixed besieging force, withdrawal and Oneida support.
+- [NPS Joseph Brant / Thayendanegea](https://www.nps.gov/people/joseph-brant-thayendanegea.htm): Mohawk leader, British affiliation and land interests.
+- [Onondaga Nation: US Presidents / Hanadagá•yas](https://www.onondaganation.org/history/us-presidents-hanadagayas/): the Nation’s perspective on neutrality, different decisions and settler encroachment.
+- [US Office of the Historian: French alliance](https://history.state.gov/milestones/1776-1783/french-alliance): French motives, Saratoga news and February 6, 1778 treaties.
+
+The four operations are compressed crew fiction. October 2 follows weeks of travel; October 7 is Bemis Heights, October 8 Isaiah’s separate southern watch, October 12 a separate northern encirclement and October 17 the surrender. The August western report is retrospective. The crew affects local routes and rescues, not the outcome or convention terms of an entire army. Jacob speaks for his own fictional family, not all Mohawk or Six Nations people. No Native people are generic enemy units. The people traveling through the protected passage need not take a Patriot oath. Ward remains alive; Nathan’s old injury has healed, while Daniel’s arm is healing.
+
 ## A City Is Not an Army — September 1777
 
 Handout P028 introduces Howe’s Chesapeake landing (about 15,000 in the handout), Brandywine, Congress’s flight and the fall of Philadelphia. P031’s required intercepted map identifies Germain/North, Burgoyne from Montreal, St. Leger from Oswego and Clinton from New York, and explains Howe’s competing operation. The later northern failure, winter occupation, Valley Forge and June 1778 evacuation remain for subsequent missions.

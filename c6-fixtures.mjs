@@ -1,8 +1,13 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.9.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.9.0-published';
+import {fresh} from './c6-sim.mjs?v=4.10.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.10.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='albanywoods'&&phase==='axe'){s.stage=7;Object.assign(s.albany,{north:true,west:true,south:true,parley:true,dispatch:true,axe:true,beat:.48});s.player.x=-6;s.player.z=-22;}
+ if(level==='albanywoods'&&phase==='parley'){s.stage=5;s.player.x=-22;s.player.z=-13;}
+ if(level==='bemis'&&phase==='flank'){s.stage=1;s.armed=true;s.player.x=-23;s.player.z=-10;}
+ if(level==='hudsonwatch'&&phase==='courier'){s.stage=3;Object.assign(s.albany,{firstSignal:true,dispatch:true});s.armed=true;s.player.x=-22;s.player.z=-32;}
+ if(level==='saratogaring'&&phase==='flag'){s.stage=4;Object.assign(s.albany,{north:true,west:true,south:true,barrier:true});s.player.x=-1;s.player.z=-44;}
  if(level==='brandywine'&&phase==='courier'){s.stage=3;s.philadelphia.flank=true;s.player.x=-21;s.player.z=-8;}
  if(level==='recordshall'&&phase==='map'){s.stage=3;s.philadelphia.journals=true;s.player.x=7;s.player.z=-4;s.player.pitch=-.14;}
  if(level==='congressroad'&&phase==='choice'){s.stage=1;s.philadelphia.bridgeBroken=true;s.philadelphia.collapse=1;s.player.x=0;s.player.z=-38;}
