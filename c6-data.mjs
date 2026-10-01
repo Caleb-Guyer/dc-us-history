@@ -1,23 +1,25 @@
-import {CROSSING_LEVELS} from './c6-crossing.mjs?v=4.8.0-published';
-import {CROSSING_LINES,CROSSING_SCENES,CROSSING_FACTS} from './c6-crossing-story.mjs?v=4.8.0-published';
-import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.8.0-published';
-import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.8.0-published';
-import {HILL_SPEC} from './c6-hill.mjs?v=4.8.0-published';
+import {PHILADELPHIA_LEVELS} from './c6-philadelphia.mjs?v=4.9.0-published';
+import {PHILADELPHIA_LINES,PHILADELPHIA_SCENES,PHILADELPHIA_FACTS} from './c6-philadelphia-story.mjs?v=4.9.0-published';
+import {CROSSING_LEVELS} from './c6-crossing.mjs?v=4.9.0-published';
+import {CROSSING_LINES,CROSSING_SCENES,CROSSING_FACTS} from './c6-crossing-story.mjs?v=4.9.0-published';
+import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.9.0-published';
+import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.9.0-published';
+import {HILL_SPEC} from './c6-hill.mjs?v=4.9.0-published';
 // Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
-import {FORT_SPEC} from './c6-fort.mjs?v=4.8.0-published';
-import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.8.0-published';
-import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.8.0-published';
-import {PRINT_SPEC,DISPATCH_SPEC} from './c6-paper.mjs?v=4.8.0-published';
-import {PAPER_LINES,PAPER_SCENES,PAPER_FACTS} from './c6-paper-story.mjs?v=4.8.0-published';
-import {RETREAT_LEVELS} from './c6-retreat.mjs?v=4.8.0-published';
-import {RETREAT_LINES,RETREAT_SCENES,RETREAT_FACTS} from './c6-retreat-story.mjs?v=4.8.0-published';
-export const VERSION='4.8.0';
+import {FORT_SPEC} from './c6-fort.mjs?v=4.9.0-published';
+import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.9.0-published';
+import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.9.0-published';
+import {PRINT_SPEC,DISPATCH_SPEC} from './c6-paper.mjs?v=4.9.0-published';
+import {PAPER_LINES,PAPER_SCENES,PAPER_FACTS} from './c6-paper-story.mjs?v=4.9.0-published';
+import {RETREAT_LEVELS} from './c6-retreat.mjs?v=4.9.0-published';
+import {RETREAT_LINES,RETREAT_SCENES,RETREAT_FACTS} from './c6-retreat-story.mjs?v=4.9.0-published';
+export const VERSION='4.9.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
-export function continueProgress(saved){if(!saved.complete||saved.completedPart==='crossing'||saved.seen.includes('crossingEnding'))return saved;return {...saved,complete:false,scene:saved.seen.includes('retreatEnding')?'crossingIntro':saved.seen.includes('paperCoda')?'retreatIntro':saved.seen.includes('liftHome')?'paperIntro':saved.seen.includes('promiseCoda')?'liftIntro':saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
-export const NAMES={HESSIAN:'Hessian soldier',JONAS:'Jonas Bell',AGENT:'Royal intermediary',CLAIMANT:'Virginia enslaver',ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
-export const SPEAKERS={HESSIAN:['bm_lewis',1.00,'en-gb'],JONAS:['am_onyx',.98,'en-us'],AGENT:['bm_lewis',.99,'en-gb'],CLAIMANT:['am_eric',1.03,'en-us'],ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
+export function continueProgress(saved){if(!saved.complete||saved.completedPart==='philadelphia'||saved.seen.includes('philadelphiaEnding'))return saved;return {...saved,complete:false,scene:saved.completedPart==='crossing'||saved.seen.includes('crossingEnding')?'philadelphiaIntro':saved.seen.includes('retreatEnding')?'crossingIntro':saved.seen.includes('paperCoda')?'retreatIntro':saved.seen.includes('liftHome')?'paperIntro':saved.seen.includes('promiseCoda')?'liftIntro':saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
+export const NAMES={CLERK:'Daniel Pike',HESSIAN:'Hessian soldier',JONAS:'Jonas Bell',AGENT:'Royal intermediary',CLAIMANT:'Virginia enslaver',ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
+export const SPEAKERS={CLERK:['am_eric',.99,'en-us'],HESSIAN:['bm_lewis',1.00,'en-gb'],JONAS:['am_onyx',.98,'en-us'],AGENT:['bm_lewis',.99,'en-gb'],CLAIMANT:['am_eric',1.03,'en-us'],ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
 const line=(id,speaker,text)=>({id,speaker,text});
-export const LINES=[...CROSSING_LINES,...RETREAT_LINES,...PAPER_LINES,...LIFT_LINES,...PROMISE_LINES,
+export const LINES=[...PHILADELPHIA_LINES,...CROSSING_LINES,...RETREAT_LINES,...PAPER_LINES,...LIFT_LINES,...PROMISE_LINES,
  line('release.0','THOMAS','The release is signed. Give him his coat.'),
  line('release.1','ROWAN','Ward? It’s me.'),
  line('release.2','WARD','I know your footsteps. You still hurry when you’re frightened.'),
@@ -156,7 +158,7 @@ export const SCENES={
  ...LIFT_SCENES,
  ...PAPER_SCENES,
  ...RETREAT_SCENES,
- ...CROSSING_SCENES,
+ ...CROSSING_SCENES,...PHILADELPHIA_SCENES,
 };
 export const LEVELS={
  release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
@@ -173,7 +175,7 @@ export const LEVELS={
  printshop:PRINT_SPEC,
  dispatch:DISPATCH_SPEC,
 };
-export const FACTS=[...CROSSING_FACTS,...RETREAT_FACTS,...PAPER_FACTS,...LIFT_FACTS,...PROMISE_FACTS,
+export const FACTS=[...PHILADELPHIA_FACTS,...CROSSING_FACTS,...RETREAT_FACTS,...PAPER_FACTS,...LIFT_FACTS,...PROMISE_FACTS,
  ['A promise kept','Rowan, Mara, Isaiah, Ward, Thomas, and the local rescues are fictional. Ward survived the Chapter 5 fire and surrendered. Thomas remains a Loyalist. Isaiah is a free Black man who survived his 1770 shoulder wound.','Crew continuity'],
  ['The powder raids','Gage used Boston as a base for seizures of colonial weapons and powder. Cambridge and Charlestown lost supplies; resistance met the troops at Salem. Colonists seized Fort William and Mary in New Hampshire.','Handout §6.1, paragraphs 8–9'],
  ['Minutemen','Local militia prepared to assemble rapidly. Many members had experience in the French and Indian War. The fictional farm and bell route illustrates this wider mobilization.','Handout §6.1, paragraph 9'],
@@ -189,4 +191,4 @@ export const FACTS=[...CROSSING_FACTS,...RETREAT_FACTS,...PAPER_FACTS,...LIFT_FA
 ];
 
 // Append the five New York sections after the Philadelphia dispatch.
-Object.assign(LEVELS,RETREAT_LEVELS,CROSSING_LEVELS);
+Object.assign(LEVELS,RETREAT_LEVELS,CROSSING_LEVELS,PHILADELPHIA_LEVELS);

@@ -1,3 +1,13 @@
+# Chapter 6 — Philadelphia campaign checks (4.9.0)
+
+- 137 tests pass, with syntax checks. Nine new behavior tests cover complete walked Brandywine rescue/withdrawal, required packing/map work, both physical evacuation routes, collision-aware companions, wagon presence and braking, real E-tap behavior, water/bridge/gate collision including jumping, save validation, outcomes and previous-release migration.
+- All 49 scenes have authored cameras for every line, bounded motion and framing outside solids. All 476 recordings match packaged text/speaker metadata and nonempty files. All 14 scores have valid loops, byte sizes and unclipped level metadata. The new 104 BPM records score peaks at 0.768, RMS 0.1804.
+- Hidden, forced-muted UI checks verified E releases and sets the wagon brake, actual auto-walking beside it, positive upward looking, physical map interaction, carried journals, pause, gallery and rendered room/bridge views. Removed foreground signs and a tree on the footbridge, reduced carried-book occlusion and revised crew camera framing. Inspected browser logs had no errors. Full route completion is tested in simulation, not claimed as an independent blind playthrough.
+- Publishing must place media before runtime and include the entry, stylesheet, shared actor and changed imported modules. Check the actual public entry/style keys, all three sections in order, mute, gameplay, pause/replay, console and completed Pages deployment.
+- Sound stayed muted. Audio has not been audibly auditioned. Hidden-tab throttling precludes frame-rate claims. Physical phones/gamepads, visible pointer lock and independent playtesting remain unverified. M10–M19, E00 and the full coverage audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Across the Black Water checks (4.8.0)
 
 - 128 tests pass, including full routes through the physically steered Delaware recovery and landing, required Trenton assembly and both signals, covering participation, surrender and water, Princeton flank and walked Nathan extraction. Tests also cover recoverable ice impacts, slow ropes, independent steering/look, positive upward camera pitch, checkpoint validation, persistent outcomes, separate skipped scenes, and prior-release migration.

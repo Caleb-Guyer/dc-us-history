@@ -1,3 +1,9 @@
+## A City Is Not an Army — 4.9.0
+
+Original September 1777 crew dialogue, five staged scenes, farm withdrawal, packing room, annotated map, physical journal loads, collapsing timber, two usable river crossings and collision-aware wagon/companion routes. Daniel Pike is an invented wounded courier. The player helps one departing wagon; this is not a claim that the fictional crew saved the entire Congress archive.
+
+51 new performances use stock synthetic voices. No real person’s voice is cloned. **The Papers We Carry**, 104 BPM, is an original local instrumental arrangement. All environments and props are code-built, with no borrowed Halo or Call of Duty assets.
+
 ## Across the Black Water — 4.8.0
 
 The December 1776–January 1777 crew dialogue, five staged scenes, snow and water animation, drifting ice, ferry/cargo models, street and farm sets, tiller physics, coordinated covering operation, surrender and extraction are original game work. The crew’s operations and Hessian representative are fictional. The representative’s English dialogue is a translation convention, with no claim to reproduce a documented person’s words.
@@ -6,11 +12,11 @@ The December 1776–January 1777 crew dialogue, five staged scenes, snow and wat
 
 # Chapter 6 — production credits
 
-The Long Road Home through Across the Black Water uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through A City Is Not an Army uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-425 prerecorded synthetic performances, 1920.611 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+476 prerecorded synthetic performances, 2181.921 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -24,12 +30,13 @@ The Long Road Home through Across the Black Water uses original game dialogue, c
 | Royal intermediary | bm_lewis |
 | Virginia enslaver | am_eric |
 | Local militia captain | bm_george |
+| Daniel Pike, fictional Congress courier | am_eric |
 
 `c6-voices.mjs` records exact text, voice identifiers, speaking rates, filenames, duration, and level measurements. Filenames are content-addressed. Audio is mono 24 kHz MP3 at 96 kbps with trimming, normalization, and edge fades. The dialogue controller handles caption fallback, queuing, pause/resume, and missing media. No live synthesis, microphone, account, or API key is required.
 
 ## Music and sound
 
-Thirteen original instrumental arrangements, approximately 549 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
+Fourteen original instrumental arrangements, 585.529 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
 
 - **A Place in the Wagon** — 68 BPM; reunion and the crew’s closing scene.
 - **Lanterns on the Powder Road** — 88 BPM; the warning route.
@@ -44,6 +51,7 @@ Thirteen original instrumental arrangements, approximately 549 seconds of loop m
 - **Across the Black Water** — 84 BPM; the Delaware crossing and far-bank landing.
 - **The Town Before Morning** — 116 BPM; the Trenton and Princeton crew operations.
 - **Keep the Place Beside You** — 76 BPM; the winter victory aftermath.
+- **The Papers We Carry** — 104 BPM; the Congress packing room and western road.
 
 `c6-score.mjs` preserves the tempo, measured loop boundaries, peak/RMS values, and filenames. Music transitions across play sections, ducks beneath speech, and pauses with gameplay. Lexington’s opening scene uses silence before the shot. Gunfire, interaction sounds, bell partials, and footsteps are synthesized at runtime with Web Audio.
 

@@ -1,3 +1,15 @@
+## Chapter 6 update — A City Is Not an Army (4.9.0)
+
+Hold a withdrawing section at Brandywine, carry a wounded Congress courier to Mara, then help pack journals and working papers before Philadelphia falls. An intercepted map connects Howe’s decision to the three armies expected at Albany. On the western road, choose between escorting a loaded wagon around the broken bridge or carrying essential records across a narrower crossing. Both routes wait for the people traveling with you.
+
+Three playable sections, five new real-time scenes, 51 new synthetic voice performances and the original **The Papers We Carry** score. The campaign now contains 49 scenes, 476 recordings and 14 instrumental loops. Completed winter saves continue here; replay preserves story progress and local outcomes are retained for the eventual homecoming.
+
+**Wagon controls:** E near the wagon releases or sets the brake. Walk beside it; your pace matches the wagon while assistance is active. Moving away stops it. E on the foot route lifts or sets down the journals at the marked handoffs. Foot, combat, look, pause and mute controls remain unchanged.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains in development. Next: **Three Roads to Albany**, the northern campaign and Saratoga.
+
 ## Chapter 6 update — Across the Black Water (4.8.0)
 
 Steer Isaiah’s ferry through drifting ice on Christmas night, recover equipment and land on the New Jersey bank. Control passes to Rowan: dry the musket, assemble the section, coordinate both Trenton lanes, open a passage, then give water to surrendered Hessian soldiers. A dated night-march transition leads to Princeton and a playable extraction of Nathan.

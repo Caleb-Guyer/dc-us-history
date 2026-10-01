@@ -1,6 +1,6 @@
 import * as T from './three.module.js';
-import {RETREAT_BLOCKS,retreatBoating,retreatDefending} from './c6-retreat.mjs?v=4.8.0-published';
-import {RETREAT_SCENES,RETREAT_LINES} from './c6-retreat-story.mjs?v=4.8.0-published';
+import {RETREAT_BLOCKS,retreatBoating,retreatDefending} from './c6-retreat.mjs?v=4.9.0-published';
+import {RETREAT_SCENES,RETREAT_LINES} from './c6-retreat-story.mjs?v=4.9.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const smooth=t=>(t=Math.max(0,Math.min(1,t)))*t*(3-2*t);
 function ship(w,x,z,scale=1,prison=false){const g=w.group(x,-.55,z);g.scale.setScalar(scale);w.box(7,2,24,0x394343,0,.1,0,g);w.box(6.7,.2,22,0x7a7057,0,1.2,0,g);for(const side of [-1,1]){w.box(.3,1.2,21,0x53594d,side*3.3,1.65,0,g);for(let i=0;i<8;i++)w.box(.4,.6,.65,0x161f20,side*3.5,.8,-9+i*2.5,g);}for(const zz of [-6,2,8]){w.cyl(.13,18,0x6a6957,0,10,zz,g);for(const yy of [8,13]){const spar=w.cyl(.11,9,0x6a6957,0,yy,zz,g);spar.rotation.z=Math.PI/2;const sail=w.mesh(new T.PlaneGeometry(8,4),w.mat(prison?0x757b74:0xc7c6ad,{side:T.DoubleSide}),0,yy-2,zz,g);sail.rotation.y=.18;}}return g;}

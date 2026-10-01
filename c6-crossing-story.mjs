@@ -58,7 +58,7 @@ export const CROSSING_SCENES={
  crossingLanding:scene('delaware','Give me your hand','NEW JERSEY BANK · EARLY DECEMBER 26, 1776 · CONTROL PASSES TO ROWAN','storm','crossing.landing.',5,'trenton'),
  crossingTrenton:scene('trenton','Water at the gate','TRENTON · DECEMBER 26, 1776 · AFTER THE SURRENDER','winterhome','crossing.trenton.',6,'crossingPrinceton'),
  crossingPrinceton:scene('princeton','Another way around','PRINCETON · JANUARY 3, 1777 · AFTER A NIGHT MARCH FROM TRENTON','winterbattle','crossing.princeton.',4,'princeton'),
- crossingEnding:scene('princeton','Keep the place beside you','AFTER PRINCETON · JANUARY 3, 1777','winterhome','crossing.ending.',6,'complete'),
+ crossingEnding:scene('princeton','Keep the place beside you','AFTER PRINCETON · JANUARY 3, 1777','winterhome','crossing.ending.',6,'philadelphiaIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const CROSSING_SHOTS={

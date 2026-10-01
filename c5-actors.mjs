@@ -12,7 +12,7 @@ function joint(p,x,y,z){const g=new T.Group();g.position.set(x,y,z);p.add(g);ret
 function patch(p,points,mat){const shape=new T.Shape();points.forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();const m=mesh(p,new T.ShapeGeometry(shape),mat);m.position.z=-.168;m.rotation.y=Math.PI;return m;}
 
 export function makeActor(key){
- const spec=key==='RUNNER'?{...CAST.ROWAN,color:0x79724b}:key==='HESSIAN'?{...CAST.WARD,color:0x3f6179}:CAST[key]||CAST.WARD,g=new T.Group(),root=joint(g,0,0,0),body=joint(root,0,1.04,0);
+ const spec=key==='CLERK'?{...CAST.ROWAN,color:0x7d7666}:key==='RUNNER'?{...CAST.ROWAN,color:0x79724b}:key==='HESSIAN'?{...CAST.WARD,color:0x3f6179}:CAST[key]||CAST.WARD,g=new T.Group(),root=joint(g,0,0,0),body=joint(root,0,1.04,0);
  const skin=skinMat(key==='ISAIAH'?0x895b40:key==='WARD'?0xc6a184:0xd4ab8b),coat=cloth(spec.color),darkCoat=cloth(new T.Color(spec.color).multiplyScalar(.64)),linen=cloth(0xd5cbb4),leather=cloth(0x493e31),hair=cloth(key==='WARD'?0x787671:key==='MARA'?0x493225:0x352e27),brass=cloth(0xc4a16d,{metalness:.48,roughness:.44});
  const torso=taper(body,.25,.30,.61,coat,0,.15,0);torso.scale.z=.56;
  const waist=taper(body,.25,.31,.30,coat,0,-.25,.02);waist.scale.z=.59;

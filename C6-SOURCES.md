@@ -1,3 +1,13 @@
+## A City Is Not an Army — September 1777
+
+Handout P028 introduces Howe’s Chesapeake landing (about 15,000 in the handout), Brandywine, Congress’s flight and the fall of Philadelphia. P031’s required intercepted map identifies Germain/North, Burgoyne from Montreal, St. Leger from Oswego and Clinton from New York, and explains Howe’s competing operation. The later northern failure, winter occupation, Valley Forge and June 1778 evacuation remain for subsequent missions.
+
+- [National Park Service: Philadelphia Campaign of 1777](https://www.nps.gov/articles/000/philadelphia-campaign-1777.htm): campaign, Brandywine and occupation.
+- [Mount Vernon: Battle of Brandywine](https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/battle-of-brandywine): the wide British flank and American withdrawal. Published troop estimates vary by stage and unit count; the classroom approximation stays qualified.
+- [US Office of the Historian: early government meeting places](https://history.state.gov/departmenthistory/buildings/section5): Congress’s September 14 contingency, September 18 departure, September 27 Lancaster meeting and September 30 York meeting. The departure dialogue knows only the planned Lancaster destination. York is later dated reference context, not foreknowledge.
+
+The covering lane, wounded courier, map handling, packing operation, broken bridge and route choice are original compressed crew fiction. Brandywine remains a British victory and Philadelphia is occupied on September 26 regardless of local play. Both road branches preserve people and essential records; the cart branch also preserves printing equipment. Nathan’s January injury has healed over the intervening months; Ward remains alive. Subsequent travel north takes weeks. The full chapter is unfinished.
+
 ## Across the Black Water — December 1776–January 1777
 
 - Handout P026–P027: seasonal manpower, winter surprise, Delaware crossing December 25–26, Hessians, army-wide prisoner count and January 3 Princeton victory.

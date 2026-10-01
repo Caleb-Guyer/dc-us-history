@@ -33,6 +33,6 @@ test('completed opening saves advance while unfinished and completed new campaig
  const old={complete:true,seen:['release','gate','nightIntro','lexington','concordIntro','ending'],checkpoint:null,scene:null,prefs:{muted:true}};
  const next=continueProgress(old);assert.equal(next.scene,'northIntro');assert.equal(next.complete,false);assert.deepEqual(next.prefs,old.prefs);assert.equal(old.complete,true);
  const ongoing={...old,complete:false,checkpoint:snapshot(fresh('concord'))};assert.equal(continueProgress(ongoing),ongoing);
- const finished={...old,seen:[...old.seen,'northEnding','hillLegacy','promiseCoda','liftHome','paperCoda','retreatEnding','crossingEnding']};assert.equal(continueProgress(finished),finished);
+ const finished={...old,seen:[...old.seen,'northEnding','hillLegacy','promiseCoda','liftHome','paperCoda','retreatEnding','crossingEnding','philadelphiaEnding']};assert.equal(continueProgress(finished),finished);
 });
 

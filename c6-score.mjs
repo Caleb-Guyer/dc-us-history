@@ -155,5 +155,17 @@ export const C6_SCORE = {
     "peak": 0.7052,
     "rms": 0.1804,
     "bytes": 1011600
+  },
+  "records": {
+    "title": "The Papers We Carry",
+    "bpm": 104,
+    "mood": "crisis",
+    "file": "c6-music-records-ab69d2f4.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 36.95759375,
+    "duration": 36.9230625,
+    "peak": 0.768,
+    "rms": 0.1804,
+    "bytes": 739440
   }
 };
