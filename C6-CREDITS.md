@@ -1,3 +1,9 @@
+## The Winter Line — 4.11.0
+
+Original winter dialogue, five authored scenes, a physically pulled covered sledge, changing ford and raised crossing, cooperative care and laundry, local credit/barter settlement, following practice detachment and wooden targets. Anne Hart, Asa Freeman, the patient and merchant are fictional individuals. Mara is not Esther DeBerdt Reed; the latter's 1780 work remains for its proper date.
+
+64 new stock synthetic performances, with no cloned human voice. The original 80 BPM **Keep the Fire Going** and 110 BPM **One Command, Many Hands** scores reuse the project's procedural instrument system. No Halo or Call of Duty media is copied.
+
 ## Three Roads to Albany — 4.10.0
 
 Original October 1777 crew dialogue, seven authored scenes, autumn relay, handled map markers, timed axe/tree fall, protected civilian rope passage, woodland fieldworks, advancing militia, river-watch boats, two signal posts, carried courier, physical blocking timber, white flag, laid-down weapons and marching British prisoners. Jacob and the river courier are invented individuals. Stock synthetic English represents translated dialogue; no claim is made to reproduce Mohawk language, a documented accent or a real person’s voice. Jacob’s coat is an original ordinary travel costume, not a claimed reconstruction.
@@ -18,11 +24,11 @@ The December 1776–January 1777 crew dialogue, five staged scenes, snow and wat
 
 # Chapter 6 — production credits
 
-The Long Road Home through Three Roads to Albany uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through The Winter Line uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-542 prerecorded synthetic performances, 2574.949 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+606 prerecorded synthetic performances, 3007.894 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -38,12 +44,15 @@ The Long Road Home through Three Roads to Albany uses original game dialogue, co
 | Local militia captain | bm_george |
 | Daniel Pike, fictional Congress courier | am_eric |
 | Jacob, fictional individual Mohawk messenger | am_onyx, different speaking rate |
+| Anne Hart, fictional camp worker | af_heart, different speaking rate |
+| Asa Freeman, fictional free Black soldier | am_michael, different speaking rate |
+| Local merchant | bm_fable, different speaking rate |
 
 `c6-voices.mjs` records exact text, voice identifiers, speaking rates, filenames, duration, and level measurements. Filenames are content-addressed. Audio is mono 24 kHz MP3 at 96 kbps with trimming, normalization, and edge fades. The dialogue controller handles caption fallback, queuing, pause/resume, and missing media. No live synthesis, microphone, account, or API key is required.
 
 ## Music and sound
 
-Fifteen original instrumental arrangements, 621.084 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
+Seventeen original instrumental arrangements, 703.993 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
 
 - **A Place in the Wagon** — 68 BPM; reunion and the crew’s closing scene.
 - **Lanterns on the Powder Road** — 88 BPM; the warning route.
@@ -60,6 +69,8 @@ Fifteen original instrumental arrangements, 621.084 seconds of loop material, re
 - **Keep the Place Beside You** — 76 BPM; the winter victory aftermath.
 - **The Papers We Carry** — 104 BPM; the Congress packing room and western road.
 - **Where the Roads Close** — 108 BPM; the northern flank and surrounding line.
+- **Keep the Fire Going** — 80 BPM; the winter supply road and divided camp work.
+- **One Command, Many Hands** — 110 BPM; formation movement and the practice range.
 
 `c6-score.mjs` preserves the tempo, measured loop boundaries, peak/RMS values, and filenames. Music transitions across play sections, ducks beneath speech, and pauses with gameplay. Lexington’s opening scene uses silence before the shot. Gunfire, interaction sounds, bell partials, and footsteps are synthesized at runtime with Web Audio.
 

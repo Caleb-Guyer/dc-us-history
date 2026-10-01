@@ -1,3 +1,15 @@
+## The Winter Line — February–May 1778
+
+Handout P028/P029/P056 supplies Philadelphia occupation, winter scarcity, Washington's February 16 letter, desertion and criticism. P030 supplies consistent drill and the later manual; P033 supplies the alliance, Lafayette and French motives. P052's Black service/slavery tension is staged through an invented individual, with changing policy explained. P057–P060 appear in required supply, work and bargain actions. Later currency figures, Esther Reed, Washington's will and the manual's later use remain for their dated missions/coda.
+
+- [NPS Valley Forge history and significance](https://www.nps.gov/vafo/learn/historyculture/valley-forge-history-and-significance.htm): shortages, capable work and disease, including spring deaths.
+- [NPS Valley Forge women](https://www.nps.gov/vafo/learn/historyculture/valleyforgewomen.htm): nursing, washing, mending, sutlers and essential camp labor.
+- [NPS General von Steuben](https://www.nps.gov/vafo/learn/historyculture/vonsteuben.htm): February 23 arrival, model-company training, translation, May 6 celebration and later manual.
+- [US Office of the Historian: French alliance](https://history.state.gov/milestones/1776-1783/french-alliance): February 6 treaties, Saratoga and French motives.
+- [Mount Vernon: Journey to Emancipation](https://www.mountvernon.org/george-washington/slavery/george-washington-and-slavery/journey-to-emancipation): evolving Black enlistment policy and Washington's enslavement of people.
+
+The player's load and care are local fiction, not a cure for the camp. The handout's roughly 11,000 encamped, 2,500 deaths and 100 weekly desertions are classroom estimates; NPS estimates roughly 1,700–2,000 disease deaths and challenges the starvation-death story. These differences appear in the history archive; their required ending comparison remains unfinished. The later 1780 punishment claim is not enacted here. The practice targets contain no live enemy units. The alliance is dated February 6, celebrated May 6, and does not instantly remove disease or bring the entire French fleet.
+
 ## Three Roads to Albany — October 1777
 
 Handout P023/P031/P032 supplies the Hudson-isolation goal, Germain/North plan, Montreal/Oswego/New York origins, Howe’s diversion, St. Leger’s failure and Quebec withdrawal, the retaken Ticonderoga, Clinton’s slow advance, militia encirclement and October 17 surrender. The handout’s “about five thousand” is retained as a report; NPS counts nearly six thousand British/German troops. P033’s Saratoga turning point and French motives are introduced. The actual February 1778 alliance, aid and Lafayette remain for M11/M12. P035’s June 1778 evacuation remains for M12. P054’s Brant affiliation and individual Mohawk land stakes are introduced; Creek and postwar consequences remain pending.

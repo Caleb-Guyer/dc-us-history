@@ -75,7 +75,7 @@ export const ALBANY_SCENES={
  albanyBattle:scene('bemis','Into the Open Flank','BEMIS HEIGHTS · OCTOBER 7, 1777 · DAYS LATER','albany','bemis.intro.',4,'bemis'),
  albanyRiver:scene('hudsonwatch','Too Far to Reach Them','HUDSON HIGHLANDS · OCTOBER 8, 1777 · CONTROL PASSES TO ISAIAH','river','hudson.intro.',5,'hudsonwatch'),
  albanyRingIntro:scene('saratogaring','No Road Left to Join','SARATOGA · OCTOBER 12, 1777 · CONTROL RETURNS TO ROWAN','albany','ring.intro.',4,'saratogaring'),
- albanySurrender:scene('saratogaring','For a moment, nobody fires','SARATOGA · OCTOBER 17, 1777 · FIVE DAYS LATER','winterhome','albany.surrender.',8,'complete'),
+ albanySurrender:scene('saratogaring','For a moment, nobody fires','SARATOGA · OCTOBER 17, 1777 · FIVE DAYS LATER','winterhome','albany.surrender.',8,'winterIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const ALBANY_SHOTS={

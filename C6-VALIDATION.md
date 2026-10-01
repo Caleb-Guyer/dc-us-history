@@ -1,3 +1,13 @@
+# Chapter 6 — Valley Forge checks (4.11.0)
+
+- 153 tests pass plus syntax checks. Eight new tests cover the full walked covered-sledge route, braking/proximity/thaw recovery, both cooperative jobs and both bargains, six alternating wash strokes with save/resume, physical formation following/catch-up/turning, target aim and teaching, malformed states/outcomes, chronology and completed-Saratoga migration.
+- All 61 scenes have a camera for each line with bounded motion outside scenery. All 606 recordings match packaged text/speaker metadata and nonempty media. All 17 scores have valid measured loops and levels. New peaks: winterline 0.8101, drill 0.6917; RMS about 0.1804.
+- Hidden forced-muted browser inputs completed six real alternating wash strokes, set and released the sledge brake, pulled player/load from 14,18 / 14,20 to 14,-14.2 / 14,-12.2, and verified positive upward pitch, pause, chronological gallery and winter dispatch framing. Inspected browser logs had no errors. Complete routes are tested in simulation; no independent blind playthrough is claimed.
+- Publish media before runtime, include shared actors/entry/style/imports, and confirm Pages completion and public controls, versions and replay protection.
+- Audio stayed muted. No audible audition, physical phone/gamepad check or frame-rate claim. M12–M19, E00 and the whole-campaign coverage audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Saratoga campaign checks (4.10.0)
 
 - 145 tests pass, plus syntax checks. Eight new tests exercise complete collision-aware walked routes in all four sections; three actual timed axe cuts; miss, distance, held-key and save recovery; blocked military and open civilian routes; flank/line presence and failure; separate river signals and a carried rescue; ceasefire/unarmed packet; malformed saves; persistent outcomes; dated migration and dialogue.

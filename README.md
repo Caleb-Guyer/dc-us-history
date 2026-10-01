@@ -1,3 +1,15 @@
+## Chapter 6 update — The Winter Line (4.11.0)
+
+Take Mara's rope on the Valley Forge supply road. Cover the flour, pull the sledge through the thaw, and bring it under a roof. Divide care and laundry work with Anne, then obtain provisions through a witnessed debt or a barter promise. Control passes to Rowan for a moving practice detachment: column, turn, line, range, and teaching the next section. The May 6 alliance celebration points the crew toward Isaiah's coast.
+
+Three playable sections, five new scenes, 64 new recorded synthetic performances, and two original scores. Totals: 61 scenes, 606 recordings, 17 scores. Completed Saratoga saves continue here; replay protects campaign progress. The load, work assignment, supply bargain and training outcomes persist for the eventual ending.
+
+**Controls:** WASD pulls the sledge; Space holds it, and E nearby toggles its brake. At the wash station, alternate A / D for six strokes; W / S steps away and E resumes. Lead the practice section with normal movement, wait for it to catch up, and face the eastern flag before giving its turn command. F fires and R reloads at the three wooden targets.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. Next: **The Wider War**, with Isaiah at the coast.
+
 ## Chapter 6 update — Three Roads to Albany (4.10.0)
 
 Follow Rowan into the northern campaign: reconstruct three British routes on Ward’s field map, meet a Mohawk messenger under safe passage, then time axe strikes to block the military road while opening a separate civilian passage. Take a woodland flank with the supporting militia at Bemis Heights. Control passes to Isaiah on the southern Hudson for signals and a courier extraction, then returns to Rowan for encirclement and the October 17 surrender at Saratoga.

@@ -179,5 +179,29 @@ export const C6_SCORE = {
     "peak": 0.7366,
     "rms": 0.1804,
     "bytes": 712080
+  },
+  "winterline": {
+    "title": "Keep the Fire Going",
+    "bpm": 80,
+    "mood": "crisis",
+    "file": "c6-music-winterline-fd99f6d4.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 48.03453125,
+    "duration": 48.0,
+    "peak": 0.8101,
+    "rms": 0.1804,
+    "bytes": 961200
+  },
+  "drill": {
+    "title": "One Command, Many Hands",
+    "bpm": 110,
+    "mood": "defense",
+    "file": "c6-music-drill-2b36fae9.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 34.943625,
+    "duration": 34.90909375,
+    "peak": 0.6917,
+    "rms": 0.1803,
+    "bytes": 699120
   }
 };

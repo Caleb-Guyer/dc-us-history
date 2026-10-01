@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.10.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.10.0-published';
+import {fresh} from './c6-sim.mjs?v=4.11.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.11.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='thawroad'&&phase==='haul'){s.stage=3;Object.assign(s.winter,{order:true,cover:true,hauled:true});s.player.x=14;s.player.z=18;}
+ if(level==='campline'&&phase==='wash'){s.stage=3;Object.assign(s.winter,{job:'cloth',atWash:true,holding:'linen'});s.player.x=14;s.player.z=-19;}
+ if(level==='campline'&&phase==='patient'){s.stage=2;s.winter.job='care';s.player.x=-18;s.player.z=-28;}
+ if(level==='drill'&&phase==='range'){s.stage=6;s.armed=true;s.ammo=8;s.winter.squad=Array.from({length:6},(_,i)=>({x:(i-2.5)*2,z:-34,yaw:0}));s.winter.formation='line';s.player.x=0;s.player.z=-37;}
  if(level==='albanywoods'&&phase==='axe'){s.stage=7;Object.assign(s.albany,{north:true,west:true,south:true,parley:true,dispatch:true,axe:true,beat:.48});s.player.x=-6;s.player.z=-22;}
  if(level==='albanywoods'&&phase==='parley'){s.stage=5;s.player.x=-22;s.player.z=-13;}
  if(level==='bemis'&&phase==='flank'){s.stage=1;s.armed=true;s.player.x=-23;s.player.z=-10;}
