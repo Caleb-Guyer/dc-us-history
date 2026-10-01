@@ -119,5 +119,41 @@ export const C6_SCORE = {
     "peak": 0.7944,
     "rms": 0.1804,
     "bytes": 1067760
+  },
+  "storm": {
+    "title": "Across the Black Water",
+    "bpm": 84,
+    "mood": "stealth",
+    "file": "c6-music-storm-7dfae9ba.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 45.7488125,
+    "duration": 45.71428125,
+    "peak": 0.8292,
+    "rms": 0.1801,
+    "bytes": 915120
+  },
+  "winterbattle": {
+    "title": "The Town Before Morning",
+    "bpm": 116,
+    "mood": "defense",
+    "file": "c6-music-winterbattle-3b199c16.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 33.13796875,
+    "duration": 33.1034375,
+    "peak": 0.6818,
+    "rms": 0.1804,
+    "bytes": 663120
+  },
+  "winterhome": {
+    "title": "Keep the Place Beside You",
+    "bpm": 76,
+    "mood": "home",
+    "file": "c6-music-winterhome-d2e87446.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 50.56084375,
+    "duration": 50.5263125,
+    "peak": 0.7052,
+    "rms": 0.1804,
+    "bytes": 1011600
   }
 };

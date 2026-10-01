@@ -1,3 +1,15 @@
+## Chapter 6 update — Across the Black Water (4.8.0)
+
+Steer Isaiah’s ferry through drifting ice on Christmas night, recover equipment and land on the New Jersey bank. Control passes to Rowan: dry the musket, assemble the section, coordinate both Trenton lanes, open a passage, then give water to surrendered Hessian soldiers. A dated night-march transition leads to Princeton and a playable extraction of Nathan.
+
+**Controls:** On the Delaware, W drives forward, A / D turn the tiller, and S / Space steadies and brakes. Mouse and arrow looking remain independent. E takes a rope or recovers the bundle only at low speed. Ice impacts can be recovered; no hidden passenger deaths. On foot, E handles objects and directs covering volleys, F / click fires, R reloads, C crouches. The section needs your presence at the fighting passage.
+
+Three playable sections, five new scenes, 51 new recorded synthetic performances, and three original instrumental loops. Completed New York saves continue here. Completed local rescue and recovery outcomes are retained for the later homecoming; skipped scenes are recorded separately from watched scenes. Replays protect the story checkpoint and record.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains in development. Next: **A City Is Not an Army**, the 1777 Philadelphia campaign.
+
 # DC US History
 
 ## Chapter 6 update — No Ground Left (4.7.0)

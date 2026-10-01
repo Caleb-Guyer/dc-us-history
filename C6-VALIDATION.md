@@ -1,3 +1,13 @@
+# Chapter 6 — Across the Black Water checks (4.8.0)
+
+- 128 tests pass, including full routes through the physically steered Delaware recovery and landing, required Trenton assembly and both signals, covering participation, surrender and water, Princeton flank and walked Nathan extraction. Tests also cover recoverable ice impacts, slow ropes, independent steering/look, positive upward camera pitch, checkpoint validation, persistent outcomes, separate skipped scenes, and prior-release migration.
+- All 44 scenes have a camera per line, bounded motion and clear framing outside solids. All 425 performances are packaged with matching text/speaker and nonempty files. All 13 scores have valid loops, exact byte sizes and unclipped peak/RMS metadata. Three new original scores: storm, winterbattle, winterhome.
+- Hidden forced-muted browser tests exercised real keyboard upward look, tiller input, sustained forward sailing, pause, gallery and rendered scenes. Complete route evidence comes from simulation; no independent blind playthrough is claimed. The far-bank shot was widened and the moored ferry moved to the edge of the dock during visual review.
+- Publish new media before runtime. Include c6.mjs, c6.css, HTML, all changed imported modules and the shared actor change. Verify public version, actual entry key, mission order, real gameplay, forced mute, console and Pages completion.
+- All testing is muted. Audio has not been audibly auditioned. Physical phones/gamepads, visible pointer lock and independent playtesting are unverified. Remaining missions and whole-campaign coverage audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — No Ground Left checks (4.7.0)
 
 - 120 tests pass. Nine new behavior tests complete the walked rescue and city routes, three physical ferry trips, two Harlem pursuing groups, required wagon clearance and escort, and Ward's return. They also check recovery, docking speed, independent boat/look controls, non-inverted pitch, malformed saves, and previous-release migration. The daughter follows a collision-aware companion route.

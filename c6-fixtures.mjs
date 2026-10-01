@@ -1,8 +1,11 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.7.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.7.0-published';
+import {fresh} from './c6-sim.mjs?v=4.8.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.8.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='delaware'&&phase==='tiller'){s.stage=2;Object.assign(s.crossing,{covered:true,aboard:true,moored:false});s.player.z=10;}
+ if(level==='trenton'&&phase==='signals'){s.stage=2;s.crossing.dried=true;s.armed=true;s.player.x=-18;s.player.z=-6;}
+ if(level==='princeton'&&phase==='rescue'){s.stage=4;s.crossing.west=true;s.player.x=-17;s.player.z=-32;}
  if(level==='eastriver'&&phase==='oars'){s.stage=1;s.retreat.aboard=true;s.retreat.moored=false;s.player.z=10;}
  if(level==='longisland'&&phase==='wounded'){s.stage=2;s.retreat.flanked=true;s.player.x=-19;s.player.z=14;}
  if(level==='whiteplains'&&phase==='wagon'){s.stage=3;s.retreat.beam=true;s.player.x=-17;s.player.z=29;}

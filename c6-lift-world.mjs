@@ -1,5 +1,5 @@
 import * as T from './three.module.js';
-import {groundHeight,roadCenter} from './c6-lift.mjs?v=4.7.0-published';
+import {groundHeight,roadCenter} from './c6-lift.mjs?v=4.8.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const rand=n=>{const q=Math.sin(n*127.1+18.9)*43758.5453;return q-Math.floor(q);};
 function terrain(w,level){const geo=new T.PlaneGeometry(120,170,24,85);geo.rotateX(-Math.PI/2);const v=geo.attributes.position;

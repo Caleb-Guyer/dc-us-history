@@ -1,10 +1,16 @@
+## Across the Black Water — 4.8.0
+
+The December 1776–January 1777 crew dialogue, five staged scenes, snow and water animation, drifting ice, ferry/cargo models, street and farm sets, tiller physics, coordinated covering operation, surrender and extraction are original game work. The crew’s operations and Hessian representative are fictional. The representative’s English dialogue is a translation convention, with no claim to reproduce a documented person’s words.
+
+51 new synthetic performances use existing stock Kokoro voices; no real person’s voice is cloned. Three new original local arrangements: Across the Black Water (84 BPM), The Town Before Morning (116 BPM), Keep the Place Beside You (76 BPM). No borrowed Halo or Call of Duty assets, recordings, or scores.
+
 # Chapter 6 — production credits
 
-The Long Road Home through No Ground Left uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through Across the Black Water uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-374 prerecorded synthetic performances, 1677.340 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+425 prerecorded synthetic performances, 1920.611 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -23,7 +29,7 @@ The Long Road Home through No Ground Left uses original game dialogue, code-buil
 
 ## Music and sound
 
-Eight original instrumental arrangements, approximately 331 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
+Thirteen original instrumental arrangements, approximately 549 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
 
 - **A Place in the Wagon** — 68 BPM; reunion and the crew’s closing scene.
 - **Lanterns on the Powder Road** — 88 BPM; the warning route.
@@ -33,6 +39,11 @@ Eight original instrumental arrangements, approximately 331 seconds of loop mate
 - **Names on the Water** — 88 BPM; Isaiah’s coastal passage.
 - **The Weight We Carry** — 100 BPM; the winter gun road and ascent.
 - **Ink Before Thunder** — 92 BPM; the Philadelphia print run and street dispatch.
+- **Leave a Road Behind** — 110 BPM; the New York fighting retreats.
+- **Every Quiet Oar** — 72 BPM; the East River evacuation.
+- **Across the Black Water** — 84 BPM; the Delaware crossing and far-bank landing.
+- **The Town Before Morning** — 116 BPM; the Trenton and Princeton crew operations.
+- **Keep the Place Beside You** — 76 BPM; the winter victory aftermath.
 
 `c6-score.mjs` preserves the tempo, measured loop boundaries, peak/RMS values, and filenames. Music transitions across play sections, ducks beneath speech, and pauses with gameplay. Lexington’s opening scene uses silence before the shot. Gunfire, interaction sounds, bell partials, and footsteps are synthesized at runtime with Web Audio.
 

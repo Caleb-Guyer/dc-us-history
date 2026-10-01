@@ -1,3 +1,14 @@
+## Across the Black Water — December 1776–January 1777
+
+- Handout P026–P027: seasonal manpower, winter surprise, Delaware crossing December 25–26, Hessians, army-wide prisoner count and January 3 Princeton victory.
+- [Mount Vernon: Washington’s crossing](https://www.mountvernon.org/george-washington/the-revolutionary-war/washingtons-revolutionary-war-battles/the-trenton-princeton-campaign/10-facts-about-washingtons-crossing-of-the-delaware-river): cargo boats/ferries, ice and weather, delayed main crossing and other crossings blocked, march to Trenton. No instant arrival from bank to town.
+- [National Park Service: Lower Delaware stories](https://www.nps.gov/lode/learn/historyculture/stories.htm): defeats, expiring enlistments and inadequate supplies; Trenton and January 3 Princeton; restored morale.
+- [Mount Vernon: Battle of Trenton](https://www.mountvernon.org/digital-encyclopedia/article/battle-of-trenton/): Hessian defeat, captured stores and humane prisoner treatment.
+- [Washington Crossing Historic Park: captured Hessians](https://www.washingtoncrossingpark.org/captured-hessians/): approximate count around 900. Counts vary among published summaries; the handout’s “over nine hundred” is voiced as an approximate army report, never a kill target.
+- [National Park Service: Primus Hall](https://www.nps.gov/articles/000/primus-hall-story-map.htm): expiring service, extensions, Assunpink and the march to Princeton. Nathan’s choice and injury are invented, not attributed to Hall.
+
+Ferry steering/current/ice, bundle recovery, drying lock, two signals, local combat, surrender representative, water and Nathan’s rescue are compressed crew fiction. Isaiah remains a free Black pilot with an old healed shoulder injury. Ward is alive. The wetness of completed crossing equipment changes the time needed to dry the Trenton lock. Persistent records support a later epilogue, which has not yet been built.
+
 # No Ground Left — historical scope (4.7.0)
 
 The required route covers the 1776 New York campaign, militia manpower, several Loyalist motives, and William Franklin's imprisonment. P023 and P025 contain later events that still require later campaign delivery; William Franklin's postwar exile and estrangement belong to M19. This installment does not finish Chapter 6.

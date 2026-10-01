@@ -95,7 +95,7 @@ export const RETREAT_SCENES={
  retreatHarlem:scene('harlem','A little ground back','HARLEM HEIGHTS · SEPTEMBER 16, 1776 · THE CITY FELL THE DAY BEFORE','battle','retreat.harlem.',4,'harlem'),
  retreatLift:scene('harlem','Lift their heads','HARLEM HEIGHTS · SEPTEMBER 16, 1776 · AFTER THE COUNTERATTACK','home','retreat.lift.',5,'retreatPlains'),
  retreatPlains:scene('whiteplains','Leave a road behind','WHITE PLAINS · OCTOBER 28, 1776','retreat','retreat.plains.',5,'whiteplains'),
- retreatEnding:scene('whiteplains','The next river','AFTER WHITE PLAINS · LATE OCTOBER 1776','home','retreat.ending.',6,'complete'),
+ retreatEnding:scene('whiteplains','The next river','AFTER WHITE PLAINS · LATE OCTOBER 1776','home','retreat.ending.',6,'crossingIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const RETREAT_SHOTS={
