@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.11.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.11.0-published';
+import {fresh} from './c6-sim.mjs?v=4.12.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.12.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='openwater'&&phase==='tiller'){s.stage=2;s.wider.manifest=s.wider.aboard=true;s.wider.moored=false;s.armed=true;s.ammo=6;s.player.z=10;}
+ if(level==='openwater'&&phase==='cover'){s.stage=4;Object.assign(s.wider,{manifest:true,aboard:true,moored:false,route:'fleet',rescued:true,intercepted:true,boatX:23,boatZ:-140,convoyX:18,convoyZ:-136,convoyLeg:3,cutterX:33,cutterZ:-118});s.player.x=23;s.player.z=-140;s.armed=true;s.ammo=6;}
+ if(level==='coastfire'&&phase==='bucket'){s.stage=6;Object.assign(s.wider,{orderRead:true,danbury:true,fairfield:true,patient:true,holdingBucket:true});s.player.x=18;s.player.z=-34;}
+ if(level==='monmouth'&&phase==='line'){s.stage=4;Object.assign(s.wider,{order:true,rallied:true,turned:true,formation:'line',squad:Array.from({length:6},(_,i)=>({x:(i-2.5)*1.8,z:-27,yaw:0}))});s.player.z=-30;s.armed=true;s.ammo=12;}
  if(level==='thawroad'&&phase==='haul'){s.stage=3;Object.assign(s.winter,{order:true,cover:true,hauled:true});s.player.x=14;s.player.z=18;}
  if(level==='campline'&&phase==='wash'){s.stage=3;Object.assign(s.winter,{job:'cloth',atWash:true,holding:'linen'});s.player.x=14;s.player.z=-19;}
  if(level==='campline'&&phase==='patient'){s.stage=2;s.winter.job='care';s.player.x=-18;s.player.z=-28;}

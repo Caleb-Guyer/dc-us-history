@@ -1,3 +1,15 @@
+## Chapter 6 update — The Wider War (4.12.0)
+
+Use the Valley Forge drill on a local Monmouth rally and defense. Isaiah then leads a supply boat through shoals, chooses fleet cover or fog, lifts a survivor aboard and brings the physically following vessel to the landing. The July 1779 Connecticut shore changes the game again: wounded extraction, water for a burning beam, a supported passage and a family escort to a small boat.
+
+Three playable sections, six new scenes, 63 new recorded synthetic performances, and two original scores. Totals: 67 scenes, 669 recordings, 19 scores. Completed Valley Forge saves continue here. Convoy route/delivery, defensive shots and local rescues persist; mission and scene replay preserve the story checkpoint.
+
+**Convoy controls:** W rows at the supply boat's pace. A / D steer the tiller; S / Space steadies and brakes. Shift rows harder, so watch the following boat's distance. Mouse / arrows look independently. E takes a signal or rope at low speed. Fleet cover or slow strokes in western fog break pursuit; optional F / R shots can discourage the cutter. On shore, E handles the water and supported beam, and your escort pace matches the family.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. Next: **The South Breaks**, at Charleston.
+
 ## Chapter 6 update — The Winter Line (4.11.0)
 
 Take Mara's rope on the Valley Forge supply road. Cover the flour, pull the sledge through the thaw, and bring it under a roof. Divide care and laundry work with Anne, then obtain provisions through a witnessed debt or a barter promise. Control passes to Rowan for a moving practice detachment: column, turn, line, range, and teaching the next section. The May 6 alliance celebration points the crew toward Isaiah's coast.

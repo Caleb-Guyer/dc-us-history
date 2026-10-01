@@ -12,7 +12,8 @@ function joint(p,x,y,z){const g=new T.Group();g.position.set(x,y,z);p.add(g);ret
 function patch(p,points,mat){const shape=new T.Shape();points.forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();const m=mesh(p,new T.ShapeGeometry(shape),mat);m.position.z=-.168;m.rotation.y=Math.PI;return m;}
 
 export function makeActor(key){
- const spec=key==='ANNE'?{...CAST.MARA,color:0x756c76}:key==='ASA'?{...CAST.ROWAN,color:0x516957}:key==='MERCHANT'?{...CAST.THOMAS,color:0x694e3c}:key==='PATIENT'?{...CAST.ROWAN,color:0x737575}:key==='JACOB'?{...CAST.ROWAN,color:0x686752}:key==='CLERK'?{...CAST.ROWAN,color:0x7d7666}:key==='RUNNER'?{...CAST.ROWAN,color:0x79724b}:key==='HESSIAN'?{...CAST.WARD,color:0x3f6179}:CAST[key]||CAST.WARD,g=new T.Group(),root=joint(g,0,0,0),body=joint(root,0,1.04,0);
+ const civilian=['MARA','ANNE','LYDIA'].includes(key);
+ const spec=key==='ADRIEN'?{...CAST.ROWAN,color:0xabb0a0}:key==='LYDIA'?{...CAST.MARA,color:0x688282}:key==='ANNE'?{...CAST.MARA,color:0x756c76}:key==='ASA'?{...CAST.ROWAN,color:0x516957}:key==='MERCHANT'?{...CAST.THOMAS,color:0x694e3c}:key==='PATIENT'?{...CAST.ROWAN,color:0x737575}:key==='JACOB'?{...CAST.ROWAN,color:0x686752}:key==='CLERK'?{...CAST.ROWAN,color:0x7d7666}:key==='RUNNER'?{...CAST.ROWAN,color:0x79724b}:key==='HESSIAN'?{...CAST.WARD,color:0x3f6179}:CAST[key]||CAST.WARD,g=new T.Group(),root=joint(g,0,0,0),body=joint(root,0,1.04,0);
  const skin=skinMat(key==='JACOB'?0xa57752:key==='ISAIAH'||key==='ASA'?0x895b40:key==='WARD'?0xc6a184:0xd4ab8b),coat=cloth(spec.color),darkCoat=cloth(new T.Color(spec.color).multiplyScalar(.64)),linen=cloth(0xd5cbb4),leather=cloth(0x493e31),hair=cloth(key==='WARD'?0x787671:key==='MARA'?0x493225:0x352e27),brass=cloth(0xc4a16d,{metalness:.48,roughness:.44});
  const torso=taper(body,.25,.30,.61,coat,0,.15,0);torso.scale.z=.56;
  const waist=taper(body,.25,.31,.30,coat,0,-.25,.02);waist.scale.z=.59;
@@ -53,7 +54,7 @@ export function makeActor(key){
  ball(head,.187,hair,0,.112,.029,[.90,.70,.91]);
  for(let i=0;i<8;i++){const a=-1.4+i*.40;const lock=ball(head,.061,hair,Math.sin(a)*.113,.125+Math.cos(a)*.018,-.090+Math.abs(Math.sin(a))*.05,[.78,.52,1]);lock.rotation.z=.35-i*.05;}
  if(key==='ISAIAH'||key==='WARD'){const beard=mesh(head,new T.SphereGeometry(.185,20,10,0,Math.PI*2,2.07,Math.PI-2.07),hair,0,.015,0);beard.scale.set(.81,1.17,.95);}
- if(key==='MARA'){ball(head,.09,hair,0,.08,.19,[.9,.85,.7]);for(const side of [-1,1])ball(head,.042,hair,side*.137,.005,.065,[.55,1.6,.7]);}
+ if(civilian){ball(head,.09,hair,0,.08,.19,[.9,.85,.7]);for(const side of [-1,1])ball(head,.042,hair,side*.137,.005,.065,[.55,1.6,.7]);}
  if(key==='WARD'){
   for(const side of [-1,1])box(head,.045,.004,.004,cloth(0x8e7763),side*.081,.019,-.14).rotation.z=side*.2;
   const brim=taper(head,.26,.28,.024,leather,0,.21,.017);brim.scale.z=.86;taper(head,.14,.18,.10,leather,0,.26,.02);
@@ -66,7 +67,7 @@ export function makeActor(key){
   const red=cloth(0x934638);const wrap=taper(body,.112,.127,.1,red,0,.51,0);wrap.scale.z=.85;
   const tail=joint(body,.075,.49,-.10);box(tail,.075,.41,.025,red,0,-.20,0);tail.rotation.z=-.20;scarf.push(tail);
  }
- if(key==='MARA'){
+ if(civilian){
   const dress=taper(root,.24,.48,.88,coat,0,.52,0);dress.scale.z=.76;
   const shawl=cloth(0x376275);for(const side of [-1,1]){const p=box(body,.28,.34,.055,shawl,side*.17,.36,.03);p.rotation.z=side*.43;}
   const apron=taper(root,.20,.32,.62,linen,0,.56,-.08);apron.scale.z=.32;

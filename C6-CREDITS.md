@@ -1,3 +1,9 @@
+## The Wider War — 4.12.0
+
+Original June 1778–July 1779 crew dialogue, six authored scenes, a following combat section, two navigable convoy routes, covered supplies, naval silhouettes, shoals, recoverable hull damage, independent tiller/look, a survivor and pursuing cutter, burned stores, carried water, cooled/lifted timber and civilian adult/child rigs. Adrien Morel, Lydia Blake, her relatives, the survivor and the local operations are invented. Adrien's stock English performance is a translation convention, not a claimed reconstruction of an accent or historical speech.
+
+63 new stock synthetic performances, with no human voice cloned. **Beyond the Water We Can See** and **A Light Behind Us** are original local instrument arrangements. The earlier drill score returns for its combat payoff. No commercial game assets, recordings or music are copied.
+
 ## The Winter Line — 4.11.0
 
 Original winter dialogue, five authored scenes, a physically pulled covered sledge, changing ford and raised crossing, cooperative care and laundry, local credit/barter settlement, following practice detachment and wooden targets. Anne Hart, Asa Freeman, the patient and merchant are fictional individuals. Mara is not Esther DeBerdt Reed; the latter's 1780 work remains for its proper date.
@@ -24,11 +30,11 @@ The December 1776–January 1777 crew dialogue, five staged scenes, snow and wat
 
 # Chapter 6 — production credits
 
-The Long Road Home through The Winter Line uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
+The Long Road Home through The Wider War uses original game dialogue, code-built environments, and the established Chapter 5 cast rigs. Cutscenes render in real time. No generated cover image or prerecorded movie is used to imply a different gameplay renderer.
 
 ## Voice
 
-606 prerecorded synthetic performances, 3007.894 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
+669 prerecorded synthetic performances, 3436.729 seconds, generated locally using the existing Kokoro-82M v1.0 / kokoro-onnx production setup. These are stock synthetic voices, not recordings or imitations of historical people or named human performers. See VOICE-CREDITS.md for the upstream model and inference-package licenses. The inference model and libraries are not shipped in the browser game.
 
 | Character | Stock voice |
 | --- | --- |
@@ -47,12 +53,14 @@ The Long Road Home through The Winter Line uses original game dialogue, code-bui
 | Anne Hart, fictional camp worker | af_heart, different speaking rate |
 | Asa Freeman, fictional free Black soldier | am_michael, different speaking rate |
 | Local merchant | bm_fable, different speaking rate |
+| Adrien Morel, fictional French supply agent | bm_lewis, different speaking rate |
+| Lydia Blake, fictional displaced civilian | af_bella |
 
 `c6-voices.mjs` records exact text, voice identifiers, speaking rates, filenames, duration, and level measurements. Filenames are content-addressed. Audio is mono 24 kHz MP3 at 96 kbps with trimming, normalization, and edge fades. The dialogue controller handles caption fallback, queuing, pause/resume, and missing media. No live synthesis, microphone, account, or API key is required.
 
 ## Music and sound
 
-Seventeen original instrumental arrangements, 703.993 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
+Nineteen original instrumental arrangements, 773.459 seconds of loop material, rendered from the project’s original procedural instrument system. No sampled commercial recording or Halo music is used.
 
 - **A Place in the Wagon** — 68 BPM; reunion and the crew’s closing scene.
 - **Lanterns on the Powder Road** — 88 BPM; the warning route.
@@ -71,6 +79,8 @@ Seventeen original instrumental arrangements, 703.993 seconds of loop material, 
 - **Where the Roads Close** — 108 BPM; the northern flank and surrounding line.
 - **Keep the Fire Going** — 80 BPM; the winter supply road and divided camp work.
 - **One Command, Many Hands** — 110 BPM; formation movement and the practice range.
+- **Beyond the Water We Can See** — 104 BPM; convoy navigation and interception.
+- **A Light Behind Us** — 118 BPM; the burning shore and civilian rescue.
 
 `c6-score.mjs` preserves the tempo, measured loop boundaries, peak/RMS values, and filenames. Music transitions across play sections, ducks beneath speech, and pauses with gameplay. Lexington’s opening scene uses silence before the shot. Gunfire, interaction sounds, bell partials, and footsteps are synthesized at runtime with Web Audio.
 

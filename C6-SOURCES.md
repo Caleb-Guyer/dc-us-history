@@ -1,3 +1,17 @@
+## The Wider War — June 1778–July 1779
+
+Handout P030's common drill receives a physical combat reinforcement at Monmouth. P035's failed isolation plan and June Philadelphia evacuation appear in the required opening. P033's aid appears in covered powder, purchase accounts, visible cloth cargo and larger French naval vessels. P034's global war, Caribbean pressure and Spain's entry against Britain are required dialogue. Spain's later recognition and the Dutch 1782 treaty remain for the dated ending missions. P056's persistent 1777–1779 shortages and destroyed stores appear in the delivery and shore work. P025's Danbury, Fairfield and Norwalk raids are distinguished through remembered and present encounters.
+
+- [NPS: The Continental Army Leaves Valley Forge](https://www.nps.gov/articles/000/march-out-valley-forge.htm): June 18 Philadelphia evacuation and June 19 army departure.
+- [NPS: General von Steuben](https://www.nps.gov/vafo/learn/historyculture/vonsteuben.htm): training and its Monmouth use; the manual's later date remains explicit.
+- [US Office of the Historian: French alliance](https://history.state.gov/milestones/1776-1783/french-alliance): military, financial and naval aid and Britain's expanded war.
+- [US Office of the Historian: Spain](https://history.state.gov/countries/spain): 1783 recognition, distinct from war participation in 1779.
+- [NPS: Avenging Danbury](https://www.nps.gov/articles/000/avenging-danbury-revisiting-the-battle-of-ridgefield-and-american-attempts-to-stop-the-british-raid-of-1777.htm): the April 1777 raid and burned supply depot.
+- [Fairfield Museum: Burning of Fairfield](https://www.fairfieldhistory.org/burning-of-fairfield/): July 7–8, 1779.
+- [Mount Vernon: Connecticut Raids](https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/connecticut-raids): British coastal raids from New York, motives and the destruction at Norwalk.
+
+The Monmouth lane and the August local supply passage are fictional, compressed operations. The player does not command Washington's battle or sink a historical fleet. Blue and gray signals are fictional route marks; white French naval flags avoid importing the later revolutionary tricolor. The July 12 shore rescue is one family and a wounded person, not an evacuation of all Norwalk. Lydia recalls Danbury in 1777 rather than claiming it burns in 1779. Ward is alive; Isaiah's old shoulder wound and Nathan's old leg wound are healed. Jonas and Ruth remain elsewhere, with their uncertain status retained for Charleston.
+
 ## The Winter Line — February–May 1778
 
 Handout P028/P029/P056 supplies Philadelphia occupation, winter scarcity, Washington's February 16 letter, desertion and criticism. P030 supplies consistent drill and the later manual; P033 supplies the alliance, Lafayette and French motives. P052's Black service/slavery tension is staged through an invented individual, with changing policy explained. P057–P060 appear in required supply, work and bargain actions. Later currency figures, Esther Reed, Washington's will and the manual's later use remain for their dated missions/coda.

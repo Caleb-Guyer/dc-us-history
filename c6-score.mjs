@@ -203,5 +203,29 @@ export const C6_SCORE = {
     "peak": 0.6917,
     "rms": 0.1803,
     "bytes": 699120
+  },
+  "ocean": {
+    "title": "Beyond the Water We Can See",
+    "bpm": 104,
+    "mood": "sea",
+    "file": "c6-music-ocean-906b0bfa.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 36.95759375,
+    "duration": 36.9230625,
+    "peak": 0.704,
+    "rms": 0.1805,
+    "bytes": 739440
+  },
+  "coastfire": {
+    "title": "A Light Behind Us",
+    "bpm": 118,
+    "mood": "battle",
+    "file": "c6-music-coastfire-f1a2556c.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 32.57690625,
+    "duration": 32.542375,
+    "peak": 0.6766,
+    "rms": 0.1804,
+    "bytes": 651600
   }
 };

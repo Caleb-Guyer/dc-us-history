@@ -1,3 +1,13 @@
+# Chapter 6 — Wider-war checks (4.12.0)
+
+- 161 tests pass. Eight new tests complete the walked Monmouth rally/formation/defense, both physically steered convoy routes with a real following vessel, interception/rescue/cover/landing, shoal recovery, loaded aimed defensive fire, independent look/tiller and retained tiller taps, slow ropes, actual shore water/beam/escort, malformed saves, completed outcomes and winter migration.
+- All 67 scenes have authored bounded cameras outside scenery. All 669 recordings match packaged text/speaker and nonempty files (3436.729 seconds). All 19 scores have valid measured media/loops (773.459 seconds). New score peaks: ocean 0.7040, coastfire 0.6766; RMS about 0.1804.
+- Hidden forced-muted browser review exercises forward rowing, convoy following, positive upward pitch, tiller taps, pause and real E water/beam interactions, chronological gallery and rendered sets. Route tests found and corrected an obstructed beam approach and an escort that could be left behind at normal pace. Civilian rigs and boat/cargo staging received visual review. Complete-route evidence is simulated, not an independent blind playthrough.
+- Publish media before runtime, verify the release hashes and actual Pages completion, then public entry/style keys, mission order, controls, mute, replay protection and logs.
+- Audio stays muted; no audible audition, physical phone/gamepad test or frame-rate claim. M13–M19, E00 and the full coverage audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Valley Forge checks (4.11.0)
 
 - 153 tests pass plus syntax checks. Eight new tests cover the full walked covered-sledge route, braking/proximity/thaw recovery, both cooperative jobs and both bargains, six alternating wash strokes with save/resume, physical formation following/catch-up/turning, target aim and teaching, malformed states/outcomes, chronology and completed-Saratoga migration.

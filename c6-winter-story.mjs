@@ -71,7 +71,7 @@ export const WINTER_SCENES={
  winterShelter:scene('campline','Keep the fire going','VALLEY FORGE · FEBRUARY 16, 1778 · CONTROL REMAINS WITH MARA','winterline','winter.shelter.',6,'campline'),
  winterCare:scene('campline','The letter is still true','VALLEY FORGE CARE SHELTER · FEBRUARY 16, 1778','home','winter.care.',6,'winterDrill'),
  winterDrill:scene('drill','One Command, Many Hands','VALLEY FORGE · MARCH 1778 · CONTROL PASSES TO ROWAN','drill','winter.drill.',7,'drill'),
- winterAlliance:scene('drill','The book, and the names','VALLEY FORGE · MAY 6, 1778 · THE CAMP CELEBRATES THE ALLIANCE','winterhome','winter.alliance.',8,'complete'),
+ winterAlliance:scene('drill','The book, and the names','VALLEY FORGE · MAY 6, 1778 · THE CAMP CELEBRATES THE ALLIANCE','winterhome','winter.alliance.',8,'widerIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const WINTER_SHOTS={

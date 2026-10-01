@@ -1,18 +1,19 @@
-import {WINTER_LEVELS,WINTER_BLOCKS,freshWinter,validWinter,winterGoal,winterNear,winterCanUse,winterOperating,winterHauling,winterWashing,winterWaterBlocked,interactWinter,updateWinter} from './c6-winter.mjs?v=4.11.0-published';
-import {ALBANY_LEVELS,ALBANY_BLOCKS,freshAlbany,validAlbany,albanyOperating,albanyFighting,albanyCanUse,albanyGoal,interactAlbany,updateAlbany} from './c6-albany.mjs?v=4.11.0-published';
-import {PHILADELPHIA_LEVELS,PHILADELPHIA_BLOCKS,freshPhiladelphia,validPhiladelphia,philadelphiaGoal,philadelphiaNear,philadelphiaCanUse,philadelphiaDefending,philadelphiaOperating,philadelphiaEscorting,roadWaterBlocked,interactPhiladelphia,updatePhiladelphia} from './c6-philadelphia.mjs?v=4.11.0-published';
-import {CROSSING_LEVELS,CROSSING_BLOCKS,freshCrossing,validCrossing,crossingGoal,crossingNear,crossingCanUse,crossingBoating,crossingFighting,moveStormBoat,interactCrossing,updateCrossing} from './c6-crossing.mjs?v=4.11.0-published';
-import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.11.0-published';
-import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.11.0-published';
-import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.11.0-published';
-import {LEVELS} from './c6-data.mjs?v=4.11.0-published';
+import {WIDER_LEVELS,WIDER_BLOCKS,freshWider,validWider,widerGoal,widerNear,widerCanUse,widerOperating,widerBoating,widerEscorting,moveWiderBoat,interactWider,updateWider} from './c6-wider.mjs?v=4.12.0-published';
+import {WINTER_LEVELS,WINTER_BLOCKS,freshWinter,validWinter,winterGoal,winterNear,winterCanUse,winterOperating,winterHauling,winterWashing,winterWaterBlocked,interactWinter,updateWinter} from './c6-winter.mjs?v=4.12.0-published';
+import {ALBANY_LEVELS,ALBANY_BLOCKS,freshAlbany,validAlbany,albanyOperating,albanyFighting,albanyCanUse,albanyGoal,interactAlbany,updateAlbany} from './c6-albany.mjs?v=4.12.0-published';
+import {PHILADELPHIA_LEVELS,PHILADELPHIA_BLOCKS,freshPhiladelphia,validPhiladelphia,philadelphiaGoal,philadelphiaNear,philadelphiaCanUse,philadelphiaDefending,philadelphiaOperating,philadelphiaEscorting,roadWaterBlocked,interactPhiladelphia,updatePhiladelphia} from './c6-philadelphia.mjs?v=4.12.0-published';
+import {CROSSING_LEVELS,CROSSING_BLOCKS,freshCrossing,validCrossing,crossingGoal,crossingNear,crossingCanUse,crossingBoating,crossingFighting,moveStormBoat,interactCrossing,updateCrossing} from './c6-crossing.mjs?v=4.12.0-published';
+import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.12.0-published';
+import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.12.0-published';
+import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.12.0-published';
+import {LEVELS} from './c6-data.mjs?v=4.12.0-published';
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const angle=x=>Math.atan2(Math.sin(x),Math.cos(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
-import {SNOW_BLOCKS,RIDGE_BLOCKS,BOSTON_BLOCKS,freshLift,liftGoal,interactLift,updateLift,liftCanUse,liftHauling} from './c6-lift.mjs?v=4.11.0-published';
-import {PRINT_BLOCKS,DISPATCH_BLOCKS,freshPaper,paperGoal,paperNear,paperCanUse,paperOperating,interactPaper,updatePaper} from './c6-paper.mjs?v=4.11.0-published';
-import {RETREAT_LEVELS,RETREAT_BLOCKS,freshRetreat,validRetreat,retreatGoal,retreatNear,retreatCanUse,retreatBoating,retreatDefending,moveFerry,interactRetreat,updateRetreat} from './c6-retreat.mjs?v=4.11.0-published';
-export const BLOCKS={...WINTER_BLOCKS,...ALBANY_BLOCKS,...PHILADELPHIA_BLOCKS,...CROSSING_BLOCKS,...RETREAT_BLOCKS,printshop:PRINT_BLOCKS,dispatch:DISPATCH_BLOCKS,snowpass:SNOW_BLOCKS,dorchester:RIDGE_BLOCKS,bostonreturn:BOSTON_BLOCKS,tidewater:TIDE_BLOCKS,moorescreek:CREEK_BLOCKS,
+import {SNOW_BLOCKS,RIDGE_BLOCKS,BOSTON_BLOCKS,freshLift,liftGoal,interactLift,updateLift,liftCanUse,liftHauling} from './c6-lift.mjs?v=4.12.0-published';
+import {PRINT_BLOCKS,DISPATCH_BLOCKS,freshPaper,paperGoal,paperNear,paperCanUse,paperOperating,interactPaper,updatePaper} from './c6-paper.mjs?v=4.12.0-published';
+import {RETREAT_LEVELS,RETREAT_BLOCKS,freshRetreat,validRetreat,retreatGoal,retreatNear,retreatCanUse,retreatBoating,retreatDefending,moveFerry,interactRetreat,updateRetreat} from './c6-retreat.mjs?v=4.12.0-published';
+export const BLOCKS={...WIDER_BLOCKS,...WINTER_BLOCKS,...ALBANY_BLOCKS,...PHILADELPHIA_BLOCKS,...CROSSING_BLOCKS,...RETREAT_BLOCKS,printshop:PRINT_BLOCKS,dispatch:DISPATCH_BLOCKS,snowpass:SNOW_BLOCKS,dorchester:RIDGE_BLOCKS,bostonreturn:BOSTON_BLOCKS,tidewater:TIDE_BLOCKS,moorescreek:CREEK_BLOCKS,
  ticonderoga:FORT_BLOCKS,
  breeds:HILL_BLOCKS,
  release:[[-7,-5,7,12,6],[7,-5,7,12,6],[0,-10,7,3,6],[-15,5,2,28,3],[15,0,2,25,3]],
@@ -24,7 +25,7 @@ function enemy(id,x,z,route,patrol=false){return {id,x,z,startX:x,startZ:z,hp:1,
 export function fresh(level,difficulty='normal'){
  const spec=LEVELS[level];if(!spec)throw new Error('Unknown level');
  return {level,difficulty,stage:0,time:0,player:{x:spec.spawn[0],z:spec.spawn[1],y:0,vy:0,yaw:0,pitch:0,health:100,stamina:100},
-  winter:WINTER_LEVELS[level]?freshWinter():null,albany:ALBANY_LEVELS[level]?freshAlbany():null,philadelphia:PHILADELPHIA_LEVELS[level]?freshPhiladelphia():null,crossing:CROSSING_LEVELS[level]?freshCrossing():null,retreat:RETREAT_LEVELS[level]?freshRetreat(level):null,paper:['printshop','dispatch'].includes(level)?freshPaper():null,lift:['snowpass','dorchester','bostonreturn'].includes(level)?freshLift(level):null,promise:['tidewater','moorescreek'].includes(level)?freshPromise():null,hill:level==='breeds'?freshHill():null,fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
+  wider:WIDER_LEVELS[level]?freshWider():null,winter:WINTER_LEVELS[level]?freshWinter():null,albany:ALBANY_LEVELS[level]?freshAlbany():null,philadelphia:PHILADELPHIA_LEVELS[level]?freshPhiladelphia():null,crossing:CROSSING_LEVELS[level]?freshCrossing():null,retreat:RETREAT_LEVELS[level]?freshRetreat(level):null,paper:['printshop','dispatch'].includes(level)?freshPaper():null,lift:['snowpass','dorchester','bostonreturn'].includes(level)?freshLift(level):null,promise:['tidewater','moorescreek'].includes(level)?freshPromise():null,hill:level==='breeds'?freshHill():null,fort:level==='ticonderoga'?freshFort():null,hold:0,carrying:false,armed:false,loaded:true,ammo:18,reload:0,shot:0,hit:0,defense:0,wave:0,alert:0,wagonHealth:100,
   lastDamage:-99,volley:0,volleyWarning:false,suppliesUsed:false,shotsFired:0,kills:0,
   enemies:level==='night'?[enemy(0,-2,-39,[-9,5,-39],true),enemy(1,2,-80,[-8,9,-80],true),enemy(2,2,-100,[-7,9,-100],true)]:[],
   ward:{x:level==='night'?1.5:0,z:level==='night'?21:2,yaw:0},failed:false,finished:false,events:[],seed:1775,patrolWarned:false,spotted:false,reloadHint:false};
@@ -42,6 +43,7 @@ export function restore(raw,difficulty='normal'){
  if(['tidewater','moorescreek'].includes(raw.level)&&(!raw.promise||!['vx','vz','yaw','exposure','chaserX','chaserZ','shotClock','warning','targetX','targetZ','speed'].every(k=>Number.isFinite(raw.promise[k]))||raw.promise.exposure<0||raw.promise.exposure>1))return null;
  if(['snowpass','dorchester','bostonreturn'].includes(raw.level)){const h=raw.lift;if(!h||!['x','z','vx','vz','yaw','strain','speed','slides','settled','haulTime','travel'].every(k=>Number.isFinite(h[k]))||h.x<b[0]||h.x>b[1]||h.z<b[2]||h.z>b[3]||h.strain<0||h.strain>1||h.speed<0||h.speed>3.51||h.slides<0||!['attached','braced','balanced','anchored','barrier','shutters','ballast','warned','brake'].every(k=>typeof h[k]==='boolean'))return null;}
  if(['printshop','dispatch'].includes(raw.level)){const q=raw.paper;if(!q||!['cooperation','type','block','proofX','proofZ','carriage','beat','stroke','ink','sheets','spoiled','stock','quality','rain','wetness','travel'].every(k=>Number.isFinite(q[k]))||q.cooperation<0||q.cooperation>1||q.type<0||q.type>3||q.carriage<0||q.carriage>1||q.sheets<0||q.sheets>3||q.stock<0||q.stock>8||q.wetness<0||q.wetness>1||q.proofX<2||q.proofX>7.1||!['shared','proofCaught','proofMended','atPress','pressHeld','useHeld','sheltered','damaged','recovered','warning'].every(k=>typeof q[k]==='boolean')||!['feed','in','stroke','out','take'].includes(q.phase)||!['','mara','hart'].includes(q.representative)||!['','common','reserve'].includes(q.allocation)||!['','neighbors','harbor'].includes(q.route)||!Array.isArray(q.delivered)||new Set(q.delivered).size!==q.delivered.length||q.delivered.some(k=>!['local','france','spain'].includes(k)))return null;}
+ if(WIDER_LEVELS[raw.level]&&!validWider(raw.wider,b))return null;
  if(WINTER_LEVELS[raw.level]&&!validWinter(raw.winter,b))return null;
  if(ALBANY_LEVELS[raw.level]&&!validAlbany(raw.albany))return null;
  if(PHILADELPHIA_LEVELS[raw.level]&&!validPhiladelphia(raw.philadelphia,b))return null;
@@ -52,6 +54,9 @@ export function restore(raw,difficulty='normal'){
  s.lastDamage=Number.isFinite(s.lastDamage)?s.lastDamage:-99;s.shotsFired=Number.isFinite(s.shotsFired)?s.shotsFired:0;s.kills=Number.isFinite(s.kills)?s.kills:0;s.volley=0;s.volleyWarning=false;if(!s.ward||!Number.isFinite(s.ward.x)||!Number.isFinite(s.ward.z))s.ward={x:p.x+.8,z:p.z+1,yaw:p.yaw};s.ammo=clamp(s.ammo,0,30);s.reload=clamp(s.reload,0,4.2);return s;
 }
 export function collide(s,x,z,r=.3,feet=s.player.y){const b=LEVELS[s.level].bounds;if(x<b[0]+r||x>b[1]-r||z<b[2]+r||z>b[3]-r)return true;
+ if(s.level==='openwater'&&!s.wider.aboard&&feet<.5&&!(Math.abs(x)<6&&z>6))return true;
+ if(s.level==='coastfire'&&z>31&&feet<.5)return true;
+ if(s.level==='coastfire'&&!s.wider.beam&&Math.abs(x-18)<5+r&&Math.abs(z+38)<.3+r)return true;
  if(s.level==='thawroad'&&winterWaterBlocked(s.winter,x,z,r,s.player))return true;
  if(s.level==='hudsonwatch'&&x>30.7-r)return true;
  if(s.level==='albanywoods'&&s.albany.fall>.8&&feet<.6&&Math.abs(x+1)<6+r&&Math.abs(z+24)<.4+r)return true;
@@ -84,12 +89,13 @@ function companionPath(s,a,tx,tz){
  }
  const path=[];while(end){path.unshift(end);end=parents.get(key(end));}return path;
 }
-export function currentGoal(s){return s.winter?winterGoal(s):s.albany?albanyGoal(s):s.philadelphia?philadelphiaGoal(s):s.crossing?crossingGoal(s):s.retreat?retreatGoal(s):s.paper?paperGoal(s):s.lift?liftGoal(s):s.level==='breeds'?hillGoal(s):s.level==='ticonderoga'?fortGoal(s):LEVELS[s.level].goals[s.stage];}
-export function goalNear(s){if(s.winter)return winterNear(s);if(s.philadelphia)return philadelphiaNear(s);if(s.crossing)return crossingNear(s);if(s.retreat)return retreatNear(s);if(s.paper)return paperNear(s);const g=currentGoal(s);return g&&distance(s.player,g)<2.5;}
+export function currentGoal(s){return s.wider?widerGoal(s):s.winter?winterGoal(s):s.albany?albanyGoal(s):s.philadelphia?philadelphiaGoal(s):s.crossing?crossingGoal(s):s.retreat?retreatGoal(s):s.paper?paperGoal(s):s.lift?liftGoal(s):s.level==='breeds'?hillGoal(s):s.level==='ticonderoga'?fortGoal(s):LEVELS[s.level].goals[s.stage];}
+export function goalNear(s){if(s.wider)return widerNear(s);if(s.winter)return winterNear(s);if(s.philadelphia)return philadelphiaNear(s);if(s.crossing)return crossingNear(s);if(s.retreat)return retreatNear(s);if(s.paper)return paperNear(s);const g=currentGoal(s);return g&&distance(s.player,g)<2.5;}
 function emit(s,type,data={}){s.events.push({type,...data});}
 function next(s){s.stage++;s.hold=0;if(s.stage>=LEVELS[s.level].goals.length){s.finished=true;emit(s,'finish');}else emit(s,'checkpoint');}
 function interact(s){
- if(s.winter)interactWinter(s);
+ if(s.wider)interactWider(s);
+ else if(s.winter)interactWinter(s);
  else if(s.albany)interactAlbany(s);
  else if(s.philadelphia)interactPhiladelphia(s);
  else if(s.crossing)interactCrossing(s);
@@ -118,11 +124,11 @@ export function tick(s,input,dt){
  s.events=[];if(s.failed||s.finished)return s.events;dt=clamp(dt,0,.05);s.time+=dt;s.shot=Math.max(0,s.shot-dt);s.hit=Math.max(0,s.hit-dt);
  const p=s.player;const moveX=(input.right?1:0)-(input.left?1:0),moveZ=(input.forward?1:0)-(input.back?1:0),moving=!!(moveX||moveZ),run=input.sprint&&p.stamina>1&&!s.carrying&&!input.crouch&&!liftHauling(s);
  p.yaw=angle(p.yaw+((input.lookLeft?1:0)-(input.lookRight?1:0))*dt*1.65);p.pitch=clamp(p.pitch+((input.lookUp?1:0)-(input.lookDown?1:0))*dt,-.9,.85);
- const pace=winterWashing(s)?0:winterHauling(s)?(input.jump?0:1.95):philadelphiaEscorting(s)?1.8:paperOperating(s)?0:liftHauling(s)?(input.jump?0:s.level==='dorchester'?2.5:3.25):s.level==='ticonderoga'&&s.fort.rope?1.05:s.carrying?(s.level==='release'?2.1:2.3):input.crouch?2.15:run?7.1:4.2,normal=Math.hypot(moveX,moveZ)||1;
+ const pace=widerEscorting(s)?2.1:winterWashing(s)?0:winterHauling(s)?(input.jump?0:1.95):philadelphiaEscorting(s)?1.8:paperOperating(s)?0:liftHauling(s)?(input.jump?0:s.level==='dorchester'?2.5:3.25):s.level==='ticonderoga'&&s.fort.rope?1.05:s.carrying?(s.level==='release'?2.1:2.3):input.crouch?2.15:run?7.1:4.2,normal=Math.hypot(moveX,moveZ)||1;
  const dx=(Math.cos(p.yaw)*moveX-Math.sin(p.yaw)*moveZ)*pace*dt/normal,dz=(-Math.sin(p.yaw)*moveX-Math.cos(p.yaw)*moveZ)*pace*dt/normal;
- if(crossingBoating(s))moveStormBoat(s,input,dt,collide);else if(retreatBoating(s))moveFerry(s,input,dt,collide);else if(s.level==='tidewater')moveBoat(s,input,dt,collide);else{if(!collide(s,p.x+dx,p.z))p.x+=dx;if(!collide(s,p.x,p.z+dz))p.z+=dz;}
+ if(widerBoating(s))moveWiderBoat(s,input,dt,collide);else if(crossingBoating(s))moveStormBoat(s,input,dt,collide);else if(retreatBoating(s))moveFerry(s,input,dt,collide);else if(s.level==='tidewater')moveBoat(s,input,dt,collide);else{if(!collide(s,p.x+dx,p.z))p.x+=dx;if(!collide(s,p.x,p.z+dz))p.z+=dz;}
  if(s.level!=='tidewater')p.stamina=clamp(p.stamina+(run&&moving?-22:16)*dt,0,100);
- if(input.jump&&!winterHauling(s)&&!winterWashing(s)&&!albanyOperating(s)&&!crossingBoating(s)&&!retreatBoating(s)&&!paperOperating(s)&&!liftHauling(s)&&s.level!=='tidewater'&&!s.carrying&&p.y===0){p.vy=4.2;}p.vy-=12*dt;p.y=Math.max(0,p.y+p.vy*dt);if(p.y===0)p.vy=0;
+ if(input.jump&&!widerBoating(s)&&!winterHauling(s)&&!winterWashing(s)&&!albanyOperating(s)&&!crossingBoating(s)&&!retreatBoating(s)&&!paperOperating(s)&&!liftHauling(s)&&s.level!=='tidewater'&&!s.carrying&&p.y===0){p.vy=4.2;}p.vy-=12*dt;p.y=Math.max(0,p.y+p.vy*dt);if(p.y===0)p.vy=0;
  if(s.reload>0){s.reload=Math.max(0,s.reload-dt);if(s.reload===0){s.loaded=true;s.ammo--;emit(s,'loaded');}}
  if(input.reload&&s.armed&&!s.loaded&&s.reload===0&&s.ammo>0){s.reload=4.2;emit(s,'reload');}
  if(input.fire)fire(s,input);
@@ -160,7 +166,7 @@ export function tick(s,input,dt){
   if(s.defense>=52){emit(s,'voice',{id:'clear'});s.enemies.forEach(e=>e.retreat=true);s.stage=2;emit(s,'checkpoint');}
  }
  let maxAlert=0;
- for(const e of s.level==='breeds'||s.retreat||s.crossing||s.philadelphia||s.albany||s.winter?[]:s.enemies){e.fired=Math.max(0,e.fired-dt);if(e.hp<=0){e.dead+=dt;continue;}const d=distance(p,e);e.moving=false;
+ for(const e of s.level==='breeds'||s.retreat||s.crossing||s.philadelphia||s.albany||s.winter||s.wider?[]:s.enemies){e.fired=Math.max(0,e.fired-dt);if(e.hp<=0){e.dead+=dt;continue;}const d=distance(p,e);e.moving=false;
   if(e.patrol){const oldX=e.x;e.x=e.route[0]+(e.route[1]-e.route[0])*(.5+.5*Math.sin(s.time*.27+e.id*1.7));e.yaw=e.x>oldX?-Math.PI/2:Math.PI/2;e.moving=true;
    const toward=Math.atan2(-(p.x-e.x),-(p.z-e.z)),visible=d<(input.crouch?8:13)&&Math.abs(angle(toward-e.yaw))<.95&&!blocked(s.level,{...e,y:1.5},{...p,y:input.crouch?1.0:1.7});
    e.alert=clamp(e.alert+(visible?(input.sprint?1.3:.65):-.5)*dt,0,1);maxAlert=Math.max(maxAlert,e.alert);
@@ -172,9 +178,9 @@ export function tick(s,input,dt){
    if(!blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65})&&random(s)<(s.difficulty==='story'?.14:.36)){p.health=Math.max(0,p.health-(s.difficulty==='story'?10:17));s.lastDamage=s.time;emit(s,'hurt');}
   }
  }
- s.alert=maxAlert;if(s.winter)updateWinter(s,input,dt,{blocked,collide});if(s.albany)updateAlbany(s,input,dt,{blocked,collide});if(s.philadelphia)updatePhiladelphia(s,input,dt,{blocked,collide});if(s.crossing)updateCrossing(s,input,dt,{blocked,collide});if(s.retreat)updateRetreat(s,input,dt,{blocked,collide});if(s.paper)updatePaper(s,input,dt);if(s.lift)updateLift(s,input,dt,{collide});if(s.promise)updatePromise(s,input,dt,{blocked,collide});if(s.level==='breeds')updateHill(s,input,dt,{blocked,collide});if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if((s.level!=='tidewater'||!s.promise.pursuit&&s.alert<.1)&&s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
+ s.alert=maxAlert;if(s.wider)updateWider(s,input,dt,{blocked,collide});if(s.winter)updateWinter(s,input,dt,{blocked,collide});if(s.albany)updateAlbany(s,input,dt,{blocked,collide});if(s.philadelphia)updatePhiladelphia(s,input,dt,{blocked,collide});if(s.crossing)updateCrossing(s,input,dt,{blocked,collide});if(s.retreat)updateRetreat(s,input,dt,{blocked,collide});if(s.paper)updatePaper(s,input,dt);if(s.lift)updateLift(s,input,dt,{collide});if(s.promise)updatePromise(s,input,dt,{blocked,collide});if(s.level==='breeds')updateHill(s,input,dt,{blocked,collide});if(s.level==='ticonderoga')updateFort(s,input,dt,{blocked});const protectedNow=s.level==='concord'&&s.enemies.filter(e=>e.hp>0&&!e.retreat).every(e=>blocked(s.level,{...e,y:1.4},{...p,y:input.crouch?1.02:1.65}));if((s.level!=='tidewater'||!s.promise.pursuit&&s.alert<.1)&&s.time-s.lastDamage>5&&(protectedNow||s.level!=='lexington'&&!s.enemies.some(e=>e.hp>0&&(!e.patrol||e.alert>.5))))p.health=Math.min(100,p.health+dt*5);
  if(p.health<=0){s.failed=true;emit(s,'fail');return s.events;}
- if(!winterOperating(s)&&!albanyOperating(s)&&!albanyFighting(s)&&!philadelphiaDefending(s)&&!philadelphiaOperating(s)&&!crossingFighting(s)&&!retreatDefending(s)&&!paperOperating(s)&&!s.finished&&!liftHauling(s)&&!hillDefending(s)&&!s.failed&&!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)&&(!s.winter||winterCanUse(s))&&(!s.albany||albanyCanUse(s))&&(!s.philadelphia||philadelphiaCanUse(s))&&(!s.crossing||crossingCanUse(s))&&(!s.retreat||retreatCanUse(s))&&(!s.paper||paperCanUse(s))&&(!s.lift||liftCanUse(s))&&(!s.promise||promiseCanUse(s,input))){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
+ if(!widerOperating(s)&&!winterOperating(s)&&!albanyOperating(s)&&!albanyFighting(s)&&!philadelphiaDefending(s)&&!philadelphiaOperating(s)&&!crossingFighting(s)&&!retreatDefending(s)&&!paperOperating(s)&&!s.finished&&!liftHauling(s)&&!hillDefending(s)&&!s.failed&&!(s.level==='concord'&&s.stage===1)&&!(s.level==='ticonderoga'&&s.stage===6)){if(input.interact&&goalNear(s)&&(!s.wider||widerCanUse(s))&&(!s.winter||winterCanUse(s))&&(!s.albany||albanyCanUse(s))&&(!s.philadelphia||philadelphiaCanUse(s))&&(!s.crossing||crossingCanUse(s))&&(!s.retreat||retreatCanUse(s))&&(!s.paper||paperCanUse(s))&&(!s.lift||liftCanUse(s))&&(!s.promise||promiseCanUse(s,input))){s.hold+=dt;if(s.hold>=currentGoal(s).time)interact(s);}else s.hold=Math.max(0,s.hold-dt*3);}
  return s.events;
 }
 
