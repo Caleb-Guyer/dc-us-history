@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.15.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.15.0-published';
+import {fresh} from './c6-sim.mjs?v=4.16.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.16.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='guilfordfield'&&phase==='hit'){s.stage=4;Object.assign(s.price,{order:true,reserve:true,line:36,wardShot:true});s.player.x=-19;s.player.z=-27;}
+ if(level==='guilfordexit'&&phase==='crew'){s.stage=4;Object.assign(s.price,{careRoll:true,stranger:true,strangerSafe:true,crew:Array.from({length:3},(_,i)=>({x:(i-1)*2,z:-24,yaw:0}))});s.player.z=-24;}
+ if(level==='priceprovision'&&phase==='cart'){s.stage=3;Object.assign(s.price,{paper:true,merchant:true,agreement:'work'});s.player.x=-12;s.player.z=-3;}
+
  if(level==='cowpens'&&phase==='volley'){s.stage=2;Object.assign(s.chase,{order:true,formed:true,armyZ:-51,squad:Array.from({length:6},(_,i)=>({x:(i-2.5)*1.6,z:-34,yaw:0}))});s.player.z=-36;s.armed=true;s.enemies=Array.from({length:10},(_,i)=>({id:i,x:(i%5-2)*4,z:-51-Math.floor(i/5)*3,hp:1,yaw:Math.PI,cooldown:10,dead:0,fired:0,moving:false,route:[0,5]}));}
  if(level==='danrelay'&&phase==='ride'){s.stage=3;Object.assign(s.chase,{order:true,load:'light',mounted:true});s.player.z=0;}
  if(level==='danrelay'&&phase==='packet'){s.stage=3;Object.assign(s.chase,{order:true,load:'heavy',mounted:true,horseX:-18,horseZ:-55});s.player.x=-18;s.player.z=-55;}

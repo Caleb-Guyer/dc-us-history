@@ -248,3 +248,12 @@ The supplied P030/P040–P041 governs the training payoff, command sequence, sep
 [Halifax County Historical Society’s Crossing of the Dan exhibit](https://www.halifaxcountyhistoricalsociety.org/about-the-crossing) supports the February 14 crossing and prepared boats. The Library of Congress Washington-papers timeline search result also supplies that date, but its page returned 403 during this pass; it is not represented as a fully opened source. The local relay road, bridge over a flooded tributary, horse, loose packet and carried load choice are fiction. They are distinct from the army’s larger ferry crossing into Virginia. Later Guilford consequences still require M16.
 
 Ward trusts Rowan’s signal and remains alive. Asa’s common drill is a required scene regardless of whether an older save can prove the earlier drill outcome; the persistent record separately marks an actually completed training mission. Samuel’s captivity remains unresolved, not erased by a different surrender. The next casualty arc remains for M16.
+
+
+## The Price of the Field — 4.16
+
+The supplied P041 supplies the costly British Guilford victory, Greene’s preserved army and comparison with Bunker Hill. [NPS Guilford classroom lesson](https://home.nps.gov/teachers/classrooms/32guilford.htm) verifies March 15, 1781 and Cornwallis’s departure toward Wilmington after March 18. The later report is explicitly dated after that departure, rather than placing future information in the battle’s morning. Rowan’s small withdrawal lane is not the army’s full field, and destroying all local enemies cannot reverse Greene’s historical withdrawal.
+
+P057 governs Continental paper, European loans, gold and silver, depreciation, state issues and “not worth a Continental.” H15 attributes the edited handout’s 146-to-one 1781 example; it is not presented as a universal shop exchange rate, a precise March 14 rate or this merchant’s sack price. The local work/barter agreement, cart and linen are original mechanics.
+
+Elias Ward’s fatal chest wound, unsuccessful treatment, March 16 local burial, the wounded militia man and the surviving crew are fiction. The scene shows the hit, continued effort, inability to stand, physical extraction, attempted care and death. Skipping advances the same canonical fate. Ward is not resurrected in the later withdrawal, and his carry does not award a survival or rescue. Later story and E00 must retain this fate. The other wounded man can reach care, and his completed delivery remains separate from Ward’s death.

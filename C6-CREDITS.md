@@ -127,3 +127,10 @@ Original procedural ditch, advancing line, actual withdrawing section, oath desk
 44 new original stock Kokoro performances. **The Signal He Followed**, 116 BPM, and **Ahead of the Hooves**, 138 BPM, are original local instrumental arrangements; peaks 0.7139/0.6650, RMS about 0.1804. The quieter previous inland score returns for the aftermath. No commercial game music, character voices or art is copied.
 
 Original procedural horses with animated articulated legs, mounted crew pose, carried packs, red-coated pursuing rider, bridged tributary, Dan landing boats, following six-person section, advancing British formation and surrendered prisoners. Four scenes use individually authored cameras. These are stylized local sets, not surveyed battlefield reconstructions. Testing is forced silent.
+
+
+## The Price of the Field additions — 4.16
+
+56 new stock Kokoro synthetic performances. **The Cost of Ground**, 118 BPM, and **The Empty Place**, 66 BPM, are original local instrumental arrangements. The latter removes field percussion for the provision stop, bedside, aftermath and burial. Measured peaks 0.6869 / 0.7117, RMS about 0.1804. No commercial game music or voices copied; testing stays forced silent.
+
+Original procedural flour cart and carried linen, six moving withdrawal soldiers, wound and chest dressing, physically carried Ward and stranger, hands positioned on the dressing with two-bone inverse kinematics, a still bedside performance after death, following survivors and a small roadside grave. Seven scenes use individually authored cameras. These are stylized fictional local sets rather than surveyed battlefield reconstructions.

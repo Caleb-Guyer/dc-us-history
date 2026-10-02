@@ -1,6 +1,6 @@
 import * as T from './three.module.js';
-import {PHILADELPHIA_BLOCKS,philadelphiaDefending} from './c6-philadelphia.mjs?v=4.15.0-published';
-import {PHILADELPHIA_LINES,PHILADELPHIA_SCENES} from './c6-philadelphia-story.mjs?v=4.15.0-published';
+import {PHILADELPHIA_BLOCKS,philadelphiaDefending} from './c6-philadelphia.mjs?v=4.16.0-published';
+import {PHILADELPHIA_LINES,PHILADELPHIA_SCENES} from './c6-philadelphia-story.mjs?v=4.16.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z)),smooth=t=>(t=Math.max(0,Math.min(1,t)))*t*(3-2*t);
 function actor(w,key,x,z,tx,tz,pose,t,voice){return w.setActor(key,x,z,face(x,z,tx,tz),pose,t,key===voice);}
 function table(w,x,z,width=8,depth=3){w.box(width,.16,depth,0x716249,x,1.04,z);for(const dx of [-width/2+.2,width/2-.2])for(const dz of [-depth/2+.2,depth/2-.2])w.box(.13,1,.13,0x514c3a,x+dx,.5,z+dz);}

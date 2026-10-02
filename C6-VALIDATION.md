@@ -1,3 +1,14 @@
+# Chapter 6 — Guilford, casualty and provision checks (4.16.0)
+
+- 197 tests and 73 syntax modules pass. Nine new tests cover both complete physical provision agreements, remote/braked cart rejection, the actual six-person withdrawal, timed lane and distinct covering commands, wounded checkpoint/resume, physical Ward carry, stranger delivery, three actual crew turns, bounds, malformed saves, independent records and earlier completion migration.
+- Ward’s treatment and burial record the same canonical fate whether watched or skipped. Gallery and mission replay remain isolated. No rescue is awarded for the fatal wound; stranger care and surviving crew arrival are separate completed outcomes.
+- Offline articulated-rig inspection verifies the visible wound, attempted steps, head lowering from 1.70 to 0.87 m, dressing-hand contact (under 0.07 m), head sightlines, stopped breathing after death and Ward’s absence from later crew scenes. All 95 scene cameras are outside solids; the seven new sets also have clear camera rays through scenery.
+- 914 matching packaged recordings (5162.158 seconds); 27 valid looped scores (1085.161 seconds). Synthetic recordings are not human actors. No audible audition, phone/gamepad or frame-rate claim.
+- Hidden forced-muted UI review corrected actors blocking Ward. Actual support interaction, silent audio, normal upward look, pause and replay checks are recorded in release-4.16.0.json after verification. Full gameplay routes are simulated evidence, not a blind UI campaign playthrough.
+- M17–M19, E00 and final whole-campaign acceptance remain.
+
+## Earlier release checks
+
 # Chapter 6 — Cowpens and mounted-relay checks (4.15.0)
 
 - 188 tests and 70 syntax modules pass. Eleven new tests exercise the complete collision-aware section route, two distinct volley commands, held-command rejection, all-visible-enemies-defeated recovery, remote squad/turn rejection, both full steered horseback routes, weight/acceleration/braking/stamina, low-log jump and failed-landing recovery, flooded-water blocking, slow packet collection, independent look, malformed saves, completed outcomes and migration.

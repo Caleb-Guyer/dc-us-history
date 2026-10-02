@@ -299,5 +299,29 @@ export const C6_SCORE = {
     "peak": 0.665,
     "rms": 0.1804,
     "bytes": 557280
+  },
+  "price": {
+    "title": "The Cost of Ground",
+    "bpm": 118,
+    "mood": "battle",
+    "file": "c6-music-price-9fa4138e.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 32.57690625,
+    "duration": 32.542375,
+    "peak": 0.6869,
+    "rms": 0.1804,
+    "bytes": 651600
+  },
+  "pricequiet": {
+    "title": "The Empty Place",
+    "bpm": 66,
+    "mood": "remembrance",
+    "file": "c6-music-pricequiet-d36b5acd.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 58.21634375,
+    "duration": 58.1818125,
+    "peak": 0.7117,
+    "rms": 0.1804,
+    "bytes": 1164960
   }
 };

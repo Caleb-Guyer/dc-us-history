@@ -1,3 +1,15 @@
+## Chapter 6 update — The Price of the Field (4.16.0)
+
+Make a physical provision agreement, then hold a local Guilford withdrawal lane as six soldiers pass. Ward is struck helping a wounded militia man. The authored scene shows his wound, attempted steps and collapse; support him to Mara’s cover, where she attempts treatment and he dies. Bring the other wounded man to care, accompany three actual survivors through covered turns, and keep Ward’s name at the burial.
+
+Choose work to move the flour cart and retain linen, or barter and carry linen to the merchant. Space brakes the cart. At Guilford, E gives covering fire, and the lane waits for the actual withdrawal. Save, resume and skipped scenes keep Ward’s wound and death consistent. Replays protect the story checkpoint and record.
+
+Three playable sections, seven authored scenes, 56 new synthetic recordings and two original scores. Totals: 95 scenes, 914 recordings, 27 scores. Completed Dan River saves continue into the provision stop. The field’s cost and Greene’s surviving army are separate from the fictional crew’s losses.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. M17–M19, E00 and final whole-chapter acceptance remain.
+
 ## Chapter 6 update — Make Them Chase (4.15.0)
 
 Lead a six-person section at Cowpens: give two distinct volleys, retire with the actual soldiers, face about, reach the militia flank and honor the surrender. The next section puts Rowan on horseback ahead of the pursuit north. Choose a heavy or light load, accelerate, steer, brake for a loose dispatch, clear a low log and use the western bridge before delivering both packets to the ferry crew.

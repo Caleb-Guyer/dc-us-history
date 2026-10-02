@@ -50,7 +50,7 @@ export const CHASE_SCENES={
  chaseIntro:scene('cowpens','Make Them Chase','COWPENS · JANUARY 17, 1781 · MORGAN’S SEPARATE FORCE','chase','chase.intro.',6,'cowpens'),
  chaseVictory:scene('cowpens','The signal he followed','COWPENS · JANUARY 17, 1781 · MORGAN’S VICTORY','inlandquiet','chase.victory.',6,'chaseRoad'),
  chaseRoad:scene('danrelay','The Road Ahead of Them','NORTHBOUND RELAY ROAD · FEBRUARY 14, 1781 · LOCAL COURIER FICTION','ride','chase.road.',6,'danrelay'),
- chaseEnding:scene('danrelay','Before the river closed','DAN LANDING · FEBRUARY 14, 1781 · THE ARMY CROSSES INTO VIRGINIA','inlandquiet','chase.ending.',7,'complete'),
+ chaseEnding:scene('danrelay','Before the river closed','DAN LANDING · FEBRUARY 14, 1781 · THE ARMY CROSSES INTO VIRGINIA','inlandquiet','chase.ending.',7,'priceIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const CHASE_SHOTS={

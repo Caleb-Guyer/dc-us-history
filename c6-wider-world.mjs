@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {makeActor,poseActor} from './c5-actors.mjs?v=4.15.0-published';
-import {WIDER_BLOCKS,widerBoating} from './c6-wider.mjs?v=4.15.0-published';
-import {WIDER_LINES,WIDER_SCENES} from './c6-wider-story.mjs?v=4.15.0-published';
+import {makeActor,poseActor} from './c5-actors.mjs?v=4.16.0-published';
+import {WIDER_BLOCKS,widerBoating} from './c6-wider.mjs?v=4.16.0-published';
+import {WIDER_LINES,WIDER_SCENES} from './c6-wider-story.mjs?v=4.16.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const actor=(w,key,x,z,tx,tz,pose,t,voice)=>w.setActor(key,x,z,face(x,z,tx,tz),pose,t,key===voice);
 function ship(w,x,z,{large=false,red=false,rigged=true}={}){const g=w.group(x,0,z),width=large?5:2.6,length=large?16:6.5;
