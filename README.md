@@ -1,3 +1,15 @@
+## Chapter 6 update — Close the Sea (4.17.0)
+
+Isaiah takes the coastal packet across a fictional inshore reach while the French and British fleets fight offshore. Set the land and sea approaches on a chart, accompany two actual pilots to the boat, steer through shelter and marked debris, stop for a rope and dispatch delivery, then dock slowly. Carry siege stores to Rowan's cart in the dated September 27 handoff.
+
+W rows, A/D steer, S or Space brakes and Shift pulls hard. Mouse and arrows look independently. Four slow seconds in the western lee precede the crossing. Impacts are recoverable; damp paper and the actual passengers' arrival remain separate outcomes. The player never commands or wins the fleet battle.
+
+Three playable sections, five authored scenes, 39 new synthetic recordings and two original scores. Totals: 100 scenes, 953 recordings and 29 scores. Completed Guilford saves continue with Ward's recorded death intact.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+M18–M19, E00 and final full-campaign acceptance remain unfinished.
+
 ## Chapter 6 update — The Price of the Field (4.16.0)
 
 Make a physical provision agreement, then hold a local Guilford withdrawal lane as six soldiers pass. Ward is struck helping a wounded militia man. The authored scene shows his wound, attempted steps and collapse; support him to Mara’s cover, where she attempts treatment and he dies. Bring the other wounded man to care, accompany three actual survivors through covered turns, and keep Ward’s name at the burial.

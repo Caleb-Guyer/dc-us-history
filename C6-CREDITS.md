@@ -134,3 +134,10 @@ Original procedural horses with animated articulated legs, mounted crew pose, ca
 56 new stock Kokoro synthetic performances. **The Cost of Ground**, 118 BPM, and **The Empty Place**, 66 BPM, are original local instrumental arrangements. The latter removes field percussion for the provision stop, bedside, aftermath and burial. Measured peaks 0.6869 / 0.7117, RMS about 0.1804. No commercial game music or voices copied; testing stays forced silent.
 
 Original procedural flour cart and carried linen, six moving withdrawal soldiers, wound and chest dressing, physically carried Ward and stranger, hands positioned on the dressing with two-bone inverse kinematics, a still bedside performance after death, following survivors and a small roadside grave. Seven scenes use individually authored cameras. These are stylized fictional local sets rather than surveyed battlefield reconstructions.
+
+
+## Close the Sea additions — 4.17
+
+39 new stock Kokoro synthetic performances. **Two Edges of Water**, 112 BPM, and **The Place at the Table**, 80 BPM, are original instrumental arrangements; measured peaks 0.759 / 0.7044 and RMS about 0.1804. All browser testing stays forced silent; no audible audition is claimed.
+
+Original procedural offshore ships with articulated sails, flags and distant flashes; a small independently steered boat with animated oars, Isaiah rowing and two seated pilots; islands, warnings, rope, chart pins and carried siege stores. Five independently authored scene camera tracks. Stylized local fiction, not surveyed reconstructions.

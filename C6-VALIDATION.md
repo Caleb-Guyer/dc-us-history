@@ -1,3 +1,13 @@
+# Chapter 6 — Chesapeake checks (4.17.0)
+
+- 205 tests and 76 syntax modules pass. Eight new tests complete both pilot arrivals, the physically steered boat route, four-second lee, braked rope/packet/docking gates, store delivery, warning/evasive steering and recoverable damage, collision/water limits, malformed saves and dated coalition continuity.
+- Upward look, tiller taps, zero-time steering and camera direction are finite and independent. Full water routes run with actual boat collision; unmounted foot movement cannot walk or jump onto open water. Both passengers must arrive before chart loading.
+- 100 authored scenes, 953 matching packaged recordings and 29 original scores. All scene cameras begin outside solids with clear scenery sightlines. Ward has no living actor or dialogue in the five new scenes.
+- Hidden forced-muted browser review verified sailing from 0,9 to -1.6,-80.8, tiller +0.021 with look heading unchanged, upward pitch +0.006, two actual passengers, pause and zero error logs. Passenger seating and the fleet establishing sightline were corrected. Public checks are recorded after deployment.
+- M18–M19, E00 and final full-source/campaign acceptance remain. No audible audition, independent blind playthrough, phone/gamepad or performance-target claim.
+
+## Earlier release checks
+
 # Chapter 6 — Guilford, casualty and provision checks (4.16.0)
 
 - 197 tests and 73 syntax modules pass. Nine new tests cover both complete physical provision agreements, remote/braked cart rejection, the actual six-person withdrawal, timed lane and distinct covering commands, wounded checkpoint/resume, physical Ward carry, stranger delivery, three actual crew turns, bounds, malformed saves, independent records and earlier completion migration.

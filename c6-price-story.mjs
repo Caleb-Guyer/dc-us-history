@@ -65,7 +65,7 @@ export const PRICE_SCENES={
  priceTreatment:scene('guilfordfield','Keep the page open','TEMPORARY COVER · MARCH 15, 1781 · MARA ATTEMPTS TO TREAT WARD','pricequiet','price.treatment.',7,'priceAfter'),
  priceAfter:scene('guilfordexit','The People Still Here','WITHDRAWAL ROAD · MARCH 15, 1781 · WARD HAS DIED','pricequiet','price.after.',5,'guilfordexit'),
  priceBurial:scene('guilfordexit','Elias Ward','BESIDE THE WITHDRAWAL ROAD · MARCH 16, 1781 · LOCAL CREW BURIAL','pricequiet','price.burial.',6,'priceEnding'),
- priceEnding:scene('guilfordexit','The road without him','LATER REPORT · AFTER MARCH 18, 1781 · TOWARD WILMINGTON','home','price.ending.',3,'complete'),
+ priceEnding:scene('guilfordexit','The road without him','LATER REPORT · AFTER MARCH 18, 1781 · TOWARD WILMINGTON','home','price.ending.',3,'seaIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const PRICE_SHOTS={

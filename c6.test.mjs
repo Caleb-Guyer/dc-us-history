@@ -9,7 +9,7 @@ import {SHOTS,cameraShot,sceneLead,sceneHold} from './c6-director.mjs';
 function step(s,input={},seconds=1){const all=[];for(let i=0;i<seconds*40;i++)all.push(...tick(s,input,.025));return all;}
 function interact(s){assert.ok(goalNear(s));return step(s,{interact:true},1.3);}
 test('all objectives have a traversable route from their level spawn',()=>{
- for(const id of Object.keys(LEVELS)){const s=fresh(id);if(id==='eastriver')s.retreat.aboard=true;if(id==='delaware')s.crossing.aboard=true;if(id==='openwater')s.wider.aboard=true;if(id==='coastfire')s.wider.beam=true;if(id==='charlestonharbor')s.south.aboard=true;if(id==='charlestonlast')s.south.cuts=3;if(id==='oathroad')s.inland.papers=true;const queue=[[s.player.x,s.player.z]],seen=new Set([queue[0].join(',')]);
+ for(const id of Object.keys(LEVELS)){const s=fresh(id);if(id==='capesrun')s.sea.mounted=true;if(id==='eastriver')s.retreat.aboard=true;if(id==='delaware')s.crossing.aboard=true;if(id==='openwater')s.wider.aboard=true;if(id==='coastfire')s.wider.beam=true;if(id==='charlestonharbor')s.south.aboard=true;if(id==='charlestonlast')s.south.cuts=3;if(id==='oathroad')s.inland.papers=true;const queue=[[s.player.x,s.player.z]],seen=new Set([queue[0].join(',')]);
   // Required opening repairs/boarding are exercised on complete routes in their mission tests.
   if(id==='moorescreek')s.promise.bridge=true;
   for(let i=0;i<queue.length;i++){const [x,z]=queue[i];for(const [dx,dz] of [[1,0],[-1,0],[0,1],[0,-1]]){const a=x+dx,b=z+dz,key=a+','+b;if(seen.has(key)||collide(s,a,b,.4))continue;seen.add(key);queue.push([a,b]);}}

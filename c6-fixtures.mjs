@@ -1,8 +1,11 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.16.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.16.0-published';
+import {fresh} from './c6-sim.mjs?v=4.17.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.17.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='capesrun'&&phase==='boat'){s.stage=2;Object.assign(s.sea,{order:true,sealed:true,pilotsLoaded:true,mounted:true});s.player.z=9;}
+ if(level==='capesrun'&&phase==='rope'){s.stage=3;Object.assign(s.sea,{order:true,sealed:true,pilotsLoaded:true,mounted:true,lee:4,boatX:-25,boatZ:-114});s.player.x=-25;s.player.z=-114;}
+
  if(level==='guilfordfield'&&phase==='hit'){s.stage=4;Object.assign(s.price,{order:true,reserve:true,line:36,wardShot:true});s.player.x=-19;s.player.z=-27;}
  if(level==='guilfordexit'&&phase==='crew'){s.stage=4;Object.assign(s.price,{careRoll:true,stranger:true,strangerSafe:true,crew:Array.from({length:3},(_,i)=>({x:(i-1)*2,z:-24,yaw:0}))});s.player.z=-24;}
  if(level==='priceprovision'&&phase==='cart'){s.stage=3;Object.assign(s.price,{paper:true,merchant:true,agreement:'work'});s.player.x=-12;s.player.z=-3;}

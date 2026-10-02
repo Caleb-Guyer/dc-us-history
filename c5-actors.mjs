@@ -99,6 +99,7 @@ export function poseActor(g,{time=0,speaking=false,voiceTime=0,progress=0,pose='
  if(pose==='point'){u.arms[1].rotation.set(-1.18,.12,.2);u.elbows[1].rotation.x=-.25;}
  if(pose==='work'){u.body.rotation.x=.12;u.arms.forEach((p,i)=>{p.rotation.x=-.78-Math.sin(t*3+i)*.14;u.elbows[i].rotation.x=-.64;});u.head.rotation.x=.16;}
  if(pose==='row'){u.root.position.y=-.34;u.legs.forEach(p=>p.rotation.x=-1.3);u.knees.forEach(p=>p.rotation.x=1.2);u.body.rotation.x=.12+Math.sin(t*1.7)*.14;u.arms.forEach((p,i)=>{p.rotation.x=-.98+Math.sin(t*1.7)*.23;u.elbows[i].rotation.x=-.55;});}
+ if(pose==='sit'){u.root.position.y=-.34;u.legs.forEach(p=>p.rotation.x=-1.3);u.knees.forEach(p=>p.rotation.x=1.2);u.body.rotation.x=.06;u.arms.forEach((p,i)=>{p.rotation.x=-.5;u.elbows[i].rotation.x=-.8;});}
  if(pose==='kneel'){u.root.position.y=-.47;u.body.rotation.x=.24;u.legs[0].rotation.x=-1.5;u.knees[0].rotation.x=1.5;u.legs[1].rotation.x=.45;u.knees[1].rotation.x=1.65;u.arms.forEach((p,i)=>{p.rotation.x=-.8;u.elbows[i].rotation.x=-.35;});u.head.rotation.x=.2;}
  if(pose==='brace'){u.body.rotation.x=.18;u.arms[0].rotation.x=-1.8;u.elbows[0].rotation.x=-.8;u.head.rotation.x=.10;}
  if(pose==='reach'){u.arms[1].rotation.x=-1.3;u.elbows[1].rotation.x=-.25;u.body.rotation.y=-.14;}

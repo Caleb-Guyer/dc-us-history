@@ -1,0 +1,62 @@
+const l=(id,speaker,text)=>({id,speaker,text});
+export const SEA_LINES=[
+ l('sea.intro.0','ISAIAH','August thirtieth, seventeen eighty-one. Lower Chesapeake. Months on the coastal roads brought Rowan’s book back into my hands. Ward’s name is written in it. His voice is not behind me.'),
+ l('sea.intro.1','LYDIA','Adrien has the local pilot order. I have the landing rope. We bring the two of us and that sealed dispatch to the boat before we try the inshore reach.'),
+ l('sea.intro.2','ADRIEN','First the chart. The army closes a land road; a fleet closes a sea road. Neither can take the other’s place.'),
+ l('sea.intro.3','ISAIAH','Charleston had ships over every way out. I am going to look at this water before someone tells me a map has already made it safe.'),
+ l('sea.order','ADRIEN','Local pilot order. Set the port, the land approach and the fleet on their own pins. Then bring Lydia and me aboard. This small boat carries a dispatch, not command of an army.'),
+ l('sea.port','LYDIA','Yorktown: a tobacco port on the Virginia peninsula. Cornwallis expects the Royal Navy to keep his coast open and transport him toward Clinton in New York. Keep that expected sea road on the chart.'),
+ l('sea.land','ADRIEN','Lafayette is watching Cornwallis in Virginia. Washington and Rochambeau are bringing the American and French armies south. Their land approach is separate from de Grasse’s fleet.'),
+ l('sea.pilots','ISAIAH','De Grasse at sea. Lafayette, Washington and Rochambeau on land. The pins show different work closing on the same peninsula. Adrien, Lydia, stay beside me to the boat.'),
+ l('sea.aboard','LYDIA','Both local pilots reached the boat. Our actual feet on the boards, not just two names ticked on a list. Load the sealed dispatch at the stern.'),
+ l('sea.sealed','ISAIAH','Dispatch under the dry flap. Lydia’s rope aboard. We wait for the coastal departure order. I am keeping the book with me.'),
+ l('sea.road.0','ISAIAH','September fifth. The French and British fleets are meeting offshore at the Virginia Capes. Their battle is beyond this little boat’s course. We keep to the inshore courier reach.'),
+ l('sea.road.1','ADRIEN','De Grasse commands the French fleet. Our job is the local dispatch and these two passengers. No cannon on this boat. A clear landing is enough for us.'),
+ l('sea.road.2','LYDIA','The western lee, then the loose rope, then the marked reach. Hold slow behind the shelter before going on. If debris marks the water, turn clear of it.'),
+ l('sea.road.3','ISAIAH','I can hear the firing. I can feel the tiller. I will keep my hands on the part that is ours.'),
+ l('sea.depart','ADRIEN','Coastal departure order. Dispatch secured. Lydia and I board with you. The western lee comes first; give us four slow seconds inside it to read the reach.'),
+ l('sea.tiller','ISAIAH','Tiller in hand. W rows, A and D steer. S or Space brakes. Shift pulls hard. Mouse and arrows let me look without turning the boat.'),
+ l('sea.lee','LYDIA','Sheltered check done. Boat slow, both of us aboard. The loose pilot rope is at the western float. Stop to take it, then cross the marked reach.'),
+ l('sea.rope','ISAIAH','Rope recovered. I have enough line for the far landing. Back under way, with room to turn out of the marked water.'),
+ l('sea.passage','LYDIA','That reach is behind us. Signal crew at the western float. Stop the boat long enough to put the actual packet in their hands.'),
+ l('sea.delivered.dry','ADRIEN','Local dispatch delivered dry. The fleet’s battle is still its own work. Take us to the landing rope at a slow speed.'),
+ l('sea.delivered.damp','ADRIEN','The dispatch is damp at the edge, but the signal crew can read it. That is what I put on this local receipt. Take us slowly to the landing rope.'),
+ l('sea.docked','LYDIA','Boat at the rope. Both pilots at the landing. Let the hull settle before you step off, Isaiah. You can put the tiller down.'),
+ l('sea.obstacle','ISAIAH','Easy. We touched it, but the hull is still afloat. Brake and turn clear. I am not leaving anyone in the water.'),
+ l('sea.crossed.0','LYDIA','Both of us reached the landing. The packet reached the signal crew. That is the whole claim this little boat can make.'),
+ l('sea.crossed.1','ISAIAH','I kept waiting for Ward to say that. Then I heard you say it. I am glad you were in the boat.'),
+ l('sea.crossed.2','ADRIEN','The fleets disengaged offshore. Their contest does not finish at our landing. We keep carrying the coastal papers while the reports come in.'),
+ l('sea.crossed.3','ISAIAH','Three weeks on these roads. Then Rowan and the land army need the chart. Keep the date with every report we give them.'),
+ l('sea.arrival.0','RUNNER','September twenty-seventh, seventeen eighty-one. The French gained control of the Chesapeake after the Battle of the Capes. The British fleet returned toward New York. De Grasse closes Cornwallis’s seaward support and escape.'),
+ l('sea.arrival.1','ROWAN','Isaiah. I left a place for you at the table. The book is still open.'),
+ l('sea.arrival.2','ISAIAH','I have the coastal packet. I brought it because a fleet can close water that no rower can close. Show me where your land road meets it.'),
+ l('sea.arrival.3','MARA','Siege stores by the eastern stack. Put the land and sea pins down separately, then help the cart. Tomorrow the army invests Yorktown. We still have work to do before the ground closes.'),
+ l('sea.handoff','ROWAN','Packet in my hands. Isaiah’s local run kept its own people and papers moving; de Grasse’s fleet earned control of the bay. Put both on their own part of the page.'),
+ l('sea.closed','ISAIAH','The French fleet blocks the sea road Cornwallis expected to use toward Clinton in New York. He is on a peninsula. Land and water have become different edges of the same trap.'),
+ l('sea.estimate','ROWAN','Washington, Lafayette and Rochambeau on the land approach. This copied account estimates roughly sixteen thousand combined American and French troops in September. The count depends on the date and who is included. It is a coalition, larger than my section.'),
+ l('sea.stores','MARA','Local stores in your arms. Carry the actual bundle to the cart. Those shovels and dressings have to reach the siege line before a name on a chart helps anyone use them.'),
+ l('sea.loaded','MARA','Stores on the cart. Coastal packet delivered. Different hands doing different work. Rowan takes the next road with the siege section.'),
+ l('sea.ending.0','ROWAN','The sea pin stays where Isaiah put it. The land pin stays where the army is going. Ward’s buckle stays beside the book. I am not taking his place off the page.'),
+ l('sea.ending.1','ISAIAH','I cannot promise what the next field will cost. I can keep this landing open for the people who come back from it.'),
+ l('sea.ending.2','MARA','September twenty-eighth next. Yorktown’s investment begins. Take the stores with the section, Rowan. Come back through the door when you can.'),
+];
+const scene=(level,title,place,music,prefix,n,after)=>({level,title,place,music,lines:Array.from({length:n},(_,i)=>prefix+i),after});
+export const SEA_SCENES={
+ seaIntro:scene('capeschart','Two Edges of the Map','LOWER CHESAPEAKE · AUGUST 30, 1781 · MONTHS AFTER GUILFORD','seaquiet','sea.intro.',4,'capeschart'),
+ seaRoad:scene('capesrun','Close the Sea','INSHORE REACH · SEPTEMBER 5, 1781 · DISTANT OFFSHORE FLEET BATTLE','sea','sea.road.',4,'capesrun'),
+ seaCrossed:scene('capesrun','The part that was ours','LOCAL LANDING · SEPTEMBER 5, 1781 · TWO PILOTS AND A DISPATCH','seaquiet','sea.crossed.',4,'seaArrival'),
+ seaArrival:scene('capesshore','The Trap Has Two Sides','ALLIED DEPOT · SEPTEMBER 27, 1781 · AFTER WEEKS CARRYING COASTAL PAPERS','seaquiet','sea.arrival.',4,'capesshore'),
+ seaEnding:scene('capesshore','The place at the table','ALLIED DEPOT · SEPTEMBER 27, 1781 · BEFORE THE INVESTMENT','seaquiet','sea.ending.',3,'complete'),
+};
+const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
+export const SEA_SHOTS={
+ seaIntro:[c(2,2.8,28,0,1.2,23),c(-1,1.8,26,3,1.4,23),c(-1,1.8,26,-3,1.4,23),c(2,1.8,26,0,1.4,23)],
+ seaRoad:[c(9,12,20,-110,7,-150),c(0,1.8,24,-3,1.4,21),c(-1,1.8,24,3,1.4,21),c(2,1.8,24,0,1.4,21)],
+ seaCrossed:[c(-1,1.8,-254,3,1.4,-257),c(2,1.8,-254,0,1.4,-257),c(-1,1.8,-254,-3,1.4,-257),c(2,1.8,-254,0,1.4,-257)],
+ seaArrival:[c(0,2,27,-5,1.4,23),c(1,1.8,26,-2,1.4,23),c(-1,1.8,26,2,1.4,23),c(-1,1.8,26,5,1.4,23)],
+ seaEnding:[c(1,1.8,26,-2,1.4,23),c(-1,1.8,26,2,1.4,23),c(-1,1.8,26,5,1.4,23)],
+};
+export const SEA_FACTS=[
+ ['The Chesapeake closes','Yorktown was a Virginia tobacco port on a peninsula. Cornwallis expected Royal Navy support and an open sea route toward Clinton in New York. Washington and Rochambeau moved the allied armies south; Lafayette watched Cornwallis in Virginia. De Grasse’s French fleet gained control of the Chesapeake after its September 5 battle with the British fleet. Land and sea cooperation closed different routes. The player’s inshore pilot/dispatch run is fiction; no American fought in the actual fleet engagement, and Isaiah neither sinks a historical warship nor commands the fleet.','Handout P042; NPS Battle of the Capes and History of the Siege'],
+ ['The chapter’s allied-force estimate','The edited chapter estimates roughly 16,000 combined American and French troops in September 1781. The late-September chart attributes that estimate explicitly. Counts vary by date and inclusion: the NPS siege account gives approximately 17,600 gathered by the end of September. The fleet’s sailors, land forces and fictional local party are separate roles, never a single force secretly controlled by Rowan.','Handout P042/H13; NPS History of the Siege'],
+];

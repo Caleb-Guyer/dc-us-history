@@ -323,5 +323,29 @@ export const C6_SCORE = {
     "peak": 0.7117,
     "rms": 0.1804,
     "bytes": 1164960
+  },
+  "sea": {
+    "title": "Two Edges of Water",
+    "bpm": 112,
+    "mood": "sea",
+    "file": "c6-music-sea-e29fb2e4.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 34.32025,
+    "duration": 34.28571875,
+    "peak": 0.759,
+    "rms": 0.1803,
+    "bytes": 686880
+  },
+  "seaquiet": {
+    "title": "The Place at the Table",
+    "bpm": 80,
+    "mood": "haven",
+    "file": "c6-music-seaquiet-28fbec73.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 48.03453125,
+    "duration": 48.0,
+    "peak": 0.7044,
+    "rms": 0.1804,
+    "bytes": 961200
   }
 };

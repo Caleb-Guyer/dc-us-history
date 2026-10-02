@@ -257,3 +257,12 @@ The supplied P041 supplies the costly British Guilford victory, Greene’s prese
 P057 governs Continental paper, European loans, gold and silver, depreciation, state issues and “not worth a Continental.” H15 attributes the edited handout’s 146-to-one 1781 example; it is not presented as a universal shop exchange rate, a precise March 14 rate or this merchant’s sack price. The local work/barter agreement, cart and linen are original mechanics.
 
 Elias Ward’s fatal chest wound, unsuccessful treatment, March 16 local burial, the wounded militia man and the surviving crew are fiction. The scene shows the hit, continued effort, inability to stand, physical extraction, attempted care and death. Skipping advances the same canonical fate. Ward is not resurrected in the later withdrawal, and his carry does not award a survival or rescue. Later story and E00 must retain this fate. The other wounded man can reach care, and his completed delivery remains separate from Ward’s death.
+
+
+## Close the Sea — 4.17
+
+P042 supplies Yorktown's tobacco port and Virginia peninsula, Cornwallis's expected Royal Navy support toward Clinton in New York, Washington/Lafayette/Rochambeau on land and de Grasse at sea. The required September 27 chart attributes the chapter's approximate 16,000 combined allies; counts depend on date and inclusion, while the [NPS siege account](https://www.nps.gov/york/learn/historyculture/history-of-the-siege.htm) reports approximately 17,600 by the end of September.
+
+[NPS Battle of the Capes](https://home.nps.gov/york/learn/historyculture/battle-of-the-capes.htm) establishes the September 5 French/British offshore engagement and subsequent French control. No Americans fought in the fleet battle. Isaiah's local inshore boat, pilots, route, warnings and dispatch are fiction. His landing does not finish the fleet engagement; the later handoff is explicitly September 27 after weeks carrying papers, before the September 28 investment. French and British ships are distant visual models, without player damage or invented historical ship names.
+
+Ward remains dead. Adrien and Lydia sit aboard the actual boat, while their approach to it is physically simulated. Damp paper, hull impacts and both passengers arriving are local outcomes, never historical naval casualties or victories. Black participation and the siege chronology continue in M18.

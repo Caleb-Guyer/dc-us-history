@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {makeActor,poseActor} from './c5-actors.mjs?v=4.16.0-published';
-import {INLAND_BLOCKS,inlandWithdrawing,inlandEscorting} from './c6-inland.mjs?v=4.16.0-published';
-import {INLAND_SCENES,INLAND_LINES} from './c6-inland-story.mjs?v=4.16.0-published';
+import {makeActor,poseActor} from './c5-actors.mjs?v=4.17.0-published';
+import {INLAND_BLOCKS,inlandWithdrawing,inlandEscorting} from './c6-inland.mjs?v=4.17.0-published';
+import {INLAND_SCENES,INLAND_LINES} from './c6-inland-story.mjs?v=4.17.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const actor=(w,k,x,z,tx,tz,pose,t,voice)=>w.setActor(k,x,z,face(x,z,tx,tz),pose,t,voice===k);
 function table(w,x,z){w.box(2,.1,1.2,0x887356,x,.9,z);for(const a of [-.85,.85])for(const b of [-.45,.45])w.box(.1,.9,.1,0x615940,x+a,.45,z+b);return w.box(.75,.012,.5,0xd1c5a7,x,.967,z);}
