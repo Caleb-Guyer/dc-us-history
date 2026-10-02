@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.13.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.13.0-published';
+import {fresh} from './c6-sim.mjs?v=4.14.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.14.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='countrystandoff'&&phase==='route'){s.stage=4;Object.assign(s.inland,{window:true,doused:true,claim:true,torch:false});s.player.x=5;s.player.z=-29;}
+ if(level==='countrystandoff'&&phase==='water'){s.stage=2;Object.assign(s.inland,{window:true,bucket:true,fire:.4});s.player.z=-8;}
+ if(level==='oathroad'&&phase==='oath'){s.stage=2;Object.assign(s.inland,{parole:true});s.player.x=8;s.player.z=0;}
+ if(level==='camdenfall'&&phase==='retreat'){s.stage=2;Object.assign(s.inland,{packet:true,cartridges:true});s.player.z=-32;s.armed=true;}
  if(level==='charlestonlast'&&phase==='axe'){s.stage=2;Object.assign(s.south,{list:true,axe:true});s.player.x=19;s.player.z=-8;}
  if(level==='charlestonharbor'&&phase==='tiller'){s.stage=2;Object.assign(s.south,{message:true,aboard:true,moored:false});s.player.z=10;}
  if(level==='charlestonring'&&phase==='cart'){s.stage=6;Object.assign(s.south,{patients:2,cartReady:true});s.player.x=14;s.player.z=-33;s.player.yaw=Math.PI;}

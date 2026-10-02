@@ -113,3 +113,10 @@ Version 4.6 adds 64 synthetic performances, five real-time scenes, two playable 
 74 new locally generated stock-voice synthetic performances; no actor imitation. Samuel uses am_eric, Bennett bm_fable, the Creek visitor am_onyx and Eliza af_bella; established cast voices continue. The visitor’s speech is an English translation convention. Original instrumental loops **The Roads Close** (116 BPM) and **Keep the Roll** (84 BPM) use the established deterministic synthesis engine. Peaks/RMS and measured loops are preserved in c6-score.mjs. No commercial game audio or assets are used.
 
 Original code-built city, changing road barrier, bombardment warning ring, hospital cart/patients, rescue axe and broken timber, captured column, civilian skiff, guarded hulks and patrol lantern sector extend the established procedural art. The maps and uniforms are approximations, not precise historical reconstructions. Scenes use individually authored bounded cameras and visible character blocking. Music and voices were tested silently for metadata and packaged assets; no audible audition is claimed.
+
+
+## Country Against Itself additions — 4.14
+
+71 new locally generated stock Kokoro performances. Joseph uses am_eric, Hannah af_bella, the tenant bm_fable and the neighbor bm_george; no actor imitation. Original 120 BPM **Country Against Itself** and 78 BPM **The Chair in the House** use the established deterministic synthesis engine. Their peaks are 0.7142 and 0.6550, RMS about 0.1804. Voices and music were checked for packaged metadata and nonempty media, with playback forced silent during development.
+
+Original procedural ditch, advancing line, actual withdrawing section, oath desks and gate, hollow house with window and hinged doors, porch fire/water, held torch, moving three-person household and supply depot extend the established rigs. Individually authored cameras support nine scenes. These sets are stylized fiction rather than surveyed reconstructions; no commercial game assets are used.

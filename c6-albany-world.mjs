@@ -1,6 +1,6 @@
 import * as T from './three.module.js';
-import {ALBANY_BLOCKS} from './c6-albany.mjs?v=4.13.0-published';
-import {ALBANY_LINES,ALBANY_SCENES} from './c6-albany-story.mjs?v=4.13.0-published';
+import {ALBANY_BLOCKS} from './c6-albany.mjs?v=4.14.0-published';
+import {ALBANY_LINES,ALBANY_SCENES} from './c6-albany-story.mjs?v=4.14.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z)),smooth=t=>(t=Math.max(0,Math.min(1,t)))*t*(3-2*t);
 function actor(w,key,x,z,tx,tz,pose,t,voice){return w.setActor(key,x,z,face(x,z,tx,tz),pose,t,key===voice);}
 function trees(w,level){for(let i=0;i<90;i++){const x=(i%2?-1:1)*(27+i%11*1.7),z=29-Math.floor(i/2)*2.3,h=6+i%5;if(level==='hudsonwatch'&&x>20)continue;w.cyl(.15,h,0x5b503d,x,h/2,z);w.mesh(new T.ConeGeometry(2.6,6,9),i%3?0x727b48:0x927344,x,h-1,z);w.mesh(new T.ConeGeometry(1.8,4,9),0x867847,x,h+1,z);}}

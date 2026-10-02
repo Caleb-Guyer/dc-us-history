@@ -1,3 +1,13 @@
+# Chapter 6 — Inland checks (4.14.0)
+
+- 177 tests and 67 syntax modules pass. Eight new tests exercise the full collision-aware Camden squad withdrawal, remote/kill-only rejection, both oath routes and checkpoint barrier, both complete walked household exits with real arrival, water and closed-door restrictions, the carried supply bundle, receipts/discipline, malformed saves, completed outcomes, migration and dated chronology.
+- All 84 scenes have bounded cameras outside solid scenery. All 814 packaged recordings match text and speaker (4428.533 seconds); all 23 scores have valid loops and safe level metadata (933.507 seconds).
+- Hidden forced-muted UI registered the refused oath, actual E porch dousing, positive upward pitch, pause and the chronological scene gallery. Window framing, door lintels, held torch, wagon approach and an escort that waits at each retreat marker were corrected. Further local and public results are recorded in release-4.14.0.json after verification.
+- Complete routes are simulated evidence, not an independent blind playthrough. No audible audition, physical phone/gamepad check or frame-rate claim. Publish media before runtime, verify hashes, the actual Pages run and public controls/entry/style/errors.
+- M15–M19, E00 and the final whole-campaign source/outcome audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Charleston checks (4.13.0)
 
 - 169 tests and 64 syntax modules pass. Eight new tests exercise complete walked/steered routes in all four sections, required distinct dock encounters, local defense, carried patients and actual cart arrival, closed-road collision, braking, three physical timed axe strokes, held-key/distance rejection, actual civilian escort, disarmament, prisoner signal, sheltered patrol wait, slow ropes, shoal recovery, warned recoverable bombardment, malformed states, completed outcomes and wider-war migration.

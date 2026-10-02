@@ -84,7 +84,7 @@ export const SOUTH_SCENES={
  southNight:scene('charlestonlast','The Last Lantern','CHARLESTON · MAY 9, 1780 · THE BOMBARDMENT RESUMES','southnight','south.night.',6,'charlestonlast'),
  southSurrender:scene('charlestonlast','Keep the roll','CHARLESTON · MAY 12, 1780 · LINCOLN’S ARMY SURRENDERS','southnight','south.surrender.',7,'southHarbor'),
  southHarbor:scene('charlestonharbor','A message, in his own words','CHARLESTON HARBOR · MAY 13, 1780 · FICTIONAL CIVILIAN PASSAGE','southnight','south.harbor.',6,'charlestonharbor'),
- southEnding:scene('charlestonharbor','Answered','BEYOND THE GUARDED HARBOR · MAY 13, 1780 · THE ARMY REMAINS CAPTURED','river','south.ending.',5,'complete'),
+ southEnding:scene('charlestonharbor','Answered','BEYOND THE GUARDED HARBOR · MAY 13, 1780 · THE ARMY REMAINS CAPTURED','river','south.ending.',5,'inlandIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const SOUTH_SHOTS={

@@ -251,5 +251,29 @@ export const C6_SCORE = {
     "peak": 0.6476,
     "rms": 0.1804,
     "bytes": 915120
+  },
+  "inland": {
+    "title": "Country Against Itself",
+    "bpm": 120,
+    "mood": "battle",
+    "file": "c6-music-inland-51fd35d1.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 32.03453125,
+    "duration": 32.0,
+    "peak": 0.7142,
+    "rms": 0.1804,
+    "bytes": 640800
+  },
+  "inlandquiet": {
+    "title": "The Chair in the House",
+    "bpm": 78,
+    "mood": "tension",
+    "file": "c6-music-inlandquiet-be9d7891.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 49.2653125,
+    "duration": 49.23078125,
+    "peak": 0.655,
+    "rms": 0.1804,
+    "bytes": 985680
   }
 };

@@ -9,8 +9,8 @@ import {SHOTS,cameraShot,sceneLead,sceneHold} from './c6-director.mjs';
 function step(s,input={},seconds=1){const all=[];for(let i=0;i<seconds*40;i++)all.push(...tick(s,input,.025));return all;}
 function interact(s){assert.ok(goalNear(s));return step(s,{interact:true},1.3);}
 test('all objectives have a traversable route from their level spawn',()=>{
- for(const id of Object.keys(LEVELS)){const s=fresh(id),queue=[[s.player.x,s.player.z]],seen=new Set([queue[0].join(',')]);
-  // The broken crossing is opened by a required repair, tested in c6-promise.test.
+ for(const id of Object.keys(LEVELS)){const s=fresh(id);if(id==='eastriver')s.retreat.aboard=true;if(id==='delaware')s.crossing.aboard=true;if(id==='openwater')s.wider.aboard=true;if(id==='coastfire')s.wider.beam=true;if(id==='charlestonharbor')s.south.aboard=true;if(id==='charlestonlast')s.south.cuts=3;if(id==='oathroad')s.inland.papers=true;const queue=[[s.player.x,s.player.z]],seen=new Set([queue[0].join(',')]);
+  // Required opening repairs/boarding are exercised on complete routes in their mission tests.
   if(id==='moorescreek')s.promise.bridge=true;
   for(let i=0;i<queue.length;i++){const [x,z]=queue[i];for(const [dx,dz] of [[1,0],[-1,0],[0,1],[0,-1]]){const a=x+dx,b=z+dz,key=a+','+b;if(seen.has(key)||collide(s,a,b,.4))continue;seen.add(key);queue.push([a,b]);}}
   for(const goal of LEVELS[id].goals)assert.ok(queue.some(([x,z])=>Math.hypot(x-goal.x,z-goal.z)<2.1),id+': '+goal.label);
@@ -63,7 +63,7 @@ test('every scene transition leads to a valid scene, level, or ending',()=>{
 test('every line and score has a packaged, nonempty media asset',()=>{
  assert.equal(C6_VOICES.length,LINES.length);assert.equal(new Set(C6_VOICES.map(v=>v.id)).size,LINES.length);
  for(const l of LINES){const v=C6_VOICES.find(v=>v.id===l.id);assert.equal(v.text,l.text);assert.equal(v.speaker,l.speaker);assert.ok(v.duration>.5);assert.ok(fs.statSync(new URL(v.file,import.meta.url)).size>4000);}
- assert.equal(Object.keys(C6_SCORE).length,6);for(const s of Object.values(C6_SCORE)){assert.ok(s.loopEnd>s.loopStart+10);assert.ok(s.peak<1);assert.ok(s.rms>.1);assert.equal(fs.statSync(new URL(s.file,import.meta.url)).size,s.bytes);}
+ for(const spec of [...Object.values(LEVELS),...Object.values(SCENES)])if(spec.music)assert.ok(C6_SCORE[spec.music],'packaged score for '+spec.music);for(const s of Object.values(C6_SCORE)){assert.ok(s.loopEnd>s.loopStart+10);assert.ok(s.peak<1);assert.ok(s.rms>.1);assert.equal(fs.statSync(new URL(s.file,import.meta.url)).size,s.bytes);}
 });
 
 test('Lexington warns before volleys, with real protection behind the wall',()=>{
@@ -123,3 +123,4 @@ test('every cinematic line has a bounded camera that starts outside solid scener
   }
  }
 });
+

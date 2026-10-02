@@ -1,3 +1,15 @@
+## Chapter 6 update — Country Against Itself (4.14.0)
+
+Camden collapses around Rowan. Rally four scattered soldiers and bring the actual squad through three withdrawal positions. E away from a marker orders covering fire; F / R / C retain their usual musket, reload and crouch controls. Escaping the field does not change Gates’s defeat.
+
+At a Patriot district checkpoint, witness Joseph’s oath on the left or his refusal and restricted release on the right. Thomas carries a separate Pennsylvania property loss. The next house is occupied: stop the porch fire, read the neighbor’s older fence claim, then secure witnessed front passage or open a rear escape. The family must physically reach shelter. A December 2 command change leads, after weeks of travel, to the December 27 Philadelphia supply depot and the women’s dated work.
+
+Four playable sections, nine scenes, 71 new synthetic voice recordings and two original scores. Totals: 84 scenes, 814 recordings, 23 scores. Charleston-completed saves continue into Camden; oath, property, house route, household arrival, cloth and sale outcomes remain distinct.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. M15–M19, E00 and final whole-chapter acceptance remain; next is **Make Them Chase**.
+
 ## Chapter 6 update — The South Breaks (4.13.0)
 
 Charleston closes around Rowan across three dated siege phases. Meet the people who reached its docks for different reasons, hold a local hospital passage, support two patients and walk their loaded cart around the sealed western road. In May, time three axe strokes to clear fallen timber and escort Eliza to the quay. Lincoln’s army still surrenders. Samuel, the orderly you helped, visibly becomes a prisoner. Isaiah then carries a small civilian boat past the hulks, hears Samuel’s answer and preserves Jonas’s separate choice.
