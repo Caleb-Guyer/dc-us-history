@@ -238,3 +238,11 @@ GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root)
 - `dialogue.mjs`, `music.mjs`, `score.mjs`: shared audio systems.
 
 Code is MIT licensed. Chapter 5 reference adaptations are attributed to OpenStax under CC BY-NC-SA 4.0, as detailed in C5-SOURCES.md. Original key art and music are offered under CC BY 4.0 to the extent rights apply. Third-party licenses remain in force. No analytics, remote saves, microphone requests, or AI calls in gameplay.
+
+## Chapter 6 Questions
+
+Choose **Questions** on the Chapter 6 main menu. Practice 15, 30 or all available questions; select the whole chapter, one of its four sections, or the ten bolded terms. The authored 80-question bank covers all 54 substantive paragraphs in the supplied chapter. Short whole-chapter rounds balance sections, and question and answer order are shuffled.
+
+Each answer immediately shows the correct choice and an explanation. Retry this round’s misses or all questions missed on the latest attempt. **Save & leave** and **Continue round** retain the displayed choices and feedback. Study saves use a separate browser-local key from campaign checkpoints; there is no timer or account requirement. Press **1–4** to answer, **Enter** after feedback to advance, or **Escape** to leave the round. Touch and keyboard focus are supported.
+
+These are practice questions rather than a promised test format. The bank distinguishes handout estimates from historical certainty and provides primary-source checks for disputed Yorktown chronology/music, Valley Forge deaths, treaty restitution and other qualifications. See [C6-SOURCES.md](C6-SOURCES.md). Runtime: `c6-questions.mjs` and `c6-study.mjs`; checks: `c6-questions.test.mjs`.

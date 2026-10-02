@@ -1,6 +1,6 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.17.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.17.0-published';
+import {fresh} from './c6-sim.mjs?v=4.17.1-published';
+import {interactHill} from './c6-hill.mjs?v=4.17.1-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
  if(level==='capesrun'&&phase==='boat'){s.stage=2;Object.assign(s.sea,{order:true,sealed:true,pilotsLoaded:true,mounted:true});s.player.z=9;}

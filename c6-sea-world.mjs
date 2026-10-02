@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {poseActor} from './c5-actors.mjs?v=4.17.0-published';
-import {SEA_BLOCKS,seaBoating,seaFollowing} from './c6-sea.mjs?v=4.17.0-published';
-import {SEA_SCENES,SEA_LINES} from './c6-sea-story.mjs?v=4.17.0-published';
+import {poseActor} from './c5-actors.mjs?v=4.17.1-published';
+import {SEA_BLOCKS,seaBoating,seaFollowing} from './c6-sea.mjs?v=4.17.1-published';
+import {SEA_SCENES,SEA_LINES} from './c6-sea-story.mjs?v=4.17.1-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function table(w,x,z,chart=false){w.box(2.8,.12,1.8,0x8e7c5d,x,.9,z);for(const a of [-1.2,1.2])for(const b of [-.65,.65])w.box(.12,.9,.12,0x625d47,x+a,.45,z+b);w.box(2,.015,1.35,0xd0c5a2,x,.968,z);if(chart){w.box(.75,.018,1.1,0x87a7ab,x+.4,.98,z);const p=w.box(.45,.025,.72,0x879074,x+.13,1,z+.08);p.rotation.y=.38;w.cyl(.045,.09,0x944b3d,x+.26,1.04,z-.15);}}
 function boat(w){const g=w.group(),oars=[];w.box(2.6,.55,6.3,0x514939,0,.1,0,g);w.box(2.35,.11,5.9,0x9c8763,0,.43,0,g);for(const x of [-1.25,1.25])w.box(.14,.52,6,0x6c5e47,x,.55,0,g);for(const z of [-1.8,.5,2.2])w.box(2.3,.1,.36,0x817254,0,.68,z,g);const bow=w.mesh(new T.ConeGeometry(1.3,2,4),0x514939,0,.1,-3.4,g);bow.rotation.x=-Math.PI/2;bow.scale.set(1,.8,.32);for(const side of [-1,1]){const a=new T.Group();g.add(a);a.position.set(side*1.2,.7,.5);const stick=w.box(2.6,.05,.05,0x817254,side*1.2,0,0,a);w.box(.8,.06,.28,0x998461,side*2.2,0,0,a);oars.push(a);}w.box(.5,.25,.4,0xb3a789,0,.75,2.2,g);g.userData.oars=oars;return g;}

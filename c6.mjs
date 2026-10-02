@@ -1,28 +1,29 @@
-import {seaContext,seaBoating,seaFollowing,seaCarrying,seaCanUse} from './c6-sea.mjs?v=4.17.0-published';
-import {priceContext,priceFighting,priceCart,priceCarrying,priceFollowing,priceCanUse} from './c6-price.mjs?v=4.17.0-published';
-import {chaseContext,chaseMounted,chaseOperating,chaseFollowing,chaseCanUse} from './c6-chase.mjs?v=4.17.0-published';
-import {inlandContext,inlandWithdrawing,inlandEscorting,inlandCanUse} from './c6-inland.mjs?v=4.17.0-published';
-import {southContext,southBoating,southFighting,southOperating,southCutting,southEscorting,southCanUse,southNear} from './c6-south.mjs?v=4.17.0-published';
-import {widerContext,widerBoating,widerFighting,widerOperating,widerCanUse,widerNear} from './c6-wider.mjs?v=4.17.0-published';
-import {winterContext,winterHauling,winterWashing,winterRange,winterOperating,winterCanUse,winterNear} from './c6-winter.mjs?v=4.17.0-published';
-import {albanyContext,albanyOperating,albanyFighting} from './c6-albany.mjs?v=4.17.0-published';
-import {philadelphiaContext,philadelphiaDefending,philadelphiaOperating,philadelphiaCanUse,philadelphiaNear} from './c6-philadelphia.mjs?v=4.17.0-published';
-import {crossingContext,crossingBoating,crossingFighting,crossingCanUse} from './c6-crossing.mjs?v=4.17.0-published';
-import {cleanRecord,rememberOutcome,rememberScene,carryOutcome} from './c6-record.mjs?v=4.17.0-published';
-import {retreatContext,retreatBoating,retreatDefending,retreatCanUse} from './c6-retreat.mjs?v=4.17.0-published';
-import {paperContext,paperOperating,paperCanUse} from './c6-paper.mjs?v=4.17.0-published';
-import {liftContext,liftHauling,liftCanUse} from './c6-lift.mjs?v=4.17.0-published';
-import {promiseContext} from './c6-promise.mjs?v=4.17.0-published';
-import {fixtureState} from './c6-fixtures.mjs?v=4.17.0-published';
-import {hillContext,hillDefending,hillSupply,hillCanVolley} from './c6-hill.mjs?v=4.17.0-published';
-import {fortContext} from './c6-fort.mjs?v=4.17.0-published';
-import {SAVE_KEY,VERSION,LEVELS,SCENES,FACTS,NAMES,continueProgress} from './c6-data.mjs?v=4.17.0-published';
-import {fresh,restore,snapshot,tick,currentGoal,goalNear,clamp,angle,distance} from './c6-sim.mjs?v=4.17.0-published';
-import {sceneLead,sceneHold} from './c6-director.mjs?v=4.17.0-published';
-import {applyLook,mouseButtons} from './c6-controls.mjs?v=4.17.0-published';
-import {OpeningWorld} from './c6-world.mjs?v=4.17.0-published';
-import {C6_VOICES} from './c6-voices.mjs?v=4.17.0-published';
-import {C6_SCORE} from './c6-score.mjs?v=4.17.0-published';
+import {ChapterSixStudy} from './c6-study.mjs?v=1.0.0';
+import {seaContext,seaBoating,seaFollowing,seaCarrying,seaCanUse} from './c6-sea.mjs?v=4.17.1-published';
+import {priceContext,priceFighting,priceCart,priceCarrying,priceFollowing,priceCanUse} from './c6-price.mjs?v=4.17.1-published';
+import {chaseContext,chaseMounted,chaseOperating,chaseFollowing,chaseCanUse} from './c6-chase.mjs?v=4.17.1-published';
+import {inlandContext,inlandWithdrawing,inlandEscorting,inlandCanUse} from './c6-inland.mjs?v=4.17.1-published';
+import {southContext,southBoating,southFighting,southOperating,southCutting,southEscorting,southCanUse,southNear} from './c6-south.mjs?v=4.17.1-published';
+import {widerContext,widerBoating,widerFighting,widerOperating,widerCanUse,widerNear} from './c6-wider.mjs?v=4.17.1-published';
+import {winterContext,winterHauling,winterWashing,winterRange,winterOperating,winterCanUse,winterNear} from './c6-winter.mjs?v=4.17.1-published';
+import {albanyContext,albanyOperating,albanyFighting} from './c6-albany.mjs?v=4.17.1-published';
+import {philadelphiaContext,philadelphiaDefending,philadelphiaOperating,philadelphiaCanUse,philadelphiaNear} from './c6-philadelphia.mjs?v=4.17.1-published';
+import {crossingContext,crossingBoating,crossingFighting,crossingCanUse} from './c6-crossing.mjs?v=4.17.1-published';
+import {cleanRecord,rememberOutcome,rememberScene,carryOutcome} from './c6-record.mjs?v=4.17.1-published';
+import {retreatContext,retreatBoating,retreatDefending,retreatCanUse} from './c6-retreat.mjs?v=4.17.1-published';
+import {paperContext,paperOperating,paperCanUse} from './c6-paper.mjs?v=4.17.1-published';
+import {liftContext,liftHauling,liftCanUse} from './c6-lift.mjs?v=4.17.1-published';
+import {promiseContext} from './c6-promise.mjs?v=4.17.1-published';
+import {fixtureState} from './c6-fixtures.mjs?v=4.17.1-published';
+import {hillContext,hillDefending,hillSupply,hillCanVolley} from './c6-hill.mjs?v=4.17.1-published';
+import {fortContext} from './c6-fort.mjs?v=4.17.1-published';
+import {SAVE_KEY,VERSION,LEVELS,SCENES,FACTS,NAMES,continueProgress} from './c6-data.mjs?v=4.17.1-published';
+import {fresh,restore,snapshot,tick,currentGoal,goalNear,clamp,angle,distance} from './c6-sim.mjs?v=4.17.1-published';
+import {sceneLead,sceneHold} from './c6-director.mjs?v=4.17.1-published';
+import {applyLook,mouseButtons} from './c6-controls.mjs?v=4.17.1-published';
+import {OpeningWorld} from './c6-world.mjs?v=4.17.1-published';
+import {C6_VOICES} from './c6-voices.mjs?v=4.17.1-published';
+import {C6_SCORE} from './c6-score.mjs?v=4.17.1-published';
 import {DialogueDirector} from './dialogue.mjs';
 import {MusicDirector} from './music.mjs';
 const $=id=>document.getElementById(id),ui=$('ui'),canvas=$('world'),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -56,8 +57,8 @@ function setState(next){state=next;document.body.dataset.state=state;document.bo
 function ensureWorld(){if(world)return true;try{world=new OpeningWorld(canvas);world.configure(prefs);return true;}catch(e){worldError=e;console.error('Chapter 6 renderer:',e);return false;}}
 function panel(content,narrow=false){ui.innerHTML=`<section class="panel ${narrow?'narrow':''}"><div class="panel-inner">${content}</div></section>`;}
 function hide(){resetInput();dialogue.stop();setState('menu');}
-function home(){hide();film=null;replay=false;missionReplay=false;replayCheckpoint=null;music.select('home');music.resume();const started=saved.checkpoint||saved.scene;
- ui.innerHTML=`<section class="menu"><header class="topline"><a class="brand" href="./">DC <i>/</i> US HISTORY</a><nav>${btn('Chapters','chapters','quiet')}${btn('Settings','settings','quiet')}</nav></header><div class="hero"><p class="eyebrow">Chapter 06 · America’s War for Independence</p><h1>THE LONG<br><span>ROAD HOME</span></h1><p class="lede">A promise kept. A country breaking.<br>From the first shot to the coast closing in.</p><div class="row">${btn(started&&!saved.complete?'Continue the campaign →':'Begin the campaign →','start')}${btn('Mission select','missions','secondary')}</div><div class="edition"><span>NOW PLAYING · CLOSE THE SEA</span><span>1775–1781</span><span>HEADPHONES RECOMMENDED</span></div>${!storageOK?'<p class="save-warning">Browser saving is unavailable. Keep this tab open to retain your session.</p>':''}</div><div class="chapter-number">06</div><footer class="menu-foot"><span>AN ORIGINAL STORY THROUGH REAL HISTORY</span><div class="row">${btn('Story scenes','scenes','quiet')}${btn('Controls','controls','quiet')}${btn('History & credits','archive','quiet')}</div></footer></section>`;
+function home(){study.close();hide();film=null;replay=false;missionReplay=false;replayCheckpoint=null;music.select('home');music.resume();const started=saved.checkpoint||saved.scene;
+ ui.innerHTML=`<section class="menu"><header class="topline"><a class="brand" href="./">DC <i>/</i> US HISTORY</a><nav>${btn('Chapters','chapters','quiet')}${btn('Settings','settings','quiet')}</nav></header><div class="hero"><p class="eyebrow">Chapter 06 · America’s War for Independence</p><h1>THE LONG<br><span>ROAD HOME</span></h1><p class="lede">A promise kept. A country breaking.<br>From the first shot to the coast closing in.</p><div class="row">${btn(started&&!saved.complete?'Continue the campaign →':'Begin the campaign →','start')}${btn('Mission select','missions','secondary')}${btn('Questions','study-open','secondary')}</div><div class="edition"><span>NOW PLAYING · CLOSE THE SEA</span><span>1775–1781</span><span>HEADPHONES RECOMMENDED</span></div>${!storageOK?'<p class="save-warning">Browser saving is unavailable. Keep this tab open to retain your session.</p>':''}</div><div class="chapter-number">06</div><footer class="menu-foot"><span>AN ORIGINAL STORY THROUGH REAL HISTORY</span><div class="row">${btn('Story scenes','scenes','quiet')}${btn('Controls','controls','quiet')}${btn('History & credits','archive','quiet')}</div></footer></section>`;
 }
 function chapters(){hide();setState('chapters');panel(`<p class="eyebrow">DC / US History</p><h1>Three roads through history.</h1><div class="chapters"><a class="chapter-card" href="chapter4.html"><span>CHAPTER 04</span><strong>Crown & Current</strong><p>1676–1763 · Building an empire.</p><span>Play →</span></a><a class="chapter-card" href="chapter5.html"><span>CHAPTER 05</span><strong>The Last Dispatch</strong><p>1763–1774 · A city on the edge.</p><span>Play →</span></a><button class="chapter-card" data-action="home"><span>CHAPTER 06 · CAMPAIGN</span><strong>The Long Road Home</strong><p>1775–1781 · From Powder Road to the Chesapeake.</p><span>Play →</span></button></div><div class="row">${btn('Back','home','quiet')}</div>`);}
 function scenes(){hide();setState('scenes');panel(`<p class="eyebrow">The Long Road Home · screening room</p><h1>The people you carry.</h1><p>Includes spoilers through Close the Sea. Replays leave your campaign checkpoint intact.</p><div class="scene-list">${Object.entries(SCENES).map(([id,s],i)=>btn(`<span>${String(i+1).padStart(2,'0')} · ${esc(s.place)}</span><strong>${esc(s.title)}</strong>`,'scene','scene-card',`data-scene="${id}"`)).join('')}</div>${btn('Back','home','quiet')}`);}
@@ -125,10 +126,10 @@ function updateHUD(){if(!model)return;const s=model,g=currentGoal(s),p=s.player;
  document.body.dataset.level=s.level;document.body.dataset.stage=String(s.stage);document.body.dataset.route=s.fort?(s.fort.alarm?'rescue':'quiet'):'';canvas.dataset.position=`${p.x.toFixed(1)},${p.z.toFixed(1)}`;canvas.dataset.heading=p.yaw.toFixed(3);canvas.dataset.pitch=p.pitch.toFixed(3);
 }
 function input(){return {forward:keys.KeyW||autoWalk,back:keys.KeyS,left:keys.KeyA,right:keys.KeyD,rightTap:pressed.KeyD,leftTap:pressed.KeyA,crouch:keys.KeyC||touchCrouch,sprint:keys.ShiftLeft||keys.ShiftRight,lookLeft:keys.ArrowLeft||pressed.ArrowLeft,lookRight:keys.ArrowRight||pressed.ArrowRight,lookUp:keys.ArrowUp||pressed.ArrowUp,lookDown:keys.ArrowDown||pressed.ArrowDown,jump:keys.Space||pressed.Space,press:pressed.Space,washStroke:washStrokes.shift()||'',useTap:pressed.KeyE,interact:keys.KeyE||interacting,reload:keys.KeyR||pressed.KeyR,fire:keys.KeyF||fire||pressed.KeyF,aim:keys.KeyQ||aim||touchAim};}
-function action(name,el){document.body.dataset.lastAction=name;music.unlock();fxContext?.resume();if(name==='home')home();else if(name==='start')start();else if(name==='missions')missions();else if(name==='mission'){missionReplay=true;replayCheckpoint=null;if(LEVELS[el.dataset.mission].intro)playScene(LEVELS[el.dataset.mission].intro);else begin(fresh(el.dataset.mission,prefs.difficulty));}else if(name==='campaign'){missionReplay=false;start();}else if(name==='new-story')newStory();else if(name==='confirm-new'){saved.complete=false;saved.checkpoint=null;saved.scene='release';saved.completedPart=null;saved.seen=[];saved.skipped=[];saved.outcomes={};saved.story={};missionReplay=false;persist();start();}else if(name==='chapters')chapters();else if(name==='scenes')scenes();else if(name==='scene')playScene(el.dataset.scene,true);else if(name==='archive')archive();else if(name==='controls')controls();else if(name==='pause-controls')controls('pause-back');else if(name==='pause-back')pausePanel();else if(name==='settings')settings();else if(name==='settings-done'){persist();settingsBack==='pause'?pausePanel():home();}else if(name==='pause')pause();else if(name==='resume')resume();else if(name==='next')advance();else if(name==='skip')finishScene(true);else if(name==='restart-scene')playScene(film.key,replay);else if(name==='retry')retry();else if(name==='story-retry'){prefs.difficulty='story';persist();retry();}else if(name==='retry-render'){world=null;worldError=null;if(ensureWorld())home();else errorScreen();}}
+function action(name,el){document.body.dataset.lastAction=name;music.unlock();fxContext?.resume();if(name.startsWith('study-')){study.handle(name,el);return;}if(name==='home')home();else if(name==='start')start();else if(name==='missions')missions();else if(name==='mission'){missionReplay=true;replayCheckpoint=null;if(LEVELS[el.dataset.mission].intro)playScene(LEVELS[el.dataset.mission].intro);else begin(fresh(el.dataset.mission,prefs.difficulty));}else if(name==='campaign'){missionReplay=false;start();}else if(name==='new-story')newStory();else if(name==='confirm-new'){saved.complete=false;saved.checkpoint=null;saved.scene='release';saved.completedPart=null;saved.seen=[];saved.skipped=[];saved.outcomes={};saved.story={};missionReplay=false;persist();start();}else if(name==='chapters')chapters();else if(name==='scenes')scenes();else if(name==='scene')playScene(el.dataset.scene,true);else if(name==='archive')archive();else if(name==='controls')controls();else if(name==='pause-controls')controls('pause-back');else if(name==='pause-back')pausePanel();else if(name==='settings')settings();else if(name==='settings-done'){persist();settingsBack==='pause'?pausePanel():home();}else if(name==='pause')pause();else if(name==='resume')resume();else if(name==='next')advance();else if(name==='skip')finishScene(true);else if(name==='restart-scene')playScene(film.key,replay);else if(name==='retry')retry();else if(name==='story-retry'){prefs.difficulty='story';persist();retry();}else if(name==='retry-render'){world=null;worldError=null;if(ensureWorld())home();else errorScreen();}}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(b)action(b.dataset.action,b);});
 document.addEventListener('input',e=>{const k=e.target.dataset.setting;if(!k)return;prefs[k]=e.target.type==='checkbox'?e.target.checked:e.target.tagName==='SELECT'?e.target.value:Number(e.target.value);configure();if(k==='quality')world?.configure(prefs);if(model)model.difficulty=prefs.difficulty;persist();});
-document.addEventListener('keydown',e=>{if(e.target.matches('input,select,textarea'))return;if(['Space','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault();if(e.code==='KeyM'&&!e.repeat){prefs.muted=!prefs.muted;configure();persist();return;}if(e.code==='Escape'||e.code==='KeyP'){if(e.repeat)return;if(state==='pause')resume();else pause();return;}if(state==='film'&&e.code==='Space'){if(!e.repeat)advance();return;}if(state!=='play')return;keys[e.code]=true;if(!e.repeat)pressed[e.code]=(pressed[e.code]||0)+1;if(!e.repeat&&winterWashing(model)&&['KeyA','KeyD'].includes(e.code))washStrokes.push(e.code==='KeyA'?'a':'d');if(e.code==='KeyE'&&!e.repeat)interacting=true;if(e.code==='KeyC'&&!e.repeat&&model.level==='tidewater')touchCrouch=!touchCrouch;if(e.code==='KeyV'&&!e.repeat)autoWalk=!autoWalk;if(['KeyW','KeyA','KeyS','KeyD'].includes(e.code))autoWalk=false;});
+document.addEventListener('keydown',e=>{if(study.onKey(e))return;if(state==='study'&&e.code!=='KeyM')return;if(e.target.matches('input,select,textarea'))return;if(['Space','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault();if(e.code==='KeyM'&&!e.repeat){prefs.muted=!prefs.muted;configure();persist();return;}if(e.code==='Escape'||e.code==='KeyP'){if(e.repeat)return;if(state==='pause')resume();else pause();return;}if(state==='film'&&e.code==='Space'){if(!e.repeat)advance();return;}if(state!=='play')return;keys[e.code]=true;if(!e.repeat)pressed[e.code]=(pressed[e.code]||0)+1;if(!e.repeat&&winterWashing(model)&&['KeyA','KeyD'].includes(e.code))washStrokes.push(e.code==='KeyA'?'a':'d');if(e.code==='KeyE'&&!e.repeat)interacting=true;if(e.code==='KeyC'&&!e.repeat&&model.level==='tidewater')touchCrouch=!touchCrouch;if(e.code==='KeyV'&&!e.repeat)autoWalk=!autoWalk;if(['KeyW','KeyA','KeyS','KeyD'].includes(e.code))autoWalk=false;});
 document.addEventListener('keyup',e=>{keys[e.code]=false;});
 canvas.addEventListener('pointerdown',e=>{
  if(state!=='play'||e.pointerType==='touch')return;
@@ -162,11 +163,12 @@ function frame(now){const frameStart=performance.now(),raw=(now-last)/1000,dt=Ma
    if(f.key==='lexington'&&f.beat===2&&!f.shot){f.shot=true;fx('shot',.75);world.smoke(1,-20,3);if(!prefs.reduced)hurtUntil=time+.08;}
    world.film(f.key,f.beat,f.time,dt,{speaking:f.spoken&&!!dialogue.current,reduced:prefs.reduced,elapsed:f.elapsed});$('film-progress').style.width=((f.beat+Math.min(1,f.time/(line.duration+lead+hold)))/spec.lines.length*100)+'%';document.querySelector('.film-title').style.opacity=f.beat===0&&f.time<4.5?'1':'0';canvas.dataset.scene=f.key;canvas.dataset.beat=String(f.beat);
    if(f.spoken&&!dialogue.current&&f.time>lead+line.duration+hold)advance();
-  }else if(['menu','chapters','scenes','archive','complete','missions','mission-complete','new-story'].includes(state)){if(ensureWorld())world.menu(time,dt);}
+  }else if(['menu','chapters','scenes','archive','complete','missions','mission-complete','new-story','study'].includes(state)){if(ensureWorld())world.menu(time,dt);}
   $('impact').style.opacity=time<hurtUntil&&!prefs.reduced?'.6':'0';
  }catch(e){console.error('Chapter 6 frame:',e);setState('error');panel(`<h1>The scene stopped.</h1><p>Your last checkpoint is saved. Reload to try again.</p>${btn('Return to title','home')}`,true);}
  canvas.dataset.renderMs=(performance.now()-frameStart).toFixed(1);canvas.dataset.frameMs=(raw*1000).toFixed(0);requestAnimationFrame(frame);
 }
+const study=new ChapterSixStudy({root:ui,storageKey:SAVE_KEY+'-questions-v1'+(fixture||sessionParams.get('preview')==='1'?'-playtest':''),onEnter(){hide();film=null;setState('study');music.select('home');music.resume();},onHome:home});
 configure();home();requestAnimationFrame(frame);document.body.dataset.version=VERSION;
 
 

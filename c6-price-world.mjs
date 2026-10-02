@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {poseActor} from './c5-actors.mjs?v=4.17.0-published';
-import {PRICE_BLOCKS,priceCart,priceCarrying,priceFollowing} from './c6-price.mjs?v=4.17.0-published';
-import {PRICE_SCENES,PRICE_LINES} from './c6-price-story.mjs?v=4.17.0-published';
+import {poseActor} from './c5-actors.mjs?v=4.17.1-published';
+import {PRICE_BLOCKS,priceCart,priceCarrying,priceFollowing} from './c6-price.mjs?v=4.17.1-published';
+import {PRICE_SCENES,PRICE_LINES} from './c6-price-story.mjs?v=4.17.1-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const ease=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);};
 function table(w,x,z){w.box(2,.1,1.2,0x8b795d,x,.9,z);for(const a of [-.85,.85])for(const b of [-.45,.45])w.box(.1,.9,.1,0x635b46,x+a,.45,z+b);w.box(.75,.013,.5,0xd3c5a8,x,.968,z);}

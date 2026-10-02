@@ -199,3 +199,7 @@ Version 4.1.1: 69 automated tests pass, including five new controls regressions.
 These checks are not a full manual playthrough on every device. Mobile presentation was checked through a browser viewport; physical phones and controller support were not tested. WebGL is required. Captions provide a fallback if audio cannot load. Later Chapter 6 missions remain planned work.
 
 </details>
+
+## Chapter 6 Questions — study release 4.17.1
+
+Nine new checks validate source/term coverage, section balance, shuffled displayed choices, answer locking, misses/retries, reload stability, malformed save rejection and historical qualifications. The M17 + study release passes 214 tests and 78 syntax checks; the local M18 + study working copy passes 222 tests and 81 syntax checks. Public browser verification is recorded separately after publishing. No claim of a blind student playthrough or audible audition is made.

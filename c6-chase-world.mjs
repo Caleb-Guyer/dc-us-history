@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {makeActor,poseActor} from './c5-actors.mjs?v=4.17.0-published';
-import {CHASE_BLOCKS,chaseMounted} from './c6-chase.mjs?v=4.17.0-published';
-import {CHASE_SCENES,CHASE_LINES} from './c6-chase-story.mjs?v=4.17.0-published';
+import {makeActor,poseActor} from './c5-actors.mjs?v=4.17.1-published';
+import {CHASE_BLOCKS,chaseMounted} from './c6-chase.mjs?v=4.17.1-published';
+import {CHASE_SCENES,CHASE_LINES} from './c6-chase-story.mjs?v=4.17.1-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function table(w,x,z){w.box(2,.1,1.2,0x8b795d,x,.9,z);for(const a of [-.85,.85])for(const b of [-.45,.45])w.box(.1,.9,.1,0x635b46,x+a,.45,z+b);w.box(.75,.013,.5,0xd3c5a8,x,.968,z);}
 function horse(w,color=0x745341,riderKey=null){
