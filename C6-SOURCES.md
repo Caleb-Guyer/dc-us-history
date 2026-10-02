@@ -239,3 +239,12 @@ P060’s missing fundraiser name is restored using the [Library of Congress essa
 P029’s severe discipline receives a required notice with trials and pardons. The handout’s Saturday execution cadence remains unverified and is not narrated as settled fact. H03’s final mortality/source comparison is still required in E00. P047’s disputed population fractions are flagged in the archive; the final record must still deliver the classroom estimates with their limits. Regional patterns are explicitly not universal allegiance.
 
 Joseph and Hannah Pryce, their daughter, Andrew Voss, Ephraim Cole and the retreating section are original fiction. The house has two physical exits and a visible interrupted fire. Both routes preserve three people and leave the neighbor alive; no kill-all objective promises to solve a civil war. The family’s witnessed or rear passage, and the earlier signed or refused oath, remain separate persistent outcomes for the ending.
+
+
+## Make Them Chase — 4.15
+
+The supplied P030/P040–P041 governs the training payoff, command sequence, separated forces and strategic pursuit. [NPS Cowpens narrative](https://www.nps.gov/cowp/learn/historyculture/the-battle-of-cowpens.htm) supplies January 17 and the participants/order distinction. The scene differentiates the militia’s planned retirement from a later misunderstood Continental order. Rowan’s six-man section is fictional; it neither replaces Morgan’s command nor claims that the whole victory followed a perfectly scripted feint. The NPS page’s October 18 Yorktown wording is not adopted; H01 separately uses October 19.
+
+[Halifax County Historical Society’s Crossing of the Dan exhibit](https://www.halifaxcountyhistoricalsociety.org/about-the-crossing) supports the February 14 crossing and prepared boats. The Library of Congress Washington-papers timeline search result also supplies that date, but its page returned 403 during this pass; it is not represented as a fully opened source. The local relay road, bridge over a flooded tributary, horse, loose packet and carried load choice are fiction. They are distinct from the army’s larger ferry crossing into Virginia. Later Guilford consequences still require M16.
+
+Ward trusts Rowan’s signal and remains alive. Asa’s common drill is a required scene regardless of whether an older save can prove the earlier drill outcome; the persistent record separately marks an actually completed training mission. Samuel’s captivity remains unresolved, not erased by a different surrender. The next casualty arc remains for M16.

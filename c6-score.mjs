@@ -275,5 +275,29 @@ export const C6_SCORE = {
     "peak": 0.655,
     "rms": 0.1804,
     "bytes": 985680
+  },
+  "chase": {
+    "title": "The Signal He Followed",
+    "bpm": 116,
+    "mood": "battle",
+    "file": "c6-music-chase-7760fe94.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 33.13796875,
+    "duration": 33.1034375,
+    "peak": 0.7139,
+    "rms": 0.1803,
+    "bytes": 663120
+  },
+  "ride": {
+    "title": "Ahead of the Hooves",
+    "bpm": 138,
+    "mood": "battle",
+    "file": "c6-music-ride-51523afb.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 27.860625,
+    "duration": 27.82609375,
+    "peak": 0.665,
+    "rms": 0.1804,
+    "bytes": 557280
   }
 };

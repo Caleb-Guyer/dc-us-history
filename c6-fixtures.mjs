@@ -1,8 +1,13 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.14.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.14.0-published';
+import {fresh} from './c6-sim.mjs?v=4.15.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.15.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='cowpens'&&phase==='volley'){s.stage=2;Object.assign(s.chase,{order:true,formed:true,armyZ:-51,squad:Array.from({length:6},(_,i)=>({x:(i-2.5)*1.6,z:-34,yaw:0}))});s.player.z=-36;s.armed=true;s.enemies=Array.from({length:10},(_,i)=>({id:i,x:(i%5-2)*4,z:-51-Math.floor(i/5)*3,hp:1,yaw:Math.PI,cooldown:10,dead:0,fired:0,moving:false,route:[0,5]}));}
+ if(level==='danrelay'&&phase==='ride'){s.stage=3;Object.assign(s.chase,{order:true,load:'light',mounted:true});s.player.z=0;}
+ if(level==='danrelay'&&phase==='packet'){s.stage=3;Object.assign(s.chase,{order:true,load:'heavy',mounted:true,horseX:-18,horseZ:-55});s.player.x=-18;s.player.z=-55;}
+ if(level==='danrelay'&&phase==='jump'){s.stage=4;Object.assign(s.chase,{order:true,load:'light',mounted:true,packet:true,horseX:-16,horseZ:-102,speed:5});s.player.x=-16;s.player.z=-102;}
+
  if(level==='countrystandoff'&&phase==='route'){s.stage=4;Object.assign(s.inland,{window:true,doused:true,claim:true,torch:false});s.player.x=5;s.player.z=-29;}
  if(level==='countrystandoff'&&phase==='water'){s.stage=2;Object.assign(s.inland,{window:true,bucket:true,fire:.4});s.player.z=-8;}
  if(level==='oathroad'&&phase==='oath'){s.stage=2;Object.assign(s.inland,{parole:true});s.player.x=8;s.player.z=0;}

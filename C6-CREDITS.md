@@ -120,3 +120,10 @@ Original code-built city, changing road barrier, bombardment warning ring, hospi
 71 new locally generated stock Kokoro performances. Joseph uses am_eric, Hannah af_bella, the tenant bm_fable and the neighbor bm_george; no actor imitation. Original 120 BPM **Country Against Itself** and 78 BPM **The Chair in the House** use the established deterministic synthesis engine. Their peaks are 0.7142 and 0.6550, RMS about 0.1804. Voices and music were checked for packaged metadata and nonempty media, with playback forced silent during development.
 
 Original procedural ditch, advancing line, actual withdrawing section, oath desks and gate, hollow house with window and hinged doors, porch fire/water, held torch, moving three-person household and supply depot extend the established rigs. Individually authored cameras support nine scenes. These sets are stylized fiction rather than surveyed reconstructions; no commercial game assets are used.
+
+
+## Make Them Chase additions — 4.15
+
+44 new original stock Kokoro performances. **The Signal He Followed**, 116 BPM, and **Ahead of the Hooves**, 138 BPM, are original local instrumental arrangements; peaks 0.7139/0.6650, RMS about 0.1804. The quieter previous inland score returns for the aftermath. No commercial game music, character voices or art is copied.
+
+Original procedural horses with animated articulated legs, mounted crew pose, carried packs, red-coated pursuing rider, bridged tributary, Dan landing boats, following six-person section, advancing British formation and surrendered prisoners. Four scenes use individually authored cameras. These are stylized local sets, not surveyed battlefield reconstructions. Testing is forced silent.

@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {WINTER_BLOCKS,winterHauling,winterWashing} from './c6-winter.mjs?v=4.14.0-published';
-import {blocked} from './c6-sim.mjs?v=4.14.0-published';
-import {WINTER_LINES,WINTER_SCENES} from './c6-winter-story.mjs?v=4.14.0-published';
+import {WINTER_BLOCKS,winterHauling,winterWashing} from './c6-winter.mjs?v=4.15.0-published';
+import {blocked} from './c6-sim.mjs?v=4.15.0-published';
+import {WINTER_LINES,WINTER_SCENES} from './c6-winter-story.mjs?v=4.15.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 const actor=(w,key,x,z,tx,tz,pose,t,voice)=>w.setActor(key,x,z,face(x,z,tx,tz),pose,t,key===voice);
 function woods(w,winter){for(let i=0;i<54;i++){const x=(i%2?-1:1)*(35+i%7*1.6),z=27-Math.floor(i/2)*3.6,h=6+i%4;w.cyl(.16,h,0x5d584b,x,h/2,z);w.mesh(new T.ConeGeometry(2.8,6,8),winter?0x637c72:0x6f8356,x,h,z);w.mesh(new T.ConeGeometry(2,4.5,8),winter?0xa8b6ab:0x8b9c70,x,h+2,z);}}

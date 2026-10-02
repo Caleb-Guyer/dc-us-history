@@ -1,3 +1,13 @@
+# Chapter 6 — Cowpens and mounted-relay checks (4.15.0)
+
+- 188 tests and 70 syntax modules pass. Eleven new tests exercise the complete collision-aware section route, two distinct volley commands, held-command rejection, all-visible-enemies-defeated recovery, remote squad/turn rejection, both full steered horseback routes, weight/acceleration/braking/stamina, low-log jump and failed-landing recovery, flooded-water blocking, slow packet collection, independent look, malformed saves, completed outcomes and migration.
+- All 88 scenes have bounded cameras outside solid scenery. 858 packaged recordings match text and speaker (4785.73 seconds); 25 scores have valid loops and safe measured metadata (994.437 seconds).
+- Hidden forced-muted UI registered horseback movement, independent steering/view headings, positive upward pitch, the stopped dispatch interaction and a real section volley. The mounted pose and camera were visually reviewed; duplicated instruction text was shortened and the pursuer’s coat corrected. Additional results belong in release-4.15.0.json after verification.
+- Complete routes are simulated evidence, not an independent blind playthrough. No audible audition, physical phone/gamepad check or frame-rate claim. Publish media before runtime, verify hashes, actual Pages success and public controls/entry/style/errors.
+- M16–M19, E00 and final whole-campaign acceptance remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Inland checks (4.14.0)
 
 - 177 tests and 67 syntax modules pass. Eight new tests exercise the full collision-aware Camden squad withdrawal, remote/kill-only rejection, both oath routes and checkpoint barrier, both complete walked household exits with real arrival, water and closed-door restrictions, the carried supply bundle, receipts/discipline, malformed saves, completed outcomes, migration and dated chronology.

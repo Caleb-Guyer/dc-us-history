@@ -1,3 +1,15 @@
+## Chapter 6 update — Make Them Chase (4.15.0)
+
+Lead a six-person section at Cowpens: give two distinct volleys, retire with the actual soldiers, face about, reach the militia flank and honor the surrender. The next section puts Rowan on horseback ahead of the pursuit north. Choose a heavy or light load, accelerate, steer, brake for a loose dispatch, clear a low log and use the western bridge before delivering both packets to the ferry crew.
+
+W rides, A / D steer, S brakes, Shift gallops and Space jumps low logs. Mouse and arrow keys look independently. Both load choices can finish; weight changes speed and leaving canvas has a recorded consequence. The flooded water cannot be jumped. The army’s Dan crossing is a separate historical event represented by the boats in the ending.
+
+Two playable sections, four authored scenes, 44 new synthetic recordings and two original scores. Totals: 88 scenes, 858 recordings, 25 scores. Completed inland saves continue into Cowpens; withdrawal, surrender, drill, load, packet and crossing outcomes are saved separately.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. M16–M19, E00 and the final whole-chapter audit remain.
+
 ## Chapter 6 update — Country Against Itself (4.14.0)
 
 Camden collapses around Rowan. Rally four scattered soldiers and bring the actual squad through three withdrawal positions. E away from a marker orders covering fire; F / R / C retain their usual musket, reload and crouch controls. Escaping the field does not change Gates’s defeat.

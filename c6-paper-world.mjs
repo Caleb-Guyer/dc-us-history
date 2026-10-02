@@ -1,5 +1,5 @@
 import * as T from './three.module.js';
-import {PRINT_BLOCKS,DISPATCH_BLOCKS} from './c6-paper.mjs?v=4.14.0-published';
+import {PRINT_BLOCKS,DISPATCH_BLOCKS} from './c6-paper.mjs?v=4.15.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function table(w,x,z,width=2.6,depth=1.2){const g=w.group(x,0,z);w.box(width,.14,depth,0x7c5c3e,0,1,0,g);for(const xx of [-width*.4,width*.4])for(const zz of [-depth*.35,depth*.35])w.box(.12,1,.12,0x564b3c,xx,.5,zz,g);return g;}
 function page(w,text,x,y,z,width=.75){const a=w.label(text,x,y,z,width);a.rotation.x=-Math.PI/2;return a;}

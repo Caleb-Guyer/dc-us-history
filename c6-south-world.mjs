@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {makeActor,poseActor} from './c5-actors.mjs?v=4.14.0-published';
-import {SOUTH_BLOCKS,southBoating} from './c6-south.mjs?v=4.14.0-published';
-import {SOUTH_SCENES,SOUTH_LINES} from './c6-south-story.mjs?v=4.14.0-published';
+import {makeActor,poseActor} from './c5-actors.mjs?v=4.15.0-published';
+import {SOUTH_BLOCKS,southBoating} from './c6-south.mjs?v=4.15.0-published';
+import {SOUTH_SCENES,SOUTH_LINES} from './c6-south-story.mjs?v=4.15.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function actor(w,k,x,z,tx,tz,pose,t,voice){return w.setActor(k,x,z,face(x,z,tx,tz),pose,t,voice===k);}
 function skiff(w,x,z,large=false){const g=w.group(x,0,z),width=large?5:3,length=large?17:7;w.box(width,.8,length,0x544b3d,0,.1,0,g);w.box(width-.3,.12,length-.25,0x8b7a5d,0,.54,0,g);for(const sign of [-1,1])w.box(.13,.65,length,0x62563f,sign*width/2,.55,0,g);for(let i=0;i<(large?6:3);i++)w.box(width-.3,.12,.42,0x776749,0,.76,(i-(large?2.5:1))*2,g);const bow=w.mesh(new T.ConeGeometry(width/2,length*.24,4),0x514b3e,0,.08,-length*.54,g);bow.rotation.x=-Math.PI/2;bow.scale.set(1,.8,.35);if(large){w.box(2.4,2,.12,0x4c514a,0,1.55,5,g);for(const side of [-1,1])w.box(.12,2,4,0x4c514a,side*1.2,1.55,3,g);w.box(2.6,.15,4.2,0x4c514a,0,2.62,3,g);const door=new T.Group();g.add(door);door.position.set(-1.2,0,.96);w.box(2.4,.75,.09,0x5b5040,1.2,.93,0,door);for(let i=0;i<7;i++)w.box(.055,1.3,.09,0x242d2b,i*.4,1.93,0,door);w.box(2.4,.08,.1,0x242d2b,1.2,2.55,0,door);g.userData.prisonDoor=door;w.cyl(.095,12,0x776444,0,6,-3,g);w.box(3,.08,.1,0x776444,0,10,-3,g);}return g;}

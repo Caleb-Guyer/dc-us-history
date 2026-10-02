@@ -82,7 +82,7 @@ export const INLAND_SCENES={
  inlandPassage:scene('countrystandoff','People, and the labels','ROAD SHELTER · SEPTEMBER 2, 1780 · THE HOUSEHOLD IS SAFE','inlandquiet','inland.passage.',4,'inlandGreene'),
  inlandGreene:scene('supplyline','Another command','SOUTHERN ARMY · DECEMBER 2, 1780 · GREENE TAKES COMMAND','inlandquiet','inland.greene.',4,'inlandSupply'),
  inlandSupply:scene('supplyline','Hands Beyond the Field','PHILADELPHIA SUPPLY DEPOT · DECEMBER 27, 1780 · AFTER WEEKS ON THE NORTHBOUND ROAD','inlandquiet','inland.supply.',4,'supplyline'),
- inlandEnding:scene('supplyline','Leave tomorrow open','PHILADELPHIA SUPPLY DEPOT · DECEMBER 27, 1780 · SUPPLIES FOR THE SOUTH','home','inland.ending.',5,'complete'),
+ inlandEnding:scene('supplyline','Leave tomorrow open','PHILADELPHIA SUPPLY DEPOT · DECEMBER 27, 1780 · SUPPLIES FOR THE SOUTH','home','inland.ending.',5,'chaseIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const INLAND_SHOTS={
