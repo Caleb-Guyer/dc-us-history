@@ -203,3 +203,26 @@ This episode develops handout P013 and introduces P016–P018. The Philadelphia 
 | Paine, anonymous January Common Sense, independence, accessible language | Required pamphlet pickup and press scene; continued in M06 |
 
 The road geometry, rope physics, brake, shifted ballast, bridge bracing, wheel chocks, inventory, and Vale press are fictional gameplay abstractions. This is not a surveyed reconstruction of Knox’s exact route, a particular emplacement, or historical Boston street. The camera can move with a hauled load; looking remains non-inverted. Crew jobs contribute to a larger operation commanded by Washington. Isaiah is on his separately dated journey and is not teleported into the winter haul. The full campaign remains in development.
+
+
+## The South Breaks — 4.13
+
+The supplied edited chapter P037/P039 supplies Savannah’s December 1778 capture, Germain’s southern strategy, Georgia allegiance oaths and twenty Loyalist regiments, the South Carolina/Georgia rejection of Congress’s 1779 freedom-for-enlistment proposal, the approximate British force, Lincoln’s six-week siege and surrender, Clinton’s military government and Cornwallis’s inland command. The approximate 8,000 and twenty regiments are classroom figures; fiction presents them as reports rather than a reconstructed order of battle.
+
+[National Park Service: Siege of Charleston, 1780](https://www.nps.gov/articles/siege-of-charleston-1780.htm) supports the dated siege changes: April 1 trenches, the navy passing Fort Moultrie April 8, April 14 Moncks Corner, renewed May bombardment and May 12 surrender. It also distinguishes the later June 3 parole change, reserved for the inland episode. April and May are separate playable visits, not one afternoon.
+
+Bennett, the individual Creek visitor, Samuel Price and Eliza Bellamy are fictional. The visitor’s dialogue is an English translation convention, not a recording in a Creek language or an assertion of uniform Native allegiance. His land stakes reinforce P054 and continue after the treaty in M19. Jonas’s own decision remains distinct from Asa’s free Black military service and Isaiah’s work. Congress’s rejected regional proposal is not generalized to every state or the entire war. P052/P053’s later service and will qualifications remain pending.
+
+The local lane, patient cart, timber cuts and small May 13 civilian passage are invented relief work. They cannot undo Lincoln’s surrender. Samuel’s capture is visible; his answering lantern is not an escape or a rescue. Prison ships are guarded stylized hulks, not surveyed replicas. War-wide New York prison-ship estimates and seven-year occupation remain for M19; this May 1780 scene does not prematurely announce the final total. The civilian passage is not a historical claim that Lincoln’s army departed freely. All dialogue is original paraphrase or character fiction, not attributed historical quotation.
+
+| Classroom concept | Required delivery |
+| --- | --- |
+| Savannah, Germain’s southern support strategy | Arrival scene and different dock encounters |
+| Georgia king’s oaths and Loyalist regiments | Bennett’s required encounter |
+| Native alliance and land protection stakes | Protected individual Creek parley |
+| Rejected freedom-for-enlistment proposal in SC/Georgia | Required paper delivery and clerk’s explanation |
+| Charleston force, six-week siege and sealed roads | Three dated phases, the barred western route, encirclement report |
+| Lincoln’s army surrenders May 12; catastrophic American loss | Required surrender scene with captured column |
+| Military government and Cornwallis inland | Required surrender dispatch |
+| Captives on prison ships | Samuel’s visible capture and Isaiah’s required answering signal |
+| British-side freedom seeking retains individual agency | Jonas’s message, refusal to board and separate quay |

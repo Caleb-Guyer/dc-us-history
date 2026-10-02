@@ -1,3 +1,13 @@
+# Chapter 6 — Charleston checks (4.13.0)
+
+- 169 tests and 64 syntax modules pass. Eight new tests exercise complete walked/steered routes in all four sections, required distinct dock encounters, local defense, carried patients and actual cart arrival, closed-road collision, braking, three physical timed axe strokes, held-key/distance rejection, actual civilian escort, disarmament, prisoner signal, sheltered patrol wait, slow ropes, shoal recovery, warned recoverable bombardment, malformed states, completed outcomes and wider-war migration.
+- All 75 scenes have bounded cameras outside solid scenery. All 743 recordings match packaged speaker/text and nonempty media (3890.067 seconds). All 21 scores have measured loops and valid level metadata (852.277 seconds). New score peaks: south 0.7477, southnight 0.6476; RMS about 0.1804.
+- Hidden forced-muted UI registers a real timed axe hit and positive upward pitch, pause and chronological gallery. Actual silent UI inputs moved the player and loaded cart, rowed the harbor boat from 0,10 to -0.2,-35.8, and retained separate tiller/view headings. Captured-column and harbor staging were inspected; signs, patient orientation, axe size and boat occupants were revised. Inspected local error logs were empty. Public checks are recorded in the release JSON after completion. Simulated complete routes are not an independent blind playthrough.
+- Publish the media before runtime, verify hashes, confirm the actual Pages run and inspect the public entry/style, mission order, controls, forced mute, replay protection and error logs.
+- No audible audition, physical phone/gamepad test or frame-rate claim. M14–M19, E00 and the whole-campaign history audit remain unfinished.
+
+## Earlier release checks
+
 # Chapter 6 — Wider-war checks (4.12.0)
 
 - 161 tests pass. Eight new tests complete the walked Monmouth rally/formation/defense, both physically steered convoy routes with a real following vessel, interception/rescue/cover/landing, shoal recovery, loaded aimed defensive fire, independent look/tiller and retained tiller taps, slow ropes, actual shore water/beam/escort, malformed saves, completed outcomes and winter migration.

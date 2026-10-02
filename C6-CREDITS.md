@@ -106,3 +106,10 @@ Version 4.6 adds 64 synthetic performances, five real-time scenes, two playable 
 ## No Ground Left additions
 
 84 new synthetic performances continue the established cast. The local 110 BPM instrumental **Leave a Road Behind** and 72 BPM **Every Quiet Oar** use the existing original synthesis engine; no Halo or other commercial game audio is used. Procedural ships, rowboat/oars, lit docks, battlefield haze, carried wounded, shelter door, signal cloth and moving wagon are original code-built set pieces. See the score manifest for exact levels and loops.
+
+
+## The South Breaks additions — 4.13
+
+74 new locally generated stock-voice synthetic performances; no actor imitation. Samuel uses am_eric, Bennett bm_fable, the Creek visitor am_onyx and Eliza af_bella; established cast voices continue. The visitor’s speech is an English translation convention. Original instrumental loops **The Roads Close** (116 BPM) and **Keep the Roll** (84 BPM) use the established deterministic synthesis engine. Peaks/RMS and measured loops are preserved in c6-score.mjs. No commercial game audio or assets are used.
+
+Original code-built city, changing road barrier, bombardment warning ring, hospital cart/patients, rescue axe and broken timber, captured column, civilian skiff, guarded hulks and patrol lantern sector extend the established procedural art. The maps and uniforms are approximations, not precise historical reconstructions. Scenes use individually authored bounded cameras and visible character blocking. Music and voices were tested silently for metadata and packaged assets; no audible audition is claimed.

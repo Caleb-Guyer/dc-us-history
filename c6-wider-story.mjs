@@ -71,7 +71,7 @@ export const WIDER_SCENES={
  widerSea:scene('openwater','The Wider War','ATLANTIC COASTAL PASSAGE · AUGUST 1778 · WEEKS LATER · ISAIAH TAKES CONTROL','ocean','wider.sea.',7,'openwater'),
  widerLanding:scene('openwater','Both boats at the ropes','LOCAL COASTAL LANDING · AUGUST 1778 · A FICTIONAL SUPPLY PASSAGE','home','wider.landing.',5,'widerCoast'),
  widerCoast:scene('coastfire','A Light Behind Us','NORWALK · JULY 12, 1779 · AFTER MONTHS ON THE COAST','coastfire','wider.coast.',6,'coastfire'),
- widerEnding:scene('coastfire','Keep the dates with the names','OFF THE NORWALK SHORE · JULY 12, 1779 · A SMALL CIVILIAN BOAT','river','wider.ending.',6,'complete'),
+ widerEnding:scene('coastfire','Keep the dates with the names','OFF THE NORWALK SHORE · JULY 12, 1779 · A SMALL CIVILIAN BOAT','river','wider.ending.',6,'southIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const WIDER_SHOTS={

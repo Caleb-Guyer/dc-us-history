@@ -1,3 +1,15 @@
+## Chapter 6 update — The South Breaks (4.13.0)
+
+Charleston closes around Rowan across three dated siege phases. Meet the people who reached its docks for different reasons, hold a local hospital passage, support two patients and walk their loaded cart around the sealed western road. In May, time three axe strokes to clear fallen timber and escort Eliza to the quay. Lincoln’s army still surrenders. Samuel, the orderly you helped, visibly becomes a prisoner. Isaiah then carries a small civilian boat past the hulks, hears Samuel’s answer and preserves Jonas’s separate choice.
+
+Four playable sections, eight new scenes, 74 new recorded synthetic performances and two original scores. Totals: 75 scenes, 743 recordings and 21 scores. Completed wider-war saves continue here. The cart, civilian escort, disarmament, Jonas message and Samuel signal are distinct completed outcomes; hearing a prisoner is not recorded as rescuing him.
+
+**Controls:** E near a person or object; E calls a volley at the local defense. Walk beside the hospital cart; Space holds its brake. Space / STRIKE inside the pale band cuts the timber. W rows Isaiah’s boat, A / D steer, S / Space steadies; mouse / arrows look independently. Take ropes only at slow speed. Slow in the sheltered western channel until the patrol turns away. Shellfire warns on the ground before impact.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+The full campaign remains unfinished. Next: **Country Against Itself**, the southern inland war.
+
 ## Chapter 6 update — The Wider War (4.12.0)
 
 Use the Valley Forge drill on a local Monmouth rally and defense. Isaiah then leads a supply boat through shoals, chooses fleet cover or fog, lifts a survivor aboard and brings the physically following vessel to the landing. The July 1779 Connecticut shore changes the game again: wounded extraction, water for a burning beam, a supported passage and a family escort to a small boat.

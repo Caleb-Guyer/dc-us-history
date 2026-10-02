@@ -227,5 +227,29 @@ export const C6_SCORE = {
     "peak": 0.6766,
     "rms": 0.1804,
     "bytes": 651600
+  },
+  "south": {
+    "title": "The Roads Close",
+    "bpm": 116,
+    "mood": "battle",
+    "file": "c6-music-south-857fb3ba.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 33.13796875,
+    "duration": 33.1034375,
+    "peak": 0.7477,
+    "rms": 0.1803,
+    "bytes": 663120
+  },
+  "southnight": {
+    "title": "Keep the Roll",
+    "bpm": 84,
+    "mood": "tension",
+    "file": "c6-music-southnight-f61f5853.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 45.7488125,
+    "duration": 45.71428125,
+    "peak": 0.6476,
+    "rms": 0.1804,
+    "bytes": 915120
   }
 };

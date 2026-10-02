@@ -1,14 +1,15 @@
-import {WIDER_SHOTS} from './c6-wider-story.mjs?v=4.12.0-published';
-import {WINTER_SHOTS} from './c6-winter-story.mjs?v=4.12.0-published';
-import {ALBANY_SHOTS} from './c6-albany-story.mjs?v=4.12.0-published';
-import {PHILADELPHIA_SHOTS} from './c6-philadelphia-story.mjs?v=4.12.0-published';
-import {CROSSING_SHOTS} from './c6-crossing-story.mjs?v=4.12.0-published';
+import {SOUTH_SHOTS} from './c6-south-story.mjs?v=4.13.0-published';
+import {WIDER_SHOTS} from './c6-wider-story.mjs?v=4.13.0-published';
+import {WINTER_SHOTS} from './c6-winter-story.mjs?v=4.13.0-published';
+import {ALBANY_SHOTS} from './c6-albany-story.mjs?v=4.13.0-published';
+import {PHILADELPHIA_SHOTS} from './c6-philadelphia-story.mjs?v=4.13.0-published';
+import {CROSSING_SHOTS} from './c6-crossing-story.mjs?v=4.13.0-published';
 // Camera positions are authored inside the playable sets, away from walls.
-import {PROMISE_SHOTS} from './c6-promise-story.mjs?v=4.12.0-published';
-import {LIFT_SHOTS} from './c6-lift-story.mjs?v=4.12.0-published';
-import {PAPER_SHOTS} from './c6-paper-story.mjs?v=4.12.0-published';
-import {RETREAT_SHOTS} from './c6-retreat-story.mjs?v=4.12.0-published';
-export const SHOTS={...WIDER_SHOTS,...WINTER_SHOTS,...ALBANY_SHOTS,...PHILADELPHIA_SHOTS,...CROSSING_SHOTS,...RETREAT_SHOTS,...PAPER_SHOTS,...LIFT_SHOTS,...PROMISE_SHOTS,
+import {PROMISE_SHOTS} from './c6-promise-story.mjs?v=4.13.0-published';
+import {LIFT_SHOTS} from './c6-lift-story.mjs?v=4.13.0-published';
+import {PAPER_SHOTS} from './c6-paper-story.mjs?v=4.13.0-published';
+import {RETREAT_SHOTS} from './c6-retreat-story.mjs?v=4.13.0-published';
+export const SHOTS={...SOUTH_SHOTS,...WIDER_SHOTS,...WINTER_SHOTS,...ALBANY_SHOTS,...PHILADELPHIA_SHOTS,...CROSSING_SHOTS,...RETREAT_SHOTS,...PAPER_SHOTS,...LIFT_SHOTS,...PROMISE_SHOTS,
  hillIntro:[[[9,7,18],[0,1,5]],[[-.2,1.8,13.8],[-1,1.5,16]],[[-.6,1.8,15],[-3,1.5,13]],[[-1,1.7,14.5],[2,1.5,16]],[[4,3,16],[78,-3,-55]],[[-.6,1.8,15],[-3,1.5,13]],[[-1,1.7,14.5],[2,1.5,16]],[[4,3,18],[-3,1.3,13]]],
  hillBreak:[[[-5,1.65,6],[-11,1,2]],[[.6,1.7,4],[3,1.5,5]],[[1.5,1.3,5],[-.8,.95,2.8]],[[-1.8,1.1,4.3],[-.2,.8,3]],[[.7,1.05,4],[-1.1,.8,2.6]],[[1.5,1.25,5],[-.2,.8,3]]],
  hillEnding:[[[7,2.7,47],[3.2,.6,43]],[[1.5,1.3,42],[3.5,.85,44]],[[3,1.8,45],[.2,1.5,42]],[[1.5,1.3,42],[3.5,.85,44]],[[3,1.8,45],[.2,1.5,42]],[[4.5,1.3,45],[2,.85,42]],[[5.5,1.1,44.5],[3.5,.8,44]]],

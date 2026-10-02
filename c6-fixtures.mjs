@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.12.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.12.0-published';
+import {fresh} from './c6-sim.mjs?v=4.13.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.13.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='charlestonlast'&&phase==='axe'){s.stage=2;Object.assign(s.south,{list:true,axe:true});s.player.x=19;s.player.z=-8;}
+ if(level==='charlestonharbor'&&phase==='tiller'){s.stage=2;Object.assign(s.south,{message:true,aboard:true,moored:false});s.player.z=10;}
+ if(level==='charlestonring'&&phase==='cart'){s.stage=6;Object.assign(s.south,{patients:2,cartReady:true});s.player.x=14;s.player.z=-33;s.player.yaw=Math.PI;}
+ if(level==='charlestondock'&&phase==='line'){s.stage=5;Object.assign(s.south,{packet:true,georgia:true,parley:true,proposal:true,powder:true});s.player.z=-29;s.armed=true;}
  if(level==='openwater'&&phase==='tiller'){s.stage=2;s.wider.manifest=s.wider.aboard=true;s.wider.moored=false;s.armed=true;s.ammo=6;s.player.z=10;}
  if(level==='openwater'&&phase==='cover'){s.stage=4;Object.assign(s.wider,{manifest:true,aboard:true,moored:false,route:'fleet',rescued:true,intercepted:true,boatX:23,boatZ:-140,convoyX:18,convoyZ:-136,convoyLeg:3,cutterX:33,cutterZ:-118});s.player.x=23;s.player.z=-140;s.armed=true;s.ammo=6;}
  if(level==='coastfire'&&phase==='bucket'){s.stage=6;Object.assign(s.wider,{orderRead:true,danbury:true,fairfield:true,patient:true,holdingBucket:true});s.player.x=18;s.player.z=-34;}

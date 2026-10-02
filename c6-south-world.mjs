@@ -1,0 +1,60 @@
+import * as T from './three.module.js';
+import {makeActor,poseActor} from './c5-actors.mjs?v=4.13.0-published';
+import {SOUTH_BLOCKS,southBoating} from './c6-south.mjs?v=4.13.0-published';
+import {SOUTH_SCENES,SOUTH_LINES} from './c6-south-story.mjs?v=4.13.0-published';
+const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
+function actor(w,k,x,z,tx,tz,pose,t,voice){return w.setActor(k,x,z,face(x,z,tx,tz),pose,t,voice===k);}
+function skiff(w,x,z,large=false){const g=w.group(x,0,z),width=large?5:3,length=large?17:7;w.box(width,.8,length,0x544b3d,0,.1,0,g);w.box(width-.3,.12,length-.25,0x8b7a5d,0,.54,0,g);for(const sign of [-1,1])w.box(.13,.65,length,0x62563f,sign*width/2,.55,0,g);for(let i=0;i<(large?6:3);i++)w.box(width-.3,.12,.42,0x776749,0,.76,(i-(large?2.5:1))*2,g);const bow=w.mesh(new T.ConeGeometry(width/2,length*.24,4),0x514b3e,0,.08,-length*.54,g);bow.rotation.x=-Math.PI/2;bow.scale.set(1,.8,.35);if(large){w.box(2.4,2,.12,0x4c514a,0,1.55,5,g);for(const side of [-1,1])w.box(.12,2,4,0x4c514a,side*1.2,1.55,3,g);w.box(2.6,.15,4.2,0x4c514a,0,2.62,3,g);const door=new T.Group();g.add(door);door.position.set(-1.2,0,.96);w.box(2.4,.75,.09,0x5b5040,1.2,.93,0,door);for(let i=0;i<7;i++)w.box(.055,1.3,.09,0x242d2b,i*.4,1.93,0,door);w.box(2.4,.08,.1,0x242d2b,1.2,2.55,0,door);g.userData.prisonDoor=door;w.cyl(.095,12,0x776444,0,6,-3,g);w.box(3,.08,.1,0x776444,0,10,-3,g);}return g;}
+function smoke(w,x,z,y=6,size=8){const a=new T.Sprite(new T.SpriteMaterial({map:w.smokeTexture,color:0x544e45,transparent:true,opacity:.55,depthWrite:false}));a.position.set(x,y,z);a.scale.set(size,size,1);w.scene.add(a);return a;}
+function patient(w,x,z){const a=w.soldier();a.userData.gun.visible=false;a.position.set(x,.15,z-.8);a.rotation.order='YXZ';a.rotation.x=Math.PI/2;return a;}
+function motion(v,t){v.smoke.forEach((a,i)=>{a.position.x=a.userData.x+Math.sin(t*.18+i)*1.4;a.material.opacity=.42+Math.sin(t*.25+i)*.08;});for(const [i,f] of v.flames.entries()){f.scale.y=1+Math.sin(t*7+i)*.13;}}
+export function buildSouth(w,level){const harbor=level==='charlestonharbor',night=harbor||level==='charlestonlast';w.night=night;const v=w.southVisual={level,smoke:[],flames:[],patients:[],captives:[],guards:[],signs:[],boat:null,patrol:null,hulk:null,cart:null,lastCart:null,lastCivilian:null};
+ w.scene.background=new T.Color(night?0x233e4d:level==='charlestonring'?0x84928f:0xa8b8b0);w.scene.fog=new T.FogExp2(night?0x496068:0xabb2a2,harbor?.005:.009);w.sun.color.set(night?0xa8c8d9:0xffe1b1);w.sun.intensity=night?1.45:2.4;
+ for(const k of ['ROWAN','WARD','MARA','ISAIAH','RUNNER','ASA','SAMUEL','BENNETT','CREEK','CLERK','JONAS','ELIZA'])w.actor(k,0,0);
+ v.warning=w.mesh(new T.RingGeometry(2.6,2.85,40),new T.MeshBasicMaterial({color:0xffbd76,transparent:true,opacity:.75,side:T.DoubleSide,depthWrite:false}),0,.035,0);v.warning.rotation.x=-Math.PI/2;v.warning.visible=false;
+ if(harbor){
+  v.water=w.box(300,.1,340,w.mat(0x365968,{roughness:.37,metalness:.18}),0,-.23,-90);w.box(100,.2,20,0x8d9788,0,-.1,29);w.box(11,.13,16,0x837155,0,.015,17);w.box(16,.13,13,0x837155,0,.015,-178);w.lantern(-4,1.8,18);w.lantern(4,1.7,-174);
+  for(const [x,z,width,depth] of SOUTH_BLOCKS[level].filter(a=>a[1]!==-94)){w.box(width,.16,depth,0xa3a38b,x,-.1,z);for(let i=0;i<3;i++)w.sphere(.9,0x7c8986,x+(i-1)*2,.05,z+(i%2)*2,undefined,[1.2,.6,1]);}
+  v.boat=skiff(w,0,10);v.boat.scale.set(1.7,1,1.35);v.patrol=skiff(w,25,-91);v.patrol.scale.setScalar(.8);v.patrolLamp=w.lantern(0,0,0,false);v.patrol.add(v.patrolLamp);v.patrolLamp.position.set(0,1.4,-2);
+  const cone=w.mesh(new T.ConeGeometry(15,31,32,1,true),new T.MeshBasicMaterial({color:0xd1c18c,transparent:true,opacity:.055,side:T.DoubleSide,depthWrite:false}),0,1,-16,v.patrol);cone.rotation.x=Math.PI/2;v.patrolBeam=cone;
+ v.hulk=skiff(w,31,-94,true);v.hulk.rotation.y=.18;v.hulkLamp=w.lantern(31,2,-93.4);v.signs.push(w.label('HOSPITAL PRISONERS',31,2.95,-93.4,3.7,Math.PI));
+  for(const [x,z] of [[49,-63],[60,-121],[-55,-96]]){const a=skiff(w,x,z,true);a.rotation.y=.4;}
+ w.box(2,.12,2,0x79674a,-22,.02,-45);w.lantern(-22,1.6,-45);w.box(2,.12,2,0x79674a,18,.02,-98);w.box(2,.12,2,0x79674a,-19,.02,-132);v.signs.push(w.label('WEST CHANNEL',-20,1.6,-129,2.7));return;
+ }
+ w.box(120,.2,118,w.mat(0x9eaa8b,{map:w.groundTexture}),0,-.15,-24);w.box(7,.03,105,w.mat(0xb7ae90,{map:w.groundTexture}),0,-.03,-22);for(const x of [-19,19])w.box(4,.02,85,0xafa990,x,-.02,-16);
+ for(const [i,[x,z,width,depth,h]] of SOUTH_BLOCKS[level].entries()){if(h>3)w.house(x,z,width,depth,h,[0x7b8277,0x8e8976,0x707d73][i%3]);else w.box(width,h,depth,0x8b8770,x,h/2,z);}
+ w.box(90,.1,80,w.mat(0x385c6b,{roughness:.37,metalness:.2}),0,-.22,75);w.box(7,.15,10,0x887358,0,.03,31);v.boat=skiff(w,0,37);v.boat.scale.x=1.4;
+ for(let i=0;i<6;i++){w.house((i%2?-1:1)*(40+i%3*5),-58-i*4,7,9,5,0x737b6e);const a=smoke(w,(i%2?-1:1)*(23+i*5),-57-i*4,7+i,9+i);a.userData.x=a.position.x;v.smoke.push(a);}
+ for(let i=0;i<4;i++){w.box(16,1.1,1,0x7a785e,(i-1.5)*18,.55,-64);w.cyl(.25,1.4,0x464e46,(i-1.5)*18,.7,-61);}
+ v.cart=w.wagon(14,-35);v.cart.scale.set(.85,.8,.85);v.patients=[patient(w,-18,-31),patient(w,3,-49)];v.civilian=makeActor('ELIZA');w.scene.add(v.civilian);v.civilian.position.set(19,0,-36);
+ v.gate=w.group(-19,0,-3);w.box(10,2.3,.28,0x685b43,0,1.15,0,v.gate);for(let i=0;i<7;i++)w.box(.14,2.5,.4,0x403f34,-4.5+i*1.5,1.25,0,v.gate);v.gate.visible=level==='charlestonring';
+ v.timber=w.group(19,.6,-12);w.box(12,.8,.8,0x5e5140,0,0,0,v.timber);w.box(4,.2,1.6,0x7b7056,2,.6,0,v.timber);v.timber.visible=level==='charlestonlast';w.box(1,.7,.9,0x89704f,19,.35,-8);v.signs.push(w.label('EASTERN SHELTER',20,2.2,-34,2.7),w.label('HOSPITAL',12,2.3,-33,2.4),w.label('RELIEF DOCK',-4,2.3,18,2.3));w.box(1.5,.1,1,0xc4bea6,-3,.8,-4);w.box(2,.75,1.3,0x766145,15,.375,-14);
+ v.axe=new T.Group();w.camera.add(v.axe);w.cyl(.05,1.1,0x806944,0,-.2,0,v.axe);w.box(.43,.28,.055,0x9ba09a,.13,.34,0,v.axe);v.axe.position.set(.48,-.5,-.92);v.axe.scale.setScalar(.7);v.axe.rotation.z=-.3;v.axe.visible=false;
+ for(const [x,z] of [[0,22],[19,-7],[19,-35]])w.lantern(x,2.2,z,night);
+ if(night){for(const [x,z] of [[-28,-41],[28,-26]]){const f=w.mesh(new T.ConeGeometry(1.5,5,9),w.mat(0xf3a455,{emissive:0xf2a453,emissiveIntensity:1.1,transparent:true,opacity:.72}),x+3,3,z+7);v.flames.push(f);}}
+ for(let i=0;i<5;i++){const a=w.soldier();a.userData.gun.visible=false;a.visible=false;v.captives.push(a);}for(let i=0;i<2;i++){const a=w.soldier(true);a.visible=false;v.guards.push(a);}v.weapons=w.group(-5,.25,20);for(let i=0;i<5;i++){const a=w.box(.06,.07,1.3,0x5a4935,(i-2)*.15,i*.035,0,v.weapons);a.rotation.y=i*.27;}v.weapons.visible=false;
+}
+export function renderSouth(w,s,input,voice){const v=w.southVisual,q=s.south,p=s.player,t=s.time,act=(k,x,z,pose='listen')=>actor(w,k,x,z,p.x,p.z,pose,t,voice);motion(v,t);v.signs.forEach(a=>a.visible=true);
+ if(s.level==='charlestonharbor'){
+  v.boat.position.set(q.boatX,Math.sin(t)*.035,q.boatZ);v.boat.rotation.y=q.boatYaw;act('JONAS',-4,18,'paper');v.patrol.position.set(q.patrolX,0,q.patrolZ);v.patrol.rotation.y=q.patrolYaw;if(q.aboard){for(const [k,x,z] of [['MARA',-.8,1.5],['ROWAN',.8,2],['WARD',-1.1,2.6],['ELIZA',0,2.6]]){const bx=q.boatX+Math.cos(q.boatYaw)*x+Math.sin(q.boatYaw)*z,bz=q.boatZ-Math.sin(q.boatYaw)*x+Math.cos(q.boatYaw)*z;act(k,bx,bz,k==='ELIZA'?'listen':'brace');w.cast[k].position.y=.6;w.cast[k].rotation.y=q.boatYaw;}act('SAMUEL',31,-92.2,'reach');w.cast.SAMUEL.position.y=.55;v.hulk.userData.prisonDoor.rotation.y=0;}else act('ISAIAH',2,12);return;
+ }
+ act('WARD',-4,19,'paper');act('MARA',3,22,'reach');act('ASA',-8,-27,'brace');act('SAMUEL',s.level==='charlestonring'&&q.cartReady?q.cartX:0,s.level==='charlestonring'&&q.cartReady?q.cartZ-3:22,'brace');
+ if(s.level==='charlestondock'){act('BENNETT',-18,11);act('CREEK',17,5);act('CLERK',-3,-4,'paper');v.cart.position.set(0,0,22);v.patients.forEach(a=>a.visible=false);v.civilian.visible=false;}
+ else{
+  v.cart.position.set(q.cartX,0,q.cartZ);const moving=v.lastCart&&Math.hypot(q.cartX-v.lastCart.x,q.cartZ-v.lastCart.z)>.001;const target=[[19,-8],[19,12],[0,22]][Math.min(2,q.cartLeg)];if(q.cartReady)v.cart.rotation.y=face(q.cartX,q.cartZ,...target);if(moving)v.cart.userData.wheels.forEach(a=>a.rotation.x+=.025);v.lastCart={x:q.cartX,z:q.cartZ};
+  v.patients.forEach((a,i)=>{a.visible=s.level==='charlestonring';if(q.patients>i){const yaw=v.cart.rotation.y,ox=i?-.35:.35,oz=-.7;a.position.set(q.cartX+Math.cos(yaw)*ox+Math.sin(yaw)*oz,.95,q.cartZ-Math.sin(yaw)*ox+Math.cos(yaw)*oz);a.rotation.set(Math.PI/2,yaw,0);}else if(q.carried===i){a.position.set(p.x+Math.cos(p.yaw)*.8,p.y,p.z-Math.sin(p.yaw)*.8);a.rotation.set(0,p.yaw,.15);}else{a.position.set(i===0?-18:3,.15,(i===0?-31:-49)-.8);a.rotation.set(Math.PI/2,0,0);}});
+  v.civilian.visible=s.level==='charlestonlast';v.civilian.position.set(q.civilianX,0,q.civilianZ);v.civilian.rotation.y=face(q.civilianX,q.civilianZ,p.x,p.z);const cm=v.lastCivilian&&Math.hypot(q.civilianX-v.lastCivilian.x,q.civilianZ-v.lastCivilian.z)>.001;poseActor(v.civilian,{time:t,pose:cm?'walk':'listen',speaking:voice==='ELIZA'});v.lastCivilian={x:q.civilianX,z:q.civilianZ};
+  v.timber.visible=s.level==='charlestonlast'&&q.cuts<3;v.axe.visible=s.level==='charlestonlast'&&s.stage===2;v.axe.rotation.x=q.axeFlash>0?-Math.sin((.45-q.axeFlash)/.45*Math.PI)*1.2:0;v.weapons.visible=q.disarmed;
+ }
+ v.warning.visible=q.shellIn>0;if(q.shellIn>0){v.warning.position.set(q.shellX,.04,q.shellZ);v.warning.material.opacity=.45+Math.sin(t*12)*.3;}
+}
+export function southCamera(w,s){if(!southBoating(s))return;w.camera.position.set(s.player.x,2.15,s.player.z);w.camera.rotation.set(s.player.pitch,s.player.yaw,0);}
+export function filmSouth(w,key,beat,t,elapsed,speaking){const v=w.southVisual,spec=SOUTH_SCENES[key],voice=speaking?SOUTH_LINES.find(l=>l.id===spec.lines[beat])?.speaker:null,act=(k,x,z,tx,tz,pose='listen')=>actor(w,k,x,z,tx,tz,pose,t,voice);motion(v,elapsed);v.signs.forEach(a=>a.visible=false);if(v.axe)v.axe.visible=false;if(v.warning)v.warning.visible=false;
+ if(key==='southEnding'){v.boat.position.set(0,0,-168);v.patrol.position.set(26,0,-91);for(const [k,x,z] of [['ROWAN',1.5,-168],['ISAIAH',0,-168],['MARA',2,-168],['WARD',-1.5,-168],['ELIZA',-.5,-170]]){act(k,x,z,0,-168,k==='ELIZA'?'listen':k==='ROWAN'?'paper':'brace');w.cast[k].position.y=.55;}return;}
+ if(key==='southHarbor'){if(beat===0){act('SAMUEL',31,-92.2,25,-101,'reach');w.cast.SAMUEL.position.y=.55;v.hulk.userData.prisonDoor.rotation.y=-1.15*Math.max(0,1-elapsed/4);v.hulkLamp.children.filter(a=>a.isPointLight).forEach(a=>a.intensity=6);}act('ISAIAH',0,22,-4,20,'listen');act('JONAS',-4,20,0,22,'paper');act('WARD',3,22,0,22,'point');act('ROWAN',5,22,0,22,'paper');act('MARA',7,22,0,22,'brace');return;}
+ const surrender=key==='southSurrender';act('ROWAN',0,22,3,22,'paper');act('WARD',-3,22,0,22);act('MARA',3,22,0,22,'reach');act('RUNNER',-5,22,0,22,'paper');act('ISAIAH',-5,22,0,22,'brace');w.cast[surrender?'ISAIAH':'RUNNER'].visible=false;
+ act('ASA',-5,22,0,22);w.cast.ASA.visible=key==='southIntro';if(key==='southIntro')w.cast.RUNNER.visible=false;
+ if(surrender){v.weapons.visible=true;v.civilian.visible=false;v.patients.forEach(a=>a.visible=false);const progress=Math.min(1,elapsed/22);act('SAMUEL',9,beat>=2?21:14+progress*7,0,22,beat===2?'reach':'walk');v.captives.forEach((a,i)=>{a.visible=true;a.position.set(9,0,5+i*1.8+progress*7);a.rotation.y=Math.PI;a.userData.legs.forEach((leg,j)=>leg.rotation.x=Math.sin(elapsed*5+i+j*Math.PI)*.18);});v.guards.forEach((a,i)=>{a.visible=true;a.position.set(11,0,9+i*6+progress*5);a.rotation.y=Math.PI;});}
+ else{act('SAMUEL',5,22,0,22,'listen');if(key==='southNight')w.cast.SAMUEL.visible=false;if(key==='southHospital'){v.cart.position.set(0,0,22);v.patients.forEach((a,i)=>{a.visible=true;a.position.set((i?-.35:.35),.95,21.3);a.rotation.set(Math.PI/2,0,0);});act('SAMUEL',5,22,0,22,'reach');}else{v.patients.forEach(a=>a.visible=false);v.cart.position.set(0,0,17);}}
+ if(v.civilian)v.civilian.visible=false;if(v.timber)v.timber.visible=key==='southNight';
+}
