@@ -1,26 +1,26 @@
-import {HOME_LEVELS,HOME_BLOCKS,freshHome,validHome,homeGoal,homeNear,homeCanUse,homeOperating,interactHome,updateHome} from './c6-home.mjs?v=4.20.0-published';
-import {DEPARTURE_LEVELS,DEPARTURE_BLOCKS,freshDeparture,validDeparture,departureGoal,departureNear,departureCanUse,departureFollowing,departureOperating,departureBlocked,interactDeparture,updateDeparture} from './c6-departure.mjs?v=4.20.0-published';
-import {SIEGE_LEVELS,SIEGE_BLOCKS,freshSiege,validSiege,siegeGoal,siegeNear,siegeCanUse,siegeHauling,siegeFollowing,siegeCarrying,siegeAssault,interactSiege,updateSiege,thrustSiege} from './c6-siege.mjs?v=4.20.0-published';
-import {SEA_LEVELS,SEA_BLOCKS,freshSea,validSea,seaGoal,seaNear,seaCanUse,seaBoating,seaFollowing,seaCarrying,seaWaterBlocked,moveSeaBoat,interactSea,updateSea} from './c6-sea.mjs?v=4.20.0-published';
-import {PRICE_LEVELS,PRICE_BLOCKS,freshPrice,validPrice,priceGoal,priceNear,priceCanUse,priceFighting,priceCart,priceCarrying,priceFollowing,interactPrice,updatePrice} from './c6-price.mjs?v=4.20.0-published';
-import {CHASE_LEVELS,CHASE_BLOCKS,freshChase,validChase,chaseGoal,chaseNear,chaseCanUse,chaseMounted,chaseOperating,chaseFollowing,chaseBlocked,moveChaseHorse,interactChase,updateChase} from './c6-chase.mjs?v=4.20.0-published';
-import {INLAND_LEVELS,INLAND_BLOCKS,freshInland,validInland,inlandGoal,inlandNear,inlandCanUse,inlandWithdrawing,inlandEscorting,inlandBlocked,interactInland,updateInland} from './c6-inland.mjs?v=4.20.0-published';
-import {SOUTH_LEVELS,SOUTH_BLOCKS,freshSouth,validSouth,southGoal,southNear,southCanUse,southOperating,southBoating,southCutting,southEscorting,southWaterBlocked,moveSouthBoat,interactSouth,updateSouth} from './c6-south.mjs?v=4.20.0-published';
-import {WIDER_LEVELS,WIDER_BLOCKS,freshWider,validWider,widerGoal,widerNear,widerCanUse,widerOperating,widerBoating,widerEscorting,moveWiderBoat,interactWider,updateWider} from './c6-wider.mjs?v=4.20.0-published';
-import {WINTER_LEVELS,WINTER_BLOCKS,freshWinter,validWinter,winterGoal,winterNear,winterCanUse,winterOperating,winterHauling,winterWashing,winterWaterBlocked,interactWinter,updateWinter} from './c6-winter.mjs?v=4.20.0-published';
-import {ALBANY_LEVELS,ALBANY_BLOCKS,freshAlbany,validAlbany,albanyOperating,albanyFighting,albanyCanUse,albanyGoal,interactAlbany,updateAlbany} from './c6-albany.mjs?v=4.20.0-published';
-import {PHILADELPHIA_LEVELS,PHILADELPHIA_BLOCKS,freshPhiladelphia,validPhiladelphia,philadelphiaGoal,philadelphiaNear,philadelphiaCanUse,philadelphiaDefending,philadelphiaOperating,philadelphiaEscorting,roadWaterBlocked,interactPhiladelphia,updatePhiladelphia} from './c6-philadelphia.mjs?v=4.20.0-published';
-import {CROSSING_LEVELS,CROSSING_BLOCKS,freshCrossing,validCrossing,crossingGoal,crossingNear,crossingCanUse,crossingBoating,crossingFighting,moveStormBoat,interactCrossing,updateCrossing} from './c6-crossing.mjs?v=4.20.0-published';
-import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.20.0-published';
-import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.20.0-published';
-import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.20.0-published';
-import {LEVELS} from './c6-data.mjs?v=4.20.0-published';
+import {HOME_LEVELS,HOME_BLOCKS,freshHome,validHome,homeGoal,homeNear,homeCanUse,homeOperating,interactHome,updateHome} from './c6-home.mjs?v=4.21.0-published';
+import {DEPARTURE_LEVELS,DEPARTURE_BLOCKS,freshDeparture,validDeparture,departureGoal,departureNear,departureCanUse,departureFollowing,departureOperating,departureBlocked,interactDeparture,updateDeparture} from './c6-departure.mjs?v=4.21.0-published';
+import {SIEGE_LEVELS,SIEGE_BLOCKS,freshSiege,validSiege,siegeGoal,siegeNear,siegeCanUse,siegeHauling,siegeFollowing,siegeCarrying,siegeAssault,interactSiege,updateSiege,thrustSiege} from './c6-siege.mjs?v=4.21.0-published';
+import {SEA_LEVELS,SEA_BLOCKS,freshSea,validSea,seaGoal,seaNear,seaCanUse,seaBoating,seaFollowing,seaCarrying,seaWaterBlocked,moveSeaBoat,interactSea,updateSea} from './c6-sea.mjs?v=4.21.0-published';
+import {PRICE_LEVELS,PRICE_BLOCKS,freshPrice,validPrice,priceGoal,priceNear,priceCanUse,priceFighting,priceCart,priceCarrying,priceFollowing,interactPrice,updatePrice} from './c6-price.mjs?v=4.21.0-published';
+import {CHASE_LEVELS,CHASE_BLOCKS,freshChase,validChase,chaseGoal,chaseNear,chaseCanUse,chaseMounted,chaseOperating,chaseFollowing,chaseBlocked,moveChaseHorse,interactChase,updateChase} from './c6-chase.mjs?v=4.21.0-published';
+import {INLAND_LEVELS,INLAND_BLOCKS,freshInland,validInland,inlandGoal,inlandNear,inlandCanUse,inlandWithdrawing,inlandEscorting,inlandBlocked,interactInland,updateInland} from './c6-inland.mjs?v=4.21.0-published';
+import {SOUTH_LEVELS,SOUTH_BLOCKS,freshSouth,validSouth,southGoal,southNear,southCanUse,southOperating,southBoating,southCutting,southEscorting,southWaterBlocked,moveSouthBoat,interactSouth,updateSouth} from './c6-south.mjs?v=4.21.0-published';
+import {WIDER_LEVELS,WIDER_BLOCKS,freshWider,validWider,widerGoal,widerNear,widerCanUse,widerOperating,widerBoating,widerEscorting,moveWiderBoat,interactWider,updateWider} from './c6-wider.mjs?v=4.21.0-published';
+import {WINTER_LEVELS,WINTER_BLOCKS,freshWinter,validWinter,winterGoal,winterNear,winterCanUse,winterOperating,winterHauling,winterWashing,winterWaterBlocked,interactWinter,updateWinter} from './c6-winter.mjs?v=4.21.0-published';
+import {ALBANY_LEVELS,ALBANY_BLOCKS,freshAlbany,validAlbany,albanyOperating,albanyFighting,albanyCanUse,albanyGoal,interactAlbany,updateAlbany} from './c6-albany.mjs?v=4.21.0-published';
+import {PHILADELPHIA_LEVELS,PHILADELPHIA_BLOCKS,freshPhiladelphia,validPhiladelphia,philadelphiaGoal,philadelphiaNear,philadelphiaCanUse,philadelphiaDefending,philadelphiaOperating,philadelphiaEscorting,roadWaterBlocked,interactPhiladelphia,updatePhiladelphia} from './c6-philadelphia.mjs?v=4.21.0-published';
+import {CROSSING_LEVELS,CROSSING_BLOCKS,freshCrossing,validCrossing,crossingGoal,crossingNear,crossingCanUse,crossingBoating,crossingFighting,moveStormBoat,interactCrossing,updateCrossing} from './c6-crossing.mjs?v=4.21.0-published';
+import {TIDE_BLOCKS,CREEK_BLOCKS,freshPromise,moveBoat,updatePromise,interactPromise,promiseCanUse} from './c6-promise.mjs?v=4.21.0-published';
+import {HILL_BLOCKS,freshHill,hillGoal,interactHill,updateHill,hillDefending} from './c6-hill.mjs?v=4.21.0-published';
+import {FORT_BLOCKS,freshFort,fortGoal,interactFort,updateFort} from './c6-fort.mjs?v=4.21.0-published';
+import {LEVELS} from './c6-data.mjs?v=4.21.0-published';
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const angle=x=>Math.atan2(Math.sin(x),Math.cos(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
-import {SNOW_BLOCKS,RIDGE_BLOCKS,BOSTON_BLOCKS,freshLift,liftGoal,interactLift,updateLift,liftCanUse,liftHauling} from './c6-lift.mjs?v=4.20.0-published';
-import {PRINT_BLOCKS,DISPATCH_BLOCKS,freshPaper,paperGoal,paperNear,paperCanUse,paperOperating,interactPaper,updatePaper} from './c6-paper.mjs?v=4.20.0-published';
-import {RETREAT_LEVELS,RETREAT_BLOCKS,freshRetreat,validRetreat,retreatGoal,retreatNear,retreatCanUse,retreatBoating,retreatDefending,moveFerry,interactRetreat,updateRetreat} from './c6-retreat.mjs?v=4.20.0-published';
+import {SNOW_BLOCKS,RIDGE_BLOCKS,BOSTON_BLOCKS,freshLift,liftGoal,interactLift,updateLift,liftCanUse,liftHauling} from './c6-lift.mjs?v=4.21.0-published';
+import {PRINT_BLOCKS,DISPATCH_BLOCKS,freshPaper,paperGoal,paperNear,paperCanUse,paperOperating,interactPaper,updatePaper} from './c6-paper.mjs?v=4.21.0-published';
+import {RETREAT_LEVELS,RETREAT_BLOCKS,freshRetreat,validRetreat,retreatGoal,retreatNear,retreatCanUse,retreatBoating,retreatDefending,moveFerry,interactRetreat,updateRetreat} from './c6-retreat.mjs?v=4.21.0-published';
 export const BLOCKS={...HOME_BLOCKS,...DEPARTURE_BLOCKS,...SIEGE_BLOCKS,...SEA_BLOCKS,...PRICE_BLOCKS,...CHASE_BLOCKS,...INLAND_BLOCKS,...SOUTH_BLOCKS,...WIDER_BLOCKS,...WINTER_BLOCKS,...ALBANY_BLOCKS,...PHILADELPHIA_BLOCKS,...CROSSING_BLOCKS,...RETREAT_BLOCKS,printshop:PRINT_BLOCKS,dispatch:DISPATCH_BLOCKS,snowpass:SNOW_BLOCKS,dorchester:RIDGE_BLOCKS,bostonreturn:BOSTON_BLOCKS,tidewater:TIDE_BLOCKS,moorescreek:CREEK_BLOCKS,
  ticonderoga:FORT_BLOCKS,
  breeds:HILL_BLOCKS,
@@ -134,7 +134,7 @@ function interact(s){
  else if(s.promise)interactPromise(s);
  else if(s.level==='breeds')interactHill(s);
  else if(s.level==='ticonderoga')interactFort(s);
- else if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}next(s);}
+ else if(s.level==='release'){if(s.stage===0){emit(s,'voice',{id:'help'});s.carrying=true;}else if(s.stage===1)emit(s,'voice',{id:'prologue.inspect'});else if(s.stage===2){emit(s,'voice',{id:'prologue.trade'});emit(s,'voice',{id:'prologue.closed'});}else if(s.stage===3){emit(s,'voice',{id:'prologue.gage'});emit(s,'voice',{id:'prologue.authority'});emit(s,'voice',{id:'prologue.base'});}next(s);}
  else if(s.level==='night'){if(s.stage===0){emit(s,'voice',{id:'farm.0'});emit(s,'voice',{id:'farm.1'});}if(s.stage===1){emit(s,'bell');emit(s,'voice',{id:'bell.0'});emit(s,'voice',{id:'bell.1'});}next(s);}
  else if(s.level==='lexington'){const stage=s.stage;s.carrying=stage===0||stage===2;if(stage===0){emit(s,'voice',{id:'rescue.0'});emit(s,'voice',{id:'rescue.1'});}else if(stage===1)emit(s,'voice',{id:'rescue.2'});else if(stage===3)emit(s,'voice',{id:'rescue.3'});if(stage===1||stage===3){s.player.health=Math.min(100,s.player.health+35);emit(s,'rescue');}next(s);}
  else if(s.level==='concord'){if(s.stage===0){s.armed=true;emit(s,'voice',{id:'armed'});spawnWave(s);next(s);}else if(s.stage===2)next(s);}

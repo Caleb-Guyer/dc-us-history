@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {poseActor} from './c5-actors.mjs?v=4.20.0-published';
-import {SIEGE_BLOCKS,siegeHauling,siegeAssault,siegeFollowing} from './c6-siege.mjs?v=4.20.0-published';
-import {SIEGE_SCENES,SIEGE_LINES} from './c6-siege-story.mjs?v=4.20.0-published';
+import {poseActor} from './c5-actors.mjs?v=4.21.0-published';
+import {SIEGE_BLOCKS,siegeHauling,siegeAssault,siegeFollowing} from './c6-siege.mjs?v=4.21.0-published';
+import {SIEGE_SCENES,SIEGE_LINES} from './c6-siege-story.mjs?v=4.21.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function piece(w,x,z){const g=w.group(x,0,z);w.box(1.45,.3,3,0x826849,0,.5,.4,g);const b=w.cyl(.23,3,0x424d4b,0,1,-.4,g);b.rotation.x=Math.PI/2;const mouth=w.mesh(new T.CircleGeometry(.17,16),0x111c1e,0,1,-1.91,g);mouth.rotation.y=Math.PI;const wheels=[];for(const side of [-1,1]){const a=new T.Group();g.add(a);a.position.set(side*.95,.6,.4);const ring=w.mesh(new T.TorusGeometry(.6,.09,6,24),0x43473d,0,0,0,a);ring.rotation.y=Math.PI/2;for(let i=0;i<6;i++){const spoke=w.box(.07,1.1,.07,0x9a835c,0,0,0,a);spoke.rotation.x=i*Math.PI/6;}wheels.push(a);}w.box(.4,.11,2,0x897451,0,.35,2.4,g);g.userData.wheels=wheels;return g;}
 function french(w){const a=w.soldier(false);a.traverse(o=>{if(o.isMesh&&o.material.color?.getHex()===0x536b70){o.material=o.material.clone();o.material.color.setHex(0xc9c7b3);}});return a;}

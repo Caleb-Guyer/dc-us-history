@@ -1,3 +1,15 @@
+## Chapter 6 — Complete campaign (4.21.0)
+
+**[Play The Long Road Home](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**. The full campaign follows Rowan Vale and the recurring crew from Ward's release and the Powder Road through Yorktown, evacuation and the final return to Mara's press. Its 62 playable sections vary between stealth, rescue, musket combat, navigation, escort, mounted courier work and hands-on printing. There are 126 authored scenes, 1,116 packaged stock synthetic voice recordings and 34 original scores.
+
+Choose **Questions** in the main menu to study Chapter 6 directly. The 80-question bank offers whole-chapter and topic rounds, bolded terms, immediate explanations, missed-question retry and saved progress separate from the campaign. Questions and answer order are shuffled; 15-question whole-chapter rounds balance the sections.
+
+The final review maps all 54 substantive paragraphs of the supplied edited chapter to required campaign events and scenes. The opening now requires the Association cargo desk, Thomas's tea-company bill and competing authority notices while you support Ward. Required ending narration distinguishes classroom estimates and later memory from supported historical claims. See [coverage](C6-COVERAGE.md), [sources](C6-SOURCES.md), [validation](C6-VALIDATION.md) and [credits](C6-CREDITS.md). Players can skip or replay scenes; coverage is not a promise of quiz mastery.
+
+Normal upward looking, concise contextual controls, checkpoint recovery, installment-save migration and protected replay are included. No build or live voice service is needed. Testing uses hidden, forced-muted desktop playtests; audible audition, physical phone/gamepad checks and an independent blind playthrough are not claimed.
+
+The entries below are the release history and describe the scope at each earlier date.
+
 ## Chapter 6 update — The Door Stays Open (4.20.0)
 
 Rowan returns to Mara's Boston press on December 31, 1783. Unpack separate letters, receive the dated news of Washington returning his command, welcome the people whose completed local records support their return, and print the first sheet with a physically moving carriage and lever. Hang it, place Ward's repaired buckle, and open Isaiah's shutters. Thomas's possessions, the Philadelphia equipment route and the Dan supply load change the physical room. Ward's place stays empty.
@@ -261,7 +273,7 @@ GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root)
 
 ## Source map
 
-- `index.html`, `chapter6.html`, `c6.css`, `c6.mjs`: Chapter 6 opening presentation and campaign control.
+- `index.html`, `chapter6.html`, `c6.css`, `c6.mjs`: Chapter 6 presentation and campaign control.
 - `c6-data.mjs`, `c6-sim.mjs`, `c6-world.mjs`, `c6-voices.mjs`, `c6-score.mjs`: opening story, simulation, rendering, and media.
 - `c6-director.mjs`, `c6-scenery.mjs`: bounded cinematic cameras and pacing; sky, hills, vegetation, and environmental props.
 - `chapter5.html`, `c5.css`, `c5.mjs`: Chapter 5 presentation and campaign control.

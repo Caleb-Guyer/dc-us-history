@@ -1,3 +1,9 @@
+# Complete campaign additions — 4.21
+
+The final audit adds or revises original performances for the required prologue desk/bill/notices, whole-day April 19 losses, named commanders, siege and southern civil-war context, women's work and required historical source corrections. Totals are 1,116 packaged stock Kokoro synthetic clips, 126 authored scenes and 34 original local scores. The source-correction narrator is separately labeled and outside the crew's 1783 knowledge. No human voice is cloned and no commercial game's recordings, music, characters or assets are copied. The campaign takes cinematic pacing and genre variety as inspiration.
+
+All visual sets, actors, props and new prologue cargo/tea/authority desks are code-built from this repository's original procedural systems. Existing media/model dependency licenses and attributions remain below. Testing was forced muted and is not an audible audition.
+
 ## The Wider War — 4.12.0
 
 Original June 1778–July 1779 crew dialogue, six authored scenes, a following combat section, two navigable convoy routes, covered supplies, naval silhouettes, shoals, recoverable hull damage, independent tiller/look, a survivor and pursuing cutter, burned stores, carried water, cooled/lifted timber and civilian adult/child rigs. Adrien Morel, Lydia Blake, her relatives, the survivor and the local operations are invented. Adrien's stock English performance is a translation convention, not a claimed reconstruction of an accent or historical speech.

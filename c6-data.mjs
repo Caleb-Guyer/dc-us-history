@@ -1,47 +1,53 @@
-import {HOME_LEVELS} from './c6-home.mjs?v=4.20.0-published';
-import {HOME_LINES,HOME_SCENES,HOME_FACTS} from './c6-home-story.mjs?v=4.20.0-published';
-import {DEPARTURE_LEVELS} from './c6-departure.mjs?v=4.20.0-published';
-import {DEPARTURE_LINES,DEPARTURE_SCENES,DEPARTURE_FACTS} from './c6-departure-story.mjs?v=4.20.0-published';
-import {SIEGE_LEVELS} from './c6-siege.mjs?v=4.20.0-published';
-import {SIEGE_LINES,SIEGE_SCENES,SIEGE_FACTS} from './c6-siege-story.mjs?v=4.20.0-published';
-import {SEA_LEVELS} from './c6-sea.mjs?v=4.20.0-published';
-import {SEA_LINES,SEA_SCENES,SEA_FACTS} from './c6-sea-story.mjs?v=4.20.0-published';
-import {PRICE_LEVELS} from './c6-price.mjs?v=4.20.0-published';
-import {PRICE_LINES,PRICE_SCENES,PRICE_FACTS} from './c6-price-story.mjs?v=4.20.0-published';
-import {CHASE_LEVELS} from './c6-chase.mjs?v=4.20.0-published';
-import {CHASE_LINES,CHASE_SCENES,CHASE_FACTS} from './c6-chase-story.mjs?v=4.20.0-published';
-import {INLAND_LEVELS} from './c6-inland.mjs?v=4.20.0-published';
-import {INLAND_LINES,INLAND_SCENES,INLAND_FACTS} from './c6-inland-story.mjs?v=4.20.0-published';
-import {SOUTH_LEVELS} from './c6-south.mjs?v=4.20.0-published';
-import {SOUTH_LINES,SOUTH_SCENES,SOUTH_FACTS} from './c6-south-story.mjs?v=4.20.0-published';
-import {WIDER_LEVELS} from './c6-wider.mjs?v=4.20.0-published';
-import {WIDER_LINES,WIDER_SCENES,WIDER_FACTS} from './c6-wider-story.mjs?v=4.20.0-published';
-import {WINTER_LEVELS} from './c6-winter.mjs?v=4.20.0-published';
-import {WINTER_LINES,WINTER_SCENES,WINTER_FACTS} from './c6-winter-story.mjs?v=4.20.0-published';
-import {ALBANY_LEVELS} from './c6-albany.mjs?v=4.20.0-published';
-import {ALBANY_LINES,ALBANY_SCENES,ALBANY_FACTS} from './c6-albany-story.mjs?v=4.20.0-published';
-import {PHILADELPHIA_LEVELS} from './c6-philadelphia.mjs?v=4.20.0-published';
-import {PHILADELPHIA_LINES,PHILADELPHIA_SCENES,PHILADELPHIA_FACTS} from './c6-philadelphia-story.mjs?v=4.20.0-published';
-import {CROSSING_LEVELS} from './c6-crossing.mjs?v=4.20.0-published';
-import {CROSSING_LINES,CROSSING_SCENES,CROSSING_FACTS} from './c6-crossing-story.mjs?v=4.20.0-published';
-import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.20.0-published';
-import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.20.0-published';
-import {HILL_SPEC} from './c6-hill.mjs?v=4.20.0-published';
+import {HOME_LEVELS} from './c6-home.mjs?v=4.21.0-published';
+import {HOME_LINES,HOME_SCENES,HOME_FACTS} from './c6-home-story.mjs?v=4.21.0-published';
+import {DEPARTURE_LEVELS} from './c6-departure.mjs?v=4.21.0-published';
+import {DEPARTURE_LINES,DEPARTURE_SCENES,DEPARTURE_FACTS} from './c6-departure-story.mjs?v=4.21.0-published';
+import {SIEGE_LEVELS} from './c6-siege.mjs?v=4.21.0-published';
+import {SIEGE_LINES,SIEGE_SCENES,SIEGE_FACTS} from './c6-siege-story.mjs?v=4.21.0-published';
+import {SEA_LEVELS} from './c6-sea.mjs?v=4.21.0-published';
+import {SEA_LINES,SEA_SCENES,SEA_FACTS} from './c6-sea-story.mjs?v=4.21.0-published';
+import {PRICE_LEVELS} from './c6-price.mjs?v=4.21.0-published';
+import {PRICE_LINES,PRICE_SCENES,PRICE_FACTS} from './c6-price-story.mjs?v=4.21.0-published';
+import {CHASE_LEVELS} from './c6-chase.mjs?v=4.21.0-published';
+import {CHASE_LINES,CHASE_SCENES,CHASE_FACTS} from './c6-chase-story.mjs?v=4.21.0-published';
+import {INLAND_LEVELS} from './c6-inland.mjs?v=4.21.0-published';
+import {INLAND_LINES,INLAND_SCENES,INLAND_FACTS} from './c6-inland-story.mjs?v=4.21.0-published';
+import {SOUTH_LEVELS} from './c6-south.mjs?v=4.21.0-published';
+import {SOUTH_LINES,SOUTH_SCENES,SOUTH_FACTS} from './c6-south-story.mjs?v=4.21.0-published';
+import {WIDER_LEVELS} from './c6-wider.mjs?v=4.21.0-published';
+import {WIDER_LINES,WIDER_SCENES,WIDER_FACTS} from './c6-wider-story.mjs?v=4.21.0-published';
+import {WINTER_LEVELS} from './c6-winter.mjs?v=4.21.0-published';
+import {WINTER_LINES,WINTER_SCENES,WINTER_FACTS} from './c6-winter-story.mjs?v=4.21.0-published';
+import {ALBANY_LEVELS} from './c6-albany.mjs?v=4.21.0-published';
+import {ALBANY_LINES,ALBANY_SCENES,ALBANY_FACTS} from './c6-albany-story.mjs?v=4.21.0-published';
+import {PHILADELPHIA_LEVELS} from './c6-philadelphia.mjs?v=4.21.0-published';
+import {PHILADELPHIA_LINES,PHILADELPHIA_SCENES,PHILADELPHIA_FACTS} from './c6-philadelphia-story.mjs?v=4.21.0-published';
+import {CROSSING_LEVELS} from './c6-crossing.mjs?v=4.21.0-published';
+import {CROSSING_LINES,CROSSING_SCENES,CROSSING_FACTS} from './c6-crossing-story.mjs?v=4.21.0-published';
+import {TIDE_SPEC,CREEK_SPEC} from './c6-promise.mjs?v=4.21.0-published';
+import {PROMISE_LINES,PROMISE_SCENES,PROMISE_FACTS} from './c6-promise-story.mjs?v=4.21.0-published';
+import {HILL_SPEC} from './c6-hill.mjs?v=4.21.0-published';
 // Chapter 6: the Powder Road and the Guns North. Original crew fiction within sourced events.
-import {FORT_SPEC} from './c6-fort.mjs?v=4.20.0-published';
-import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.20.0-published';
-import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.20.0-published';
-import {PRINT_SPEC,DISPATCH_SPEC} from './c6-paper.mjs?v=4.20.0-published';
-import {PAPER_LINES,PAPER_SCENES,PAPER_FACTS} from './c6-paper-story.mjs?v=4.20.0-published';
-import {RETREAT_LEVELS} from './c6-retreat.mjs?v=4.20.0-published';
-import {RETREAT_LINES,RETREAT_SCENES,RETREAT_FACTS} from './c6-retreat-story.mjs?v=4.20.0-published';
-export const VERSION='4.20.0';
+import {FORT_SPEC} from './c6-fort.mjs?v=4.21.0-published';
+import {SNOW_SPEC,RIDGE_SPEC,BOSTON_SPEC} from './c6-lift.mjs?v=4.21.0-published';
+import {LIFT_LINES,LIFT_SCENES,LIFT_FACTS} from './c6-lift-story.mjs?v=4.21.0-published';
+import {PRINT_SPEC,DISPATCH_SPEC} from './c6-paper.mjs?v=4.21.0-published';
+import {PAPER_LINES,PAPER_SCENES,PAPER_FACTS} from './c6-paper-story.mjs?v=4.21.0-published';
+import {RETREAT_LEVELS} from './c6-retreat.mjs?v=4.21.0-published';
+import {RETREAT_LINES,RETREAT_SCENES,RETREAT_FACTS} from './c6-retreat-story.mjs?v=4.21.0-published';
+export const VERSION='4.21.0';
 export const SAVE_KEY='dc-us-history-chapter6-opening-v1';
 export function continueProgress(saved){if(!saved.complete||saved.completedPart==='home'||saved.seen.includes('homeDoor'))return saved;return {...saved,complete:false,scene:saved.completedPart==='departure'||saved.seen.includes('departHistory')?'homeIntro':saved.completedPart==='siege'||saved.seen.includes('siegeHistory')?'departIntro':saved.completedPart==='sea'||saved.seen.includes('seaEnding')?'siegeIntro':saved.completedPart==='price'||saved.seen.includes('priceEnding')?'seaIntro':saved.completedPart==='chase'||saved.seen.includes('chaseEnding')?'priceIntro':saved.completedPart==='inland'||saved.seen.includes('inlandEnding')?'chaseIntro':saved.completedPart==='south'||saved.seen.includes('southEnding')?'inlandIntro':saved.completedPart==='wider'||saved.seen.includes('widerEnding')?'southIntro':saved.completedPart==='winter'||saved.seen.includes('winterAlliance')?'widerIntro':saved.completedPart==='albany'||saved.seen.includes('albanySurrender')?'winterIntro':saved.completedPart==='philadelphia'||saved.seen.includes('philadelphiaEnding')?'albanyIntro':saved.completedPart==='crossing'||saved.seen.includes('crossingEnding')?'philadelphiaIntro':saved.seen.includes('retreatEnding')?'crossingIntro':saved.seen.includes('paperCoda')?'retreatIntro':saved.seen.includes('liftHome')?'paperIntro':saved.seen.includes('promiseCoda')?'liftIntro':saved.seen.includes('hillLegacy')?'promiseIntro':saved.seen.includes('northEnding')?'hillIntro':'northIntro',checkpoint:null};}
 export const NAMES={NARRATOR:'History after the story',RUTH:'Ruth Bell',PRISONER:'British prisoner',FATHER:'Joseph Pryce',MOTHER:'Hannah Pryce',TENANT:'Ephraim Cole',NEIGHBOR:'Andrew Voss',SAMUEL:'Samuel Price',BENNETT:'Benjamin Bennett',CREEK:'Creek visitor',ELIZA:'Eliza Bellamy',ADRIEN:'Adrien Morel',LYDIA:'Lydia Blake',ANNE:'Anne Hart',ASA:'Asa Freeman',MERCHANT:'Local merchant',JACOB:'Jacob',CLERK:'Daniel Pike',HESSIAN:'Hessian soldier',JONAS:'Jonas Bell',AGENT:'Royal intermediary',CLAIMANT:'Virginia enslaver',ROWAN:'Rowan Vale',WARD:'Elias Ward',MARA:'Mara Reed',ISAIAH:'Isaiah Mercer',THOMAS:'Thomas Vale',RUNNER:'Nathan Cole',MILITIA:'Militia captain'};
 export const SPEAKERS={NARRATOR:['am_eric',1.00,'en-us'],RUTH:['af_bella',1.01,'en-us'],PRISONER:['bm_george',1.02,'en-gb'],FATHER:['am_eric',1.02,'en-us'],MOTHER:['af_bella',1.01,'en-us'],TENANT:['bm_fable',1.03,'en-gb'],NEIGHBOR:['bm_george',1.04,'en-gb'],SAMUEL:['am_eric',1.01,'en-us'],BENNETT:['bm_fable',1.03,'en-gb'],CREEK:['am_onyx',1.03,'en-us'],ELIZA:['af_bella',.98,'en-us'],ADRIEN:['bm_lewis',1.04,'en-gb'],LYDIA:['af_bella',1.00,'en-us'],ANNE:['af_heart',1.06,'en-us'],ASA:['am_michael',1.06,'en-us'],MERCHANT:['bm_fable',1.01,'en-gb'],JACOB:['am_onyx',1.02,'en-us'],CLERK:['am_eric',.99,'en-us'],HESSIAN:['bm_lewis',1.00,'en-gb'],JONAS:['am_onyx',.98,'en-us'],AGENT:['bm_lewis',.99,'en-gb'],CLAIMANT:['am_eric',1.03,'en-us'],ROWAN:['am_fenrir',1.00,'en-us'],WARD:['bm_george',.96,'en-gb'],MARA:['af_heart',1.00,'en-us'],ISAIAH:['am_michael',.98,'en-us'],THOMAS:['bm_fable',.98,'en-gb'],RUNNER:['am_puck',1.04,'en-us'],MILITIA:['bm_george',1.04,'en-gb']};
 const line=(id,speaker,text)=>({id,speaker,text});
 export const LINES=[...HOME_LINES,...DEPARTURE_LINES,...SIEGE_LINES,...SEA_LINES,...PRICE_LINES,...CHASE_LINES,...INLAND_LINES,...SOUTH_LINES,...WIDER_LINES,...WINTER_LINES,...ALBANY_LINES,...PHILADELPHIA_LINES,...CROSSING_LINES,...RETREAT_LINES,...PAPER_LINES,...LIFT_LINES,...PROMISE_LINES,
+ line('prologue.inspect','MARA','The Continental Association desk. Philadelphia, September and October last year: every colony except Georgia sent delegates to Congress. They agreed to boycott British goods. These local committees enforce it; the royal governor no longer controls every gate.'),
+ line('prologue.trade','THOMAS','My old East India Company paper. Britain won the French and Indian War in seventeen sixty-three, but the debt stayed. The Tea Act gave the Company a privileged tea monopoly. This bill used to mean work for my ships.'),
+ line('prologue.closed','ROWAN','Then the tea went into the harbor in December seventeen seventy-three. Massachusetts refused to pay. The Coercive Acts closed Boston’s port and restricted our political institutions. What happened to this harbor angered people in the other colonies too.'),
+ line('prologue.gage','WARD','Gage arrived as royal governor in May seventeen seventy-four, bringing troops. Another occupation, after seventeen sixty-eight. Look at the two notices. The governor’s order is not the only authority people answer to now.'),
+ line('prologue.authority','MARA','The Provincial Congress and Suffolk Resolves reject the Coercive Acts. They call out militia and replace royal control with resistance. We need the Association’s clearance for this local load; Thomas’s old company paper will not open this gate.'),
+ line('prologue.base','ISAIAH','About thirty-five hundred troops based in Boston, raiding for arms and powder. People are leaving their homes. We keep this wagon’s blankets and flour on the local roll. Ward has a place beside them.'),
  line('release.0','THOMAS','The release is signed. Give him his coat.'),
  line('release.1','ROWAN','Ward? It’s me.'),
  line('release.2','WARD','I know your footsteps. You still hurry when you’re frightened.'),
@@ -56,7 +62,7 @@ export const LINES=[...HOME_LINES,...DEPARTURE_LINES,...SIEGE_LINES,...SEA_LINES
  line('gate.4','ROWAN','Then come with us.'),
  line('gate.5','THOMAS','You’re my family. That doesn’t make this rebellion right.'),
  line('gate.6','WARD','Let him go. A man can open a door without crossing it.'),
- line('night.0','WARD','Gage has troops moving out of Boston. They’re after the powder at Concord.'),
+ line('night.0','WARD','Gage has troops moving out of Boston after the powder at Concord. Warren sent riders to warn Samuel Adams and John Hancock in Lexington. People fear their arrest; we know the soldiers are after the stores.'),
  line('night.1','ROWAN','Again? Cambridge. Charlestown. How much more will they take?'),
  line('night.2','WARD','They came away empty-handed at Salem. New Hampshire took the guns at Fort William and Mary. People are ready.'),
  line('night.3','ROWAN','Then we get the warning to them. The north farm first.'),
@@ -86,7 +92,7 @@ export const LINES=[...HOME_LINES,...DEPARTURE_LINES,...SIEGE_LINES,...SEA_LINES
  line('reload','WARD','Reload behind cover. That wall is worth more than another shot.'),
  line('end.0','ROWAN','This morning I thought getting the warning through would be enough.'),
  line('end.1','WARD','It got these people out. That was enough for this morning.'),
- line('end.2','MARA','Militia are marching toward Boston from everywhere. They’re surrounding the city.'),
+ line('end.2','MARA','More than four thousand militia fought today, ambushing the British retreat. The day’s reports count seventy-three British and forty-nine Patriot dead across all the fighting. Now militia are surrounding Boston. Our wagon’s wounded are part of a much larger loss.'),
  line('end.3','ROWAN','And Thomas is still inside.'),
  line('end.4','WARD','Then we keep a road open. We leave with everyone we can.'),
  line('end.5','ISAIAH','I’ll find us a way through the harbor. You get some sleep.'),
@@ -94,7 +100,7 @@ export const LINES=[...HOME_LINES,...DEPARTURE_LINES,...SIEGE_LINES,...SEA_LINES
  line('north.0','ISAIAH','There. Past the mist. Ticonderoga.'),
  line('north.1','ROWAN','Boston is the other way.'),
  line('north.2','WARD','We can surround a city with men. To force the British out, we need guns.'),
- line('north.3','RUNNER','Allen and Arnold are bringing the men up. They want us at the passage.'),
+ line('north.3','RUNNER','Ethan Allen and Benedict Arnold are bringing the men up. They want us at the passage.'),
  line('north.4','ISAIAH','I’ll keep the boat ready. Nathan, stay on Rowan’s shoulder.'),
  line('north.5','ROWAN','And if the sentry sees us?'),
  line('north.6','WARD','We move together. This is a surprise, not a firing line.'),
@@ -158,7 +164,7 @@ export const LINES=[...HOME_LINES,...DEPARTURE_LINES,...SIEGE_LINES,...SEA_LINES
  line("hill.end.5","MARA","Rowan. His hand. Hold it while I bind his leg."),
  line("hill.end.6","ROWAN","I’m here. I’m not going anywhere."),
  line("hill.legacy.0","RUNNER","The reports say more than two hundred British dead. Around eight hundred wounded. All for those hills."),
- line("hill.legacy.1","WARD","Gage took the ground. He still couldn’t break the siege around Boston."),
+ line("hill.legacy.1","WARD","Gage took the ground. He still couldn’t break the siege around Boston. The British hold the town; the surrounding countryside is beyond their control."),
  line("hill.legacy.2","MARA","In August, the king declared the colonies in rebellion. This arrived from London."),
  line("hill.legacy.3","ROWAN","Then we keep the dispatches moving. People need to know what comes next."),
 ];
@@ -183,7 +189,7 @@ export const SCENES={
  ...CROSSING_SCENES,...PHILADELPHIA_SCENES,...ALBANY_SCENES,...WINTER_SCENES,...WIDER_SCENES,...SOUTH_SCENES,...INLAND_SCENES,...CHASE_SCENES,...PRICE_SCENES,...SEA_SCENES,...SIEGE_SCENES,...DEPARTURE_SCENES,...HOME_SCENES,
 };
 export const LEVELS={
- release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
+ release:{title:'An unfinished promise',place:'BOSTON · EARLY 1775',spawn:[0,13],bounds:[-18,18,-18,22],music:'home',goals:[{x:0,z:2,label:'Help Ward down the steps',verb:'Help Ward',time:1},{x:-9,z:11,label:'Clear the local load at the boycott desk',verb:'Show the local cargo roll',time:1.2},{x:-5,z:17,label:'Compare Thomas’s old tea-company bill',verb:'Check the old trade paper',time:1.2},{x:2,z:17,label:'Take the clearance beside the two authority notices',verb:'Clear the local load',time:1.2},{x:8,z:10,label:'Bring Ward to the wagon',verb:'Help Ward into the wagon',time:1.2}]},
  night:{title:'The Powder Road',place:'APRIL 18–19, 1775 · NIGHT',spawn:[0,19],bounds:[-24,24,-125,24],music:'night',goals:[{x:-8,z:-22,label:'Warn the north farm',verb:'Knock on the farmhouse door',time:1},{x:9,z:-61,label:'Ring the meeting bell',verb:'Ring the bell',time:1.2},{x:-3,z:-115,label:'Reach the far side of the ridge',verb:'Follow the path to Lexington',time:.8}]},
  lexington:{title:'The first light',place:'APRIL 19, 1775 · LEXINGTON',spawn:[0,17],bounds:[-25,25,-31,24],music:'tension',goals:[{x:-7,z:-4,label:'Reach the wounded runner',verb:'Help the wounded runner',time:1},{x:14,z:16,label:'Bring him to Mara’s wagon',verb:'Lower him into the wagon',time:1},{x:-13,z:-16,label:'Find the man behind the fence',verb:'Help the wounded man',time:1},{x:14,z:16,label:'Get him into the wagon',verb:'Help him aboard',time:1},{x:19,z:23,label:'Leave the green with the crew',verb:'Leave by the garden lane',time:.6}]},
  concord:{title:'A road home',place:'APRIL 19, 1775 · NEAR CONCORD',spawn:[3,18],bounds:[-24,24,-42,26],music:'battle',goals:[{x:2,z:9,label:'Take the spare musket',verb:'Take the musket',time:.8},{x:0,z:4,label:'Cover the wagon from the stone wall',verb:'Hold this position',time:0},{x:18,z:23,label:'Fall back to the orchard',verb:'Leave with the crew',time:.7}]},

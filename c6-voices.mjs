@@ -373,6 +373,18 @@ export const C6_VOICES = [
     "rms": 0.1163
   },
   {
+    "id": "home.oaths.1",
+    "speaker": "NARRATOR",
+    "text": "The handout contrasts coastal Loyalist strength with backcountry Patriots in South Carolina. Treat that as a simplified classroom pattern. Park histories describe mixed loyalties and neighbor-against-neighbor fighting; neither region belonged to one side.",
+    "voice": "am_eric",
+    "speed": 1,
+    "lang": "en-us",
+    "file": "c6-voice-home-oaths-1-d73b88892.mp3",
+    "duration": 13.644,
+    "peak": 0.86,
+    "rms": 0.1432
+  },
+  {
     "id": "home.world.0",
     "speaker": "NARRATOR",
     "text": "The history after the story. The Declaration’s language of equality, natural rights and consent influenced later struggles around the world. Its ideals did not end slavery or give equal political rights to everyone in seventeen seventy-six.",
@@ -395,6 +407,18 @@ export const C6_VOICES = [
     "duration": 13.857,
     "peak": 0.86,
     "rms": 0.1266
+  },
+  {
+    "id": "home.memory.1",
+    "speaker": "NARRATOR",
+    "text": "The handout also links the Concord raid to arrest orders for Adams and Hancock. Their capture was feared, and riders warned them. NPS finds no evidence that Gage ordered their arrest that day; the written raid orders concerned military stores.",
+    "voice": "am_eric",
+    "speed": 1,
+    "lang": "en-us",
+    "file": "c6-voice-home-memory-1-4c5c663c8.mp3",
+    "duration": 13.113,
+    "peak": 0.86,
+    "rms": 0.1482
   },
   {
     "id": "home.manual.0",
@@ -3255,14 +3279,14 @@ export const C6_VOICES = [
   {
     "id": "chase.victory.5",
     "speaker": "WARD",
-    "text": "Cornwallis is giving chase into North Carolina. He wants to destroy Greene’s army. We have won this field. We still have to get away from the next one.",
+    "text": "Cornwallis is leaving his South Carolina backcountry plan to chase Greene into North Carolina. He wants to destroy the army Daniel Morgan helped preserve at Cowpens. We have won this field. We still have to get away from the next one.",
     "voice": "bm_george",
     "speed": 0.96,
     "lang": "en-gb",
-    "file": "c6-voice-chase-victory-5-10b14c892.mp3",
-    "duration": 9.386,
+    "file": "c6-voice-chase-victory-5-9bb4b2738.mp3",
+    "duration": 15.123,
     "peak": 0.86,
-    "rms": 0.1355
+    "rms": 0.1336
   },
   {
     "id": "chase.road.0",
@@ -4119,14 +4143,14 @@ export const C6_VOICES = [
   {
     "id": "inland.passage.2",
     "speaker": "WARD",
-    "text": "Coast and backcountry have patterns of support, not one mind each. Patriot and Loyalist neighbors are fighting over the country, and sometimes over an older boundary.",
+    "text": "Coast and backcountry do not have one mind each. Patriot and Loyalist neighbors destroy property and kill for revenge, sometimes over an older boundary. Getting this family out does not end that civil war.",
     "voice": "bm_george",
     "speed": 0.96,
     "lang": "en-gb",
-    "file": "c6-voice-inland-passage-2-71103b6cb.mp3",
-    "duration": 11.124,
+    "file": "c6-voice-inland-passage-2-570cba274.mp3",
+    "duration": 13.898,
     "peak": 0.86,
-    "rms": 0.126
+    "rms": 0.1277
   },
   {
     "id": "inland.passage.3",
@@ -4275,14 +4299,14 @@ export const C6_VOICES = [
   {
     "id": "inland.complaint",
     "speaker": "MOTHER",
-    "text": "Women have gathered to demand a fair price. Some confront merchants they accuse of hoarding. I want flour for my family and a sale we can all see recorded. Take this public receipt to him.",
+    "text": "Women have gathered to demand a fair price. Some confront merchants they accuse of hoarding; some protests have become riots. I want flour for my family and a sale we can all see recorded. Take this public receipt to him.",
     "voice": "af_bella",
     "speed": 1.01,
     "lang": "en-us",
-    "file": "c6-voice-inland-complaint-b6af09aa6.mp3",
-    "duration": 12.014,
+    "file": "c6-voice-inland-complaint-a1767115a.mp3",
+    "duration": 14.194,
     "peak": 0.86,
-    "rms": 0.0966
+    "rms": 0.0917
   },
   {
     "id": "inland.sale",
@@ -6051,14 +6075,14 @@ export const C6_VOICES = [
   {
     "id": "winter.intro.2",
     "speaker": "ANNE",
-    "text": "Food, clothing, tents, ammunition. Every list has a space somebody could not fill. I have flour waiting beyond the lower road.",
+    "text": "Food, clothing, tents, equipment, ammunition. Every list has a space somebody could not fill. I have flour waiting beyond the lower road.",
     "voice": "af_heart",
     "speed": 1.06,
     "lang": "en-us",
-    "file": "c6-voice-winter-intro-2-1c4aba337.mp3",
-    "duration": 7.792,
+    "file": "c6-voice-winter-intro-2-794578b18.mp3",
+    "duration": 8.517,
     "peak": 0.86,
-    "rms": 0.0964
+    "rms": 0.1117
   },
   {
     "id": "winter.intro.3",
@@ -6219,14 +6243,14 @@ export const C6_VOICES = [
   {
     "id": "winter.shelter.4",
     "speaker": "ANNE",
-    "text": "And children to feed, homes to keep and fields waiting elsewhere. The war did not set those things aside for us.",
+    "text": "With men away fighting, women have more children to feed, homes and fields to keep, and troops to lodge and feed. The war increased that work. It did not set our earlier duties aside.",
     "voice": "af_heart",
     "speed": 1.06,
     "lang": "en-us",
-    "file": "c6-voice-winter-shelter-4-859caf857.mp3",
-    "duration": 6.587,
+    "file": "c6-voice-winter-shelter-4-9f48c2ce0.mp3",
+    "duration": 11.039,
     "peak": 0.86,
-    "rms": 0.1385
+    "rms": 0.1271
   },
   {
     "id": "winter.shelter.5",
@@ -6339,14 +6363,14 @@ export const C6_VOICES = [
   {
     "id": "camp.hang",
     "speaker": "ANNE",
-    "text": "We learned to work without British cloth in the Daughters of Liberty boycotts. Now the work goes into shirts, blankets and the army’s care.",
+    "text": "The Daughters of Liberty began in the mid-seventeen-sixties against British revenue measures. We learned to work without British cloth in those boycotts. Now the work goes into shirts, blankets and the army’s care.",
     "voice": "af_heart",
     "speed": 1.06,
     "lang": "en-us",
-    "file": "c6-voice-camp-hang-72c73d5a5.mp3",
-    "duration": 7.559,
-    "peak": 0.8478,
-    "rms": 0.15
+    "file": "c6-voice-camp-hang-176310bcd.mp3",
+    "duration": 11.934,
+    "peak": 0.86,
+    "rms": 0.1356
   },
   {
     "id": "camp.helpercloth",
@@ -11007,13 +11031,13 @@ export const C6_VOICES = [
   {
     "id": "lift.evac.1",
     "speaker": "WARD",
-    "text": "Now the transports are leaving. March seventeenth. Remember the day.",
+    "text": "Now the transports are leaving. March seventeenth, seventeen seventy-six. Nearly a year of siege. Remember the day.",
     "voice": "bm_george",
     "speed": 0.96,
     "lang": "en-gb",
-    "file": "c6-voice-lift-evac-1-8535590dd.mp3",
-    "duration": 4.62,
-    "peak": 0.8173,
+    "file": "c6-voice-lift-evac-1-36f274c1d.mp3",
+    "duration": 8.049,
+    "peak": 0.8527,
     "rms": 0.15
   },
   {
@@ -11415,14 +11439,14 @@ export const C6_VOICES = [
   {
     "id": "promise.contact.4",
     "speaker": "AGENT",
-    "text": "His offer does not free people held by loyal subjects. His lordship needs soldiers.",
+    "text": "His lordship has raised Loyalists too, and needs Virginia’s landowners. His offer does not free people held by loyal subjects. He needs soldiers; that does not make this an end to slavery.",
     "voice": "bm_lewis",
     "speed": 0.99,
     "lang": "en-gb",
-    "file": "c6-voice-promise-contact-4-f5a7273af.mp3",
-    "duration": 5.554,
+    "file": "c6-voice-promise-contact-4-f02b4eb8c.mp3",
+    "duration": 12.406,
     "peak": 0.86,
-    "rms": 0.0962
+    "rms": 0.0943
   },
   {
     "id": "promise.contact.5",
@@ -11869,6 +11893,78 @@ export const C6_VOICES = [
     "rms": 0.1339
   },
   {
+    "id": "prologue.inspect",
+    "speaker": "MARA",
+    "text": "The Continental Association desk. Philadelphia, September and October last year: every colony except Georgia sent delegates to Congress. They agreed to boycott British goods. These local committees enforce it; the royal governor no longer controls every gate.",
+    "voice": "af_heart",
+    "speed": 1,
+    "lang": "en-us",
+    "file": "c6-voice-prologue-inspect-31071c8ad.mp3",
+    "duration": 17.154,
+    "peak": 0.86,
+    "rms": 0.1152
+  },
+  {
+    "id": "prologue.trade",
+    "speaker": "THOMAS",
+    "text": "My old East India Company paper. Britain won the French and Indian War in seventeen sixty-three, but the debt stayed. The Tea Act gave the Company a privileged tea monopoly. This bill used to mean work for my ships.",
+    "voice": "bm_fable",
+    "speed": 0.98,
+    "lang": "en-gb",
+    "file": "c6-voice-prologue-trade-8f992dccc.mp3",
+    "duration": 13.047,
+    "peak": 0.86,
+    "rms": 0.0888
+  },
+  {
+    "id": "prologue.closed",
+    "speaker": "ROWAN",
+    "text": "Then the tea went into the harbor in December seventeen seventy-three. Massachusetts refused to pay. The Coercive Acts closed Boston’s port and restricted our political institutions. What happened to this harbor angered people in the other colonies too.",
+    "voice": "am_fenrir",
+    "speed": 1,
+    "lang": "en-us",
+    "file": "c6-voice-prologue-closed-86da34c16.mp3",
+    "duration": 14.895,
+    "peak": 0.86,
+    "rms": 0.0919
+  },
+  {
+    "id": "prologue.gage",
+    "speaker": "WARD",
+    "text": "Gage arrived as royal governor in May seventeen seventy-four, bringing troops. Another occupation, after seventeen sixty-eight. Look at the two notices. The governor’s order is not the only authority people answer to now.",
+    "voice": "bm_george",
+    "speed": 0.96,
+    "lang": "en-gb",
+    "file": "c6-voice-prologue-gage-b0c1c6322.mp3",
+    "duration": 15.415,
+    "peak": 0.7933,
+    "rms": 0.15
+  },
+  {
+    "id": "prologue.authority",
+    "speaker": "MARA",
+    "text": "The Provincial Congress and Suffolk Resolves reject the Coercive Acts. They call out militia and replace royal control with resistance. We need the Association’s clearance for this local load; Thomas’s old company paper will not open this gate.",
+    "voice": "af_heart",
+    "speed": 1,
+    "lang": "en-us",
+    "file": "c6-voice-prologue-authority-0db7914cf.mp3",
+    "duration": 15.117,
+    "peak": 0.86,
+    "rms": 0.1244
+  },
+  {
+    "id": "prologue.base",
+    "speaker": "ISAIAH",
+    "text": "About thirty-five hundred troops based in Boston, raiding for arms and powder. People are leaving their homes. We keep this wagon’s blankets and flour on the local roll. Ward has a place beside them.",
+    "voice": "am_michael",
+    "speed": 0.98,
+    "lang": "en-us",
+    "file": "c6-voice-prologue-base-4eab5f6c5.mp3",
+    "duration": 13.948,
+    "peak": 0.86,
+    "rms": 0.1035
+  },
+  {
     "id": "release.0",
     "speaker": "THOMAS",
     "text": "The release is signed. Give him his coat.",
@@ -12039,14 +12135,14 @@ export const C6_VOICES = [
   {
     "id": "night.0",
     "speaker": "WARD",
-    "text": "Gage has troops moving out of Boston. They’re after the powder at Concord.",
+    "text": "Gage has troops moving out of Boston after the powder at Concord. Warren sent riders to warn Samuel Adams and John Hancock in Lexington. People fear their arrest; we know the soldiers are after the stores.",
     "voice": "bm_george",
     "speed": 0.96,
     "lang": "en-gb",
-    "file": "c6-voice-night-0-2d6f693cb.mp3",
-    "duration": 4.938,
-    "peak": 0.778,
-    "rms": 0.15
+    "file": "c6-voice-night-0-88b41d77a.mp3",
+    "duration": 14.224,
+    "peak": 0.86,
+    "rms": 0.1468
   },
   {
     "id": "night.1",
@@ -12399,14 +12495,14 @@ export const C6_VOICES = [
   {
     "id": "end.2",
     "speaker": "MARA",
-    "text": "Militia are marching toward Boston from everywhere. They’re surrounding the city.",
+    "text": "More than four thousand militia fought today, ambushing the British retreat. The day’s reports count seventy-three British and forty-nine Patriot dead across all the fighting. Now militia are surrounding Boston. Our wagon’s wounded are part of a much larger loss.",
     "voice": "af_heart",
     "speed": 1,
     "lang": "en-us",
-    "file": "c6-voice-end-2-33363ff71.mp3",
-    "duration": 4.465,
+    "file": "c6-voice-end-2-10b285d2c.mp3",
+    "duration": 16.112,
     "peak": 0.86,
-    "rms": 0.1489
+    "rms": 0.1243
   },
   {
     "id": "end.3",
@@ -12495,14 +12591,14 @@ export const C6_VOICES = [
   {
     "id": "north.3",
     "speaker": "RUNNER",
-    "text": "Allen and Arnold are bringing the men up. They want us at the passage.",
+    "text": "Ethan Allen and Benedict Arnold are bringing the men up. They want us at the passage.",
     "voice": "am_puck",
     "speed": 1.04,
     "lang": "en-us",
-    "file": "c6-voice-north-3-75d2594e1.mp3",
-    "duration": 3.647,
-    "peak": 0.7035,
-    "rms": 0.15
+    "file": "c6-voice-north-3-91e6ba08d.mp3",
+    "duration": 4.827,
+    "peak": 0.86,
+    "rms": 0.1038
   },
   {
     "id": "north.4",
@@ -13263,14 +13359,14 @@ export const C6_VOICES = [
   {
     "id": "hill.legacy.1",
     "speaker": "WARD",
-    "text": "Gage took the ground. He still couldn’t break the siege around Boston.",
+    "text": "Gage took the ground. He still couldn’t break the siege around Boston. The British hold the town; the surrounding countryside is beyond their control.",
     "voice": "bm_george",
     "speed": 0.96,
     "lang": "en-gb",
-    "file": "c6-voice-hill-legacy-1-405013d60.mp3",
-    "duration": 4.488,
-    "peak": 0.8369,
-    "rms": 0.15
+    "file": "c6-voice-hill-legacy-1-075a2baad.mp3",
+    "duration": 9.863,
+    "peak": 0.86,
+    "rms": 0.1353
   },
   {
     "id": "hill.legacy.2",

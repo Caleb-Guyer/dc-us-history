@@ -1,3 +1,14 @@
+# Chapter 6 — Final campaign acceptance (4.21.0)
+
+- 244 tests and 88 syntax checks pass. The final four acceptance tests trace all 62 playable sections in order to the final door; restore every expanded prologue interaction; migrate all released installment-completion saves without changing recorded outcomes; and validate all 54 paragraph evidence mappings against actual dialogue and required correction scenes.
+- Manual factual review used the preserved extraction of the supplied edited chapter, with source hash recorded at its original extraction. The original Downloads file is no longer present, so this is not a fresh hash check of that DOCX. All 54 substantive paragraphs have required campaign delivery evidence in [C6-COVERAGE.md](C6-COVERAGE.md). Optional archive and Questions alone do not count. Mappings and route tests do not demonstrate learning or that every player watches every scene.
+- 62 playable sections, 126 scenes, 1,116 packaged recordings (6921.808 seconds) and 34 original scores (1392.531 seconds). Required voice IDs, used files and durations pass media validation. Quiet scenes intentionally select no score.
+- Hidden forced-muted native input completed all five revised Ward-release goals, including support, Association cargo, Thomas's bill, authority notices and the wagon. The updated pause/Controls/Back/Resume route works. Native input had previously completed all ten homecoming goals, the actual carriage/lever/sheet press sequence, all six coda plates and final completion with a fixture-free record reload; this is not a native full-62-section playthrough.
+- Public deployment, runtime/style version, Questions80, normal upward looking, pause/replay protection, correction-scene framing and error logs are checked at the final public commit and recorded in the release evidence. This document records the frozen release inputs; the local release record contains the observed deployment result.
+- No audible audition, actual phone/gamepad verification, performance benchmark or independent blind playthrough is claimed. WebGL and a modern browser are required. Packaged speech is synthetic, not human voice acting.
+
+The following sections preserve earlier, dated validation records. Their pending work has been superseded by this final review and release record.
+
 # Chapter 6 — Homecoming checks (4.20.0)
 
 - 240 tests and 87 syntax modules pass at the recorded revision. Nine new tests cover both complete homecoming outcome routes, actual visitor-arrival gates, unknown records, the full physical press sequence, stepping away, six plate/scene checkpoints, final will/door completion, outcome immutability, malformed saves, migration and separate scene-exposure records. Final changed files are checked again before publication.

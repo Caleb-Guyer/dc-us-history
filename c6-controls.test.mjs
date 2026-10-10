@@ -10,7 +10,7 @@ import {OpeningWorld} from './c6-world.mjs';
 function view(s,input={}){
  const camera=new T.PerspectiveCamera(70,16/9,.055,320);camera.rotation.order='YXZ';
  const world=Object.assign(Object.create(OpeningWorld.prototype),{
-  camera,scene:new T.Scene(),cast:{},enemies:[],extras:[],weapon:new T.Group(),marker:new T.Group(),door:new T.Group(),flash:{},groundGun:{},
+  camera,scene:new T.Scene(),cast:{},enemies:[],extras:[],weapon:new T.Group(),marker:new T.Group(),door:new T.Group(),releaseBar:new T.Group(),flash:{},groundGun:{},
   wagonObject:{position:new T.Vector3(),userData:{wheels:[]}},load(){},animate(){},setActor(){},
   renderer:{render(){camera.updateMatrixWorld();}}
  });

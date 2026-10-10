@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {poseActor,holdHands,touchShoulder} from './c5-actors.mjs?v=4.20.0-published';
-import {DEPARTURE_BLOCKS,departureFollowing,departureOperating,departureCarrying,departureBoarding} from './c6-departure.mjs?v=4.20.0-published';
-import {DEPARTURE_SCENES,DEPARTURE_LINES} from './c6-departure-story.mjs?v=4.20.0-published';
+import {poseActor,holdHands,touchShoulder} from './c5-actors.mjs?v=4.21.0-published';
+import {DEPARTURE_BLOCKS,departureFollowing,departureOperating,departureCarrying,departureBoarding} from './c6-departure.mjs?v=4.21.0-published';
+import {DEPARTURE_SCENES,DEPARTURE_LINES} from './c6-departure-story.mjs?v=4.21.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function desk(w,x,z){const g=w.group(x,0,z);w.box(2.5,.12,1.6,0x897355,0,.9,0,g);for(const a of [-1,1])for(const b of [-.6,.6])w.box(.1,.9,.1,0x655641,a,.45,b,g);w.box(1.5,.02,1,0xd4c6a1,0,.98,0,g);return g;}
 function chair(w,parent){const g=new T.Group();parent.add(g);w.box(.85,.12,.8,0x82664a,0,.75,0,g);for(const x of [-.35,.35])for(const z of [-.32,.32])w.box(.07,.75,.07,0x655137,x,.37,z,g);for(const x of [-.35,.35])w.box(.07,1.05,.07,0x82664a,x,1.22,.32,g);for(const y of [1.1,1.5,1.72])w.box(.75,.08,.07,0x897155,0,y,.32,g);return g;}

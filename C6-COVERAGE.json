@@ -1,0 +1,645 @@
+{
+  "version": "4.21.0",
+  "sourceSha256": "28fc1f48b5b27a82572c3f5b1cce8c188da7ad5fc1b5b486873ec20745fdf460",
+  "scope": "Required campaign delivery; optional study and archive alone do not count. Players may skip scenes. Coverage does not prove mastery.",
+  "records": [
+    {
+      "paragraphId": "P003",
+      "section": "Introduction",
+      "summary": "Shared cause and divided loyalties",
+      "lineIds": [
+        "paper.pool",
+        "paper.printed.1",
+        "paper.thomas.4",
+        "gate.5"
+      ]
+    },
+    {
+      "paragraphId": "P005",
+      "section": "6.1",
+      "summary": "War victory leaves imperial debt",
+      "lineIds": [
+        "prologue.trade"
+      ]
+    },
+    {
+      "paragraphId": "P006",
+      "section": "6.1",
+      "summary": "Tea privilege, punishment and intercolonial boycott",
+      "lineIds": [
+        "prologue.trade",
+        "prologue.closed",
+        "prologue.inspect",
+        "prologue.authority"
+      ]
+    },
+    {
+      "paragraphId": "P007",
+      "section": "6.1",
+      "summary": "Gage, occupation and alternative government",
+      "lineIds": [
+        "prologue.gage",
+        "prologue.authority"
+      ]
+    },
+    {
+      "paragraphId": "P008",
+      "section": "6.1",
+      "summary": "Boston base, raids and flight",
+      "lineIds": [
+        "prologue.base",
+        "night.0"
+      ]
+    },
+    {
+      "paragraphId": "P009",
+      "section": "6.1",
+      "summary": "Rapid militia and earlier seizures",
+      "lineIds": [
+        "night.1",
+        "night.2",
+        "farm.0",
+        "farm.1"
+      ]
+    },
+    {
+      "paragraphId": "P010",
+      "section": "6.1",
+      "summary": "Riders, uncertain shot, retreat and later memory",
+      "lineIds": [
+        "night.0",
+        "bell.0",
+        "bell.1",
+        "lex.2",
+        "lex.3",
+        "concord.0",
+        "end.2",
+        "home.memory.0",
+        "home.memory.1"
+      ]
+    },
+    {
+      "paragraphId": "P011",
+      "section": "6.1",
+      "summary": "Boston siege and Ticonderoga artillery",
+      "lineIds": [
+        "end.2",
+        "north.2",
+        "north.3",
+        "capture.3",
+        "north.end.7"
+      ]
+    },
+    {
+      "paragraphId": "P012",
+      "section": "6.1",
+      "summary": "Three assaults, ammunition and costly ground",
+      "lineIds": [
+        "hill.intro.3",
+        "hill.intro.5",
+        "hill.first",
+        "hill.second",
+        "hill.third",
+        "hill.break.4",
+        "hill.legacy.0",
+        "hill.legacy.1",
+        "hill.legacy.2"
+      ]
+    },
+    {
+      "paragraphId": "P013",
+      "section": "6.1",
+      "summary": "Command, elevated guns and Boston evacuation",
+      "lineIds": [
+        "hill.intro.0",
+        "heights.intro.2",
+        "heights.ships",
+        "lift.evac.1",
+        "lift.evac.2"
+      ]
+    },
+    {
+      "paragraphId": "P014",
+      "section": "6.1",
+      "summary": "Mecklenburg authority and Moores Creek",
+      "lineIds": [
+        "creek.orders",
+        "creek.authority",
+        "creek.intro.0",
+        "creek.intro.1"
+      ]
+    },
+    {
+      "paragraphId": "P015",
+      "section": "6.1",
+      "summary": "Conditional British offer and freedom seekers",
+      "lineIds": [
+        "promise.join.4",
+        "promise.join.5",
+        "promise.join.6",
+        "promise.contact.4",
+        "promise.contact.7",
+        "promise.coda.0",
+        "promise.coda.1"
+      ]
+    },
+    {
+      "paragraphId": "P016",
+      "section": "6.1",
+      "summary": "English rights, Paine and independence",
+      "lineIds": [
+        "lift.home.1",
+        "lift.home.2",
+        "paper.intro.4",
+        "paper.king"
+      ]
+    },
+    {
+      "paragraphId": "P017",
+      "section": "6.1",
+      "summary": "Monarchy, republican virtue and popular sovereignty",
+      "lineIds": [
+        "lift.home.0",
+        "paper.vote.meaning",
+        "paper.king",
+        "paper.repair",
+        "paper.tally"
+      ]
+    },
+    {
+      "paragraphId": "P018",
+      "section": "6.1",
+      "summary": "Plain language across thirteen colonies",
+      "lineIds": [
+        "paper.intro.4",
+        "paper.intro.5",
+        "dispatch.local"
+      ]
+    },
+    {
+      "paragraphId": "P019",
+      "section": "6.1",
+      "summary": "Congress, authors and consent",
+      "lineIds": [
+        "paper.intro.1",
+        "paper.authors",
+        "paper.king",
+        "paper.consent"
+      ]
+    },
+    {
+      "paragraphId": "P020",
+      "section": "6.1",
+      "summary": "Rights, changing government and foreign aid",
+      "lineIds": [
+        "paper.rights",
+        "paper.consent",
+        "paper.change",
+        "dispatch.france",
+        "dispatch.spain"
+      ]
+    },
+    {
+      "paragraphId": "P021",
+      "section": "6.1",
+      "summary": "Later international influence and exclusions",
+      "lineIds": [
+        "home.world.0"
+      ]
+    },
+    {
+      "paragraphId": "P023",
+      "section": "6.2",
+      "summary": "New York regrouping and Hudson isolation",
+      "lineIds": [
+        "retreat.intro.1",
+        "retreat.intro.2",
+        "albany.intro.2",
+        "albany.north",
+        "albany.west",
+        "albany.south"
+      ]
+    },
+    {
+      "paragraphId": "P024",
+      "section": "6.2",
+      "summary": "Howe forces, Long Island and failed peace",
+      "lineIds": [
+        "retreat.intro.1",
+        "retreat.intro.2",
+        "retreat.intro.5",
+        "retreat.peace.0",
+        "retreat.peace.2",
+        "refuge.reply"
+      ]
+    },
+    {
+      "paragraphId": "P025",
+      "section": "6.2",
+      "summary": "New York fighting, occupation, raids and prisons",
+      "lineIds": [
+        "retreat.harlem.0",
+        "retreat.lift.0",
+        "retreat.plains.0",
+        "plains.withdraw",
+        "coast.danbury",
+        "coast.fairfield",
+        "wider.ending.2",
+        "depart.reunion.0",
+        "depart.samuel"
+      ]
+    },
+    {
+      "paragraphId": "P026",
+      "section": "6.2",
+      "summary": "Seasonal militia departures weaken the army",
+      "lineIds": [
+        "retreat.ending.1",
+        "crossing.intro.6"
+      ]
+    },
+    {
+      "paragraphId": "P027",
+      "section": "6.2",
+      "summary": "Winter surprise, Hessians and renewed morale",
+      "lineIds": [
+        "crossing.intro.3",
+        "trenton.mara",
+        "crossing.trenton.0",
+        "crossing.princeton.0",
+        "crossing.ending.0",
+        "crossing.ending.1"
+      ]
+    },
+    {
+      "paragraphId": "P028",
+      "section": "6.2",
+      "summary": "Chesapeake invasion, Congress flight and winter",
+      "lineIds": [
+        "philadelphia.cartridges",
+        "philadelphia.intro.2",
+        "philadelphia.records.3",
+        "philadelphia.ending.2",
+        "winter.intro.0",
+        "winter.intro.1"
+      ]
+    },
+    {
+      "paragraphId": "P029",
+      "section": "6.2",
+      "summary": "Winter suffering, letter, morale and qualified counts",
+      "lineIds": [
+        "camp.dispatch",
+        "winter.care.0",
+        "winter.care.1",
+        "winter.care.2",
+        "winter.care.3",
+        "home.sources.0",
+        "home.sources.1"
+      ]
+    },
+    {
+      "paragraphId": "P030",
+      "section": "6.2",
+      "summary": "Common drill, teaching and the later manual",
+      "lineIds": [
+        "winter.drill.0",
+        "winter.drill.1",
+        "winter.drill.2",
+        "drill.teach",
+        "home.manual.0"
+      ]
+    },
+    {
+      "paragraphId": "P031",
+      "section": "6.2",
+      "summary": "Northern convergence and Howe diversion",
+      "lineIds": [
+        "records.map",
+        "records.howe",
+        "records.north",
+        "albany.map",
+        "albany.north",
+        "albany.west",
+        "albany.south"
+      ]
+    },
+    {
+      "paragraphId": "P032",
+      "section": "6.2",
+      "summary": "Failed links and Saratoga surrender",
+      "lineIds": [
+        "albany.westreport",
+        "albany.west.2",
+        "albany.west.3",
+        "hudson.report",
+        "ring.intro.0",
+        "ring.intro.1",
+        "albany.surrender.0",
+        "albany.surrender.1"
+      ]
+    },
+    {
+      "paragraphId": "P033",
+      "section": "6.2",
+      "summary": "Saratoga, French motives, aid and Lafayette",
+      "lineIds": [
+        "albany.surrender.4",
+        "albany.surrender.6",
+        "winter.alliance.1",
+        "winter.alliance.3",
+        "winter.alliance.4",
+        "wider.sea.1",
+        "wider.sea.3",
+        "sea.land"
+      ]
+    },
+    {
+      "paragraphId": "P034",
+      "section": "6.2",
+      "summary": "Global war and dated Spanish/Dutch relations",
+      "lineIds": [
+        "wider.landing.0",
+        "wider.coast.3",
+        "depart.commerce"
+      ]
+    },
+    {
+      "paragraphId": "P035",
+      "section": "6.2",
+      "summary": "Failed isolation, Philadelphia exit and southern turn",
+      "lineIds": [
+        "albany.surrender.4",
+        "wider.intro.0",
+        "wider.intro.2",
+        "wider.ending.3"
+      ]
+    },
+    {
+      "paragraphId": "P037",
+      "section": "6.3",
+      "summary": "Southern strategy and distinct motives",
+      "lineIds": [
+        "south.intro.1",
+        "south.georgia",
+        "south.creek",
+        "south.proposal",
+        "south.first.1",
+        "south.first.2",
+        "depart.history.2"
+      ]
+    },
+    {
+      "paragraphId": "P038",
+      "section": "6.3",
+      "summary": "Civil war, regional simplification and reprisals",
+      "lineIds": [
+        "inland.claim",
+        "inland.house.0",
+        "inland.passage.2",
+        "home.oaths.1"
+      ]
+    },
+    {
+      "paragraphId": "P039",
+      "section": "6.3",
+      "summary": "Charleston siege, surrender and military government",
+      "lineIds": [
+        "south.intro.0",
+        "south.intro.4",
+        "south.intro.5",
+        "south.surrender.0",
+        "south.surrender.1",
+        "south.surrender.2",
+        "south.surrender.3",
+        "south.surrender.5"
+      ]
+    },
+    {
+      "paragraphId": "P040",
+      "section": "6.3",
+      "summary": "Gates at Camden and Greene handover",
+      "lineIds": [
+        "inland.intro.0",
+        "inland.retreat.0",
+        "inland.greene.0"
+      ]
+    },
+    {
+      "paragraphId": "P041",
+      "section": "6.3",
+      "summary": "Preserved army, Cowpens, pursuit and Guilford cost",
+      "lineIds": [
+        "chase.intro.0",
+        "chase.victory.1",
+        "chase.victory.5",
+        "chase.ending.3",
+        "price.field.0",
+        "price.burial.3",
+        "price.ending.0",
+        "price.ending.1"
+      ]
+    },
+    {
+      "paragraphId": "P042",
+      "section": "6.3",
+      "summary": "Yorktown coalition and closed sea road",
+      "lineIds": [
+        "sea.port",
+        "sea.land",
+        "sea.closed",
+        "sea.estimate",
+        "siege.order"
+      ]
+    },
+    {
+      "paragraphId": "P043",
+      "section": "6.3",
+      "summary": "Actual siege chronology and qualified band tradition",
+      "lineIds": [
+        "siege.intro.0",
+        "siege.guns.0",
+        "siege.night.0",
+        "siege.after.0",
+        "siege.after.1",
+        "siege.after.2",
+        "siege.surrender.0",
+        "siege.history.0",
+        "siege.history.1"
+      ]
+    },
+    {
+      "paragraphId": "P044",
+      "section": "6.3",
+      "summary": "Victory, negotiations, evacuations and resignation",
+      "lineIds": [
+        "depart.report",
+        "home.news"
+      ]
+    },
+    {
+      "paragraphId": "P045",
+      "section": "6.3",
+      "summary": "Paris negotiations, bounds, fishing and restitution",
+      "lineIds": [
+        "depart.paris",
+        "depart.pin.west",
+        "depart.pin.east",
+        "depart.pin.north",
+        "depart.pin.south",
+        "depart.fishing",
+        "depart.property"
+      ]
+    },
+    {
+      "paragraphId": "P047",
+      "section": "6.4",
+      "summary": "Disputed population/allegiance estimates",
+      "lineIds": [
+        "depart.history.1"
+      ]
+    },
+    {
+      "paragraphId": "P048",
+      "section": "6.4",
+      "summary": "Trade, constitution, rivals and landlord grievances",
+      "lineIds": [
+        "refuge.family",
+        "refuge.reunited",
+        "inland.merchant",
+        "inland.tenant"
+      ]
+    },
+    {
+      "paragraphId": "P049",
+      "section": "6.4",
+      "summary": "Local oath/property choices and varied state coercion",
+      "lineIds": [
+        "inland.property",
+        "home.oaths.0"
+      ]
+    },
+    {
+      "paragraphId": "P050",
+      "section": "6.4",
+      "summary": "William Franklin and estrangement",
+      "lineIds": [
+        "inland.notice.1",
+        "refuge.franklin",
+        "depart.cargo.2"
+      ]
+    },
+    {
+      "paragraphId": "P051",
+      "section": "6.4",
+      "summary": "Qualified service and emigration counts",
+      "lineIds": [
+        "depart.history.0"
+      ]
+    },
+    {
+      "paragraphId": "P052",
+      "section": "6.4",
+      "summary": "Changing enlistment, enslavement and qualified will",
+      "lineIds": [
+        "creek.end.5",
+        "winter.drill.2",
+        "winter.drill.4",
+        "winter.drill.5",
+        "home.will.0",
+        "home.will.1"
+      ]
+    },
+    {
+      "paragraphId": "P053",
+      "section": "6.4",
+      "summary": "Separate military, labor and refuge experiences",
+      "lineIds": [
+        "promise.join.4",
+        "promise.join.6",
+        "siege.roles",
+        "siege.refuge",
+        "depart.history.2",
+        "depart.jonasreview",
+        "depart.ruthreview"
+      ]
+    },
+    {
+      "paragraphId": "P054",
+      "section": "6.4",
+      "summary": "Native agency, alliances, consent and later consequences",
+      "lineIds": [
+        "albany.parley.2",
+        "albany.parley.3",
+        "south.creek",
+        "depart.jacob",
+        "depart.history.3"
+      ]
+    },
+    {
+      "paragraphId": "P055",
+      "section": "6.4",
+      "summary": "Whigs and different lives in one cause",
+      "lineIds": [
+        "paper.intro.6",
+        "paper.pool",
+        "paper.printed.1",
+        "dispatch.common"
+      ]
+    },
+    {
+      "paragraphId": "P056",
+      "section": "6.4",
+      "summary": "Acute and continuing material shortages",
+      "lineIds": [
+        "winter.intro.2",
+        "winter.order",
+        "wider.landing.2",
+        "chase.road.1"
+      ]
+    },
+    {
+      "paragraphId": "P057",
+      "section": "6.4",
+      "summary": "Paper, loans, inflation and qualified exchange example",
+      "lineIds": [
+        "camp.notes",
+        "price.paper",
+        "price.merchant",
+        "price.state"
+      ]
+    },
+    {
+      "paragraphId": "P058",
+      "section": "6.4",
+      "summary": "Increased domestic, agricultural and care work",
+      "lineIds": [
+        "winter.shelter.4",
+        "camp.board",
+        "inland.cloth"
+      ]
+    },
+    {
+      "paragraphId": "P059",
+      "section": "6.4",
+      "summary": "Daughters of Liberty continue public organizing",
+      "lineIds": [
+        "camp.hang"
+      ]
+    },
+    {
+      "paragraphId": "P060",
+      "section": "6.4",
+      "summary": "Fair prices, camp labor and Reed fundraising",
+      "lineIds": [
+        "inland.supply.0",
+        "inland.supply.1",
+        "inland.receipt",
+        "inland.cloth",
+        "inland.complaint",
+        "inland.sale",
+        "camp.board"
+      ]
+    }
+  ]
+}

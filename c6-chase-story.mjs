@@ -21,7 +21,7 @@ export const CHASE_LINES=[
  l('chase.victory.2','ASA','Pickens’s militia, the Continentals and William Washington’s cavalry struck the advancing British. A battle can turn on people recovering an uncertain moment.'),
  l('chase.victory.3','MARA','He is trying to stand. Rowan, give that prisoner room. We can read the roll after someone puts water in his hands.'),
  l('chase.victory.4','ROWAN','Samuel answered from the hulk. These men answered when they raised their hands. I will keep both on the page.'),
- l('chase.victory.5','WARD','Cornwallis is giving chase into North Carolina. He wants to destroy Greene’s army. We have won this field. We still have to get away from the next one.'),
+ l('chase.victory.5','WARD','Cornwallis is leaving his South Carolina backcountry plan to chase Greene into North Carolina. He wants to destroy the army Daniel Morgan helped preserve at Cowpens. We have won this field. We still have to get away from the next one.'),
  l('chase.road.0','RUNNER','February fourteenth. The race north has brought Greene’s army to the Dan. Carrington has gathered boats. Take this local ferry order ahead of the wagons.'),
  l('chase.road.1','MARA','Food and orders in one pack. Extra tent canvas and cloth in the other. Keeping both makes the horse slower. If you leave the extra canvas, someone has to wait for the next wagon.'),
  l('chase.road.2','WARD','Cornwallis burned baggage to make his pursuit faster. Weight costs him too. Greene keeps an army in the field and draws him further from supplies.'),

@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {poseActor,touchShoulder} from './c5-actors.mjs?v=4.20.0-published';
-import {homeOperating} from './c6-home.mjs?v=4.20.0-published';
-import {HOME_SCENES,HOME_LINES} from './c6-home-story.mjs?v=4.20.0-published';
+import {poseActor,touchShoulder} from './c5-actors.mjs?v=4.21.0-published';
+import {homeOperating} from './c6-home.mjs?v=4.21.0-published';
+import {HOME_SCENES,HOME_LINES} from './c6-home-story.mjs?v=4.21.0-published';
 const face=(x,z,tx,tz)=>Math.atan2(-(tx-x),-(tz-z));
 function table(w,x,z){const g=w.group(x,0,z);w.box(2.6,.12,1.6,0x897054,0,.92,0,g);for(const a of [-1,1])for(const b of [-.6,.6])w.box(.1,.92,.1,0x62513e,a,.46,b,g);return g;}
 function press(w){const g=w.group(0,0,-11);w.box(2.7,.3,2.2,0x615039,0,.6,0,g);for(const x of [-1.3,1.3]){w.box(.26,3.7,.32,0x554630,x,1.85,0,g);w.box(.6,.18,.9,0x4d4432,x,.1,0,g);}

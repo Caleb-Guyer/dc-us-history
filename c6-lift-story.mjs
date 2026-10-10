@@ -35,7 +35,7 @@ export const LIFT_LINES=[
  l('heights.chocks','MARA','Secure. Look below us, Rowan. Look at what they have to cross.'),
  l('heights.ships','ROWAN','Their low guns cannot easily elevate to meet us here. Their supplies come through that water. Staying in Boston means risking the harbor.'),
  l('lift.evac.0','MARA','The storm stopped their attack on the heights. It did not take our guns away.'),
- l('lift.evac.1','WARD','Now the transports are leaving. March seventeenth. Remember the day.'),
+ l('lift.evac.1','WARD','Now the transports are leaving. March seventeenth, seventeen seventy-six. Nearly a year of siege. Remember the day.'),
  l('lift.evac.2','ROWAN','Halifax. Soldiers, and people who are afraid to stay.'),
  l('lift.evac.3','MARA','Loyalist families too. A city opening for us can be a door closing for someone else.'),
  l('lift.evac.4','WARD','Washington has broken the siege. Nearly a year. No need to sink those ships to show it.'),

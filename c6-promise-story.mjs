@@ -24,7 +24,7 @@ export const PROMISE_LINES=[
  ['JONAS','I brought myself. Jonas Bell. Shipwright. I can serve.'],
  ['AGENT','The man claiming you. Rebel, or loyal to the Crown?'],
  ['JONAS','Rebel. Does your offer stop at a Loyalist’s door?'],
- ['AGENT','His offer does not free people held by loyal subjects. His lordship needs soldiers.'],
+ ['AGENT','His lordship has raised Loyalists too, and needs Virginia’s landowners. His offer does not free people held by loyal subjects. He needs soldiers; that does not make this an end to slavery.'],
  ['JONAS','And my wife?'],
  ['AGENT','I cannot promise her passage. Join us at the sheltered inlet. Our boat will meet you there.'],
  ['CLAIMANT','That is my shipwright! Dunmore is stealing our property! Stop that boat!'],
