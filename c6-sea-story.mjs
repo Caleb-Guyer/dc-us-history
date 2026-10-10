@@ -46,7 +46,7 @@ export const SEA_SCENES={
  seaRoad:scene('capesrun','Close the Sea','INSHORE REACH · SEPTEMBER 5, 1781 · DISTANT OFFSHORE FLEET BATTLE','sea','sea.road.',4,'capesrun'),
  seaCrossed:scene('capesrun','The part that was ours','LOCAL LANDING · SEPTEMBER 5, 1781 · TWO PILOTS AND A DISPATCH','seaquiet','sea.crossed.',4,'seaArrival'),
  seaArrival:scene('capesshore','The Trap Has Two Sides','ALLIED DEPOT · SEPTEMBER 27, 1781 · AFTER WEEKS CARRYING COASTAL PAPERS','seaquiet','sea.arrival.',4,'capesshore'),
- seaEnding:scene('capesshore','The place at the table','ALLIED DEPOT · SEPTEMBER 27, 1781 · BEFORE THE INVESTMENT','seaquiet','sea.ending.',3,'complete'),
+ seaEnding:scene('capesshore','The place at the table','ALLIED DEPOT · SEPTEMBER 27, 1781 · BEFORE THE INVESTMENT','seaquiet','sea.ending.',3,'siegeIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const SEA_SHOTS={

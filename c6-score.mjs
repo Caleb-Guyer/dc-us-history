@@ -347,5 +347,29 @@ export const C6_SCORE = {
     "peak": 0.7044,
     "rms": 0.1804,
     "bytes": 961200
+  },
+  "siege": {
+    "title": "Until the Flag",
+    "bpm": 124,
+    "mood": "battle",
+    "file": "c6-music-siege-2ed56dc3.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 31.00228125,
+    "duration": 30.96775,
+    "peak": 0.6573,
+    "rms": 0.1803,
+    "bytes": 620640
+  },
+  "siegequiet": {
+    "title": "The Names Beside It",
+    "bpm": 72,
+    "mood": "haven",
+    "file": "c6-music-siegequiet-d9f654ac.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 53.367875,
+    "duration": 53.33334375,
+    "peak": 0.7346,
+    "rms": 0.1805,
+    "bytes": 1067760
   }
 };

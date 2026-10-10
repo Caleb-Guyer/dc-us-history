@@ -1,3 +1,15 @@
+## Chapter 6 update — The Last Redoubt (4.18.0)
+
+Yorktown plays across September 28–October 19, 1781. Carry fascines, bring an actual section forward, haul a gun through three covered turns, support the night assault on redoubt 10, deliver a cease-fire order, and carry water to a surrendered soldier before escorting a displaced family to care.
+
+The gun moves while Rowan stays beside its trail; Space brakes. During the night assault, F or click thrusts with a bayonet at a nearby defender in front of Rowan. Crew members physically follow, defenders can surrender, and the weapon is lowered during the cease-fire and care sections. A white flag stops the score. The arms go down between American and French ranks, while Ward's absence remains visible.
+
+Five playable sections, eight authored scenes, 49 new synthetic performances and two original scores. Totals: 108 scenes, 1,002 recordings and 31 scores. The Questions menu retains its separate 80-question study mode.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+M19, E00 and final full-campaign acceptance remain unfinished.
+
 ## Chapter 6 update — Close the Sea (4.17.0)
 
 Isaiah takes the coastal packet across a fictional inshore reach while the French and British fleets fight offshore. Set the land and sea approaches on a chart, accompany two actual pilots to the boat, steer through shelter and marked debris, stop for a rope and dispatch delivery, then dock slowly. Carry siege stores to Rowan's cart in the dated September 27 handoff.

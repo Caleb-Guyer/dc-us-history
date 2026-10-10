@@ -141,3 +141,10 @@ Original procedural flour cart and carried linen, six moving withdrawal soldiers
 39 new stock Kokoro synthetic performances. **Two Edges of Water**, 112 BPM, and **The Place at the Table**, 80 BPM, are original instrumental arrangements; measured peaks 0.759 / 0.7044 and RMS about 0.1804. All browser testing stays forced silent; no audible audition is claimed.
 
 Original procedural offshore ships with articulated sails, flags and distant flashes; a small independently steered boat with animated oars, Isaiah rowing and two seated pilots; islands, warnings, rope, chart pins and carried siege stores. Five independently authored scene camera tracks. Stylized local fiction, not surveyed reconstructions.
+
+
+## The Last Redoubt additions — 4.18
+
+49 new stock Kokoro synthetic performances. **Until the Flag**, 124 BPM, and **The Names Beside It**, 72 BPM, are original instrumental arrangements. Measured peaks 0.6573 / 0.7346 and RMS approximately 0.1803 / 0.1805. All playtesting remains forced silent; no audible audition is claimed.
+
+Original procedural siege carriage and wheels, fascines, earthen traverses, animated white flag with an unarmed officer, American/French surrender ranks, British marchers, a visible-water bucket, and a distinct three-person refuge family including a scaled child rig. Eight authored camera tracks; local crew fiction and original music.

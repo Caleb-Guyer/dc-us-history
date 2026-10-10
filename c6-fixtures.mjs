@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.17.1-published';
-import {interactHill} from './c6-hill.mjs?v=4.17.1-published';
+import {fresh} from './c6-sim.mjs?v=4.18.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.18.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='siegeguns'&&phase==='gun'){s.stage=2;s.player.z=12;s.siege.order=true;s.siege.rope=true;}
+ if(level==='redoubtten'&&phase==='breach'){s.stage=2;s.player.x=-12;s.player.z=-18;Object.assign(s.siege,{order:true,signal:true,crew:[{x:-13.5,z:-15,yaw:0},{x:-12,z:-15,yaw:0},{x:-10.5,z:-15,yaw:0}]});}
+ if(level==='yorkwater'&&phase==='water'){s.player.x=-4;s.player.z=22;}
+
  if(level==='capesrun'&&phase==='boat'){s.stage=2;Object.assign(s.sea,{order:true,sealed:true,pilotsLoaded:true,mounted:true});s.player.z=9;}
  if(level==='capesrun'&&phase==='rope'){s.stage=3;Object.assign(s.sea,{order:true,sealed:true,pilotsLoaded:true,mounted:true,lee:4,boatX:-25,boatZ:-114});s.player.x=-25;s.player.z=-114;}
 

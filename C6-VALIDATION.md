@@ -1,3 +1,13 @@
+# Chapter 6 — Yorktown checks (4.18.0)
+
+- 222 tests and 81 syntax modules pass. Eight new tests cover full section/gun/assault/cease-fire/care routes, collision and cover, actual crew arrival, surrendered-defender protection, delayed acknowledgments, malformed saves and upward looking.
+- Gun hauling requires the actual player beside the carriage and three physical turns. Bayonet hits require reach, facing and a clear sightline; surrender prevents further harm. All three messengers physically return before the cease-fire section completes. The care point requires three actual refugees; care does not grant legal freedom.
+- 108 authored scenes, 1,002 packaged recordings (5,942.168 seconds) and 31 scores (1,251.748 seconds). The new white-flag scene has no music. Offline scene inspection checks scenery sightlines, Ward's absence, 24 allied ranks, eight unarmed marchers, a visible bucket and bounded history-table/bayonet objects.
+- Hidden forced-muted local UI checks verified a bayonet thrust, positive upward pitch, water pickup and the actual carried bucket, pause/replay, the white flag and surrender ranks. Actor placement was moved beside interaction markers to clear the camera. Public checks are recorded separately after deployment.
+- The Questions mode remains available and isolated from the campaign save. M19/E00 and final paragraph/campaign acceptance remain. No audible audition, independent blind playthrough, phone/gamepad or performance-target claim.
+
+## Earlier release checks
+
 # Chapter 6 — Chesapeake checks (4.17.0)
 
 - 205 tests and 76 syntax modules pass. Eight new tests complete both pilot arrivals, the physically steered boat route, four-second lee, braked rope/packet/docking gates, store delivery, warning/evasive steering and recoverable damage, collision/water limits, malformed saves and dated coalition continuity.
