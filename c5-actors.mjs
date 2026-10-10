@@ -12,9 +12,9 @@ function joint(p,x,y,z){const g=new T.Group();g.position.set(x,y,z);p.add(g);ret
 function patch(p,points,mat){const shape=new T.Shape();points.forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();const m=mesh(p,new T.ShapeGeometry(shape),mat);m.position.z=-.168;m.rotation.y=Math.PI;return m;}
 
 export function makeActor(key){
- const civilian=['MARA','ANNE','LYDIA','ELIZA','MOTHER','REFUGEMOTHER'].includes(key);
- const spec=key==='REFUGEFATHER'?{...CAST.ISAIAH,color:0x806f58}:key==='REFUGEMOTHER'?{...CAST.MARA,color:0x847664}:key==='REFUGECHILD'?{...CAST.ISAIAH,color:0x6a7d70}:key==='MOTHER'?{...CAST.MARA,color:0x7c7762}:key==='FATHER'?{...CAST.THOMAS,color:0x6b7978}:key==='TENANT'?{...CAST.ROWAN,color:0x736247}:key==='NEIGHBOR'?{...CAST.THOMAS,color:0x6e5550}:key==='SAMUEL'?{...CAST.ROWAN,color:0x737575}:key==='BENNETT'?{...CAST.THOMAS,color:0x746143}:key==='CREEK'?{...CAST.ROWAN,color:0x686752}:key==='JONAS'?{...CAST.ISAIAH,color:0x806a43}:key==='ELIZA'?{...CAST.MARA,color:0x756979}:key==='ADRIEN'?{...CAST.ROWAN,color:0xabb0a0}:key==='LYDIA'?{...CAST.MARA,color:0x688282}:key==='ANNE'?{...CAST.MARA,color:0x756c76}:key==='ASA'?{...CAST.ROWAN,color:0x516957}:key==='MERCHANT'?{...CAST.THOMAS,color:0x694e3c}:key==='PATIENT'?{...CAST.ROWAN,color:0x737575}:key==='JACOB'?{...CAST.ROWAN,color:0x686752}:key==='CLERK'?{...CAST.ROWAN,color:0x7d7666}:key==='RUNNER'?{...CAST.ROWAN,color:0x79724b}:key==='HESSIAN'?{...CAST.WARD,color:0x3f6179}:CAST[key]||CAST.WARD,g=new T.Group(),root=joint(g,0,0,0),body=joint(root,0,1.04,0);
- const skin=skinMat(key==='JACOB'||key==='CREEK'?0xa57752:key==='ISAIAH'||key==='ASA'||key==='JONAS'||key.startsWith('REFUGE')?0x895b40:key==='WARD'?0xc6a184:0xd4ab8b),coat=cloth(spec.color),darkCoat=cloth(new T.Color(spec.color).multiplyScalar(.64)),linen=cloth(0xd5cbb4),leather=cloth(0x493e31),hair=cloth(key==='WARD'?0x787671:key==='MARA'?0x493225:0x352e27),brass=cloth(0xc4a16d,{metalness:.48,roughness:.44});
+ const civilian=['RUTH','MARA','ANNE','LYDIA','ELIZA','MOTHER','REFUGEMOTHER'].includes(key);
+ const spec=key==='RUTH'?{...CAST.MARA,color:0x786b87}:key==='REFUGEFATHER'?{...CAST.ISAIAH,color:0x806f58}:key==='REFUGEMOTHER'?{...CAST.MARA,color:0x847664}:key==='REFUGECHILD'?{...CAST.ISAIAH,color:0x6a7d70}:key==='MOTHER'?{...CAST.MARA,color:0x7c7762}:key==='FATHER'?{...CAST.THOMAS,color:0x6b7978}:key==='TENANT'?{...CAST.ROWAN,color:0x736247}:key==='NEIGHBOR'?{...CAST.THOMAS,color:0x6e5550}:key==='SAMUEL'?{...CAST.ROWAN,color:0x737575}:key==='BENNETT'?{...CAST.THOMAS,color:0x746143}:key==='CREEK'?{...CAST.ROWAN,color:0x686752}:key==='JONAS'?{...CAST.ISAIAH,color:0x806a43}:key==='ELIZA'?{...CAST.MARA,color:0x756979}:key==='ADRIEN'?{...CAST.ROWAN,color:0xabb0a0}:key==='LYDIA'?{...CAST.MARA,color:0x688282}:key==='ANNE'?{...CAST.MARA,color:0x756c76}:key==='ASA'?{...CAST.ROWAN,color:0x516957}:key==='MERCHANT'?{...CAST.THOMAS,color:0x694e3c}:key==='PATIENT'?{...CAST.ROWAN,color:0x737575}:key==='JACOB'?{...CAST.ROWAN,color:0x686752}:key==='CLERK'?{...CAST.ROWAN,color:0x7d7666}:key==='RUNNER'?{...CAST.ROWAN,color:0x79724b}:key==='HESSIAN'?{...CAST.WARD,color:0x3f6179}:CAST[key]||CAST.WARD,g=new T.Group(),root=joint(g,0,0,0),body=joint(root,0,1.04,0);
+ const skin=skinMat(key==='JACOB'||key==='CREEK'?0xa57752:key==='ISAIAH'||key==='ASA'||key==='JONAS'||key==='RUTH'||key.startsWith('REFUGE')?0x895b40:key==='WARD'?0xc6a184:0xd4ab8b),coat=cloth(spec.color),darkCoat=cloth(new T.Color(spec.color).multiplyScalar(.64)),linen=cloth(0xd5cbb4),leather=cloth(0x493e31),hair=cloth(key==='WARD'?0x787671:key==='MARA'?0x493225:0x352e27),brass=cloth(0xc4a16d,{metalness:.48,roughness:.44});
  const torso=taper(body,.25,.30,.61,coat,0,.15,0);torso.scale.z=.56;
  const waist=taper(body,.25,.31,.30,coat,0,-.25,.02);waist.scale.z=.59;
  const tails=[];for(const side of [-1,1]){const tail=joint(body,side*.16,-.17,.05);const m=box(tail,.25,.51,.05,darkCoat,0,-.23,.10);m.rotation.x=-.13;tails.push(tail);}
@@ -148,6 +148,18 @@ export function tendWound(caregiver,patient){
  patient.updateWorldMatrix(true,true);caregiver.updateWorldMatrix(true,true);
  const target=patient.userData.wound.getWorldPosition(new T.Vector3());
  for(const i of [0,1]){const local=caregiver.userData.body.worldToLocal(target.clone().add(new T.Vector3(i?.035:-.025,i?.035:0,.055)));reachHand(caregiver,i,local);}
+}
+
+// Contacts use articulated arms and a shared world-space target.
+export function holdHands(first,second){
+ first.updateWorldMatrix(true,true);second.updateWorldMatrix(true,true);
+ const target=first.position.clone().add(second.position).multiplyScalar(.5);target.y=(first.position.y+second.position.y)/2+1.1;
+ for(const actor of [first,second]){const u=actor.userData;u.paper.visible=false;const index=u.arms[0].getWorldPosition(new T.Vector3()).distanceTo(target)<u.arms[1].getWorldPosition(new T.Vector3()).distanceTo(target)?0:1;reachHand(actor,index,u.body.worldToLocal(target.clone()));actor.updateWorldMatrix(true,true);actor.userData.contactHand=index;}
+}
+export function touchShoulder(helper,other){
+ helper.updateWorldMatrix(true,true);other.updateWorldMatrix(true,true);helper.userData.paper.visible=false;
+ const target=other.userData.arms[1].getWorldPosition(new T.Vector3());const index=helper.userData.arms[0].getWorldPosition(new T.Vector3()).distanceTo(target)<helper.userData.arms[1].getWorldPosition(new T.Vector3()).distanceTo(target)?0:1;
+ reachHand(helper,index,helper.userData.body.worldToLocal(target));helper.updateWorldMatrix(true,true);
 }
 
 export function disposeTree(root,sharedTextures=[]){const geometries=new Set(),materials=new Set(),textures=new Set();root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>materials.add(m));});for(const m of materials){for(const k of ['map','alphaMap','normalMap'])if(m[k]&&!sharedTextures.includes(m[k]))textures.add(m[k]);m.dispose();}geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());root.clear();}

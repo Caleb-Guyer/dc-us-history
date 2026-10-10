@@ -59,7 +59,7 @@ export const SIEGE_SCENES={
  siegeFlag:scene('siegecease','Let the quiet stay','YORKTOWN · OCTOBER 17, 1781 · CEASE-FIRE REQUEST',null,'siege.flag.',3,'siegecease'),
  siegeSurrender:scene('yorkwater','The Arms Go Down','YORKTOWN · OCTOBER 19, 1781 · SURRENDER','siegequiet','siege.surrender.',4,'yorkwater'),
  siegeEnding:scene('yorkwater','The names beside it','YORKTOWN · OCTOBER 19, 1781 · PEACE IS NOT YET SIGNED','siegequiet','siege.ending.',3,'siegeHistory'),
- siegeHistory:scene('yorkwater','The dates on the page','HISTORY NOTE · SIEGE CHRONOLOGY AND A LATER TRADITION','siegequiet','siege.history.',2,'complete'),
+ siegeHistory:scene('yorkwater','The dates on the page','HISTORY NOTE · SIEGE CHRONOLOGY AND A LATER TRADITION','siegequiet','siege.history.',2,'departIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]];
 export const SIEGE_SHOTS={

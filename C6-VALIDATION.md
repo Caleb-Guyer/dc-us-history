@@ -1,3 +1,13 @@
+# Chapter 6 — Evacuation checks (4.19.0)
+
+- 231 tests and 84 syntax modules pass. Nine new tests complete the treaty chart, actual Jonas/Ruth search and restored reunion checkpoint, individual reviews and centered stamp, both full possessions routes, physical boarding, missed tide recovery, traffic/water constraints, malformed saves and historical transitions.
+- A/D aligns the seal without strafing at the desk; an off-center Space press cannot approve it. W/S leaves the desk. A positive upward pitch remains normal. The moving cart blocks passage and knocks a person clear with recoverable damage. Another tide window retains the passenger identities.
+- 117 authored scenes, 1,068 packaged recordings (6455.773 seconds), and 33 original scores (1339.197 seconds). Camera/scenery checks pass; Ward has no living actor. Art inspection measures reunion wrists within 3.5 cm, hides paper during contact, checks both carried props, moving boat passengers and bounded history props.
+- Hidden forced-muted UI verified two D taps, centered Space stamp, E confirmation to stage4, pause/replay and zero errors. Reunion/farewell/boat framing was visually reviewed; ground extent and the farewell gestures were corrected. Public checks are recorded separately after deployment.
+- Questions80 remains in the menu, with separate progress. E00 and the whole-campaign/source audit remain unfinished. No audible audition, phone/gamepad or independent blind-playthrough claim.
+
+## Earlier release checks
+
 # Chapter 6 — Yorktown checks (4.18.0)
 
 - 222 tests and 81 syntax modules pass. Eight new tests cover full section/gun/assault/cease-fire/care routes, collision and cover, actual crew arrival, surrendered-defender protection, delayed acknowledgments, malformed saves and upward looking.

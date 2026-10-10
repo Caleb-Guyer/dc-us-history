@@ -148,3 +148,10 @@ Original procedural offshore ships with articulated sails, flags and distant fla
 49 new stock Kokoro synthetic performances. **Until the Flag**, 124 BPM, and **The Names Beside It**, 72 BPM, are original instrumental arrangements. Measured peaks 0.6573 / 0.7346 and RMS approximately 0.1803 / 0.1805. All playtesting remains forced silent; no audible audition is claimed.
 
 Original procedural siege carriage and wheels, fascines, earthen traverses, animated white flag with an unarmed officer, American/French surrender ranks, British marchers, a visible-water bucket, and a distinct three-person refuge family including a scaled child rig. Eight authored camera tracks; local crew fiction and original music.
+
+
+## What We Keep additions — 4.19
+
+66 new stock Kokoro synthetic performances, including Ruth Bell. **Before the Last Rope**, 104 BPM, and **The Address Across the Water**, 76 BPM, are original instrumental loops with measured peaks 0.7992/0.6877 and RMS approximately 0.1805. Revised captions use new content-addressed recordings. No audible audition is claimed; browser testing remains silent.
+
+Original procedural harbor streets, moving cart, working route pins, individual paper desks and stamp, chair, portrait/book, gangway and lighter. Nine camera tracks, articulated shared-target hand contact and shoulder contact, boat-relative passenger staging and gestures. Stylized local crew fiction rather than a reconstruction of a named historical ship or register entry.

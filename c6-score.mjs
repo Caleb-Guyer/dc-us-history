@@ -371,5 +371,29 @@ export const C6_SCORE = {
     "peak": 0.7346,
     "rms": 0.1805,
     "bytes": 1067760
+  },
+  "departure": {
+    "title": "Before the Last Rope",
+    "bpm": 104,
+    "mood": "sea",
+    "file": "c6-music-departure-21f7ee8a.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 36.95759375,
+    "duration": 36.9230625,
+    "peak": 0.7992,
+    "rms": 0.1805,
+    "bytes": 739440
+  },
+  "departquiet": {
+    "title": "The Address Across the Water",
+    "bpm": 76,
+    "mood": "haven",
+    "file": "c6-music-departquiet-1bd07fca.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 50.56084375,
+    "duration": 50.5263125,
+    "peak": 0.6877,
+    "rms": 0.1805,
+    "bytes": 1011600
   }
 };

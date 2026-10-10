@@ -1,8 +1,12 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.18.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.18.0-published';
+import {fresh} from './c6-sim.mjs?v=4.19.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.19.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='passagepapers'&&phase==='seal'){s.stage=3;s.player.x=0;s.player.z=-21;Object.assign(s.departure,{jonasReviewed:true,ruthReviewed:true,dispute:true});}
+ if(level==='lastberth'&&phase==='cargo'){s.stage=1;s.player.x=-7;s.player.z=5;s.departure.legal=true;}
+ if(level==='departurequay'&&phase==='boarding'){s.stage=2;s.player.x=0;s.player.z=-42;s.departure.coat=true;s.departure.samuelLetter=true;s.departure.people=[{key:'THOMAS',x:0,z:-52,yaw:0},{key:'JONAS',x:-1,z:-52,yaw:0},{key:'RUTH',x:1,z:-52,yaw:0}];}
+
  if(level==='siegeguns'&&phase==='gun'){s.stage=2;s.player.z=12;s.siege.order=true;s.siege.rope=true;}
  if(level==='redoubtten'&&phase==='breach'){s.stage=2;s.player.x=-12;s.player.z=-18;Object.assign(s.siege,{order:true,signal:true,crew:[{x:-13.5,z:-15,yaw:0},{x:-12,z:-15,yaw:0},{x:-10.5,z:-15,yaw:0}]});}
  if(level==='yorkwater'&&phase==='water'){s.player.x=-4;s.player.z=22;}

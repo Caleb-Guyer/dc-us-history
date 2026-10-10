@@ -1,3 +1,15 @@
+## Chapter 6 update — What We Keep (4.19.0)
+
+Thomas leads the peace and evacuation chapter. Set the treaty's four boundary pins, pass the fishing/commerce papers, search for Ruth with an actual following Jonas, recover her separate records, review both people, align a two-name seal, and choose which personal possessions fit. Rowan returns for the brothers' farewell and waits for Thomas, Ruth and Jonas to board the actual lighter.
+
+A/D align and Space stamps; W/S step away. The moving harbor cart is physical, and missed tide windows provide another local departure while retaining the people. Both the chair and book/portrait routes carry distinct props and preserve the separate legal packet. Ruth and Jonas hold hands, the brothers make shoulder contact, and passengers move with the departing boat.
+
+Five playable sections, nine authored scenes, 66 new synthetic performances and two original scores. Totals: 117 scenes, 1,068 recordings and 33 scores. Chapter 6 Questions retains its separate 80-question practice mode.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+E00 and final full-campaign acceptance remain unfinished.
+
 ## Chapter 6 update — The Last Redoubt (4.18.0)
 
 Yorktown plays across September 28–October 19, 1781. Carry fascines, bring an actual section forward, haul a gun through three covered turns, support the night assault on redoubt 10, deliver a cease-fire order, and carry water to a surrendered soldier before escorting a displaced family to care.
