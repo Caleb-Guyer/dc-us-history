@@ -155,3 +155,10 @@ Original procedural siege carriage and wheels, fascines, earthen traverses, anim
 66 new stock Kokoro synthetic performances, including Ruth Bell. **Before the Last Rope**, 104 BPM, and **The Address Across the Water**, 76 BPM, are original instrumental loops with measured peaks 0.7992/0.6877 and RMS approximately 0.1805. Revised captions use new content-addressed recordings. No audible audition is claimed; browser testing remains silent.
 
 Original procedural harbor streets, moving cart, working route pins, individual paper desks and stamp, chair, portrait/book, gangway and lighter. Nine camera tracks, articulated shared-target hand contact and shoulder contact, boat-relative passenger staging and gestures. Stylized local crew fiction rather than a reconstruction of a named historical ship or register entry.
+
+
+## The Door Stays Open additions — 4.20
+
+40 new stock Kokoro synthetic performances, including the separately labeled historical narrator. **The Door Left Open**, 72 BPM, is an original instrumental loop with measured peak 0.7106 and RMS approximately 0.1805. The quiet remembrance and will scenes intentionally have no music. Packaged local media requires no live speech service; silent tests do not constitute an audible audition.
+
+Original procedural press carriage, platen and carried/hung sheet, working shutters and door, repaired buckle, outcome-dependent cover and keepsakes, physically arriving visitors, six lamp-lit history plates and distant ordinary street worker/cart. Nine authored camera tracks and shared-target shoulder contact. Reused articulated actor and primitive scenery systems from this repository. No Halo or Call of Duty assets, music or characters.

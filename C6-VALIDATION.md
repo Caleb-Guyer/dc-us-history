@@ -1,3 +1,13 @@
+# Chapter 6 — Homecoming checks (4.20.0)
+
+- 240 tests and 87 syntax modules pass at the recorded revision. Nine new tests cover both complete homecoming outcome routes, actual visitor-arrival gates, unknown records, the full physical press sequence, stepping away, six plate/scene checkpoints, final will/door completion, outcome immutability, malformed saves, migration and separate scene-exposure records. Final changed files are checked again before publication.
+- 62 playable sections, 126 scenes, 1,108 packaged recordings (6747.463 seconds), and 34 original scores (1392.531 seconds). Media validation checks used dialogue IDs, files and durations. Quiet scenes intentionally select no score.
+- Hidden forced-muted native input completed E feed, held D insertion, one Space lever stroke, held A return and E lift to the hanging stage. Native movement also completed all ten homecoming goals, including the packet, dated news, letter, visitor checkpoint, hanging, receipt, buckle, shutters and latch. The route waited for queued dialogue before entering the quiet scene. Native movement completed all six coda plates and their required scenes, reached campaign completion, and preserved the final record across a fixture-free reload. These checks do not claim a native end-to-end run of all 62 sections.
+- Visual review corrected press occlusion, duplicate room geometry, paper orientation and the manually advanced final door. Physical outcome props, dead Ward's absent actor and bounded coda sets pass art inspection. Source plates are visibly distinct from Rowan's story. A campaign record distinguishes finished, skipped and unseen scenes, including an empty-record fallback.
+- Questions80 retains independent progress. No audible audition, actual phone/gamepad verification or independent blind playthrough is claimed. Full 54-paragraph acceptance and final public verification remain separately pending.
+
+## Earlier release checks
+
 # Chapter 6 — Evacuation checks (4.19.0)
 
 - 231 tests and 84 syntax modules pass. Nine new tests complete the treaty chart, actual Jonas/Ruth search and restored reunion checkpoint, individual reviews and centered stamp, both full possessions routes, physical boarding, missed tide recovery, traffic/water constraints, malformed saves and historical transitions.

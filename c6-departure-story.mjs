@@ -77,7 +77,7 @@ export const DEPARTURE_SCENES={
  departCargo:scene('lastberth','What fits in your hands','NEW YORK · NOVEMBER 24, 1783 · TWO POSSESSIONS SLOTS','departure','depart.cargo.',4,'lastberth'),
  departFarewell:scene('departurequay','The road between brothers','NEW YORK · NOVEMBER 24, 1783 · ROWAN RETURNS','departquiet','depart.farewell.',6,'departurequay'),
  departBoat:scene('departurequay','The shore is moving','NEW YORK · NOVEMBER 24, 1783 · FICTIONAL LOCAL LIGHTER','departquiet','depart.boat.',4,'departHistory'),
- departHistory:scene('departurequay','Beyond the last rope','HISTORY NOTE · EVACUATION, ESTIMATES AND LATER CONSEQUENCES','departquiet','depart.history.',4,'complete'),
+ departHistory:scene('departurequay','Beyond the last rope','HISTORY NOTE · EVACUATION, ESTIMATES AND LATER CONSEQUENCES','departquiet','depart.history.',4,'homeIntro'),
 };
 const c=(x,y,z,tx,ty,tz)=>[[x,y,z],[tx,ty,tz]],pair=[c(2,1.8,26,0,1.4,23),c(-1,1.8,26,3,1.4,23),c(1,1.8,26,-3,1.4,23)];
 export const DEPARTURE_SHOTS={departIntro:[c(5,3,29,0,1.2,20),pair[1],pair[0],pair[1]],departReunion:[c(5,3,29,0,1.3,23),pair[2],pair[0]],departFound:[c(-10,2,-18,-15,1.4,-23),c(-12,1.8,-20,-15.6,1.4,-22.8),c(-17,1.8,-20,-14.9,1.4,-23.2),c(-10,2,-18,-12,1.4,-22)],departPapers:[pair[2],pair[1],pair[0]],departApproved:[pair[2],pair[1],pair[0]],departCargo:[c(4,3,27,0,1.1,23),pair[1],pair[0],pair[0]],departFarewell:[c(4,3,26,0,1.3,21),c(2,1.8,25,.5,1.4,23),c(2,1.8,25,0,1.4,23),c(2,1.8,25,.5,1.4,23),c(2,1.8,25,0,1.4,23),pair[1]],departBoat:[c(5,2.2,-64,0,1.4,-71),c(2,1.8,-39,0,1.4,-42),c(8,3,-69,-1,1.4,-77),c(-6,3,-70,1,1.4,-79)],departHistory:[c(6,3,-42,-4,1,-48),c(2,2,-44,-4,1,-48),c(4,2.5,-42,-4,1,-48),c(3,2.2,-43,-4,1,-48)]};

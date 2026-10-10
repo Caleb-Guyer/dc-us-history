@@ -395,5 +395,17 @@ export const C6_SCORE = {
     "peak": 0.6877,
     "rms": 0.1805,
     "bytes": 1011600
+  },
+  "homereprise": {
+    "title": "The Door Left Open",
+    "bpm": 72,
+    "mood": "haven",
+    "file": "c6-music-homereprise-00bb4ff7.mp3",
+    "loopStart": 0.03453125,
+    "loopEnd": 53.367875,
+    "duration": 53.33334375,
+    "peak": 0.7106,
+    "rms": 0.1805,
+    "bytes": 1067760
   }
 };

@@ -1,3 +1,15 @@
+## Chapter 6 update — The Door Stays Open (4.20.0)
+
+Rowan returns to Mara's Boston press on December 31, 1783. Unpack separate letters, receive the dated news of Washington returning his command, welcome the people whose completed local records support their return, and print the first sheet with a physically moving carriage and lever. Hang it, place Ward's repaired buckle, and open Isaiah's shutters. Thomas's possessions, the Philadelphia equipment route and the Dan supply load change the physical room. Ward's place stays empty.
+
+Six interactive history plates distinguish the crew's 1783 story from later memory, global influence, source disagreements, von Steuben's manual and Washington's qualified will. The final door opens onto ordinary work. Campaign record separates completed tasks, finished scenes, skipped scenes and unseen scenes; it makes no claim of quiz mastery.
+
+Two playable sections, nine scenes, 40 new stock synthetic performances and one original score. Totals: 62 playable sections, 126 scenes, 1,108 recordings and 34 scores. **Questions** remains in the main menu with 80 practice questions, topic filters, explanations, missed-question retry and independent saved progress.
+
+**[Play Chapter 6](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**
+
+All planned campaign routes are implemented. Final whole-source acceptance and deployment verification are recorded separately; implementation alone does not establish them.
+
 ## Chapter 6 update — What We Keep (4.19.0)
 
 Thomas leads the peace and evacuation chapter. Set the treaty's four boundary pins, pass the fishing/commerce papers, search for Ruth with an actual following Jonas, recover her separate records, review both people, align a two-name seal, and choose which personal possessions fit. Rowan returns for the brothers' farewell and waits for Thomas, Ruth and Jonas to board the actual lighter.

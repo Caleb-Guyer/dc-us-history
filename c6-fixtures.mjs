@@ -1,8 +1,10 @@
 // Localhost-only entry points for rendering and input checks. The app gates these.
-import {fresh} from './c6-sim.mjs?v=4.19.0-published';
-import {interactHill} from './c6-hill.mjs?v=4.19.0-published';
+import {fresh} from './c6-sim.mjs?v=4.20.0-published';
+import {interactHill} from './c6-hill.mjs?v=4.20.0-published';
 export function fixtureState(level,phase,difficulty){
  const s=fresh(level,difficulty);
+ if(level==='homepress'&&phase==='press'){s.stage=4;s.player.x=0;s.player.z=-11;Object.assign(s.home,{packet:true,news:true,letter:true,welcomed:true});}
+
  if(level==='passagepapers'&&phase==='seal'){s.stage=3;s.player.x=0;s.player.z=-21;Object.assign(s.departure,{jonasReviewed:true,ruthReviewed:true,dispute:true});}
  if(level==='lastberth'&&phase==='cargo'){s.stage=1;s.player.x=-7;s.player.z=5;s.departure.legal=true;}
  if(level==='departurequay'&&phase==='boarding'){s.stage=2;s.player.x=0;s.player.z=-42;s.departure.coat=true;s.departure.samuelLetter=true;s.departure.people=[{key:'THOMAS',x:0,z:-52,yaw:0},{key:'JONAS',x:-1,z:-52,yaw:0},{key:'RUTH',x:1,z:-52,yaw:0}];}
