@@ -1,3 +1,13 @@
+# DC US History · Midterm study hall (5.0.0)
+
+**[Open the study hall](https://caleb-guyer.github.io/dc-us-history/)**. Short quiz rounds, recall cards, five matching/timeline challenges, a searchable topic library and a 40-question midterm rehearsal cover the supplied Chapters 1–8 outline and lecture priorities. Question and answer order vary. Saves, missed-question review, practice completion and a next-goal box make it easy to resume.
+
+The Convention (Chapter 7) is a brief coalition strategy game at Roger Sherman's table. Hold the Harbor (Chapter 8) is a brief Fort McHenry mission with supply runs, shell warnings, night-barge cannon action and the dawn flag. Both include original synthetic dialogue recordings, music, subtitles, skip controls and independent completion credit. Their historical outcomes remain fixed. Chapters 4, 5 and the complete Chapter 6 campaign and Questions remain accessible through Earlier games.
+
+Progress stays in the browser; export/restore provides a local backup. Completion measures practice milestones, not predicted exam readiness. The rehearsal follows 10 questions from Chapters 2–6 combined, then 15 each from Chapters 7 and 8, including three textbook terms each. Chapter 1 is supplemental review. Missing class material is disclosed in the hub and [source guide](MIDTERM-SOURCES.md). See [credits](MIDTERM-CREDITS.md) and [validation](MIDTERM-VALIDATION.md).
+
+No build, account or API key is required. Serve this directory with `npm start`. Run `npm test` and `npm run check` for validation. For quiet testing, use `?muted=1&preview=1`; preview progress is separate.
+
 ## Chapter 6 — Complete campaign (4.21.0)
 
 **[Play The Long Road Home](https://caleb-guyer.github.io/dc-us-history/chapter6.html)**. The full campaign follows Rowan Vale and the recurring crew from Ward's release and the Powder Road through Yorktown, evacuation and the final return to Mara's press. Its 62 playable sections vary between stealth, rescue, musket combat, navigation, escort, mounted courier work and hands-on printing. There are 126 authored scenes, 1,116 packaged stock synthetic voice recordings and 34 original scores.
