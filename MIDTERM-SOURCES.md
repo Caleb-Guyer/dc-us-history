@@ -58,7 +58,7 @@ Several handout errors were corrected using primary documents and authoritative 
 
 Washington was officially nonpartisan. Hamilton's proposed manufacturing program was not enacted in every detail. Virginia/Kentucky constitutional claims were contested. Letters of marque licensed privateering, distinct from ordinary unlicensed piracy. These qualifications are reflected in the explanations.
 
-Hold the Harbor places an anonymous garrison trooper under Major George Armistead at Fort McHenry, September 13–14, 1814. The 25-hour bombardment is condensed. Individual supply errands, shell warnings, health recovery, barge targets and dialogue are game mechanics. Main bomb ships remain beyond effective fort-gun range; the cannon phase concerns night barges, not sinking the fleet. Key watches offshore. The flag has 15 stars and 15 stripes. Other Baltimore defenses also contributed.
+Hold the Harbor places an anonymous garrison trooper under Major George Armistead at Fort McHenry, September 13–14, 1814. The 25-hour bombardment is condensed. Individual supply errands, powder-cover fires, shell warnings, health recovery, barge targets and dialogue are game mechanics. Main bomb ships remain beyond effective fort-gun range; the cannon phase concerns night barges, not sinking the fleet. Key watches offshore. The flag has 15 stars and 15 stripes. Other Baltimore defenses also contributed.
 
 - [NPS bombardment, part 1](https://www.nps.gov/fomc/learn/historyculture/bombardment-of-fort-mchenry-pt-1.htm)
 - [NPS bombardment, part 2](https://www.nps.gov/fomc/learn/historyculture/bombardment-of-fort-mchenry-pt-2.htm)
@@ -71,3 +71,5 @@ Completion tracks activities completed, not a predicted exam grade. Weights: foc
 Progress stays in this browser's local storage. No account, analytics or live AI service is used. Export/restore allows a local backup. Clearing browser storage or changing devices without a backup loses this record. Quiet preview uses an independent record.
 
 
+
+The Chapter 7 courier route is a fictional errand in Philadelphia. Its wagons, crates and three dispatch pickups are play mechanics, not documented incidents. It carries the population-based House, equal-state Senate and checks on power into the convention debate; it does not invent a battle at the convention.
