@@ -1,5 +1,5 @@
 import {VOICES} from './short-voices.mjs';
-import {cinemaWorld} from './short-world.mjs?v=5.1.0';
+import {cinemaWorld} from './short-world.mjs?v=5.1.1';
 export function film(audio,ids,{title,place,cover,finish='Enter the scene'},onEnd){
  const box=document.createElement('section');box.className='film';box.setAttribute('aria-label','Cinematic scene');box.innerHTML=`<canvas class="film-stage" aria-label="Animated historical scene"></canvas><div class="letterbox"></div><div class="film-heading"><p class="eyebrow">${place}</p><h1>${title}</h1></div><div class="film-content"><p class="speaker"></p><p class="speech" role="status"></p><div class="film-actions"><button class="primary" id="film-next">Next line · Space</button><div><button class="plain" id="film-sound">Sound</button> <button class="plain" id="film-skip">Skip scene</button></div><span class="counter"></span></div><div class="timebar"><i></i></div><p class="tiny">Dramatized dialogue · fixed historical events</p></div>`;document.body.append(box);
  let stage;try{stage=cinemaWorld(box.querySelector('canvas'),ids[0]);}catch{box.querySelector('canvas').outerHTML=`<img src="${cover}" alt="">`;}

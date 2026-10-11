@@ -10,3 +10,5 @@
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 @media(max-height:540px) and (min-width:650px){.courier-bottom{width:350px;max-width:50%;left:18px;transform:none}.courier-touch button{padding:11px 13px;min-width:40px}}
+
+@media(min-width:851px) and (min-height:541px){.courier-bottom{left:auto;right:25px;transform:none;width:340px}}

@@ -1,7 +1,7 @@
 import {ShortAudio} from './short-audio.mjs';
-import {film} from './short-film.mjs?v=5.1.0';
-import {createFort,advance,interact,fire,beginBattery,restartCheckpoint,near,sheltered,targetBarge,dodge,FIRES,DEPOT,POSTS,GUN,FLAG,SHELTERS,W,H} from './fort-sim.mjs?v=5.1.0';
-import {fortWorld} from './short-world.mjs?v=5.1.0';
+import {film} from './short-film.mjs?v=5.1.1';
+import {createFort,advance,interact,fire,beginBattery,restartCheckpoint,near,sheltered,targetBarge,dodge,FIRES,DEPOT,POSTS,GUN,FLAG,SHELTERS,W,H} from './fort-sim.mjs?v=5.1.1';
+import {fortWorld} from './short-world.mjs?v=5.1.1';
 import {gameCredit,homeLink,PREVIEW} from './midterm-store.mjs';
 import {LINES} from './short-games-data.mjs';
 const game=document.querySelector('#game'),audio=new ShortAudio(),keys=new Set();let s=createFort(),mode='menu',paused=false,assist=false,canvas,ctx,world=null,moving=false,raf=0,last=0,aim={x:180,y:113},walk=null,subtitle='',subtitleUntil=0,subLast='',promptLast='',shake=0,transition=false;

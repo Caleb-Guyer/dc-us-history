@@ -1,4 +1,4 @@
-import {VERSION,BANK,FOCUS,CHAPTERS,SOURCES,MATCHES,TIMELINES} from './midterm-data.mjs?v=5.1.0';
+import {VERSION,BANK,FOCUS,CHAPTERS,SOURCES,MATCHES,TIMELINES} from './midterm-data.mjs?v=5.1.1';
 import {BY_ID,makeSession,progress,nextGoal,answer,next,missed,pool,creditDrill,shuffle,clean} from './midterm-state.mjs';
 import {PREVIEW,KEY,read,write,saved,gameLink,homeLink} from './midterm-store.mjs';
 const app=document.querySelector('#app');let s=read(),view='home',kind='quiz',chapter='focus',terms=false,drill=null,ordered=[],left=null,right=null,matched=[],notice='',search='';

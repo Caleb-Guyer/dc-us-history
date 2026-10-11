@@ -8,4 +8,4 @@ The games reuse this project's original Chapter 6 home and tension scores; see [
 
 The games draw their own scenes and use no Halo or Call of Duty art, sounds or recordings. Their history sources and game abstractions are described in [coverage and sources](MIDTERM-SOURCES.md).
 
-The 5.1.0 games use the already-bundled Three.js renderer and this project's articulated Chapter 5 actor rigs. Philadelphia buildings, convention furnishings, fort, cannon carts, barges, particles, lighting, cloth motion and surface textures are generated in code. No new external image assets or cloned voices are used.
+The 5.1.1 games use the already-bundled Three.js renderer and this project's articulated Chapter 5 actor rigs. Philadelphia buildings, convention furnishings, fort, cannon carts, barges, particles, lighting, cloth motion and surface textures are generated in code. No new external image assets or cloned voices are used.

@@ -1,4 +1,4 @@
-# DC US History · Midterm study hall (5.1.0)
+# DC US History · Midterm study hall (5.1.1)
 
 **[Open the study hall](https://caleb-guyer.github.io/dc-us-history/)**. Short quiz rounds, recall cards, five matching/timeline challenges, a searchable topic library and a 40-question midterm rehearsal cover the supplied Chapters 1–8 outline and lecture priorities. Question and answer order vary. Saves, missed-question review, practice completion and a next-goal box make it easy to resume.
 
