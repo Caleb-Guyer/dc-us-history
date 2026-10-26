@@ -1,6 +1,6 @@
 // Original practice, anchored to the supplied edited chapters and lecture priorities.
 // c = chapter, p = outline/caret priority, k = textbook key term, f = focus route.
-export const VERSION='5.1.1';
+export const VERSION='6.0.0';
 export const CHAPTERS=[
   {id:1,name:'Three worlds meet',sub:'Americas, Europe & West Africa',extra:true},
   {id:2,name:'An Atlantic world',sub:'Exploration & conquest'},

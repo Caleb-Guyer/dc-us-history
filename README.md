@@ -1,3 +1,11 @@
+# Chapter 10 — Majority (6.0.0)
+
+**[Play Majority](https://caleb-guyer.github.io/dc-us-history/chapter10.html)**. A new Jacksonian Democracy campaign follows fictional printer Eliza Reed across six short assignments: an electoral-return courier run, printing rhythm challenge, harbor traffic control, Bank War sorting, Cherokee court-record investigation, and an 1840 campaign rally scramble. The campaign uses staged 3D scenes, 14 original stock synthetic performances, music, checkpoints, keyboard/pointer/touch controls and gentle local retries. Historical elections, crises and forced removal retain their real outcomes.
+
+The Question Room is available before and after the campaign. Its 90 original multiple-choice questions cover all five chapter sections and 16 bold terms, with 5/15/30/full-bank rounds, topic and term filters, immediate practice feedback, a rehearsal mode, saved unfinished rounds, explanations and missed-question review. It prepares practice; no quiz score is promised. Chapter 10 uses separate saved progress and does not alter the Chapters 1–8 midterm route.
+
+See [Chapter 10 coverage](C10-COVERAGE.md), [primary sources and textbook qualifications](C10-SOURCES.md), [credits](C10-CREDITS.md) and [validation](C10-VALIDATION.md). The uploaded Word document and private working notes are not published.
+
 # DC US History · Midterm study hall (5.1.1)
 
 **[Open the study hall](https://caleb-guyer.github.io/dc-us-history/)**. Short quiz rounds, recall cards, five matching/timeline challenges, a searchable topic library and a 40-question midterm rehearsal cover the supplied Chapters 1–8 outline and lecture priorities. Question and answer order vary. Saves, missed-question review, practice completion and a next-goal box make it easy to resume.
