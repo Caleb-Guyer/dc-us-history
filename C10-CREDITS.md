@@ -8,4 +8,8 @@ The game reuses this project's Chapter 6 home and tension scores and browser-syn
 
 Rendering uses the already-bundled MIT-licensed [Three.js](https://threejs.org/) library, this project's common scene primitives and articulated Chapter 5 actors. Buildings, furnishings, the screw press, coins, merchant boats, cargo routes, wharves, shoals, parade floats, billboards and textures are drawn or generated in code. No Halo or Call of Duty assets are used.
 
+Release 6.1 adds the original `c10-cinema.mjs` scene rigs and camera tracks: character blocking, close-ups, moving props, scene-specific inserts and a restrained depiction of the later forced migration. The fourteen voiced passages retain their original recordings; short advancing subtitles replace full-paragraph captions. Players can pause, advance or skip a scene. Camera movement, lighting, street traffic, harbor wakes and rally effects are procedural rather than prerecorded video.
+
+The action update adds crossing wagons, courier vault and close-pass rewards, selected-ship sailing boosts, timed parcel dispatch and optional rally pennants. Style scores and bonuses measure the fictional errands. They cannot change an election, avert the Panic of 1837 or prevent forced removal.
+
 The uploaded classroom Word document and private extraction/audit files are not published. The public [source guide](C10-SOURCES.md) identifies historical references and qualifications; [coverage](C10-COVERAGE.md) distinguishes campaign concepts from detail available in the quiz.

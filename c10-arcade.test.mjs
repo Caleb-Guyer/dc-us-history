@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {BANK_SLIPS} from './c10-data.mjs';
+import {createDispatch,chooseRail,launchDispatch,stepDispatch,DISPATCH_TIME} from './c10-arcade.mjs';
+test('dispatch rejects early and late launches without granting progress',()=>{const s=createDispatch();chooseRail(s,'state');assert.equal(launchDispatch(s),'early');assert.equal(s.accepted,0);assert.equal(s.pending,false);s.clock=DISPATCH_TIME*.98;assert.equal(launchDispatch(s),'early');assert.equal(s.grade,'LATE');assert.match(s.message,/passed gold/);assert.equal(s.accepted,0);});
+test('timing never substitutes for the historically correct destination',()=>{const s=createDispatch();s.clock=DISPATCH_TIME*.75;chooseRail(s,'land');assert.equal(launchDispatch(s),'miss');assert.equal(s.accepted,0);assert.equal(s.pending,false);s.clock=DISPATCH_TIME*.75;chooseRail(s,'state');assert.equal(launchDispatch(s),'perfect');assert.equal(s.accepted,1);assert.equal(launchDispatch(s),null);});
+test('all eight parcels require correct routing, automatically advance and finish',()=>{const s=createDispatch();for(let i=0;i<BANK_SLIPS.length;i++){assert.equal(s.index,i);chooseRail(s,BANK_SLIPS[i].to);s.clock=DISPATCH_TIME*.75;launchDispatch(s);for(let n=0;n<50;n++)stepDispatch(s,.05);}assert.equal(s.done,true);assert.equal(s.accepted,8);assert.equal(s.perfect,8);assert.equal(s.style,1600);});
+test('missed parcels recycle without changing chapter history or progress',()=>{const s=createDispatch();for(let n=0;n<100;n++)stepDispatch(s,.05);assert.equal(s.recycles,1);assert.equal(s.accepted,0);assert.equal(s.index,0);assert.ok(s.clock<1);assert.equal(chooseRail(s,'bogus'),false);});
+test('dispatch ignores invalid elapsed time and assist widens timing only',()=>{const s=createDispatch(true);stepDispatch(s,NaN);assert.equal(s.clock,0);s.clock=DISPATCH_TIME*.4;chooseRail(s,'state');assert.equal(launchDispatch(s),'good');assert.equal(s.accepted,1);});

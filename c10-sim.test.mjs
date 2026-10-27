@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createRun,stepRun,RUN_LENGTH,RUN_PACKETS,RUN_OBSTACLES,createHarbor,setBoatRoute,stepHarbor,HARBOR_DOCKS,createRally,stepRally,interactRally,RALLY_PROPS} from './c10-sim.mjs';
+import {createRun,stepRun,RUN_LENGTH,RUN_PACKETS,RUN_OBSTACLES,runObstacleLane,createHarbor,setBoatRoute,stepHarbor,HARBOR_DOCKS,createRally,stepRally,interactRally,RALLY_PROPS,RALLY_CHEERS} from './c10-sim.mjs';
 
 test('A real courier route collects every electoral return and preserves the fixed 1824 tally',()=>{
  const s=createRun();let sawFinish=false;
@@ -101,4 +101,54 @@ test('A parade bump preserves placards and already placed work, and separates th
  const s=createRally();s.player.carry='tyler';s.placed=['harrison'];s.player.x=500;s.player.y=295;
  const events=stepRally(s,.05);assert.ok(events.includes('bump'));assert.equal(s.player.carry,'tyler');assert.deepEqual(s.placed,['harrison']);assert.ok(s.bump>0);
  const o=s.obstacles[0];assert.ok(Math.abs(s.player.x-o.x)>=o.w/2+14||Math.abs(s.player.y-o.y)>=o.h/2+14);
+});
+
+test('A clean courier vault rewards timing once, while a hit breaks the chain without erasing votes',()=>{
+ const s=createRun();s.distance=23.8;s.jumpTime=.48;s.dashCooldown=2;
+ const events=stepRun(s,.05);assert.ok(events.includes('clear'));assert.equal(s.clears,1);assert.equal(s.style,25);assert.equal(s.combo,1);assert.ok(s.dashCooldown<1.6);
+ for(let i=0;i<4;i++)stepRun(s,.05);assert.equal(s.clears,1,'one obstacle cannot repeatedly award style');
+ s.distance=38;s.lane=1;s.x=2.8;s.collected=['jackson'];
+ stepRun(s,.05);stepRun(s,.05);assert.equal(s.combo,0);assert.equal(s.bestCombo,1);assert.deepEqual(s.collected,['jackson']);assert.equal(s.style,25);
+});
+
+test('Crossing wagons telegraph a finite, repeatable lane and close passes award only once',()=>{
+ const wagon=RUN_OBSTACLES.find(o=>o.at===96),s=createRun();
+ const lanes=[75,85,95,105].map(d=>runObstacleLane(wagon,{distance:d}));assert.ok(new Set(lanes).size>1);assert.ok(lanes.every(n=>Number.isFinite(n)&&n>=-1&&n<=1));assert.equal(runObstacleLane(wagon,{distance:85}),lanes[1]);
+ s.distance=38.1;s.lane=0;s.x=2.3;
+ // The next static wagon is at lane1; set the runner close enough for a clean
+ // outside pass, but outside its actual collision width.
+ const events=stepRun(s,.05);
+ assert.ok(events.includes('near-miss'));assert.equal(s.health,3);assert.equal(s.nearMisses,1);
+ for(let i=0;i<5;i++)stepRun(s,.05);assert.equal(s.nearMisses,1);
+});
+
+test('Harbor boost needs a charted selected ship, has a cooldown, and accelerates only that ship',()=>{
+ const s=createHarbor(),[a,b]=s.boats;
+ stepHarbor(s,.05,{boost:true});assert.equal(s.boosts,0);
+ s.selected=a.id;stepHarbor(s,.05,{boost:true});assert.equal(s.boosts,0,'an idle selected ship cannot waste a boost');
+ setBoatRoute(s,a.id,[{x:a.x,y:200}]);setBoatRoute(s,b.id,[{x:b.x,y:200}]);s.selected=a.id;
+ const ay=a.y,by=b.y,events=stepHarbor(s,.05,{boost:true});assert.ok(events.includes('boost'));assert.equal(s.boosts,1);assert.ok(a.boost>1.9);assert.equal(b.boost,0);assert.ok(a.y-ay>(b.y-by)*2.5);
+ const cooldown=s.boostCooldown;stepHarbor(s,.05,{boost:true});assert.equal(s.boosts,1);assert.ok(s.boostCooldown<cooldown);assert.ok(Number.isFinite(s.wind)&&Math.abs(s.wind)<=1);
+});
+
+test('Wind and repeated active boosts preserve safe-route completion and fixed harbor history',()=>{
+ const s=createHarbor(),charted=new Set();let sawBoost=false;
+ for(let i=0;i<1300&&!s.done;i++){
+  for(const boat of s.boats)if(!charted.has(boat.id)){const n=Number(boat.id.split('-')[1])-1,y=[110,160,210][n%3],dock=HARBOR_DOCKS[boat.dock];setBoatRoute(s,boat.id,[{x:boat.x,y},{x:dock.x,y},dock]);charted.add(boat.id);}
+  s.selected=s.boats.find(b=>b.route.length)?.id??null;const events=stepHarbor(s,.05,{boost:true});sawBoost||=events.includes('boost');
+ }
+ assert.ok(sawBoost);assert.equal(s.done,true);assert.equal(s.delivered,6);assert.equal(s.misses,0);assert.ok(s.elapsed<60);assert.ok(s.flash.includes('compromise'));assert.equal(s.style,1500);
+});
+
+test('Crowd pennants are optional single-use speed and dash rewards, never automatic placard delivery',()=>{
+ const s=createRally(),p=RALLY_CHEERS[0];s.player.x=p.x;s.player.y=p.y;s.player.carry='harrison';s.cooldown=1.5;
+ const events=stepRally(s,.05);assert.ok(events.includes('cheer'));assert.equal(s.cooldown,0);assert.equal(s.flow,2.4);assert.equal(s.style,75);assert.deepEqual(s.cheers,[p.id]);assert.equal(s.player.carry,'harrison');assert.deepEqual(s.placed,[]);assert.equal(s.done,false);
+ stepRally(s,.05);assert.equal(s.style,75);assert.equal(s.cheers.length,1);
+ const start={...s.player};stepRally(s,.05,{x:1});assert.ok(s.player.x-start.x>190*.05,'a pickup gives an observable movement burst');
+});
+
+test('A timed parade dash earns one close-pass reward per float and does not reset the election',()=>{
+ const s=createRally();s.player.x=510;s.player.y=295;s.placed=['harrison'];s.player.carry='tyler';
+ const events=stepRally(s,.05,{x:1,dash:true});assert.ok(events.includes('dash'));assert.ok(events.includes('near-miss'));assert.equal(events.includes('bump'),false);assert.equal(s.nearMisses,1);assert.equal(s.style,100);assert.deepEqual(s.placed,['harrison']);assert.equal(s.player.carry,'tyler');
+ stepRally(s,.05,{x:-1,dash:true});assert.equal(s.nearMisses,1,'holding dash next to one float cannot farm style');assert.equal(s.done,false);
 });

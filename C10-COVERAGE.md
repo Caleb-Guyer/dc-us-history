@@ -6,14 +6,22 @@ The supplied edited chapter has 67 nonempty paragraphs, including its title and 
 
 | Episode | Gameplay | Historical learning |
 | --- | --- | --- |
-| The missing majority | Collect four electoral returns in a courier run | Jackson 99, Adams 84, Crawford 41, Clay 37; 261 total and 131 needed; the House chooses Adams; corrupt bargain is an allegation |
+| The missing majority | Collect four electoral returns; vault crates, dodge crossing wagons and chain clean passes | Jackson 99, Adams 84, Crawford 41, Clay 37; 261 total and 131 needed; the House chooses Adams; corrupt bargain is an allegation |
 | The people's press | Align a moving press and print six headlines | White male suffrage, 1828 Democrats, Bucktails, patronage, rotation, Kitchen Cabinet and Clay's American System |
-| A union on the edge | Route cargo boats to wharves | Tariffs, state nullification, Jackson's Union position, Force Bill and compromise; no invented battle |
-| Follow the money | Sort deposits and public-land payments | Federal deposits move to state banks; specie rule; Biddle's credit contraction and multiple causes of the panic |
+| A union on the edge | Chart six cargo routes and time full-sail boosts around shoals and other ships | Tariffs, state nullification, Jackson's Union position, Force Bill and compromise; no invented battle |
+| Follow the money | Choose a destination rail and launch eight moving parcels in the dispatch window | Federal deposits move to state banks; specie rule; Biddle's credit contraction and multiple causes of the panic |
 | Rights on paper | Inspect and order court records | Removal Act 1830; Cherokee Nation 1831; Worcester 1832; legal resistance, later forced removal and its human cost |
-| The image and the crowd | Carry campaign signs through a moving parade | Harrison–Tyler versus Van Buren, log-cabin image, party spectacle and Tocqueville's majority warning |
+| The image and the crowd | Sprint and dash campaign signs through a moving parade; optional pennants refill the dash | Harrison–Tyler versus Van Buren, log-cabin image, party spectacle and Tocqueville's majority warning |
 
 Dates on episode cards matter. The banking sequence reaches 1837 before the investigation looks back to the removal policy beginning in 1830; that is a change of topic and time, not a new event after 1837. Errands and individual characters are invented. Historical elections, legislation, the panic and forced removal stay fixed.
+
+## Action and scenes in 6.1
+
+The six genres remain short assignments rather than a longer campaign. The courier rewards clean vaults and close passes; sailing boosts speed a selected ship along its charted route; the bank challenge requires both correct historical routing and timed dispatch. Mistakes provide another local attempt instead of losing completed historical tasks. Optional rally pennants, delivery chains and style points add movement rewards, not historical facts or extra conditions for changing an outcome.
+
+The `c10-cinema.mjs` module stages the fourteen authored dialogue entries with individual camera tracks, character movement and visual inserts. The voiced scenes use short advancing subtitles and retain pause, advance and skip controls. The legal-record episode ends with a sober account of the 1838–39 forced migration; completing its investigation does not stop that event. Fuller scenery, lighting and action effects support the same chapter coverage.
+
+The 90 questions, five topic groups, sixteen bold terms and historical qualifications are unchanged in 6.1. Style points do not replace question practice or establish quiz readiness.
 
 ## Paragraph map
 
@@ -35,7 +43,7 @@ Dates on episode cards matter. The banking sequence reaches 1837 before the inve
 | P032 | Section 10.3 heading | Harbor/Bank orientation | Crisis |
 | P033–P034 | Calhoun, regional interests and nullification | Harbor opening; detailed theory in quiz | Crisis |
 | P035–P038 | Jackson's response, Force Bill, compromise and sectional tension | Harbor closing scene | Crisis |
-| P039–P044 | Second Bank, Biddle, privilege rhetoric and 1832 veto | Bank opening and sorting context | Crisis |
+| P039–P044 | Second Bank, Biddle, privilege rhetoric and 1832 veto | Bank opening and dispatch context | Crisis |
 | P045 | Deposits, Specie Circular, credit/cotton shocks and Panic of 1837 | Required deposit/land transfers and Bank closing | Crisis |
 | P046–P047 | Whig opposition, policy and 1836 contest | Bank-to-Rally context; formation and 1836 detail in quiz | Crisis; Majority |
 | P048 | Section 10.4 heading | Record orientation | Removal |

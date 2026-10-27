@@ -1,4 +1,12 @@
-# Chapter 10 — Majority (6.0.0)
+# Chapter 10 action update — Majority (6.1.0)
+
+**[Play Majority](https://caleb-guyer.github.io/dc-us-history/chapter10.html)**. The six short assignments now include crossing wagons, clean-vault and close-pass chains, full-sail harbor boosts, a timed Bank War parcel conveyor and optional rally pennants that refill your dash. Correct destinations and required historical records still matter; style bonuses cannot change real outcomes.
+
+Authored camera tracks, character movement, close-ups and visual inserts replace the generic scene cameras. Improved street, harbor and interior scenery adds lighting, animated traffic, wakes and action feedback. Fourteen original voiced passages use short advancing subtitles, with pause and skip controls.
+
+The 90-question room, historical coverage and saved study progress remain intact. Testing uses forced-muted previews. See [coverage](C10-COVERAGE.md), [credits](C10-CREDITS.md) and [release validation](C10-VALIDATION.md).
+
+## Chapter 10 — Majority (6.0.0)
 
 **[Play Majority](https://caleb-guyer.github.io/dc-us-history/chapter10.html)**. A new Jacksonian Democracy campaign follows fictional printer Eliza Reed across six short assignments: an electoral-return courier run, printing rhythm challenge, harbor traffic control, Bank War sorting, Cherokee court-record investigation, and an 1840 campaign rally scramble. The campaign uses staged 3D scenes, 14 original stock synthetic performances, music, checkpoints, keyboard/pointer/touch controls and gentle local retries. Historical elections, crises and forced removal retain their real outcomes.
 

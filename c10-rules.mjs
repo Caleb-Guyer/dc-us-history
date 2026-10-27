@@ -1,5 +1,5 @@
-import {PRESS_JOBS,BANK_SLIPS,RECORDS,EPISODES} from './c10-data.mjs?v=6.0.0';
-import {QUESTIONS,selectQuestions} from './c10-questions.mjs?v=6.0.0';
+import {PRESS_JOBS,BANK_SLIPS,RECORDS,EPISODES} from './c10-data.mjs?v=6.1.0';
+import {QUESTIONS,selectQuestions} from './c10-questions.mjs?v=6.1.0';
 const ids=new Set(QUESTIONS.map(q=>q.id)),byId=new Map(QUESTIONS.map(q=>[q.id,q]));
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export function shuffle(a,seed=1){a=[...a];let x=seed>>>0;for(let i=a.length-1;i>0;i--){x=(Math.imul(x,1664525)+1013904223)>>>0;const j=x%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
