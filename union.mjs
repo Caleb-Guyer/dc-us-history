@@ -2,7 +2,7 @@ import {ShortAudio} from './short-audio.mjs';
 import {film} from './short-film.mjs?v=5.1.1';
 import {POLICIES,RATIFY} from './short-games-data.mjs';
 import {createUnion,enact,ready,acceptDraft,beginRatification,ratify,MIN} from './union-sim.mjs';
-import {gameCredit,homeLink,PREVIEW} from './midterm-store.mjs';
+import {gameCredit,homeLink,PREVIEW} from './midterm-store.mjs?v=6.2.0';
 import {conventionWorld,courierWorld} from './short-world.mjs?v=5.1.1';
 import {createCourier,advanceCourier,steer,leap,dash,DISPATCHES,ROAD_LENGTH} from './courier-sim.mjs?v=5.1.1';
 const game=document.querySelector('#game'),audio=new ShortAudio();let s=createUnion(),view='menu',more=false,frame=0,world=null,courier=null,last=0,courierPaused=false,activeLine='',lineUntil=0;

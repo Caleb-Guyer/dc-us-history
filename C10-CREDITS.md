@@ -1,5 +1,9 @@
 # Majority credits
 
+Release 6.2 adds the original [Chapter 10 quiz-review hub](c10-review.html), its interface and recall-card storage, and the [course section chooser](index.html). The [midterm](midterm.html) is a separate section. The campaign and hub share Chapter 10 question progress while retaining the existing midterm save namespace.
+
+The sixteen key terms were verified against bold formatting in the uploaded article, excluding headings. Their definitions, examples and comparison notes in `c10-terms.mjs` are original study explanations grounded in that text and the existing historical audit. The flashcards and dedicated three-term/twelve-topic rehearsal reuse the original ninety-question bank; the source article is not republished. Practice records and self-rated recall do not claim a guaranteed class quiz score.
+
 The Chapter 10 campaign, questions, interface, dialogue and procedural environments were authored for this project. Eliza Reed and her coworkers are fictional. The game does not recreate a historical person's voice or claim that its individual errands happened.
 
 The 14 original synthetic performances were generated locally with [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), Apache-2.0, using the MIT-licensed [kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx). Stock voices are af_sarah, am_michael and bm_george. No voice was cloned. Recordings are packaged MP3 files; playback needs no account, live AI service or API key.

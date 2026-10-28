@@ -1,5 +1,17 @@
 # Chapter 10 campaign and quiz coverage
 
+## Separate quiz review in 6.2
+
+[Chapter 10 quiz review](c10-review.html) is its own study section. The [course entry](index.html) links to it and to the separate [Chapters 1–8 midterm](midterm.html). [Majority](chapter10.html) remains the Chapter 10 campaign and returns to the Chapter 10 hub.
+
+The sixteen body terms were verified against actual bold runs and styles in the supplied Word article, excluding chapter and section headings. Each has an original concise definition, a recognizable example and a distinction from an easily confused idea. The key-term list, recall flashcards and sixteen-question term round use the same complete set.
+
+The dedicated quiz rehearsal draws exactly **three key-term questions and twelve non-term chapter questions**, for fifteen unique questions across all five sections. It varies the questions and answer order; answers and explanations appear at the end. Topic practice, shorter rounds, all ninety questions and missed-question retry remain available with immediate explanations.
+
+The hub keeps the sixteen flashcard self-ratings, ninety-question answer history and best formatted fifteen-question rehearsal separate. Revealing a card alone does not earn recall credit. Unfinished question rounds and question history are shared with the Chapter 10 game; the midterm record remains independent. These records describe practice, not a promised quiz grade. The 90-question bank and historical qualifications are unchanged.
+
+## Source scope
+
 The supplied edited chapter has 67 nonempty paragraphs, including its title and section headings, and 16 bold key terms. The paragraph identifiers below are audit references; the classroom document itself is not published. The campaign teaches selected central ideas through short tasks and scenes. The 90-question bank supplies 18 questions in each of the five topics for fuller review, so this map distinguishes playable coverage from quiz extensions.
 
 ## Six episodes
@@ -60,7 +72,9 @@ This covers every source identifier P001–P067 as an orientation, core campaign
 
 ## Sixteen bold terms
 
-| Term | Main review location |
+Every term below appears in the standalone hub’s key-term review, flashcards and term questions. This table identifies additional connections in the campaign and topic questions.
+
+| Term | Campaign and question connections |
 | --- | --- |
 | Code of deference | Politics questions; background to the opening |
 | Universal manhood suffrage | Press and Politics questions; racial/gender limits explained |

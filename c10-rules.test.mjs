@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {statSync} from 'node:fs';
 import {
- fresh,clean,completeEpisode,missed,startRound,answerQuestion,nextQuestion,
+ fresh,clean,completeEpisode,missed,startRound,selectRehearsal,answerQuestion,nextQuestion,
  createPress,stepPress,stampPress,nextSheet,pressNeedle,
  createBank,stepBank,routeMoney,nextTransfer,
  createRecord,inspectRecord,placeRecord
 } from './c10-rules.mjs';
-import {QUESTIONS} from './c10-questions.mjs';
+import {QUESTIONS,KEY_TERMS,TOPICS} from './c10-questions.mjs';
 import {EPISODES,PRESS_JOBS,BANK_SLIPS,RECORDS,LINES} from './c10-data.mjs';
 import {VOICES} from './c10-voices.mjs';
 
@@ -24,6 +24,80 @@ function finishRound(s,{size=5,right=5,mode='exam',seed=1}={}){
  assert.equal(s.active,null);
  return deck;
 }
+
+test('Chapter 10 rehearsals contain exactly three terms and twelve content questions across all five sections',()=>{
+ const terms=new Set(KEY_TERMS),variants=new Set(),seenTerms=new Set();
+ for(let seed=1;seed<=100;seed++){
+  const deck=selectRehearsal({seed});assert.equal(deck.length,15);assert.equal(new Set(deck).size,15);
+  assert.equal(deck.filter(id=>terms.has(id)).length,3);assert.equal(deck.filter(id=>!terms.has(id)).length,12);
+  for(const t of TOPICS)assert.equal(deck.filter(id=>question(id).topic===t.id).length,3);
+  deck.filter(id=>terms.has(id)).forEach(id=>seenTerms.add(id));
+  assert.deepEqual(selectRehearsal({seed}),deck);variants.add(deck.join());
+ }
+ assert.equal(variants.size,100);assert.equal(seenTerms.size,16,'repeated rehearsals rotate through the whole bold-term pool');
+});
+
+test('The explicit quiz format forces the fifteen-question rehearsal and restores its exact answered deck',()=>{
+ const s=fresh();startRound(s,{format:'chapter10',topic:'removal',size:90,mode:'practice',review:true,termsOnly:true,seed:87});
+ assert.equal(s.active.format,'chapter10');assert.equal(s.active.mode,'exam');assert.equal(s.active.deck.length,15);
+ assert.equal(s.active.deck.filter(d=>question(d.id).term).length,3);
+ const first=question(s.active.deck[0].id);answerQuestion(s,first.answer);
+ const restored=clean(copy(s));assert.deepEqual(restored.active,s.active);assert.equal(answerQuestion(restored,first.answer),false);
+ assert.equal(nextQuestion(restored),true);assert.equal(restored.active.index,1);
+ for(let i=1;i<15;i++){answerQuestion(restored,question(restored.active.deck[i].id).answer);nextQuestion(restored);}
+ assert.equal(restored.last.format,'chapter10');assert.equal(restored.last.score,15);assert.deepEqual(clean(copy(restored)).last,restored.last);
+});
+
+test('All-topic fifteen-question exam entry uses the quiz split while ordinary practice remains flexible',()=>{
+ const s=fresh();startRound(s,{mode:'exam',size:15,seed:4});assert.equal(s.active.format,'chapter10');assert.equal(s.active.deck.filter(d=>question(d.id).term).length,3);
+ for(const options of [{mode:'practice',size:15},{mode:'exam',size:5},{mode:'exam',size:15,topic:'politics'},{mode:'exam',size:15,termsOnly:true},{mode:'exam',size:15,review:true}]){
+  startRound(s,{...options,seed:13});assert.equal(s.active.format,undefined);assert.deepEqual(clean(copy(s)).active,s.active);
+ }
+ const previous=copy(s.active);assert.equal(startRound(s,{format:'not-a-format'}),false);assert.deepEqual(s.active,previous);
+});
+
+test('Saved quiz-format claims cannot restore the wrong count, mode, term split or section coverage',()=>{
+ const s=fresh();startRound(s,{format:'chapter10',seed:41});const valid=copy(s.active);
+ const mutations=[
+  r=>{r.format='unknown';},r=>{r.format=null;},r=>{r.mode='practice';},
+  r=>{r.deck.pop();r.answers.pop();},
+  r=>{const term=r.deck.findIndex(d=>question(d.id).term),replacement=QUESTIONS.find(q=>!q.term&&!r.deck.some(d=>d.id===q.id));r.deck[term].id=replacement.id;},
+  r=>{const a=r.deck.find(d=>!question(d.id).term),replacement=QUESTIONS.find(q=>!q.term&&q.topic!==question(a.id).topic&&!r.deck.some(d=>d.id===q.id));a.id=replacement.id;}
+ ];
+ for(const mutate of mutations){const raw=fresh();raw.active=copy(valid);mutate(raw.active);assert.equal(clean(raw).active,null);}
+ const legacy=fresh();legacy.active=copy(valid);delete legacy.active.format;assert.deepEqual(clean(legacy).active,legacy.active,'valid older saves without format remain usable');
+});
+
+test('The dedicated quiz best survives practice and does not inherit an older extended-exam best',()=>{
+ const s=fresh();finishRound(s,{size:90,right:90,seed:18});assert.deepEqual(s.best,{score:90,total:90});assert.equal(s.quizBest,null);
+ finishRound(s,{size:15,right:12,seed:19});assert.equal(s.quizBest.score,12);assert.equal(s.quizBest.rows.length,15);assert.equal(s.quizBest.format,'chapter10');
+ const best=copy(s.quizBest);
+ finishRound(s,{size:5,right:5,mode:'practice',seed:20});assert.equal(s.last.mode,'practice');assert.deepEqual(s.quizBest,best);assert.deepEqual(clean(copy(s)).quizBest,best);
+ finishRound(s,{size:15,right:10,seed:21});assert.deepEqual(s.quizBest,best,'a lower rehearsal cannot replace the best');
+ finishRound(s,{size:15,right:12,seed:22});assert.deepEqual(s.quizBest,best,'an equal result keeps the existing record');
+ finishRound(s,{size:15,right:14,seed:23});assert.equal(s.quizBest.score,14);assert.notDeepEqual(s.quizBest.rows,best.rows);
+ s.last.rows[0].option=(s.last.rows[0].option+1)%4;assert.notDeepEqual(s.last.rows,s.quizBest.rows,'the best owns separate canonical answer rows');
+ const old=copy(s);delete old.quizBest;assert.equal(clean(old).quizBest,null,'older saves remain valid without inventing a dedicated best');
+});
+
+test('Saved dedicated quiz best scores are recomputed from canonical answers',()=>{
+ const s=fresh();finishRound(s,{size:15,right:11,seed:61});const raw=copy(s);raw.quizBest.score=999;raw.quizBest.total=90;
+ const restored=clean(raw);assert.equal(restored.quizBest.score,11);assert.equal(restored.quizBest.total,undefined);assert.deepEqual(restored.quizBest.rows,s.quizBest.rows);
+ raw.quizBest.rows[0].option=(question(raw.quizBest.rows[0].id).answer+1)%4;assert.equal(clean(raw).quizBest.score,10,'the saved score cannot override answer correctness');
+ const original=copy(raw.quizBest.rows);restored.quizBest.rows[1].option=(restored.quizBest.rows[1].option+1)%4;assert.deepEqual(raw.quizBest.rows,original,'cleaned records own independent answer arrays');
+});
+
+test('Malformed quiz best records cannot claim credit for duplicate, unbalanced or invalid answers',()=>{
+ const s=fresh();finishRound(s,{size:15,right:13,seed:71});const valid=copy(s.quizBest);
+ const mutations=[
+  r=>{r.format='practice';},r=>{delete r.format;},r=>{r.mode='practice';},r=>{r.rows.pop();},
+  r=>{r.rows[0].option=4;},r=>{r.rows[0].option=null;},r=>{r.rows[0].id='not-a-question';},
+  r=>{r.rows[1]={...r.rows[0]};},
+  r=>{const i=r.rows.findIndex(a=>question(a.id).term),replacement=QUESTIONS.find(q=>!q.term&&!r.rows.some(a=>a.id===q.id));r.rows[i].id=replacement.id;},
+  r=>{const a=r.rows.find(a=>!question(a.id).term),replacement=QUESTIONS.find(q=>!q.term&&q.topic!==question(a.id).topic&&!r.rows.some(a=>a.id===q.id));a.id=replacement.id;}
+ ];
+ for(const mutate of mutations){const raw=fresh();raw.quizBest=copy(valid);mutate(raw.quizBest);assert.equal(clean(raw).quizBest,null);}
+});
 
 test('A saved answered question restores the same deck, option order, feedback and credits',()=>{
  const s=fresh();assert.ok(startRound(s,{size:15,mode:'practice',seed:310}));

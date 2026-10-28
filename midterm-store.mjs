@@ -6,4 +6,4 @@ export function read(){try{return clean(JSON.parse(localStorage.getItem(KEY)||'n
 export function write(s){try{localStorage.setItem(KEY,JSON.stringify(s));saved=true;}catch{saved=false;}return s;}
 export function gameCredit(chapter){return write(creditGame(read(),chapter));}
 export function gameLink(chapter){return `chapter${chapter}.html${location.search}`;}
-export function homeLink(){return `index.html${location.search}`;}
+export function homeLink(){return `midterm.html${location.search}`;}

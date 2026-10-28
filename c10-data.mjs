@@ -1,4 +1,4 @@
-export const VERSION='6.1.0';
+export const VERSION='6.2.0';
 export const TERM_NAMES=['Code of deference','Universal manhood suffrage','Spoils system','Corrupt bargain','American System','Tariff of Abominations','Rotation in office','Kitchen Cabinet','Nullification','Monster bank','Whigs','Five Civilized Tribes','Trail of Tears','Tyranny of the majority','Second party system','Log cabin campaign'];
 export const EPISODES=[
  {id:'count',title:'The missing majority',year:'1824 → 1825',genre:'Courier run',scene:'street',goal:'Collect the four electoral returns. Get the count to the newsroom.',controls:'A / D steer · Space jump · Shift dash · W sprint',intro:'count-in',outro:'count-out'},

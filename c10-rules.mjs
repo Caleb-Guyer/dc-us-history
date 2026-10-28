@@ -1,20 +1,38 @@
-import {PRESS_JOBS,BANK_SLIPS,RECORDS,EPISODES} from './c10-data.mjs?v=6.1.0';
-import {QUESTIONS,selectQuestions} from './c10-questions.mjs?v=6.1.0';
+import {PRESS_JOBS,BANK_SLIPS,RECORDS,EPISODES} from './c10-data.mjs?v=6.2.0';
+import {QUESTIONS,TOPICS,KEY_TERMS,selectQuestions,seededRandom} from './c10-questions.mjs?v=6.2.0';
 const ids=new Set(QUESTIONS.map(q=>q.id)),byId=new Map(QUESTIONS.map(q=>[q.id,q]));
+const termIds=new Set(KEY_TERMS);
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export function shuffle(a,seed=1){a=[...a];let x=seed>>>0;for(let i=a.length-1;i>0;i--){x=(Math.imul(x,1664525)+1013904223)>>>0;const j=x%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
-export function fresh(){return {version:1,chapter:0,finished:[],stats:{},active:null,last:null,best:null};}
+// A rehearsal has the teacher's 3-term / 12-content split, with three questions
+// from each section. The chosen terms rotate among three different sections.
+export function selectRehearsal({seed=Date.now()}={}){
+ const random=seededRandom(seed),mix=list=>{const out=[...list];for(let i=out.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;};
+ const sections=TOPICS.map(t=>t.id),termSections=mix(sections.filter(id=>QUESTIONS.some(q=>q.topic===id&&termIds.has(q.id)))),picked=[];
+ for(const topic of termSections.slice(0,3))picked.push(mix(QUESTIONS.filter(q=>q.topic===topic&&termIds.has(q.id)))[0].id);
+ for(const topic of sections){
+  const count=picked.filter(id=>byId.get(id).topic===topic).length;
+  picked.push(...mix(QUESTIONS.filter(q=>q.topic===topic&&!termIds.has(q.id))).slice(0,3-count).map(q=>q.id));
+ }
+ return mix(picked);
+}
+function validRehearsal(deck){return deck.length===15&&new Set(deck.map(d=>d.id)).size===15&&deck.filter(d=>termIds.has(d.id)).length===3&&TOPICS.every(t=>deck.filter(d=>byId.get(d.id)?.topic===t.id).length===3);}
+function validQuizRows(rows){return Array.isArray(rows)&&rows.length===15&&rows.every(a=>ids.has(a?.id)&&Number.isInteger(a.option)&&a.option>=0&&a.option<4)&&validRehearsal(rows);}
+function quizRecord(rows){const copy=rows.map(a=>({id:a.id,option:a.option}));return {rows:copy,score:copy.filter(a=>byId.get(a.id).answer===a.option).length,mode:'exam',format:'chapter10'};}
+function validFormat(r){return r.format===undefined||r.format==='chapter10'&&r.mode==='exam'&&Array.isArray(r.deck)&&validRehearsal(r.deck);}
+export function fresh(){return {version:1,chapter:0,finished:[],stats:{},active:null,last:null,best:null,quizBest:null};}
 export function clean(raw){const n=fresh();if(raw?.version!==1)return n;const finished=Array.isArray(raw.finished)?raw.finished:[];for(const e of EPISODES){if(!finished.includes(e.id))break;n.finished.push(e.id);}n.chapter=n.finished.length;
  for(const [id,v]of Object.entries(raw.stats||{})){if(!ids.has(id)||!v||typeof v!=='object')continue;const tried=clamp(Math.floor(Number(v.tried)||0),0,9999),right=clamp(Math.floor(Number(v.right)||0),0,tried);if(tried)n.stats[id]={tried,right,last:v.last===true};}
- const r=raw.active;if(r&&['practice','exam'].includes(r.mode)&&Array.isArray(r.deck)&&r.deck.length>0&&r.deck.length<=QUESTIONS.length&&new Set(r.deck.map(d=>d?.id)).size===r.deck.length&&r.deck.every(d=>ids.has(d?.id)&&Array.isArray(d.order)&&d.order.length===4&&new Set(d.order).size===4&&d.order.every(v=>Number.isInteger(v)&&v>=0&&v<4))&&Number.isInteger(r.index)&&r.index>=0&&r.index<r.deck.length){const a=Array.isArray(r.answers)?r.answers:[];if(a.length===r.deck.length&&a.every((v,i)=>i<r.index?Number.isInteger(v)&&v>=0&&v<4:i===r.index?v===null||Number.isInteger(v)&&v>=0&&v<4:v===null))n.active={mode:r.mode,deck:r.deck.map(d=>({id:d.id,order:[...d.order]})),index:r.index,answers:[...a]};}
- if(raw.last&&Array.isArray(raw.last.rows)&&raw.last.rows.length>0&&raw.last.rows.length<=90&&raw.last.rows.every(a=>ids.has(a?.id)&&Number.isInteger(a.option)&&a.option>=0&&a.option<4)){const rows=raw.last.rows.map(a=>({id:a.id,option:a.option}));n.last={rows,score:rows.filter(a=>byId.get(a.id).answer===a.option).length,mode:raw.last.mode==='exam'?'exam':'practice'};}
- if(raw.best&&Number.isInteger(raw.best.score)&&Number.isInteger(raw.best.total)&&raw.best.total>=1&&raw.best.total<=90&&raw.best.score>=0&&raw.best.score<=raw.best.total)n.best={score:raw.best.score,total:raw.best.total};return n;
+ const r=raw.active;if(r&&['practice','exam'].includes(r.mode)&&Array.isArray(r.deck)&&r.deck.length>0&&r.deck.length<=QUESTIONS.length&&new Set(r.deck.map(d=>d?.id)).size===r.deck.length&&r.deck.every(d=>ids.has(d?.id)&&Array.isArray(d.order)&&d.order.length===4&&new Set(d.order).size===4&&d.order.every(v=>Number.isInteger(v)&&v>=0&&v<4))&&validFormat(r)&&Number.isInteger(r.index)&&r.index>=0&&r.index<r.deck.length){const a=Array.isArray(r.answers)?r.answers:[];if(a.length===r.deck.length&&a.every((v,i)=>i<r.index?Number.isInteger(v)&&v>=0&&v<4:i===r.index?v===null||Number.isInteger(v)&&v>=0&&v<4:v===null))n.active={mode:r.mode,...(r.format==='chapter10'?{format:r.format}:{}),deck:r.deck.map(d=>({id:d.id,order:[...d.order]})),index:r.index,answers:[...a]};}
+ if(raw.last&&Array.isArray(raw.last.rows)&&raw.last.rows.length>0&&raw.last.rows.length<=90&&raw.last.rows.every(a=>ids.has(a?.id)&&Number.isInteger(a.option)&&a.option>=0&&a.option<4)){const rows=raw.last.rows.map(a=>({id:a.id,option:a.option}));n.last={rows,score:rows.filter(a=>byId.get(a.id).answer===a.option).length,mode:raw.last.mode==='exam'?'exam':'practice',...(raw.last.format==='chapter10'&&raw.last.mode==='exam'&&validRehearsal(rows)?{format:'chapter10'}:{})};}
+ if(raw.best&&Number.isInteger(raw.best.score)&&Number.isInteger(raw.best.total)&&raw.best.total>=1&&raw.best.total<=90&&raw.best.score>=0&&raw.best.score<=raw.best.total)n.best={score:raw.best.score,total:raw.best.total};
+ if(raw.quizBest?.format==='chapter10'&&raw.quizBest.mode==='exam'&&validQuizRows(raw.quizBest.rows))n.quizBest=quizRecord(raw.quizBest.rows);return n;
 }
 export function completeEpisode(s,index){if(Number.isInteger(index)&&index===s.chapter&&index>=0&&index<6){const id=EPISODES[index].id;if(!s.finished.includes(id))s.finished.push(id);s.chapter++;}return s;}
 export function missed(s){return Object.keys(s.stats).filter(id=>s.stats[id].last===false);}
-export function startRound(s,{topic='all',size=15,mode='practice',termsOnly=false,review=false,seed=Date.now()}={}){const deck=selectQuestions({topic,size,seed,termsOnly,missed:review?missed(s):[]}).map((id,i)=>({id,order:shuffle([0,1,2,3],seed+i*971)}));if(!deck.length)return false;s.active={mode:mode==='exam'?'exam':'practice',deck,index:0,answers:deck.map(()=>null)};return true;}
+export function startRound(s,{topic='all',size=15,mode='practice',termsOnly=false,review=false,seed=Date.now(),format}={}){if(format!==undefined&&format!=='chapter10')return false;const rehearsal=format==='chapter10'||mode==='exam'&&topic==='all'&&Number(size)===15&&!termsOnly&&!review;const selected=rehearsal?selectRehearsal({seed}):selectQuestions({topic,size,seed,termsOnly,missed:review?missed(s):[]}),deck=selected.map((id,i)=>({id,order:shuffle([0,1,2,3],Number(seed)+i*971)}));if(!deck.length)return false;s.active={mode:rehearsal?'exam':mode==='exam'?'exam':'practice',...(rehearsal?{format:'chapter10'}:{}),deck,index:0,answers:deck.map(()=>null)};return true;}
 export function answerQuestion(s,option){const r=s.active;if(!r||!Number.isInteger(option)||option<0||option>3||r.answers[r.index]!==null)return false;const q=byId.get(r.deck[r.index].id),right=q.answer===option;r.answers[r.index]=option;const t=s.stats[q.id]||{tried:0,right:0,last:false};t.tried++;t.right+=Number(right);t.last=right;s.stats[q.id]=t;return true;}
-export function nextQuestion(s){const r=s.active;if(!r||r.answers[r.index]===null)return false;if(r.index<r.deck.length-1){r.index++;return true;}const rows=r.deck.map((d,i)=>({id:d.id,option:r.answers[i]})),score=rows.filter(a=>byId.get(a.id).answer===a.option).length;s.last={rows,score,mode:r.mode};if(r.mode==='exam'&&(!s.best||score/rows.length>s.best.score/s.best.total))s.best={score,total:rows.length};s.active=null;return true;}
+export function nextQuestion(s){const r=s.active;if(!r||r.answers[r.index]===null)return false;if(r.index<r.deck.length-1){r.index++;return true;}const rows=r.deck.map((d,i)=>({id:d.id,option:r.answers[i]})),score=rows.filter(a=>byId.get(a.id).answer===a.option).length;s.last={rows,score,mode:r.mode,...(r.format==='chapter10'?{format:r.format}:{})};if(r.mode==='exam'&&(!s.best||score/rows.length>s.best.score/s.best.total))s.best={score,total:rows.length};if(r.format==='chapter10'&&r.mode==='exam'&&validQuizRows(rows)&&(!s.quizBest||score>s.quizBest.score))s.quizBest=quizRecord(rows);s.active=null;return true;}
 export function createPress(assist=false){return {type:'press',job:0,strikes:0,time:0,combo:0,best:0,wait:false,done:false,assist,lastStrike:-100,message:'Keep the lever in the gold band.'};}
 export const pressNeedle=s=>(Math.sin(s.time*3.2)+1)/2;
 export function stepPress(s,dt){if(!s.done&&!s.wait)s.time+=clamp(Number(dt)||0,0,.05);}

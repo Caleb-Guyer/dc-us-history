@@ -1,4 +1,16 @@
-# Chapter 10 action update — Majority (6.1.0)
+# DC US History · Study sections (6.2.0)
+
+**[Open the study sections](https://caleb-guyer.github.io/dc-us-history/)**. Chapter 10 now has its own quiz-review hub, separate from the Chapters 1–8 midterm.
+
+- **[Chapter 10 quiz review](https://caleb-guyer.github.io/dc-us-history/c10-review.html):** the article’s sixteen bold key terms, concise meanings and examples, recall flashcards, all sixteen term questions, quick topic practice and a 15-question quiz rehearsal with exactly three key-term questions and twelve chapter-topic questions across the five sections.
+- **[Midterm study hall](https://caleb-guyer.github.io/dc-us-history/midterm.html):** the existing Chapters 1–8 quizzes, cards, challenges and short Chapter 7 and 8 games. Its practice record is preserved.
+- **[Majority campaign](https://caleb-guyer.github.io/dc-us-history/chapter10.html):** the Chapter 10 game remains available from its review hub and returns there afterward.
+
+The sixteen terms were checked against actual bold formatting in the supplied Word article, excluding headings. Flashcard recall ratings, question history and the best correctly formatted 15-question rehearsal are tracked separately. Quiz feedback waits until the finish; practice feedback appears after each answer. Unfinished rounds, misses and saved progress carry between the Chapter 10 hub and game. The original 90-question bank is unchanged. Practice history is not a prediction of the class quiz grade.
+
+Release checks: 318 tests and configured syntax checks pass. Muted browser verification covered the hub, flashcards, sixteen-term round, 15-question rehearsal, saved misses, phone layout and preservation of the existing midterm record. See [Chapter 10 coverage](C10-COVERAGE.md), [credits](C10-CREDITS.md) and [validation](C10-VALIDATION.md).
+
+## Chapter 10 action update — Majority (6.1.0)
 
 **[Play Majority](https://caleb-guyer.github.io/dc-us-history/chapter10.html)**. The six short assignments now include crossing wagons, clean-vault and close-pass chains, full-sail harbor boosts, a timed Bank War parcel conveyor and optional rally pennants that refill your dash. Correct destinations and required historical records still matter; style bonuses cannot change real outcomes.
 
@@ -14,9 +26,9 @@ The Question Room is available before and after the campaign. Its 90 original mu
 
 See [Chapter 10 coverage](C10-COVERAGE.md), [primary sources and textbook qualifications](C10-SOURCES.md), [credits](C10-CREDITS.md) and [validation](C10-VALIDATION.md). The uploaded Word document and private working notes are not published.
 
-# DC US History · Midterm study hall (5.1.1)
+## DC US History · Midterm study hall (5.1.1)
 
-**[Open the study hall](https://caleb-guyer.github.io/dc-us-history/)**. Short quiz rounds, recall cards, five matching/timeline challenges, a searchable topic library and a 40-question midterm rehearsal cover the supplied Chapters 1–8 outline and lecture priorities. Question and answer order vary. Saves, missed-question review, practice completion and a next-goal box make it easy to resume.
+**[Open the midterm study hall](https://caleb-guyer.github.io/dc-us-history/midterm.html)**. Short quiz rounds, recall cards, five matching/timeline challenges, a searchable topic library and a 40-question midterm rehearsal cover the supplied Chapters 1–8 outline and lecture priorities. Question and answer order vary. Saves, missed-question review, practice completion and a next-goal box make it easy to resume.
 
 The Convention (Chapter 7) now opens with a fast 3D courier run: collect three constitutional arguments while dodging wagons, leaping crates and dashing through Philadelphia, then build a coalition at Sherman's table. Until the Dawn (Chapter 8) rebuilds Fort McHenry in 3D with sprinting, evasive dodges, powder deliveries, aimed night-barge cannon fire, a two-fire emergency and the dawn flag. Both remain short (roughly 3–4 minutes, depending on reading and retries). Staged cutscenes use articulated actors, three camera shots per line, smoke, rain and a waving 15-star/15-stripe flag. Both include original synthetic dialogue recordings, music, subtitles, skip controls and independent completion credit. Their historical outcomes remain fixed. Chapters 4, 5 and the complete Chapter 6 campaign and Questions remain accessible through Earlier games.
 
