@@ -1,4 +1,19 @@
-# DC US History · Study sections (6.2.0)
+# DC US History · Chapters 9–11 test review (7.0.0)
+
+**[Open the Chapters 9–11 test hub](https://caleb-guyer.github.io/dc-us-history/test911.html)**. The new section combines the three supplied edited chapters: industrial transformation in the North, Jacksonian Democracy and westward expansion. It offers **210 original multiple-choice questions, 45 verified bold key terms, recall flashcards, short practice and a 40-question test rehearsal**. The teacher’s reminder lists a **base of 20 points**; practice reports questions correct and percentages without inventing a grading conversion.
+
+The rehearsal uses 14 questions from Chapter 9 and 13 each from Chapters 10 and 11 for balanced practice. **That 14/13/13 split is a study design, not a chapter allocation supplied by the teacher.** Topic and term practice offer shorter focused sessions, explanations and missed-question review. The new hub keeps its own saved record; earlier Chapter 10 and midterm progress remain separate.
+
+**[The course home](https://caleb-guyer.github.io/dc-us-history/)** presents the current test first and preserves the earlier sections:
+
+- **[Chapters 9–11 test review](https://caleb-guyer.github.io/dc-us-history/test911.html):** all three chapters and the 40-question rehearsal.
+- **[Chapter 10 quiz review](https://caleb-guyer.github.io/dc-us-history/c10-review.html):** the existing 15-question format, three key-term questions, flashcards and its separate practice record.
+- **[Chapters 1–8 midterm](https://caleb-guyer.github.io/dc-us-history/midterm.html):** the existing midterm quizzes, recall cards, challenges and short games.
+- **[Majority](https://caleb-guyer.github.io/dc-us-history/chapter10.html):** the Chapter 10 campaign remains available through its quiz hub.
+
+Questions and review notes are original paraphrases grounded in the uploaded chapters. The Word documents, extracted text and private audit materials are not publication assets. No build, account or API key is needed. Use `npm start`, `npm test` and `npm run check` locally. Quiet testing uses `?muted=1&preview=1` with a separate preview record.
+
+## Study sections (6.2.0)
 
 **[Open the study sections](https://caleb-guyer.github.io/dc-us-history/)**. Chapter 10 now has its own quiz-review hub, separate from the Chapters 1–8 midterm.
 
