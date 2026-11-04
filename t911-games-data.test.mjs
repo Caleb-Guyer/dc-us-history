@@ -4,7 +4,7 @@ import {CAMPAIGNS,GAME_VERSION} from './t911-games-data.mjs';
 import {BY_ID} from './t911-data.mjs';
 
 test('short campaigns connect every chapter section to teaching scenes or six sourced recall questions',()=>{
- assert.equal(GAME_VERSION,'7.1.0');
+ assert.equal(GAME_VERSION,'7.2.0');
  const ids=[];
  for(const chapter of [9,11]){
   const c=CAMPAIGNS[chapter];assert.equal(c.chapter,chapter);assert.equal(c.missions.length,3);assert.equal(c.debrief.length,6);assert.equal(new Set(c.debrief).size,6);

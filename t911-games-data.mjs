@@ -1,6 +1,6 @@
 // Original dramatic scenes based on the supplied edited chapters. All dialogue
 // is representative, invented speech, never a quotation from a historical person.
-export const GAME_VERSION='7.1.0';
+export const GAME_VERSION='7.2.0';
 const beat=(speaker,text,shot='wide',focus='world',duration=4)=>({speaker,text,shot,focus,duration});
 const gate=(at,prompt,choices,answer,why)=>({at,prompt,choices,answer,why});
 
@@ -9,7 +9,7 @@ export const CAMPAIGNS={
     description:'Three quick chapters in the industrial North: tend a Lowell mill, steer an Erie Canal shipment, then carry a workers’ petition. The workers, boat hands and couriers are fictional representatives of documented experiences; this is a historical montage, not one person’s journey.',
     missions:[
       {id:'c9-factory',title:'The Bell Owns the Day',year:'1824',place:'Lowell, Massachusetts',role:'A mill operative · representative worker',mode:'factory',goal:'Keep the loom stations supplied through the speedup.',target:8,duration:36,
-        controls:'Move between stations. Tap Action when the loom is ready. Keep clear of moving machinery.',
+        controls:'A/D: move between loom stations. W/S: move in or out. Hold Space/E to work; meet a spool at the marked station for a clean chain.',
         lesson:'Mechanization increased output. Specialized jobs also narrowed craft skills and gave supervisors more control over workers’ time.',sections:['9.1','9.2'],
         opening:[
           beat('LOWELL · 1824','The river turns the wheels. The bell brings hundreds of workers to the brick mills.','wide'),
@@ -26,7 +26,7 @@ export const CAMPAIGNS={
         ]
       },
       {id:'c9-canal',title:'The Inland Highway',year:'1825',place:'Erie Canal, New York',role:'A canal boat hand · representative worker',mode:'canal',goal:'Keep the cargo clear of obstacles and reach the lock.',target:6,duration:36,
-        controls:'Steer in all four directions. Tap Action for a protective burst when the route is clear.',
+        controls:'A/D: steer between paths. W/S: move forward or back. Tap Space/E for a short tow surge through a safe gap.',
         lesson:'The Erie Canal connected the Great Lakes with the Hudson River and Atlantic markets. Lower freight costs linked western farms and eastern factories.',sections:['9.2','9.3'],
         opening:[
           beat('NEW YORK · 1825','A new artificial waterway connects the Great Lakes to the Hudson River.','map'),
@@ -43,7 +43,7 @@ export const CAMPAIGNS={
         ]
       },
       {id:'c9-courier',title:'The Workers’ Voice',year:'1834',place:'Lowell, Massachusetts',role:'A petition courier · representative worker',mode:'courier',goal:'Carry petition copies through the streets to the workers’ meeting.',target:6,duration:36,
-        controls:'Move through the streets. Dash with Action to clear hazards and deliver petition copies.',
+        controls:'WASD: run through the street. Tap Space/E to vault a cart. Carry petition copies across two paths to reach the meeting.',
         lesson:'Workers organized over wage cuts and long hours. Industrial growth created unequal rewards, distinct class cultures and political demands.',sections:['9.1','9.4'],
         opening:[
           beat('LOWELL · 1834','The mills demand more work for less pay. Operatives organize a turnout.','wide'),
@@ -73,7 +73,7 @@ export const CAMPAIGNS={
     description:'A fast historical montage: navigate with the Corps of Discovery, run a San Jacinto dispatch, then deliver the news of 1850. Each mission uses a different representative participant. These are fictional tasks in documented settings, with no invented dialogue presented as a historical quotation.',
     missions:[
       {id:'c11-river',title:'No River Through',year:'1805',place:'The Missouri River and the western crossing',role:'A Corps of Discovery boat hand · representative participant',mode:'river',goal:'Protect the expedition’s supplies through the rapids.',target:6,duration:36,
-        controls:'Steer clear of rocks. Use Action for a short paddle burst on open water.',
+        controls:'A/D: steer clear of rocks. W/S: move forward or back. Tap Space/E for a short paddle surge through open water.',
         lesson:'Lewis and Clark sought trade, geographic knowledge and a route to the Pacific. Indigenous knowledge and diplomacy were crucial; no continuous inland waterway crossed the continent.',sections:['11.1'],
         opening:[
           beat('CORPS OF DISCOVERY · 1805','Lewis and Clark seek a Pacific route, trade connections and scientific knowledge for Jefferson.','map'),
@@ -82,7 +82,7 @@ export const CAMPAIGNS={
         ],
         ending:[
           beat('EXPEDITION HAND','The mountains break the imagined river connection. The expedition reaches the Pacific over land and water, then returns in 1806.','map','hero',5),
-          beat('THE MISSOURI CRISIS · 1820','Expansion also means political conflict. Maine enters free; Missouri enters slave. A territorial line preserves a temporary balance, not a final peace.','map','world',5)
+          beat('THE MISSOURI CRISIS · 1820','The 1820 agreement pairs free Maine with slave Missouri. A territorial line preserves a temporary balance, not a final peace.','map','world',5)
         ],
         decisions:[
           gate(.3,'The expedition must record more than a travel route. Save which journal?',['Only guesses about future gold prices','Plants, animals, geography and resources','A plan to annex California in 1805'],1,'Jefferson’s instructions included scientific observations as well as trade, mapping and territorial ambitions.'),
@@ -90,7 +90,7 @@ export const CAMPAIGNS={
         ]
       },
       {id:'c11-dispatch',title:'Dispatch at San Jacinto',year:'21 April 1836',place:'San Jacinto, Texas',role:'A Texian dispatch runner · representative participant',mode:'dispatch',goal:'Carry the dispatch through shell bursts and reach the rally point.',target:6,duration:36,
-        controls:'Move between cover. Dash with Action when the path is clear. Deliver messages; there are no kill points.',
+        controls:'WASD: run between cover. Tap Space/E for a protective dash past a volley. Deliver messages; there are no kill points.',
         lesson:'The Alamo and San Jacinto were different battles. Texas independence grew from conflicts over Mexican authority, immigration and slavery, and did not immediately make Texas a U.S. state.',sections:['11.3'],
         opening:[
           beat('THE ALAMO · 6 MARCH 1836','After a thirteen-day siege, Mexican forces take the Alamo. Texas has declared independence.','wide','world',5),
@@ -107,7 +107,7 @@ export const CAMPAIGNS={
         ]
       },
       {id:'c11-press',title:'The Union’s Breaking News',year:'1850',place:'Washington, D.C.',role:'A newspaper courier · representative worker',mode:'press',goal:'Deliver the printed reports through the crowded capital.',target:6,duration:36,
-        controls:'Move through the streets. Dash with Action to avoid hazards and deliver the news.',
+        controls:'WASD: run through the capital. Tap Space/E to vault a cart. Deliver the printed terms across two paths.',
         lesson:'War and the Mexican Cession reopened the slavery debate. The Compromise of 1850 combined a free California with a stronger fugitive-slave law; it postponed rather than resolved sectional conflict.',sections:['11.2','11.4','11.5'],
         opening:[
           beat('WAR’S AFTERMATH · 1848','The Treaty of Guadalupe Hidalgo ends the war. Mexico cedes California and much of the Southwest; Texas was annexed earlier.','map','world',5),

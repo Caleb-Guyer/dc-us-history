@@ -52,9 +52,44 @@ test('one collision grants invulnerability against a pileup',()=>{
  for(let id=100;id<104;id++)s.entities.push({id,kind:'rock',x:230,y:280,r:28,vx:0,pickup:false,telegraph:0});
  stepRun(s,{},1/60);assert.equal(s.health,80);assert.equal(s.hits,1);
 });
-test('dash has a cooldown and a held key does not fire unlimited dashes',()=>{
- const s=createRun(mission('courier'));stepRun(s,{action:true},1/60);assert.ok(s.player.dash>0);assert.equal(s.actionCount,1);
+test('vault has a cooldown and a held key does not fire unlimited jumps',()=>{
+ const s=createRun(mission('courier'));stepRun(s,{action:true},1/60);assert.ok(s.player.jumpTime>0);assert.equal(s.actionCount,1);
  advance(s,2,{action:true});assert.equal(s.actionCount,1);stepRun(s,{},1/60);stepRun(s,{action:true},1/60);assert.equal(s.actionCount,2);
+});
+
+test('a timed physical vault clears a cart while the same ground collision hurts',()=>{
+ for(const mode of ['courier','press']){
+  const grounded=createRun(mission(mode)),jumping=createRun(mission(mode));grounded.invulnerable=jumping.invulnerable=0;
+  stepRun(jumping,{action:true},.2);assert.ok(jumping.player.jump>.65);
+  for(const s of [grounded,jumping])s.entities.push({id:90,kind:'cart',x:s.player.x,y:s.player.y,r:28,vx:0,pickup:false,telegraph:0});
+  stepRun(grounded,{},1/60);stepRun(jumping,{},1/60);
+  assert.equal(grounded.health,80);assert.equal(jumping.health,100);assert.equal(jumping.style.vaults,1);assert.equal(jumping.score,180);
+ }
+});
+
+test('factory precision rewards the clean timing window without extra objective credit',()=>{
+ const clean=createRun(mission('factory')),early=createRun(mission('factory'));
+ for(const [s,offset] of [[clean,12],[early,75]])s.entities.push({id:91,kind:'spool',x:s.player.x+offset,y:s.player.y,lane:1,r:25,vx:0,pickup:true,telegraph:0});
+ stepRun(clean,{action:true},1/60);stepRun(early,{action:true},1/60);
+ assert.equal(clean.collected,1);assert.equal(early.collected,1);assert.equal(clean.style.perfects,1);assert.equal(early.style.perfects,0);assert.equal(clean.score-early.score,75);assert.equal(clean.effects[0].kind,'perfect');
+});
+
+test('boat bursts improve motion without creating objectives or jumping the mission clock',()=>{
+ for(const mode of ['canal','river']){
+  const base=createRun(mission(mode)),boost=createRun(mission(mode));
+  stepRun(base,{right:true},.2);stepRun(boost,{right:true,action:true},.2);
+  assert.ok(boost.player.x>base.player.x);assert.equal(boost.collected,0);assert.equal(boost.paths,0);assert.ok(Math.abs(base.time-boost.time)<1e-8);assert.equal(boost.style.boosts,1);
+  advance(boost,2,{action:true});assert.equal(boost.style.boosts,1);stepRun(boost,{},1/60);stepRun(boost,{action:true},1/60);assert.equal(boost.style.boosts,2);
+ }
+});
+
+test('passing a hazard nearby awards one close-pass bonus and no false objective credit',()=>{
+ const s=createRun(mission('river'));s.entities.push({id:92,kind:'rock',x:s.player.x+1,y:s.player.y+85,r:28,vx:-225,pickup:false,telegraph:0});
+ stepRun(s,{},1/60);assert.equal(s.style.nearMisses,1);assert.equal(s.score,50);assert.equal(s.collected,0);assert.equal(s.health,100);stepRun(s,{},.2);assert.equal(s.style.nearMisses,1);assert.equal(s.score,50);
+});
+
+test('3D steering input cannot accidentally engage dispatch cover',()=>{
+ const s=createRun(mission('dispatch'));stepRun(s,{down:true},1/60);assert.equal(s.player.duck,false);stepRun(s,{duck:true},1/60);assert.equal(s.player.duck,true);
 });
 test('dispatch cover protects against a volley and damage works after it is released',()=>{
  const s=createRun(mission('dispatch'));s.invulnerable=0;

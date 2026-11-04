@@ -1,4 +1,4 @@
-import {CAMPAIGNS} from './t911-games-data.mjs?v=7.1.0';
+import {CAMPAIGNS} from './t911-games-data.mjs?v=7.2.0';
 export const GAME_KEY='dc-test911-games-v1';
 const nonnegative=x=>Number.isFinite(x)?Math.max(0,Math.round(x)):0;
 const ids={9:['c9-factory','c9-canal','c9-courier'],11:['c11-river','c11-dispatch','c11-press']};
