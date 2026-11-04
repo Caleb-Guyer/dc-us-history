@@ -1,8 +1,10 @@
-# DC US History · Chapters 9–11 test review (7.0.0)
+# DC US History · Short Chapters 9 and 11 campaigns (7.1.0)
+
+**[Play Chapter 9](https://caleb-guyer.github.io/dc-us-history/chapter9.html)** · **[Play Chapter 11](https://caleb-guyer.github.io/dc-us-history/chapter11.html)**. Each short campaign has three action missions, animated cutscenes, historical decisions and six final recall questions. Keyboard and touch controls, pause, individual retries and saved checkpoints keep sessions short. Optional sound uses a locally synthesized score and device speech; testing stays muted. See [campaign guide](TEST911-GAMES.md).
 
 **[Open the Chapters 9–11 test hub](https://caleb-guyer.github.io/dc-us-history/test911.html)**. The new section combines the three supplied edited chapters: industrial transformation in the North, Jacksonian Democracy and westward expansion. It offers **210 original multiple-choice questions, 45 verified bold key terms, recall flashcards, short practice and a 40-question test rehearsal**. The teacher’s reminder lists a **base of 20 points**; practice reports questions correct and percentages without inventing a grading conversion.
 
-The rehearsal uses 14 questions from Chapter 9 and 13 each from Chapters 10 and 11 for balanced practice. **That 14/13/13 split is a study design, not a chapter allocation supplied by the teacher.** Topic and term practice offer shorter focused sessions, explanations and missed-question review. The new hub keeps its own saved record; earlier Chapter 10 and midterm progress remain separate.
+The rehearsal rotates a 14/13/13 split between the three chapters for balanced practice. **That 14/13/13 split is a study design, not a chapter allocation supplied by the teacher.** Topic and term practice offer shorter focused sessions, explanations and missed-question review. The new hub keeps its own saved record; earlier Chapter 10 and midterm progress remain separate.
 
 **[The course home](https://caleb-guyer.github.io/dc-us-history/)** presents the current test first and preserves the earlier sections:
 

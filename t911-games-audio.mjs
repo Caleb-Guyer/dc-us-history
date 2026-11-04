@@ -1,0 +1,11 @@
+// Original, locally synthesized score. No audio starts before a player's gesture.
+export class CampaignAudio{
+ constructor({muted=false}={}){this.muted=muted;this.ctx=null;this.nodes=[];this.next=0;this.note=0;this.chapter=9;this.intense=false;}
+ unlock(){if(this.muted)return;const C=globalThis.AudioContext||globalThis.webkitAudioContext;if(!C)return;try{this.ctx??=new C();if(this.ctx.state==='suspended')this.ctx.resume().catch(()=>{});}catch{}}
+ setMuted(value){this.muted=!!value;if(this.muted){for(const n of this.nodes)try{n.stop();}catch{}this.nodes=[];globalThis.speechSynthesis?.cancel();}else this.unlock();}
+ tone(hz,length=.12,gain=.06,type='triangle',when=0){if(this.muted||!this.ctx||this.ctx.state!=='running')return;const c=this.ctx,t=c.currentTime+when,o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(hz,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(gain,t+.015);g.gain.exponentialRampToValueAtTime(.001,t+length);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+length+.02);this.nodes.push(o);o.onended=()=>{this.nodes=this.nodes.filter(x=>x!==o);o.disconnect();g.disconnect();};}
+ cue(kind){if(kind==='hit'){this.tone(75,.16,.11,'sawtooth');return;}if(kind==='win'){[196,247,294,392].forEach((f,i)=>this.tone(f,.4,.07,'triangle',i*.13));return;}if(kind==='correct'){this.tone(440,.17,.06);this.tone(660,.2,.05,'sine',.1);return;}this.tone(kind==='collect'?580:230,.09,.035);}
+ update(time,{chapter=9,intense=false}={}){this.chapter=chapter;this.intense=intense;if(this.muted||!this.ctx||this.ctx.state!=='running'||time<this.next)return;this.next=time+(intense?.31:.62);const base=chapter===9?98:110,scale=[1,1.5,2,1.25,1,1.5,1.125,1.5];this.tone(base*scale[this.note%8],intense?.2:.5,.025,'triangle');if(this.note%4===0)this.tone(base/2,.65,.045,'sine');if(intense)this.tone(42,.065,.035,'square');this.note++;}
+ speak(text){if(this.muted||!globalThis.speechSynthesis||!globalThis.SpeechSynthesisUtterance)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=.98;u.pitch=.88;u.volume=.85;speechSynthesis.speak(u);}catch{}}
+ quiet(){globalThis.speechSynthesis?.cancel();for(const n of this.nodes)try{n.stop();}catch{}this.nodes=[];}
+}

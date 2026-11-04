@@ -3,7 +3,7 @@ import {QUESTIONS as C10_QUESTIONS,TOPICS as C10_TOPICS} from './c10-questions.m
 import {TERMS as C10_TERMS} from './c10-terms.mjs?v=6.2.0';
 import {CH11_QUESTIONS,CH11_TERMS,CH11_SECTIONS} from './t911-ch11.mjs?v=7.0.0';
 
-export const VERSION='7.0.0';
+export const VERSION='7.1.0';
 export const CHAPTERS=[
  {id:9,title:'Industry & a new economy',name:'Industrial Transformation in the North',summary:'Factories, markets, transportation and changing social classes.'},
  {id:10,title:'Jacksonian Democracy',name:'Jacksonian Democracy',summary:'Votes, political parties, tariffs, banks and Native sovereignty.'},
