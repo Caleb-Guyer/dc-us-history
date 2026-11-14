@@ -1,4 +1,14 @@
-# Chapter 13 validation · 8.1.0
+# Chapter 13 validation · 8.2.0
+
+All **422 automated tests** pass. New checks cover sculpted character geometry, articulated animation, the exact fourteen-map material manifest, local asset integrity and the cinematic depth calculations. Configured syntax checks cover the new rendering modules as well as the existing site.
+
+Muted browser play completed all three games with ordinary keyboard input and held on-screen steering: the workshop finished eight jobs across three benches in **17 active seconds**; the courier delivered six bundles in **11 seconds**, with a clean cart vault; the hall completed six preparation tasks in **21 seconds**. Each required both historical decisions and finished without waiting for the deadline. Completed game credit survived reload.
+
+Visual checks verified all **14/14 local material maps loaded with no failures**, Detailed/Balanced switching, fifteen-shot camera definitions, readable close-ups, prop staging and the 375×812 phone layout without horizontal overflow. The phone hall route used held movement controls. The viewport override was reset. No browser warnings or errors were captured during the completed playthroughs. Sound stayed locked off with `muted=1`; optional speech and music were not audibly auditioned.
+
+The 104-question bank, fourteen bold terms, exact 15-question quiz format and study save schema are unchanged. The new material pack totals about 7.6 MB before HTTP compression and loads locally from the site. This is a browser 3D game with authored geometry and photographed surfaces; scenes and representative characters do not claim to be literal reconstructions. [Art provenance and licenses](C13-ART.md) accompany the release.
+
+## Action update · 8.1.0
 
 All **414 automated tests** and configured syntax checks pass. The update adds simulation tests for sprint energy, normalized diagonal movement, timing chains, hazard warnings, close passes, volunteer crossings and held-action behavior; three director checks cover all fifteen shots, bounded cameras and historical distinctions.
 

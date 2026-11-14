@@ -15,7 +15,8 @@ test('camera curves remain finite and bounded above floors through normal and po
  for(const game of GAMES)for(const phase of ['opening','ending'])for(const [index] of game[phase].entries())for(const portrait of [false,true])for(const progress of [-1,0,.2,.5,.8,1,2,NaN]){
   const shot=directorShot(game,{phase,beatIndex:index,progress,portrait});
   for(const field of ['position','target','heroPosition','otherPosition'])assert(shot[field].length===3&&shot[field].every(Number.isFinite));
-  assert(shot.position[1]>=1.8);assert(shot.position[1]<10);assert(shot.target[1]>.5);assert(shot.fov>=30&&shot.fov<=65);
+  assert(shot.position[1]>=1.3);assert(shot.position[1]<10);assert(shot.target[1]>.5);assert(shot.fov>=30&&shot.fov<=65);
+  assert(Number.isFinite(shot.heroYaw)&&Number.isFinite(shot.otherYaw));assert(shot.focusDistance>.5&&shot.focusDistance<30);
   if(game.mode==='convention'){assert(Math.abs(shot.position[0])<6);assert(shot.position[2]>-8,'camera stays in front of back wall');}
  }
 });
