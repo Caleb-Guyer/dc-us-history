@@ -1,4 +1,20 @@
-# Chapter 13 validation · 8.0.0
+# Chapter 13 validation · 8.1.0
+
+All **414 automated tests** and configured syntax checks pass. The update adds simulation tests for sprint energy, normalized diagonal movement, timing chains, hazard warnings, close passes, volunteer crossings and held-action behavior; three director checks cover all fifteen shots, bounded cameras and historical distinctions.
+
+Muted browser playtests completed all three revised games using ordinary keyboard and held on-screen controls:
+
+| Game | Tasks | Active play | Observed result |
+| --- | ---: | ---: | --- |
+| The Shared Bench | 8/8 | 17 seconds | Three benches, an 8× chain, two decisions and deliberate correction |
+| The Abolition Press | 6/6 | 16 seconds | Three paths, one clean cart vault, sprint input and two decisions |
+| Open the Hall | 6/6 | 17 seconds | Held touch steering, visible preparation, two milestone decisions and immediate finish |
+
+The 375×812 phone checks covered the simplified menu, direct story launch, readable scene captions, declaration inserts, touch controls and focused-button pause recovery. Viewport overrides were reset. Completed games persisted after reload, and the separate review record retained game credit. Sound was locked off with `muted=1`; no browser console warnings or errors were captured in the completed playthroughs. Device speech and optional synthesized music were not audibly auditioned.
+
+The 104-question bank, fourteen bold terms and quiz format remain intact. Source coverage and original release checks follow below.
+
+## Initial release · 8.0.0
 
 All **405 automated tests** and the configured JavaScript syntax checks pass. New checks cover source and bold-term coverage, exact rehearsal composition across 100 seeds, shuffled answer correctness, saved sessions, mistake correction, flashcard credit, isolated storage, malformed-save recovery, mission feasibility, natural movement, timing, vaults and task-driven decisions. The uploaded classroom Word file, extracted text and private QA fixtures are excluded from publication.
 

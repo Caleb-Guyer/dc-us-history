@@ -1,4 +1,8 @@
-# DC US History · Chapter 13 quiz and arcade (8.0.0)
+# DC US History · The Reform Years (8.1.0)
+
+**[Play the rebuilt Chapter 13 games](https://caleb-guyer.github.io/dc-us-history/chapter13.html?v=8.1.0)**. The Reform Years replaces the earlier arcade presentation with textured period settings, detailed animated people, physical props and fifteen authored cinematic tracks. The Shared Bench adds timing chains and sprinting; The Abolition Press adds readable carts, clean vaults and stamina-based route changes; Open the Hall adds moving supply volunteers and visible preparation work. All three advance through completed tasks and historical decisions, with a 40-second action deadline and no empty wait after success. The desktop menu previews the selected story in 3D; phone players tap a story to begin. The HUD and subtitle presentation are simplified.
+
+Earlier Chapter 13 completions, scores, cards and question history are retained. The complete quiz bank below is unchanged. Muted testing and [release validation](C13-VALIDATION.md) cover the rebuilt games and review integration. [Controls and historical scope](C13-GAMES.md) distinguish the representative tasks from documented outcomes.
 
 **[Open Chapter 13 quiz review](https://caleb-guyer.github.io/dc-us-history/c13-review.html)**. Prepare for the stated **15 multiple-choice questions, including 3 key terms**, through **104 original questions, all 14 verified bold body terms, flashcards, a connection guide, missed-answer practice and an exact-format rehearsal**. The class base of 25 points is displayed without inventing the teacher’s scoring formula. All five sections and every substantive paragraph of the supplied edited reading are covered in the bank.
 
