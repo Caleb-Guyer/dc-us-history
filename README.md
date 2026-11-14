@@ -1,4 +1,12 @@
-# DC US History · Short 3D Chapters 9 and 11 campaigns (7.2.0)
+# DC US History · Chapter 13 quiz and arcade (8.0.0)
+
+**[Open Chapter 13 quiz review](https://caleb-guyer.github.io/dc-us-history/c13-review.html)**. Prepare for the stated **15 multiple-choice questions, including 3 key terms**, through **104 original questions, all 14 verified bold body terms, flashcards, a connection guide, missed-answer practice and an exact-format rehearsal**. The class base of 25 points is displayed without inventing the teacher’s scoring formula. All five sections and every substantive paragraph of the supplied edited reading are covered in the bank.
+
+**[Play the Chapter 13 arcade](https://caleb-guyer.github.io/dc-us-history/chapter13.html)**. Three short 3D games turn selected reform connections into cooperative workshop timing, a pamphlet courier run with vaults, and physical preparation for a women’s rights convention. Each has two short opening shots, two historical decisions, two ending shots, keyboard/touch controls, pause and retry. Action stages last up to 40 seconds; the convention advances through tasks rather than waiting for a timer. Sound is optional and starts off. The settings and tasks are dramatic representations, not literal reconstructions or historical quotations.
+
+Chapter 13 keeps a separate browser record, with a next goal and transparent completion: 60% question-bank credit, 25% self-rated term recall and 15% completed games. Completion measures completed study, not a predicted quiz grade. Earlier sections remain available. See [sources and coverage](C13-SOURCES.md) and [validation](C13-VALIDATION.md).
+
+## Chapters 9–11 and earlier reviews
 
 **[Play Chapter 9](https://caleb-guyer.github.io/dc-us-history/chapter9.html)** · **[Play Chapter 11](https://caleb-guyer.github.io/dc-us-history/chapter11.html)**. Each short campaign has three genuine 3D action missions, authored camera shots, historical decisions and six final recall questions. Precision mill work, boat boosts, physical street vaults and battlefield dash/cover keep the action varied. Natural third-person keyboard and touch controls, pause, individual retries and existing saved checkpoints keep sessions short. Each mission still lasts at most 36 active seconds. Optional sound uses a locally synthesized score and device speech; testing stays muted. See [campaign guide](TEST911-GAMES.md).
 
