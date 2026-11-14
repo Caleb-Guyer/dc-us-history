@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {VERSION,SECTIONS,TERMS,QUESTIONS,BY_ID,TERM_BY_ID,QUIZ_SHAPE} from './c13-data.mjs';
 
 test('Chapter 13 includes exactly its fourteen bold body terms, without headings',()=>{
- assert.equal(VERSION,'8.0.0');
+ assert.equal(VERSION,'8.3.0');
  assert.deepEqual(TERMS.map(t=>t.name),['Second Great Awakening','millennialism','transcendentalism','pietistic','Shakers','Mormons','temperance','teetotalism','Phrenology','colonization','abolitionist','moral suasion','immediatism','Seneca Falls']);
  assert.equal(new Set(TERMS.map(t=>t.id)).size,14);
  for(const t of TERMS){assert.equal(TERM_BY_ID.get(t.id),t);for(const key of ['definition','example','contrast'])assert.ok(t[key].length>35,`${t.id}: ${key}`);assert.ok(SECTIONS.some(s=>s.id===t.section));}

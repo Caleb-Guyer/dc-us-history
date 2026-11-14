@@ -1,4 +1,14 @@
-# Chapter 13 validation · 8.2.0
+# Chapter 13 validation · 8.3.0
+
+All **429 automated tests** pass. New regressions cover fresh timing versus held assistance, real bench reach, carrying and delivering pages, sustained task holds and cancellation, varied facial geometry, hairline clearance and packet support. The configured syntax checks also pass.
+
+Muted background browser checks completed all three games with ordinary controls: eight workshop jobs across three benches with a precision tap, six courier deliveries with a clean vault in **13 active seconds**, and all six convention tasks in **17 seconds**. The convention route used held on-screen movement at **375×812**, carried the pages between actual task points, cleared the carried state at delivery, and completed both short holds. Each mission required both historical decisions. A deliberate wrong choice allowed correction.
+
+The workshop win was left through Games before its ending finished; its credit survived reload. This checks the repaired early-exit save case. Revealed flashcards restored after reload and accepted a recall rating. A saved rehearsal answer restored locked at 1/15. The quiz still selects exactly three term questions and twelve chapter questions across all five sections. Wrong-answer polish keeps all IDs, correct answers, positions, source references and save formats compatible.
+
+Visual checks covered tailored clothes, facial variation, readable compact subtitles, differentiated workshop stations, moving courier streets, the Martha close-up, Detailed/Balanced switching, all **14/14 material maps**, phone captions and task controls. No browser console warnings or errors were captured in the completed playthroughs. The viewport override was reset. Sound stayed locked off; optional device speech and synthesized music were not audibly auditioned.
+
+## Character and material update · 8.2.0
 
 All **422 automated tests** pass. New checks cover sculpted character geometry, articulated animation, the exact fourteen-map material manifest, local asset integrity and the cinematic depth calculations. Configured syntax checks cover the new rendering modules as well as the existing site.
 

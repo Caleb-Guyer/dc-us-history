@@ -16,7 +16,7 @@ export const CINEMATIC_TRACKS={
  },
  'c13-press':{
   opening:[
-   track('press-impression',[[3.2,2.15,.1],[2.6,1.95,-.5]],[[.3,1.27,-2.7],[.3,1.3,-2.7]],{fov:[43,37],heroPose:'work',otherPose:'carry',focus:'press',heroPosition:[[1.4,0,-1.9]],otherPosition:[[-1.3,0,-3.8]],heroYaw:Math.PI,otherYaw:.3}),
+   track('press-impression',[[3.2,2.15,.1],[2.6,1.95,-.5]],[[.3,1.27,-2.7],[.3,1.3,-2.7]],{fov:[43,37],heroPose:'work',otherPose:'speak',focus:'press',heroPosition:[[1.4,0,-1.9]],otherPosition:[[-1.3,0,-3.8]],heroYaw:Math.PI,otherYaw:.3}),
    track('press-courier',[[-1.05,1.8,2.9],[-.7,1.76,2.55]],[[0,1.5,1],[0,1.54,1]],{fov:[38,33],heroPose:'carry',otherPose:'listen',focus:'hero',otherPosition:[[3,0,-2.2]]}),
    track('press-departure',[[2.9,2.2,4.3],[2,2,.8]],[[0,1.45,.6],[0,1.45,-2.4]],{fov:[46,42],heroPose:'run',otherPose:'point',heroPosition:[[0,0,.6],[0,0,-2.4]],heroYaw:Math.PI,otherPosition:[[3,0,-2.3]]})
   ],
@@ -28,7 +28,7 @@ export const CINEMATIC_TRACKS={
  'c13-convention':{
   opening:[
    track('hall-arrival',[[0,3.9,10],[1,3.1,7.5]],[[0,1.45,-4],[0,1.45,-3]],{fov:[49,44],heroPose:'run',otherPose:'prepare',heroPosition:[[0,0,1.5],[0,0,-1]],heroYaw:Math.PI,otherPosition:[[3,0,-4]]}),
-   track('hall-voice',[[-1.15,1.8,2.05],[-.8,1.76,1.8]],[[0,1.5,0],[0,1.54,0]],{fov:[39,34],heroPose:'speak',otherPose:'listen',focus:'hero',heroPosition:[[0,0,0]],otherPosition:[[3,0,-4]]}),
+   track('hall-voice',[[-1.15,1.8,2.05],[-.8,1.76,1.8]],[[0,1.5,0],[0,1.54,0]],{fov:[39,34],heroPose:'listen',otherPose:'speak',focus:'other',heroPosition:[[-1.8,0,-.5]],otherPosition:[[0,0,0]]}),
    track('hall-pages',[[1.8,2.15,-3.4],[1.2,1.94,-3.75]],[[0,1.04,-6],[0,1.05,-6]],{fov:[43,38],heroPose:'prepare',otherPose:'carry',focus:'declaration',heroPosition:[[-1,0,-5]],otherPosition:[[3,0,-4]],heroYaw:Math.PI})
   ],
   ending:[
@@ -41,7 +41,7 @@ const sample=(points,t)=>points.length===1?[...points[0]]:mix(points[0],points[1
 export function directorShot(game,{phase='opening',beatIndex=0,progress=0,portrait=false}={}){
  const id=typeof game==='string'?game:game?.id,list=CINEMATIC_TRACKS[id]?.[phase]||CINEMATIC_TRACKS['c13-assembly'].opening;
  const shot=list[Math.max(0,Math.min(list.length-1,Number.isInteger(beatIndex)?beatIndex:0))];
- const linear=clamp(progress),t=linear*linear*(3-2*linear),position=sample(shot.position,t),target=sample(shot.target,t);
+ const linear=clamp((clamp(progress)-.08)/.8),t=linear*linear*(3-2*linear),position=sample(shot.position,t),target=sample(shot.target,t);
  if(portrait){const factor=shot.focus==='world'?1.14:1.23;for(let i=0;i<3;i++)position[i]=target[i]+(position[i]-target[i])*factor;}
  const focusDistance=Math.hypot(...position.map((v,i)=>v-target[i]));
  return {name:shot.name,position,target,focusDistance,fov:shot.fov[0]+(shot.fov[1]-shot.fov[0])*t+(portrait?5:0),heroPose:shot.heroPose,otherPose:shot.otherPose,focus:shot.focus,heroPosition:sample(shot.heroPosition,t),otherPosition:sample(shot.otherPosition,t),heroYaw:shot.heroYaw,otherYaw:shot.otherYaw};

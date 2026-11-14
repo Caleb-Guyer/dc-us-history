@@ -1,6 +1,6 @@
 # Chapter 13 art and materials
 
-The Reform Years uses local 3D geometry, anatomical character work, period clothing and photographed surface maps. The people are anonymous fictional representatives, not likenesses of historical figures. Scenes are teaching settings rather than literal reconstructions of particular rooms or streets.
+The Reform Years uses local 3D geometry, anatomical character work, period clothing and photographed surface maps. Nell, Elias and Martha are fictional people, not likenesses of historical figures. Four restrained head variants, vertex skin colors, tailored garment profiles and authored working poses provide variation. Scenes are teaching settings rather than literal reconstructions of particular rooms or streets.
 
 ## Photographed materials
 

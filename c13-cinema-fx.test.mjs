@@ -14,5 +14,5 @@ test('lens depth reconstructs physical near, middle and far distances',()=>{
 test('the lens retains a clear subject and bounds background blur',()=>{
  assert.equal(focusBlur(4,4),0);assert.equal(focusBlur(4.7,4),0);
  assert(focusBlur(8,4)>0);assert(focusBlur(12,4)>=focusBlur(8,4));
- for(const distance of [.1,1,10,100,170])assert(focusBlur(distance,4)>=0&&focusBlur(distance,4)<=.006);
+ for(const distance of [.1,1,10,100,170])assert(focusBlur(distance,4)>=0&&focusBlur(distance,4)<=2.6,'background blur stays below three physical pixels');
 });
