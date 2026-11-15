@@ -26,3 +26,10 @@ test('key contrasts are explicit without extending the games or changing real ou
  assert.match(all,/the vote remains unwon/);assert.match(all,/skull-reading claims were false/);
  for(const game of GAMES){assert.equal(game.duration,40);assert.equal(game.gates.length,2);assert(game.gates.every(g=>g.answer>=0&&g.answer<g.choices.length));assert(game.opening.concat(game.ending).reduce((n,b)=>n+b.seconds,0)<=25);}
 });
+
+test('the courier leaves the printshop through its front and receives on the pavement',()=>{
+ const first=directorShot('c13-press',{beatIndex:0,progress:.5});assert(first.heroPosition[0]<-9);assert(first.position[0]<-8);
+ const doorway=directorShot('c13-press',{beatIndex:2,progress:.48});assert(doorway.heroPosition[2]>4.2);assert(Math.abs(doorway.heroPosition[0]+12)<.01);
+ const outside=directorShot('c13-press',{beatIndex:2,progress:1});assert.equal(outside.heroPosition[0],0);assert(outside.heroPosition[2]>2);
+ const receiving=directorShot('c13-press',{phase:'ending',beatIndex:0,progress:.5});assert(receiving.heroPosition[0]<-8);assert(receiving.otherPosition[0]<-7);
+});

@@ -1,4 +1,16 @@
-# Chapter 13 validation · 8.3.0
+# Chapter 13 validation · 8.4.0
+
+All **446 automated tests** and **147 configured syntax checks** pass. Added regressions cover overlapping physical key and pointer sources, focus loss, storage failures and recovery, coherent cache versions, the printshop departure path, connected cloth and hand skinning, apron clearance and held-paper contact. All 104 question IDs, correct answers and answer positions remain compatible with saved records. The final content sweep replaced 198 wrong choices in 71 further question sets with same-topic misconceptions; it left correct-answer text, explanations, sources, ordering and term metadata unchanged. The quiz retains fourteen bold terms and exactly three term questions plus twelve chapter questions across the five sections.
+
+Muted background browser play completed all three missions with ordinary controls: eight workshop jobs across three benches, six courier bundles in 13 active seconds, and all six hall tasks with carried pages and both final holds. Each required its two historical decisions. Workshop credit survived leaving the ending early and reloading. A recalled card and a locked practice answer survived reload and browser Back; the hub showed 3/3 games, 1/14 cards and 1/104 questions.
+
+Visual checks caught and corrected intersecting aprons, cream shirt diamonds, fixed shoulder seam tubes, paper passing through hands, floating tools and bundles, an exterior workshop camera and the printshop's unfinished ground and horizon. The finished views were reloaded and checked. Detailed/Balanced switching worked from the keyboard. All fourteen local material maps loaded without failures, and no browser warnings or errors were captured in the completed checks.
+
+At **812×375**, the game, pause panel, decisions and all six held touch controls fit within the viewport without horizontal overflow. Held touch movement was used in the hall playthrough. At **375×812**, scene captions and controls remained readable and on screen. The temporary viewport override was reset. Space activated a focused Pause button instead of triggering the game action.
+
+Storage-failure and history-conflict cases were checked with controlled providers in automated tests; normal reload and Back were also checked in the browser. Failed win saves retry when finishing or leaving the ending. Unsaved work can remain in the live tab, but a full reload still depends on usable browser storage. Sound stayed locked off throughout testing; optional device speech and synthesized music were not audibly auditioned.
+
+## Gameplay update · 8.3.0
 
 All **429 automated tests** pass. New regressions cover fresh timing versus held assistance, real bench reach, carrying and delivering pages, sustained task holds and cancellation, varied facial geometry, hairline clearance and packet support. The configured syntax checks also pass.
 

@@ -1,4 +1,4 @@
-import {GAME_BY_ID,HALL_TASKS} from './c13-games-data.mjs';
+import {GAME_BY_ID,HALL_TASKS} from './c13-games-data.mjs?v=8.4.0';
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const points=[[-4,-4],[4,-4],[-4,3],[4,3],[0,-5],[0,4]];
 const workNames=['Joinery finished','Shared meal prepared','Booklet bound'];

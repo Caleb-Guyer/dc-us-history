@@ -1,6 +1,6 @@
 # Chapter 13 art and materials
 
-The Reform Years uses local 3D geometry, anatomical character work, period clothing and photographed surface maps. Nell, Elias and Martha are fictional people, not likenesses of historical figures. Four restrained head variants, vertex skin colors, tailored garment profiles and authored working poses provide variation. Scenes are teaching settings rather than literal reconstructions of particular rooms or streets.
+The Reform Years uses local 3D geometry, period clothing and photographed surface maps. Nell, Elias and Martha are fictional people. Head variants, skin colors, fitted garments and working poses distinguish the cast. The 8.4 update connects deforming shoulder, torso, sleeve and hand surfaces, adjusts apron and collar fit, and corrects contact with work props. Scenes are teaching settings rather than literal reconstructions of particular rooms or streets.
 
 ## Photographed materials
 
@@ -18,8 +18,8 @@ The texture pack contains fourteen maps, all 1024×1024 pixels, totaling 7,606,9
 
 ## Character geometry
 
-The character head geometry is derived from the **MakeHuman Community** base mesh and adapted for clothed, animated period characters. MakeHuman’s [official core asset license](https://www.makehumancommunity.org/about/license.html) and [repository asset terms](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md) identify the base mesh and its derivatives as CC0. The [full CC0 asset statement](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.ASSETS.md) is separate from the application’s source-code license.
+Character heads, articulated hands and the connected clothed shoulder, torso and sleeve surfaces derive from the **MakeHuman Community** base mesh. They have been adapted to the game’s proportions, clothing and animation. MakeHuman’s [official core asset license](https://www.makehumancommunity.org/about/license.html) and [repository asset terms](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md) identify the base mesh and its derivatives as CC0. The [full CC0 asset statement](https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.ASSETS.md) is separate from the application’s source-code license.
 
-Only the derived character geometry used by the clothed game is included. The original full-body source asset, private extraction scripts and classroom chapter files are not publication assets. Clothing, hair, proportions, materials, poses, environments and cinematic composition are authored for this game; they are not photographs of people who lived through these events.
+The published geometry contains the derivatives used by clothed characters. The original full-body asset and bare source mesh remain private, along with extraction scripts and classroom files. Hair, bonnets, aprons, shirt and coat layers, skirts and boots are authored for this game, as are its materials, poses, environments and camera tracks. The characters are not photographs or historical likenesses.
 
 Three.js remains under its existing [MIT license](THREE-LICENSE.txt). The historical scope is documented in [Chapter 13 sources](C13-SOURCES.md).

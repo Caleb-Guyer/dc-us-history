@@ -1,4 +1,4 @@
-import {QUESTIONS, TERMS, SECTIONS} from './c13-data.mjs?v=8.0.0';
+import {QUESTIONS, TERMS, SECTIONS} from './c13-data.mjs?v=8.4.0';
 
 export const STORAGE_KEY = 'dc-c13-v1';
 export const PREVIEW_KEY = 'dc-c13-preview-v1';

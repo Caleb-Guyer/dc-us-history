@@ -1,7 +1,7 @@
 // Short physical camera moves, framed for adult-scale people and real props.
 const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0));
 const mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
-const track=(name,position,target,{fov=[43,39],heroPose='listen',otherPose='listen',focus='world',heroPosition=[[0,0,1]],otherPosition=[[3,0,-2]],heroYaw=0,otherYaw=0}={})=>({name,position,target,fov,heroPose,otherPose,focus,heroPosition,otherPosition,heroYaw,otherYaw});
+const track=(name,position,target,{fov=[43,39],heroPose='listen',otherPose='listen',focus='world',heroPosition=[[0,0,1]],otherPosition=[[3,0,-2]],heroYaw=0,otherYaw=0,heroFacePath=false}={})=>({name,position,target,fov,heroPose,otherPose,focus,heroPosition,otherPosition,heroYaw,otherYaw,heroFacePath});
 export const CINEMATIC_TRACKS={
  'c13-assembly':{
   opening:[
@@ -18,7 +18,7 @@ export const CINEMATIC_TRACKS={
   opening:[
    track('press-impression',[[3.2,2.15,.1],[2.6,1.95,-.5]],[[.3,1.27,-2.7],[.3,1.3,-2.7]],{fov:[43,37],heroPose:'work',otherPose:'speak',focus:'press',heroPosition:[[1.4,0,-1.9]],otherPosition:[[-1.3,0,-3.8]],heroYaw:Math.PI,otherYaw:.3}),
    track('press-courier',[[-1.05,1.8,2.9],[-.7,1.76,2.55]],[[0,1.5,1],[0,1.54,1]],{fov:[38,33],heroPose:'carry',otherPose:'listen',focus:'hero',otherPosition:[[3,0,-2.2]]}),
-   track('press-departure',[[2.9,2.2,4.3],[2,2,.8]],[[0,1.45,.6],[0,1.45,-2.4]],{fov:[46,42],heroPose:'run',otherPose:'point',heroPosition:[[0,0,.6],[0,0,-2.4]],heroYaw:Math.PI,otherPosition:[[3,0,-2.3]]})
+   track('press-departure',[[-9.1,2.2,4.3],[-8.5,2.35,7],[2,2.4,6.7]],[[-12,1.45,.6],[-12,1.45,4.7],[0,1.45,2.4]],{fov:[46,42],heroPose:'run',otherPose:'point',heroPosition:[[-12,0,.6],[-12,0,4.7],[0,0,2.4]],heroFacePath:true,otherPosition:[[-9,0,-2.3]]})
   ],
   ending:[
    track('press-handoff',[[2.3,1.96,3.6],[1.8,1.88,2.9]],[[.4,1.3,.2],[.4,1.35,.2]],{fov:[40,35],heroPose:'carry',otherPose:'read',focus:'paper',heroPosition:[[-.45,0,.7]],otherPosition:[[.65,0,-.1]],heroYaw:.8,otherYaw:-.6}),
@@ -37,12 +37,18 @@ export const CINEMATIC_TRACKS={
   ]
  }
 };
-const sample=(points,t)=>points.length===1?[...points[0]]:mix(points[0],points[1],t);
+// The press belongs inside the shop; the receiving conversation takes place on
+// the pavement. These offsets never affect the courier's playable street.
+const shiftTrack=(shot,x)=>{for(const key of ['position','target','heroPosition','otherPosition'])shot[key]=shot[key].map(p=>[p[0]+x,p[1],p[2]]);};
+for(const shot of CINEMATIC_TRACKS['c13-press'].opening.slice(0,2))shiftTrack(shot,-12);
+for(const shot of CINEMATIC_TRACKS['c13-press'].ending)shiftTrack(shot,-8.6);
+const sample=(points,t)=>{if(points.length===1)return [...points[0]];const n=clamp(t)*(points.length-1),i=Math.min(points.length-2,Math.floor(n));return mix(points[i],points[i+1],n-i);};
 export function directorShot(game,{phase='opening',beatIndex=0,progress=0,portrait=false}={}){
  const id=typeof game==='string'?game:game?.id,list=CINEMATIC_TRACKS[id]?.[phase]||CINEMATIC_TRACKS['c13-assembly'].opening;
  const shot=list[Math.max(0,Math.min(list.length-1,Number.isInteger(beatIndex)?beatIndex:0))];
  const linear=clamp((clamp(progress)-.08)/.8),t=linear*linear*(3-2*linear),position=sample(shot.position,t),target=sample(shot.target,t);
  if(portrait){const factor=shot.focus==='world'?1.14:1.23;for(let i=0;i<3;i++)position[i]=target[i]+(position[i]-target[i])*factor;}
  const focusDistance=Math.hypot(...position.map((v,i)=>v-target[i]));
- return {name:shot.name,position,target,focusDistance,fov:shot.fov[0]+(shot.fov[1]-shot.fov[0])*t+(portrait?5:0),heroPose:shot.heroPose,otherPose:shot.otherPose,focus:shot.focus,heroPosition:sample(shot.heroPosition,t),otherPosition:sample(shot.otherPosition,t),heroYaw:shot.heroYaw,otherYaw:shot.otherYaw};
+ let heroYaw=shot.heroYaw;if(shot.heroFacePath){const before=sample(shot.heroPosition,t-.04),after=sample(shot.heroPosition,t+.04);heroYaw=Math.atan2(after[0]-before[0],after[2]-before[2]);}
+ return {name:shot.name,position,target,focusDistance,fov:shot.fov[0]+(shot.fov[1]-shot.fov[0])*t+(portrait?5:0),heroPose:shot.heroPose,otherPose:shot.otherPose,focus:shot.focus,heroPosition:sample(shot.heroPosition,t),otherPosition:sample(shot.otherPosition,t),heroYaw,otherYaw:shot.otherYaw};
 }
