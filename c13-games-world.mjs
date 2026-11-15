@@ -1,7 +1,7 @@
 import * as T from './three.module.js';
-import {createPerson,animatePerson} from './c13-people.mjs?v=8.4.0';
-import {MATERIAL_ASSETS} from './c13-material-assets.mjs?v=8.4.0';
-import {CinematicFX} from './c13-cinema-fx.mjs?v=8.4.0';
+import {createPerson,animatePerson} from './c13-people.mjs?v=8.5.0';
+import {MATERIAL_ASSETS} from './c13-material-assets.mjs?v=8.5.0';
+import {CinematicFX} from './c13-cinema-fx.mjs?v=8.5.0';
 
 const V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z);
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));

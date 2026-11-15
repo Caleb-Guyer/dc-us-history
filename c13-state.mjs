@@ -1,4 +1,4 @@
-import {QUESTIONS, TERMS, SECTIONS} from './c13-data.mjs?v=8.4.0';
+import {QUESTIONS, TERMS, SECTIONS} from './c13-data.mjs?v=8.5.0';
 
 export const STORAGE_KEY = 'dc-c13-v1';
 export const PREVIEW_KEY = 'dc-c13-preview-v1';
@@ -6,7 +6,7 @@ export const GAME_IDS = ['c13-press', 'c13-assembly', 'c13-convention'];
 const byId = new Map(QUESTIONS.map(q => [q.id, q]));
 const termById = new Map(TERMS.map(t => [t.id, t]));
 const sections = new Set(SECTIONS.map(s => s.id));
-const modes = new Set(['exam', 'practice', 'terms', 'missed']);
+const modes = new Set(['exam', 'practice', 'topics', 'terms', 'missed']);
 const option = n => Number.isInteger(n) && n >= 0 && n < 4;
 const seedOf = n => Number.isFinite(Number(n)) ? Math.floor(Number(n)) >>> 0 : 1;
 const finiteInt = (n, max = 1000000) => Number.isFinite(n) ? Math.min(max, Math.max(0, Math.floor(n))) : 0;
@@ -56,7 +56,7 @@ function balanced(pool, count, seed, priority = () => 0) {
 
 export function freshState() {
   return {version: 1, stats: {}, active: null, last: null, quizBest: null,
-    cards: {recalled: [], again: [], active: null, last: null}, games: {}};
+    cards: {recalled: [], again: [], active: null, last: null}, games: {}, learning: {reviewed: []}};
 }
 
 function validExam(rows) {
@@ -71,7 +71,8 @@ function validRows(rows, mode, section = 'all') {
   return modes.has(mode) && (section === 'all' || sections.has(section)) && Array.isArray(rows) && rows.length > 0 &&
     rows.length <= QUESTIONS.length && new Set(rows.map(r => r?.id)).size === rows.length &&
     rows.every(r => byId.has(r?.id) && option(r.option) && (mode === 'exam' || section === 'all' || byId.get(r.id).section === section) &&
-      (mode !== 'terms' || byId.get(r.id).kind === 'term')) && (mode !== 'exam' || validExam(rows));
+      (mode !== 'terms' || byId.get(r.id).kind === 'term') &&
+      (mode !== 'topics' || byId.get(r.id).kind === 'topic')) && (mode !== 'exam' || validExam(rows));
 }
 export function quizReport(record) {
   if (!record || !validRows(record.rows, record.mode, record.section ?? 'all')) return null;
@@ -93,7 +94,8 @@ function cleanActive(raw) {
       new Set(deck.map(d => d?.id)).size !== deck.length || !deck.every(d => byId.has(d?.id) &&
         Array.isArray(d.order) && d.order.length === 4 && new Set(d.order).size === 4 && d.order.every(option) &&
         (raw.mode === 'exam' || section === 'all' || byId.get(d.id).section === section) &&
-        (raw.mode !== 'terms' || byId.get(d.id).kind === 'term')) ||
+        (raw.mode !== 'terms' || byId.get(d.id).kind === 'term') &&
+        (raw.mode !== 'topics' || byId.get(d.id).kind === 'topic')) ||
       (raw.mode === 'exam' && !validExam(deck)) || !Number.isInteger(raw.index) || raw.index < 0 || raw.index >= deck.length ||
       !Array.isArray(raw.answers) || raw.answers.length !== deck.length ||
       !raw.answers.every((a, i) => i < raw.index ? option(a) : i === raw.index ? a === null || option(a) : a === null)) return null;
@@ -127,6 +129,7 @@ export function cleanState(raw) {
   state.last = quizReport(raw.last);
   if (raw.quizBest?.mode === 'exam') state.quizBest = quizReport(raw.quizBest);
   state.cards = cleanCards(raw.cards);
+  state.learning.reviewed = unique(raw.learning?.reviewed, sections);
   for (const id of GAME_IDS) {
     const game = raw.games?.[id];
     if (game?.completed === true && Number.isFinite(game.score) && game.score >= 0)
@@ -156,7 +159,8 @@ export function buildQuiz(state, {mode = 'practice', section = 'all', size = 5, 
   } else {
     const misses = new Set(missed(state));
     const pool = QUESTIONS.filter(q => (section === 'all' || q.section === section) &&
-      (mode !== 'terms' || q.kind === 'term') && (mode !== 'missed' || misses.has(q.id)));
+      (mode !== 'terms' || q.kind === 'term') && (mode !== 'topics' || q.kind === 'topic') &&
+      (mode !== 'missed' || misses.has(q.id)));
     const count = sizeOf(size, pool.length);
     if (!count) return null;
     // A missed-only round is selected from the actual last-answer mistakes.
@@ -200,10 +204,11 @@ export function advanceQuestion(state) {
   state.active = null;
   return true;
 }
-export function startCards(state, {section = 'all', size = 5, review = false, seed = Date.now()} = {}) {
+export function startCards(state, {section = 'all', size = 5, review = false, unseen = false, seed = Date.now()} = {}) {
   if (!(section === 'all' || sections.has(section))) return false;
   const cards = state.cards;
-  const pool = TERMS.filter(t => (section === 'all' || t.section === section) && (!review || cards.again.includes(t.id)));
+  const pool = TERMS.filter(t => (section === 'all' || t.section === section) && (!review || cards.again.includes(t.id)) &&
+    (!unseen || !cards.recalled.includes(t.id) && !cards.again.includes(t.id)));
   const count = sizeOf(size, pool.length);
   if (!count) return false;
   const priority = t => cards.again.includes(t.id) ? 0 : cards.recalled.includes(t.id) ? 2 : 1;
@@ -236,6 +241,13 @@ export function completeGame(state, id, score = 0) {
   state.games[id] = {completed: true, score: Math.max(state.games[id]?.score || 0, finiteInt(score, 1000000000))};
   return true;
 }
+export function markSectionReviewed(state, id) {
+  if (!sections.has(id)) return false;
+  state.learning ??= {reviewed: []};
+  if (state.learning.reviewed.includes(id)) return false;
+  state.learning.reviewed.push(id);
+  return true;
+}
 export function progress(state) {
   const questionStats = state?.stats || {}, report = pool => ({total: pool.length,
     correct: pool.filter(q => questionStats[q.id]?.right > 0).length,
@@ -255,16 +267,35 @@ export function progress(state) {
 }
 export function nextGoal(state) {
   const p = progress(state);
-  if (state.active) return {action: 'resume-quiz', title: 'Finish your current round', description: 'Your place and locked answers are saved.'};
+  const queuedExam = state.active?.mode === 'exam' && state.active.answers.every(a => a === null);
+  if (state.active && !queuedExam) return {action: 'resume-quiz', title: 'Finish your current round', description: 'Your place and locked answers are saved.'};
   if (state.cards.active) return {action: 'resume-cards', title: 'Finish your flashcards', description: 'Pick up with the term you were recalling.'};
-  if (!p.tried) return {action: 'quiz', mode: 'exam', title: 'Try a 15-question rehearsal', description: 'Practice the quiz format: 3 key terms and 12 chapter questions.'};
-  if (missed(state).length) return {action: 'quiz', mode: 'missed', size: 5, title: 'Correct your missed questions', description: 'Use a short round to check the ideas you just missed.'};
-  if (p.cards.recalled < TERMS.length) return {action: 'cards', size: 5, title: 'Recall five bold terms', description: 'Say the meaning first, then reveal and rate your recall.'};
-  const nextGame = GAME_IDS.find(id => !state.games[id]?.completed);
-  if (nextGame) return {action: 'game', id: nextGame, title: 'Put reform into action', description: 'Finish a short historical game and its decisions.'};
-  if (p.questions.correct < QUESTIONS.length) {
+  const games = {'13.2': 'c13-assembly', '13.4': 'c13-press', '13.5': 'c13-convention'};
+  const gameNames = {'c13-assembly': 'The Shared Bench', 'c13-press': 'The Abolition Press', 'c13-convention': 'Open the Hall'};
+  const rated = new Set([...state.cards.recalled, ...state.cards.again]);
+  for (const section of SECTIONS) {
+    const terms = TERMS.filter(t => t.section === section.id);
+    const topics = QUESTIONS.filter(q => q.section === section.id && q.kind === 'topic');
+    const tried = topics.filter(q => state.stats[q.id]?.tried > 0).length;
+    const game = games[section.id];
+    // Existing practice, cards and games already represent exposure to a section.
+    // Adding the learning path must not send established learners back to the start.
+    const introduced = state.learning?.reviewed?.includes(section.id) || tried > 0 ||
+      terms.some(t => rated.has(t.id)) || state.games[game]?.completed;
+    if (!introduced) return {action: 'guide', section: section.id, title: `Learn section ${section.id}: ${section.title.toLowerCase()}`, description: 'Start with the short chapter guide. Review the ideas before testing yourself.'};
+    if (terms.some(t => !rated.has(t.id))) return {action: 'cards', section: section.id, size: 5, unseen: true,
+      title: `Recall the terms in section ${section.id}`, description: 'Try the meaning, reveal the explanation, then rate your recall. New terms come first.'};
+    if (game && !state.games[game]?.completed) return {action: 'game', id: game, title: `Play ${gameNames[game]}`, description: 'Put this section into action in a short story before the question check.'};
+    if (tried < 3) return {action: 'quiz', mode: 'topics', section: section.id, size: 3,
+      title: `Check section ${section.id}`, description: 'Answer three chapter questions. Read the explanation after each answer.'};
+  }
+  if (missed(state).length) return {action: 'quiz', mode: 'missed', size: 5, title: 'Revisit the ideas you missed', description: 'Use the explanations to clear up mistakes before the full rehearsal.'};
+  if (state.cards.again.length) return {action: 'cards', review: true, size: 5, title: 'Refresh the terms you marked for review', description: 'Give those meanings another look before the full rehearsal.'};
+  if (queuedExam) return {action: 'resume-quiz', title: 'Continue your quiz rehearsal', description: 'Your saved rehearsal is ready. Try it now that you have worked through the chapter.'};
+  if (p.questions.correct < QUESTIONS.length && state.quizBest && state.last?.mode === 'exam') {
     const weakest = p.sections.filter(s => s.correct < s.total).sort((a, b) => a.correct / a.total - b.correct / b.total)[0];
     return {action: 'quiz', mode: 'practice', section: weakest.id, size: 5, title: `Review section ${weakest.id}`, description: 'Answer five questions from the section with the most work left.'};
   }
-  return {action: 'quiz', mode: 'exam', title: 'Keep it fresh with a rehearsal', description: 'All study activities are complete. Try a new mix without looking at notes.'};
+  return {action: 'quiz', mode: 'exam', title: p.complete ? 'Keep it fresh with a rehearsal' : 'Try the full quiz rehearsal',
+    description: p.complete ? 'All study activities are complete. Try a new mix without looking at notes.' : 'You have worked through all five sections. Now try 15 questions: 3 key terms and 12 chapter topics.'};
 }

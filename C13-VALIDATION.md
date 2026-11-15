@@ -1,4 +1,12 @@
-# Chapter 13 validation · 8.4.0
+# Chapter 13 validation · 8.5.0
+
+All **456 automated tests** and **148 configured syntax checks** pass. Ten new learning-order regressions cover the entire guide → section cards → related game → three-topic check sequence across all five sections; distinct topic coverage; checkpoint persistence and legacy records; unseen-card selection; correct handling of misses and recalled terms; answered-session resume; untouched rehearsal deferral; and later practice/rehearsal alternation. The first rehearsal is recommended before completion of the full 104-question bank.
+
+Background browser checks followed a fresh Start learning action into the guide, marked section 13.1 reviewed, reloaded, completed its three recall cards and three topic questions, and followed Next study step into the section 13.2 lesson. On a **375×812** viewport, the next section's guide, checkpoint button, term cards and matching workshop recommendation were readable without horizontal overflow. Navigation into the muted game and browser Back retained the studied sections and card/question credit. The viewport override was reset.
+
+A manually opened but unanswered rehearsal stayed accessible through Continue saved round while the main next goal continued the learning sequence. No browser warnings or errors were captured in the checked flow. Existing records, completion weights, 104 questions, fourteen bold terms and the exact 3-term/12-topic rehearsal format are retained. Reading checkpoints award no completion points. The all-section progression and later-rehearsal conditions were exercised by the state tests; the browser checks covered the first two sections and navigation.
+
+## Visual and save audit · 8.4.0
 
 All **446 automated tests** and **147 configured syntax checks** pass. Added regressions cover overlapping physical key and pointer sources, focus loss, storage failures and recovery, coherent cache versions, the printshop departure path, connected cloth and hand skinning, apron clearance and held-paper contact. All 104 question IDs, correct answers and answer positions remain compatible with saved records. The final content sweep replaced 198 wrong choices in 71 further question sets with same-topic misconceptions; it left correct-answer text, explanations, sources, ordering and term metadata unchanged. The quiz retains fourteen bold terms and exactly three term questions plus twelve chapter questions across the five sections.
 

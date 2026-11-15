@@ -1,10 +1,10 @@
-import {GAMES,GAME_BY_ID,HALL_TASKS,SOURCE_NOTE,GAME_VERSION} from './c13-games-data.mjs?v=8.4.0';
-import {createRun,stepRun,chooseGate,summary} from './c13-games-sim.mjs?v=8.4.0';
-import {ReformWorld} from './c13-games-world.mjs?v=8.4.0';
-import {directorShot} from './c13-games-director.mjs?v=8.4.0';
-import {STORAGE_KEY,PREVIEW_KEY,completeGame} from './c13-state.mjs?v=8.4.0';
-import {GameInput,keyboardAction} from './c13-controls.mjs?v=8.4.0';
-import {StudyRecord} from './c13-record.mjs?v=8.4.0';
+import {GAMES,GAME_BY_ID,HALL_TASKS,SOURCE_NOTE,GAME_VERSION} from './c13-games-data.mjs?v=8.5.0';
+import {createRun,stepRun,chooseGate,summary} from './c13-games-sim.mjs?v=8.5.0';
+import {ReformWorld} from './c13-games-world.mjs?v=8.5.0';
+import {directorShot} from './c13-games-director.mjs?v=8.5.0';
+import {STORAGE_KEY,PREVIEW_KEY,completeGame} from './c13-state.mjs?v=8.5.0';
+import {GameInput,keyboardAction} from './c13-controls.mjs?v=8.5.0';
+import {StudyRecord} from './c13-record.mjs?v=8.5.0';
 import {CampaignAudio} from './t911-games-audio.mjs?v=7.2.0';
 
 const app=document.querySelector('#game-app'),params=new URLSearchParams(location.search),preview=params.get('preview')==='1',forcedQuiet=params.get('muted')==='1',key=preview?PREVIEW_KEY:STORAGE_KEY;

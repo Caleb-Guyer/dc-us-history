@@ -1,7 +1,7 @@
 // Original study paraphrases of the supplied, edited Chapter 13.
 // Source IDs refer to nonempty paragraphs in the private DOCX extraction.
 // Body bold, not chapter/section headings, defines the fourteen key terms.
-export const VERSION='8.4.0';
+export const VERSION='8.5.0';
 export const SECTIONS=[
  {id:'13.1',title:'Religion & individualism',summary:'Revival, personal salvation, Emerson, Thoreau and the tension between self-reliance and conformity.'},
  {id:'13.2',title:'Communal experiments',summary:'Religious and secular communities tested alternatives to competition, private property and conventional work.'},

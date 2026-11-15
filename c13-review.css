@@ -11,3 +11,5 @@ footer{max-width:1100px;margin:auto;border-top:1px solid var(--line);padding:23p
 .primary,.secondary,.option{border-radius:0}.primary:hover{background:#424e51}.secondary:hover{background:#e8e8e1}.format{font-size:11px}.session h1,.page-head h1{font-size:38px;line-height:1.2}.options{gap:0;border-top:1px solid var(--line)}.option{background:transparent;border:0;border-bottom:1px solid var(--line);padding:17px 9px}.option b{border:0;color:#777263}.option.selected{border:0;border-left:3px solid var(--ink);padding-left:13px}.option:hover:not(:disabled){background:#eaeae3}.flashcard{box-shadow:none;background:var(--white)}
 @media(max-width:620px){.hero h1{font-size:42px}.study-grid{gap:0}.study-card{padding:25px 0}.study-card+.study-card{border-top:1px solid var(--line)}.study-card h2{font-size:24px}.record{padding:20px}.arcade{padding:24px}.session h1,.page-head h1{font-size:32px}.next{padding:18px}.next h2{font-size:21px}.record-top .eyebrow{font-size:9px}}
 @media(max-width:620px){footer{padding:20px 0;margin:0 21px;flex-direction:column;gap:8px}}
+
+[data-guide-section] h2{scroll-margin-top:90px}.connection .actions{margin-top:20px}

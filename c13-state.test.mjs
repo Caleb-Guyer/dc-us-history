@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {QUESTIONS, TERMS, SECTIONS} from './c13-data.mjs';
 import {STORAGE_KEY, PREVIEW_KEY, GAME_IDS, freshState, cleanState, loadState, saveState,
   shuffle, buildQuiz, startQuiz, currentQuestion, answerQuestion, advanceQuestion, quizReport,
-  missed, startCards, revealCard, rateCard, completeGame, progress, nextGoal} from './c13-state.mjs';
+  missed, startCards, revealCard, rateCard, completeGame, progress, nextGoal, markSectionReviewed} from './c13-state.mjs';
 const byId = new Map(QUESTIONS.map(q => [q.id, q]));
 function finish(s, wrong = 0) {
   let i = 0;
@@ -191,15 +191,20 @@ test('completion is transparent, bounded and reaches 100 only after every questi
   delete s.stats[QUESTIONS[0].id]; assert.ok(progress(s).percent < 100); assert.equal(progress(s).complete, false);
   assert.equal(progress(s).sections.reduce((sum, section) => sum + section.total, 0), QUESTIONS.length);
 });
-test('next goal follows resumable work, mistakes, term recall, games and remaining questions', () => {
-  const s = freshState(); assert.equal(nextGoal(s).mode, 'exam');
+test('next goal starts with learning, preserves chosen sessions and rehearses after broad practice', () => {
+  const s = freshState(); assert.equal(nextGoal(s).action, 'guide'); assert.equal(nextGoal(s).section, '13.1');
+  startCards(s, {size: 1}); assert.equal(nextGoal(s).action, 'resume-cards');
   startQuiz(s, {size: 1}); assert.equal(nextGoal(s).action, 'resume-quiz'); finish(s, 1);
-  assert.equal(nextGoal(s).mode, 'missed'); startQuiz(s, {mode: 'missed'}); finish(s);
-  assert.equal(nextGoal(s).action, 'cards'); startCards(s, {size: 1}); assert.equal(nextGoal(s).action, 'resume-cards');
+  assert.equal(nextGoal(s).action, 'resume-cards');
   s.cards.active = null; s.cards.recalled = TERMS.map(t => t.id);
-  assert.equal(nextGoal(s).action, 'game'); assert.equal(nextGoal(s).id, GAME_IDS[0]);
+  for (const section of SECTIONS) {
+    markSectionReviewed(s, section.id);
+    for (const q of QUESTIONS.filter(q => q.kind === 'topic' && q.section === section.id).slice(0, 3))
+      s.stats[q.id] = {tried: 1, right: 1, last: true};
+  }
   for (const id of GAME_IDS) completeGame(s, id);
-  assert.equal(nextGoal(s).mode, 'practice');
+  if (missed(s).length) { assert.equal(nextGoal(s).mode, 'missed'); startQuiz(s, {mode: 'missed'}); finish(s); }
+  assert.equal(nextGoal(s).mode, 'exam'); assert.ok(progress(s).percent < 100);
   for (const q of QUESTIONS) s.stats[q.id] = {tried: 1, right: 1, last: true};
   assert.equal(nextGoal(s).mode, 'exam');
 });

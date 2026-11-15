@@ -1,6 +1,6 @@
 // Dramatic tasks and every spoken line are original representative fiction.
 // Historical claims follow the supplied edited Chapter 13; these are not quotations.
-export const GAME_VERSION='8.4.0';
+export const GAME_VERSION='8.5.0';
 const shot=(shotId,title,speaker,text,view='wide',seconds=4)=>({shotId,title,speaker,text,view,seconds});
 export const GAMES=[
  {id:'c13-assembly',mode:'assembly',title:'The Shared Bench',eyebrow:'01 / Workshop rhythm',genre:'Workshop rhythm',place:'A communal workshop · 1840s',role:'Nell · Workshop volunteer',duration:40,target:8,
